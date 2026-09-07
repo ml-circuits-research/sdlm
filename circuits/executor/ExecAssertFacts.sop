@@ -1,0 +1,10 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "assertFacts"
+@payload field
+    value $command
+    name "payload"
+@answer kbAssertFacts
+    atoms $payload
+@output result $answer

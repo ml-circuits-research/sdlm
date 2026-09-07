@@ -1,0 +1,9 @@
+@input tokens
+@input entityIndex
+@entity constantAt
+    tokens $tokens
+    index $entityIndex
+@command makeCommand
+    kind "summarizeEntity"
+    payload $entity
+@output result $command

@@ -1,0 +1,31 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "WhichV5Property"
+@classTree chartChild
+    tree $tree
+    index 1
+@propTree chartChild
+    tree $tree
+    index 3
+@class chartNorm
+    tree $classTree
+@prop chartNorm
+    tree $propTree
+@x makeVariable
+    name "X"
+@a1 makeUnaryAtom
+    subject $x
+    predicate $class
+    polarity "positive"
+@a2 makeUnaryAtom
+    subject $x
+    predicate $prop
+    polarity "positive"
+@atoms list
+    item1 $a1
+    item2 $a2
+@command makeCommand
+    kind "askConjunctiveBindings"
+    payload $atoms
+@output result $command

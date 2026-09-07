@@ -1,0 +1,36 @@
+@event makeVariable
+    name "E"
+@actorValue makeVariable
+    name "X"
+@timeValue makeVariable
+    name "T"
+@head makeBinaryAtom
+    subject $actorValue
+    predicate "started_in"
+    object $timeValue
+@eventFact makeUnaryAtom
+    subject $event
+    predicate "event"
+@start makeConstant
+    value "start"
+@typeFact makeBinaryAtom
+    subject $event
+    predicate "event_type"
+    object $start
+@actorFact makeBinaryAtom
+    subject $event
+    predicate "actor"
+    object $actorValue
+@timeFact makeBinaryAtom
+    subject $event
+    predicate "time"
+    object $timeValue
+@body list
+    item1 $eventFact
+    item2 $typeFact
+    item3 $actorFact
+    item4 $timeFact
+@rule makeRule
+    head $head
+    body $body
+@output result $rule

@@ -1,0 +1,29 @@
+@atlas makeConstant
+    value "atlas"
+@semantic makeConstant
+    value "semantic_circuits"
+@fact makeBinaryAtom
+    subject $atlas
+    predicate "use"
+    object $semantic
+@claim makeConstant
+    value "claim_atlas_uses_semantic_circuits"
+@claimKind makeUnaryAtom
+    subject $claim
+    predicate "claim"
+@sentence makeConstant
+    value "sentence_2"
+@source makeBinaryAtom
+    subject $claim
+    predicate "derived_from"
+    object $sentence
+@about makeBinaryAtom
+    subject $claim
+    predicate "about"
+    object $atlas
+@facts list
+    item1 $fact
+    item2 $claimKind
+    item3 $source
+    item4 $about
+@output result $facts

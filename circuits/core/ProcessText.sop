@@ -1,0 +1,9 @@
+@input text
+
+@command ParseText
+    text $text
+@answer ExecuteCommand
+    command $command
+@rendered RenderEnglish
+    answer $answer
+@output result $rendered

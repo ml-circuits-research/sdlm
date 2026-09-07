@@ -1,0 +1,11 @@
+@input tokens
+@g1 tokenCountAtLeast
+    tokens $tokens
+    count 1
+@handlers selectCircuits
+    group "english.sentence"
+    tokens $tokens
+@command callCandidates
+    candidates $handlers
+    tokens $tokens
+@output result $command

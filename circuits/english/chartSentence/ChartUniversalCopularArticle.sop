@@ -1,0 +1,33 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "UniversalCopularArticle"
+@classTree chartChild
+    tree $tree
+    index 1
+@propTree chartChild
+    tree $tree
+    index 4
+@class chartNorm
+    tree $classTree
+@prop chartNorm
+    tree $propTree
+@x makeVariable
+    name "X"
+@bodyAtom makeUnaryAtom
+    subject $x
+    predicate $class
+    polarity "positive"
+@headAtom makeUnaryAtom
+    subject $x
+    predicate $prop
+    polarity "positive"
+@body list
+    item1 $bodyAtom
+@rule makeRule
+    head $headAtom
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

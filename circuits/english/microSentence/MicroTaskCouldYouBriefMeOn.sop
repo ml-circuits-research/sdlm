@@ -1,0 +1,38 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 7
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "could"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "you"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "brief"
+@g4 tokenIs
+    tokens $tokens
+    index 3
+    value "me"
+@g5 tokenIs
+    tokens $tokens
+    index 4
+    value "on"
+@g6 tokenIs
+    tokens $tokens
+    index 6
+    value "."
+@g7 tokenClassIs
+    tokens $tokens
+    index 5
+    class "entity"
+@bias candidateWeight
+    weight 22
+@result MicroSummarizeEntity
+    tokens $tokens
+    entityIndex 5
+@output result $result

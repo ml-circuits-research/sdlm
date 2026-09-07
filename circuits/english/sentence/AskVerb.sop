@@ -1,0 +1,42 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "does"
+@g3 tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@g4 tokenClassIs
+    tokens $tokens
+    index 2
+    class "verbBase"
+@g5 tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@g6 tokenLastIs
+    tokens $tokens
+    value "?"
+@subject constantAt
+    tokens $tokens
+    index 1
+@predicate tokenLemmaAt
+    tokens $tokens
+    index 2
+    class "verbBase"
+@object constantAt
+    tokens $tokens
+    index 3
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

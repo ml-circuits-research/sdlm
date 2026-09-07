@@ -1,0 +1,60 @@
+TAP version 13
+# Subtest: a document is installed as SOP circuits and materialized knowledge supports reasoning
+ok 1 - a document is installed as SOP circuits and materialized knowledge supports reasoning
+  ---
+  duration_ms: 1029.403293
+  type: 'test'
+  ...
+# Subtest: the circuit pack is the persistent source: a fresh runtime reconstructs the same materialized KB
+ok 2 - the circuit pack is the persistent source: a fresh runtime reconstructs the same materialized KB
+  ---
+  duration_ms: 1077.779193
+  type: 'test'
+  ...
+# Subtest: document knowledge pack contains SOP circuits rather than a second knowledge DSL
+ok 3 - document knowledge pack contains SOP circuits rather than a second knowledge DSL
+  ---
+  duration_ms: 1.716979
+  type: 'test'
+  ...
+# Subtest: dynamic circuit-pack installation is transactional for both circuits and materialized state
+ok 4 - dynamic circuit-pack installation is transactional for both circuits and materialized state
+  ---
+  duration_ms: 528.153229
+  type: 'test'
+  ...
+# Subtest: runtime has no hidden activation, grammar-token, text-template, or predicate-qualifier DSL
+ok 5 - runtime has no hidden activation, grammar-token, text-template, or predicate-qualifier DSL
+  ---
+  duration_ms: 345.486928
+  type: 'test'
+  ...
+# Subtest: grammar symbols are structured values and NLG expands through SOP realizer circuits
+ok 6 - grammar symbols are structured values and NLG expands through SOP realizer circuits
+  ---
+  duration_ms: 626.982262
+  type: 'test'
+  ...
+# Subtest: JavaScript kernel contains no CNL vocabulary/domain predicates
+ok 7 - JavaScript kernel contains no CNL vocabulary/domain predicates
+  ---
+  duration_ms: 7.412556
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2715.471364
+
+Static architecture audit
+=========================
+
+- Document-pack persistent semantic artifacts under extensions/document-atlas/circuits/ are SOP Lang files only.
+- No document-specific JavaScript implementation is required by the reference pack.
+- Grammar, question interpretation, event/time projection, coreference, reported speech, definitions, modality, causal links, and derived rules used by the pack are expressed by SOP circuits and typed values.
+- Datalog is used as a materialized reasoning/activation backend, not as the persistent authoring language for document knowledge.

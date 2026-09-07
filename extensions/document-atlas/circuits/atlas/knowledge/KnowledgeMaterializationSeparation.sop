@@ -1,0 +1,31 @@
+@design makeConstant
+    value "design"
+@persistent makeConstant
+    value "persistent_knowledge_circuits"
+@temporary makeConstant
+    value "temporary_datalog_materialization"
+@fact1 makeBinaryAtom
+    subject $design
+    predicate "separate"
+    object $persistent
+@fact2 makeBinaryAtom
+    subject $design
+    predicate "separate"
+    object $temporary
+@sentence makeConstant
+    value "sentence_8"
+@proposition makeConstant
+    value "proposition_separation"
+@kind makeUnaryAtom
+    subject $proposition
+    predicate "proposition"
+@source makeBinaryAtom
+    subject $proposition
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact1
+    item2 $fact2
+    item3 $kind
+    item4 $source
+@output result $facts

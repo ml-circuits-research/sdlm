@@ -1,0 +1,26 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "structured"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "."
+@g4 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@bias candidateWeight
+    weight 24
+@result MicroUnaryFact
+    tokens $tokens
+    predicate "structured"
+@output result $result

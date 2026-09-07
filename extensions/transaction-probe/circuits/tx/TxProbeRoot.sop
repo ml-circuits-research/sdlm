@@ -1,0 +1,8 @@
+@input value
+@candidates list
+    item1 "TxWriteThenFail"
+    item2 "TxFallback"
+@result callCandidates
+    candidates $candidates
+    value $value
+@output result $result

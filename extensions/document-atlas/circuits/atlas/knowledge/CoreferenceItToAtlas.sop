@@ -1,0 +1,22 @@
+@mention makeConstant
+    value "pronounit"
+@pronoun makeUnaryAtom
+    subject $mention
+    predicate "pronoun"
+@atlas makeConstant
+    value "atlas"
+@refers makeBinaryAtom
+    subject $mention
+    predicate "refers_to"
+    object $atlas
+@sentence makeConstant
+    value "sentence_2"
+@occurs makeBinaryAtom
+    subject $mention
+    predicate "occurs_in"
+    object $sentence
+@facts list
+    item1 $pronoun
+    item2 $refers
+    item3 $occurs
+@output result $facts

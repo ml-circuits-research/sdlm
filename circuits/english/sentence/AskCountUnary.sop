@@ -1,0 +1,32 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "how"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "many"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "are"
+@g5 tokenLastIs
+    tokens $tokens
+    value "?"
+@x makeVariable
+    name "Answer"
+@predicate tokenNormAt
+    tokens $tokens
+    index 3
+@atom makeUnaryAtom
+    subject $x
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askCount"
+    payload $atom
+@output result $command

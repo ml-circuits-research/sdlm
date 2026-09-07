@@ -1,0 +1,14 @@
+@input answer
+@g answerKindIs
+    value $answer
+    kind "ambiguity"
+@alts field
+    value $answer
+    name "alternatives"
+@count length
+    values $alts
+@text concat
+    part1 "Ambiguous: I found "
+    part2 $count
+    part3 " materially different interpretations with similar support."
+@output result $text

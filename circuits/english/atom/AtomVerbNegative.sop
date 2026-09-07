@@ -1,0 +1,34 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "does"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "not"
+@g4 tokenClassIs
+    tokens $tokens
+    index 3
+    class "verbBase"
+@subject termAt
+    tokens $tokens
+    index 0
+    variableClass "variable"
+@predicate tokenLemmaAt
+    tokens $tokens
+    index 3
+    class "verbBase"
+@object termAt
+    tokens $tokens
+    index 4
+    variableClass "variable"
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "negative"
+@output result $atom

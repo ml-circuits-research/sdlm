@@ -1,0 +1,22 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "IfSentence"
+@bodyTree chartChild
+    tree $tree
+    index 1
+@headTree chartChild
+    tree $tree
+    index 3
+@body InterpretConditionList
+    tree $bodyTree
+@head InterpretChartAtom
+    tree $headTree
+@rule makeRule
+    head $head
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

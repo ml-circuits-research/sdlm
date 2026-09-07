@@ -1,0 +1,40 @@
+@document DocumentIdentity
+@documentInstalled MaterializeKnowledgeFacts
+    facts $document
+@start AtlasStartEvent
+@startInstalled MaterializeKnowledgeFacts
+    facts $start
+@uses AtlasUsesSemanticCircuits
+@usesInstalled MaterializeKnowledgeFacts
+    facts $uses
+@evidence AtlasEvidenceCapability
+@evidenceInstalled MaterializeKnowledgeFacts
+    facts $evidence
+@stores ArchitectureStoresClaimsAsCircuits
+@storesInstalled MaterializeKnowledgeFacts
+    facts $stores
+@links DerivationLinks
+@linksInstalled MaterializeKnowledgeFacts
+    facts $links
+@causal AuditabilityCausalLink
+@causalInstalled MaterializeKnowledgeFacts
+    facts $causal
+@startProjection StartEventProjectionRule
+@startProjectionInstalled MaterializeKnowledgeRule
+    rule $startProjection
+@auditRule AuditabilityRule
+@ruleInstalled MaterializeKnowledgeRule
+    rule $auditRule
+@reduction AtlasPotentialRetrievalReduction
+@reductionInstalled MaterializeKnowledgeFacts
+    facts $reduction
+@definition KnowledgeCircuitDefinition
+@definitionInstalled MaterializeKnowledgeFacts
+    facts $definition
+@separation KnowledgeMaterializationSeparation
+@separationInstalled MaterializeKnowledgeFacts
+    facts $separation
+@coref CoreferenceItToAtlas
+@corefInstalled MaterializeKnowledgeFacts
+    facts $coref
+@output result $corefInstalled

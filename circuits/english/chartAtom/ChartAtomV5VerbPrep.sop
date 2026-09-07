@@ -1,0 +1,35 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5VerbPrep"
+@sTree chartChild
+    tree $tree
+    index 0
+@vTree chartChild
+    tree $tree
+    index 1
+@pTree chartChild
+    tree $tree
+    index 2
+@oTree chartChild
+    tree $tree
+    index 3
+@s chartTerm
+    tree $sTree
+@v chartLemma
+    tree $vTree
+    class "verb3"
+@prep chartNorm
+    tree $pTree
+@pred concat
+    a $v
+    b "_"
+    c $prep
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $s
+    predicate $pred
+    object $o
+    polarity "positive"
+@output result $atom

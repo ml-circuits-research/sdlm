@@ -1,0 +1,4 @@
+@input facts
+@result kbAssertFacts
+    atoms $facts
+@output result $result

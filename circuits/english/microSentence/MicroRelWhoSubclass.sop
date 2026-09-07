@@ -1,0 +1,38 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 7
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "who"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "a"
+@g4 tokenIs
+    tokens $tokens
+    index 3
+    value "subclass"
+@g5 tokenIs
+    tokens $tokens
+    index 4
+    value "of"
+@g6 tokenClassIs
+    tokens $tokens
+    index 5
+    class "entity"
+@g7 tokenLastIs
+    tokens $tokens
+    value "?"
+@bias candidateWeight
+    weight 27
+@result MicroBinaryWhoSubject
+    tokens $tokens
+    predicate "subclass"
+    objectIndex 5
+@output result $result

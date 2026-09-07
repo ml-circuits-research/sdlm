@@ -1,0 +1,24 @@
+@input atom
+@g1 atomArityIs
+    value $atom
+    arity 1
+@g2 atomPolarityIs
+    value $atom
+    polarity "positive"
+@bias candidateWeight
+    weight 10
+@subject atomArgument
+    atom $atom
+    index 0
+@subjectText display
+    value $subject
+@predicate atomPredicate
+    atom $atom
+@predicateText wordify
+    value $predicate
+@text concat
+    part1 $subjectText
+    part2 " is "
+    part3 $predicateText
+    part4 "."
+@output result $text

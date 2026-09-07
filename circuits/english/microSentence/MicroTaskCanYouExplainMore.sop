@@ -1,0 +1,42 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 8
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "can"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "you"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "explain"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "in"
+@g5 tokenIs
+    tokens $tokens
+    index 5
+    value "more"
+@g6 tokenIs
+    tokens $tokens
+    index 6
+    value "detail"
+@g7 tokenIs
+    tokens $tokens
+    index 7
+    value "."
+@g8 tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@bias candidateWeight
+    weight 22
+@result MicroExpandEntity
+    tokens $tokens
+    entityIndex 3
+@output result $result

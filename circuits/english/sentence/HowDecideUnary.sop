@@ -1,0 +1,45 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 9
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "how"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "did"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "you"
+@g5 tokenIs
+    tokens $tokens
+    index 3
+    value "decide"
+@g6 tokenIs
+    tokens $tokens
+    index 4
+    value "whether"
+@g7 tokenIs
+    tokens $tokens
+    index 6
+    value "is"
+@g8 tokenLastIs
+    tokens $tokens
+    value "?"
+@subject constantAt
+    tokens $tokens
+    index 5
+@predicate tokenNormAt
+    tokens $tokens
+    index 7
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "reflect"
+    payload $atom
+@output result $command

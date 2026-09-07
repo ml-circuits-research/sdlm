@@ -1,0 +1,9 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "summarizeKB"
+@payload field
+    value $command
+    name "payload"
+@answer kbSummary
+@output result $answer

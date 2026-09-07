@@ -1,0 +1,26 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5NegVerbContraction"
+@sTree chartChild
+    tree $tree
+    index 0
+@vTree chartChild
+    tree $tree
+    index 2
+@oTree chartChild
+    tree $tree
+    index 3
+@s chartTerm
+    tree $sTree
+@v chartLemma
+    tree $vTree
+    class "verbBase"
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $s
+    predicate $v
+    object $o
+    polarity "negative"
+@output result $atom

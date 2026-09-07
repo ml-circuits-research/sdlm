@@ -1,0 +1,28 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "accepts"
+@g2 tokenIs
+    tokens $tokens
+    index 3
+    value "."
+@g3 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g4 tokenClassIs
+    tokens $tokens
+    index 2
+    class "entity"
+@bias candidateWeight
+    weight 30
+@result MicroBinaryFact
+    tokens $tokens
+    predicate "accept"
+    subjectIndex 0
+    objectIndex 2
+@output result $result

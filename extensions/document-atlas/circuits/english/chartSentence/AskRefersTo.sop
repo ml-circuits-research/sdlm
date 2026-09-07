@@ -1,0 +1,19 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskRefersTo"
+@mentionNode chartChild
+    tree $tree
+    index 2
+@mention chartTerm
+    tree $mentionNode
+@answerVar makeVariable
+    name "X"
+@query makeBinaryAtom
+    subject $mention
+    predicate "refers_to"
+    object $answerVar
+@command makeCommand
+    kind "askBindings"
+    payload $query
+@output result $command

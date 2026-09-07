@@ -1,0 +1,40 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 7
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "a"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "successor"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "of"
+@g5 tokenIs
+    tokens $tokens
+    index 6
+    value "."
+@g6 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g7 tokenClassIs
+    tokens $tokens
+    index 5
+    class "entity"
+@bias candidateWeight
+    weight 28
+@result MicroBinaryFact
+    tokens $tokens
+    predicate "successor"
+    subjectIndex 0
+    objectIndex 5
+@output result $result

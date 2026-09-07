@@ -1,0 +1,54 @@
+@input tokens
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "if"
+@g2 tokenContains
+    tokens $tokens
+    value "then"
+@g3 tokenNotContains
+    tokens $tokens
+    value "and"
+@g4 tokenLastIs
+    tokens $tokens
+    value "."
+@thenIndex findToken
+    tokens $tokens
+    value "then"
+@bodyTokens sliceTokens
+    tokens $tokens
+    start 1
+    end $thenIndex
+@headStart add
+    value $thenIndex
+    delta 1
+@count tokenCount
+    tokens $tokens
+@headEnd add
+    value $count
+    delta -1
+@headTokens sliceTokens
+    tokens $tokens
+    start $headStart
+    end $headEnd
+@bodyParser selectCircuit
+    group "english.atom"
+    tokens $bodyTokens
+@bodyAtom callCircuit
+    circuit $bodyParser
+    tokens $bodyTokens
+@headParser selectCircuit
+    group "english.atom"
+    tokens $headTokens
+@headAtom callCircuit
+    circuit $headParser
+    tokens $headTokens
+@body list
+    item1 $bodyAtom
+@rule makeRule
+    head $headAtom
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

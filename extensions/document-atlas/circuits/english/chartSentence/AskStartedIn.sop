@@ -1,0 +1,22 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskStartedIn"
+@subjectNode chartChild
+    tree $tree
+    index 1
+@subject chartTerm
+    tree $subjectNode
+@yearNode chartChild
+    tree $tree
+    index 4
+@year chartTerm
+    tree $yearNode
+@query makeBinaryAtom
+    subject $subject
+    predicate "started_in"
+    object $year
+@command makeCommand
+    kind "askBoolean"
+    payload $query
+@output result $command

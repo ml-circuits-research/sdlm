@@ -1,0 +1,10 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "reflect"
+@payload field
+    value $command
+    name "payload"
+@answer kbReflect
+    atom $payload
+@output result $answer

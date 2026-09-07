@@ -1,0 +1,20 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "AtomUnaryBare"
+@s chartChild
+    tree $tree
+    index 0
+@p chartChild
+    tree $tree
+    index 2
+@subject chartTerm
+    tree $s
+@predicate chartNorm
+    tree $p
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@output result $atom

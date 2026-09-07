@@ -1,0 +1,19 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "WhoV5Copular"
+@pTree chartChild
+    tree $tree
+    index 2
+@p chartNorm
+    tree $pTree
+@x makeVariable
+    name "X"
+@atom makeUnaryAtom
+    subject $x
+    predicate $p
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

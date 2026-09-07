@@ -1,0 +1,6 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "introspect"
+@answer runtimeIntrospect
+@output result $answer

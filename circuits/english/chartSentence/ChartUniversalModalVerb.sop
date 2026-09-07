@@ -1,0 +1,46 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "UniversalModalVerb"
+@classTree chartChild
+    tree $tree
+    index 1
+@modalTree chartChild
+    tree $tree
+    index 2
+@verbTree chartChild
+    tree $tree
+    index 3
+@objectTree chartChild
+    tree $tree
+    index 4
+@class chartNorm
+    tree $classTree
+@modal chartNorm
+    tree $modalTree
+@verb chartLemma
+    tree $verbTree
+    class "verbBase"
+@object chartTerm
+    tree $objectTree
+@x makeVariable
+    name "X"
+@bodyAtom makeUnaryAtom
+    subject $x
+    predicate $class
+    polarity "positive"
+@headAtom makeBinaryAtom
+    subject $x
+    predicate $verb
+    qualifier $modal
+    object $object
+    polarity "positive"
+@body list
+    item1 $bodyAtom
+@rule makeRule
+    head $headAtom
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

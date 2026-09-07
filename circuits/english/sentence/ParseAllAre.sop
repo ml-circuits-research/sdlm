@@ -1,0 +1,40 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "all"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "are"
+@g4 tokenLastIs
+    tokens $tokens
+    value "."
+@x makeVariable
+    name "X"
+@sourcePred tokenNormAt
+    tokens $tokens
+    index 1
+@targetPred tokenNormAt
+    tokens $tokens
+    index 3
+@source makeUnaryAtom
+    subject $x
+    predicate $sourcePred
+    polarity "positive"
+@target makeUnaryAtom
+    subject $x
+    predicate $targetPred
+    polarity "positive"
+@body list
+    item1 $source
+@rule makeRule
+    head $target
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

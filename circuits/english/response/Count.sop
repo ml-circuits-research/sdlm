@@ -1,0 +1,21 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "count"
+@count field
+    value $answer
+    name "count"
+@values field
+    value $answer
+    name "values"
+@joined joinOrDefault
+    values $values
+    separator ", "
+    fallback "none"
+@text concat
+    part1 "Count: "
+    part2 $count
+    part3 ". Matches: "
+    part4 $joined
+    part5 "."
+@output result $text

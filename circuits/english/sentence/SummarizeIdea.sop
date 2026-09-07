@@ -1,0 +1,30 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "summarize"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "the"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "idea"
+@g5 tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@g6 tokenLastIs
+    tokens $tokens
+    value "."
+@entity constantAt
+    tokens $tokens
+    index 3
+@command makeCommand
+    kind "summarizeEntity"
+    payload $entity
+@output result $command

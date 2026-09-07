@@ -1,0 +1,772 @@
+# Common noun singular/plural lemmas for compositional CNL.
+@n1 addLexeme
+    surface "human"
+    class "noun"
+    lemma "human"
+@n2 addLexeme
+    surface "humans"
+    class "noun"
+    lemma "human"
+@n3 addLexeme
+    surface "scientist"
+    class "noun"
+    lemma "scientist"
+@n4 addLexeme
+    surface "scientists"
+    class "noun"
+    lemma "scientist"
+@n5 addLexeme
+    surface "researcher"
+    class "noun"
+    lemma "researcher"
+@n6 addLexeme
+    surface "researchers"
+    class "noun"
+    lemma "researcher"
+@n7 addLexeme
+    surface "engineer"
+    class "noun"
+    lemma "engineer"
+@n8 addLexeme
+    surface "engineers"
+    class "noun"
+    lemma "engineer"
+@n9 addLexeme
+    surface "student"
+    class "noun"
+    lemma "student"
+@n10 addLexeme
+    surface "students"
+    class "noun"
+    lemma "student"
+@n11 addLexeme
+    surface "teacher"
+    class "noun"
+    lemma "teacher"
+@n12 addLexeme
+    surface "teachers"
+    class "noun"
+    lemma "teacher"
+@n13 addLexeme
+    surface "reviewer"
+    class "noun"
+    lemma "reviewer"
+@n14 addLexeme
+    surface "reviewers"
+    class "noun"
+    lemma "reviewer"
+@n15 addLexeme
+    surface "agent"
+    class "noun"
+    lemma "agent"
+@n16 addLexeme
+    surface "agents"
+    class "noun"
+    lemma "agent"
+@n17 addLexeme
+    surface "model"
+    class "noun"
+    lemma "model"
+@n18 addLexeme
+    surface "models"
+    class "noun"
+    lemma "model"
+@n19 addLexeme
+    surface "system"
+    class "noun"
+    lemma "system"
+@n20 addLexeme
+    surface "systems"
+    class "noun"
+    lemma "system"
+@n21 addLexeme
+    surface "tool"
+    class "noun"
+    lemma "tool"
+@n22 addLexeme
+    surface "tools"
+    class "noun"
+    lemma "tool"
+@n23 addLexeme
+    surface "method"
+    class "noun"
+    lemma "method"
+@n24 addLexeme
+    surface "methods"
+    class "noun"
+    lemma "method"
+@n25 addLexeme
+    surface "process"
+    class "noun"
+    lemma "process"
+@n26 addLexeme
+    surface "processes"
+    class "noun"
+    lemma "process"
+@n27 addLexeme
+    surface "rule"
+    class "noun"
+    lemma "rule"
+@n28 addLexeme
+    surface "rules"
+    class "noun"
+    lemma "rule"
+@n29 addLexeme
+    surface "fact"
+    class "noun"
+    lemma "fact"
+@n30 addLexeme
+    surface "facts"
+    class "noun"
+    lemma "fact"
+@n31 addLexeme
+    surface "claim"
+    class "noun"
+    lemma "claim"
+@n32 addLexeme
+    surface "claims"
+    class "noun"
+    lemma "claim"
+@n33 addLexeme
+    surface "source"
+    class "noun"
+    lemma "source"
+@n34 addLexeme
+    surface "sources"
+    class "noun"
+    lemma "source"
+@n35 addLexeme
+    surface "result"
+    class "noun"
+    lemma "result"
+@n36 addLexeme
+    surface "results"
+    class "noun"
+    lemma "result"
+@n37 addLexeme
+    surface "project"
+    class "noun"
+    lemma "project"
+@n38 addLexeme
+    surface "projects"
+    class "noun"
+    lemma "project"
+@n39 addLexeme
+    surface "paper"
+    class "noun"
+    lemma "paper"
+@n40 addLexeme
+    surface "papers"
+    class "noun"
+    lemma "paper"
+@n41 addLexeme
+    surface "experiment"
+    class "noun"
+    lemma "experiment"
+@n42 addLexeme
+    surface "experiments"
+    class "noun"
+    lemma "experiment"
+@n43 addLexeme
+    surface "person"
+    class "noun"
+    lemma "person"
+@n44 addLexeme
+    surface "people"
+    class "noun"
+    lemma "person"
+@n45 addLexeme
+    surface "machine"
+    class "noun"
+    lemma "machine"
+@n46 addLexeme
+    surface "machines"
+    class "noun"
+    lemma "machine"
+@n47 addLexeme
+    surface "robot"
+    class "noun"
+    lemma "robot"
+@n48 addLexeme
+    surface "robots"
+    class "noun"
+    lemma "robot"
+@n49 addLexeme
+    surface "animal"
+    class "noun"
+    lemma "animal"
+@n50 addLexeme
+    surface "animals"
+    class "noun"
+    lemma "animal"
+@n51 addLexeme
+    surface "bird"
+    class "noun"
+    lemma "bird"
+@n52 addLexeme
+    surface "birds"
+    class "noun"
+    lemma "bird"
+@n53 addLexeme
+    surface "mammal"
+    class "noun"
+    lemma "mammal"
+@n54 addLexeme
+    surface "mammals"
+    class "noun"
+    lemma "mammal"
+@n55 addLexeme
+    surface "philosopher"
+    class "noun"
+    lemma "philosopher"
+@n56 addLexeme
+    surface "philosophers"
+    class "noun"
+    lemma "philosopher"
+@n57 addLexeme
+    surface "thinker"
+    class "noun"
+    lemma "thinker"
+@n58 addLexeme
+    surface "thinkers"
+    class "noun"
+    lemma "thinker"
+@n59 addLexeme
+    surface "author"
+    class "noun"
+    lemma "author"
+@n60 addLexeme
+    surface "authors"
+    class "noun"
+    lemma "author"
+@n61 addLexeme
+    surface "user"
+    class "noun"
+    lemma "user"
+@n62 addLexeme
+    surface "users"
+    class "noun"
+    lemma "user"
+@n63 addLexeme
+    surface "developer"
+    class "noun"
+    lemma "developer"
+@n64 addLexeme
+    surface "developers"
+    class "noun"
+    lemma "developer"
+@n65 addLexeme
+    surface "analyst"
+    class "noun"
+    lemma "analyst"
+@n66 addLexeme
+    surface "analysts"
+    class "noun"
+    lemma "analyst"
+@n67 addLexeme
+    surface "manager"
+    class "noun"
+    lemma "manager"
+@n68 addLexeme
+    surface "managers"
+    class "noun"
+    lemma "manager"
+@n69 addLexeme
+    surface "worker"
+    class "noun"
+    lemma "worker"
+@n70 addLexeme
+    surface "workers"
+    class "noun"
+    lemma "worker"
+@n71 addLexeme
+    surface "organization"
+    class "noun"
+    lemma "organization"
+@n72 addLexeme
+    surface "organizations"
+    class "noun"
+    lemma "organization"
+@n73 addLexeme
+    surface "company"
+    class "noun"
+    lemma "company"
+@n74 addLexeme
+    surface "companies"
+    class "noun"
+    lemma "company"
+@n75 addLexeme
+    surface "team"
+    class "noun"
+    lemma "team"
+@n76 addLexeme
+    surface "teams"
+    class "noun"
+    lemma "team"
+@n77 addLexeme
+    surface "group"
+    class "noun"
+    lemma "group"
+@n78 addLexeme
+    surface "groups"
+    class "noun"
+    lemma "group"
+@n79 addLexeme
+    surface "component"
+    class "noun"
+    lemma "component"
+@n80 addLexeme
+    surface "components"
+    class "noun"
+    lemma "component"
+@n81 addLexeme
+    surface "service"
+    class "noun"
+    lemma "service"
+@n82 addLexeme
+    surface "services"
+    class "noun"
+    lemma "service"
+@n83 addLexeme
+    surface "application"
+    class "noun"
+    lemma "application"
+@n84 addLexeme
+    surface "applications"
+    class "noun"
+    lemma "application"
+@n85 addLexeme
+    surface "document"
+    class "noun"
+    lemma "document"
+@n86 addLexeme
+    surface "documents"
+    class "noun"
+    lemma "document"
+@n87 addLexeme
+    surface "sentence"
+    class "noun"
+    lemma "sentence"
+@n88 addLexeme
+    surface "sentences"
+    class "noun"
+    lemma "sentence"
+@n89 addLexeme
+    surface "circuit"
+    class "noun"
+    lemma "circuit"
+@n90 addLexeme
+    surface "circuits"
+    class "noun"
+    lemma "circuit"
+@n91 addLexeme
+    surface "parser"
+    class "noun"
+    lemma "parser"
+@n92 addLexeme
+    surface "parsers"
+    class "noun"
+    lemma "parser"
+@n93 addLexeme
+    surface "validator"
+    class "noun"
+    lemma "validator"
+@n94 addLexeme
+    surface "validators"
+    class "noun"
+    lemma "validator"
+@n95 addLexeme
+    surface "auditor"
+    class "noun"
+    lemma "auditor"
+@n96 addLexeme
+    surface "auditors"
+    class "noun"
+    lemma "auditor"
+@n97 addLexeme
+    surface "expert"
+    class "noun"
+    lemma "expert"
+@n98 addLexeme
+    surface "experts"
+    class "noun"
+    lemma "expert"
+@n99 addLexeme
+    surface "leader"
+    class "noun"
+    lemma "leader"
+@n100 addLexeme
+    surface "leaders"
+    class "noun"
+    lemma "leader"
+@n101 addLexeme
+    surface "follower"
+    class "noun"
+    lemma "follower"
+@n102 addLexeme
+    surface "followers"
+    class "noun"
+    lemma "follower"
+@n103 addLexeme
+    surface "member"
+    class "noun"
+    lemma "member"
+@n104 addLexeme
+    surface "members"
+    class "noun"
+    lemma "member"
+@n105 addLexeme
+    surface "idea"
+    class "noun"
+    lemma "idea"
+@n106 addLexeme
+    surface "ideas"
+    class "noun"
+    lemma "idea"
+@n107 addLexeme
+    surface "concept"
+    class "noun"
+    lemma "concept"
+@n108 addLexeme
+    surface "concepts"
+    class "noun"
+    lemma "concept"
+@n109 addLexeme
+    surface "technology"
+    class "noun"
+    lemma "technology"
+@n110 addLexeme
+    surface "technologies"
+    class "noun"
+    lemma "technology"
+@n111 addLexeme
+    surface "program"
+    class "noun"
+    lemma "program"
+@n112 addLexeme
+    surface "programs"
+    class "noun"
+    lemma "program"
+@n113 addLexeme
+    surface "language"
+    class "noun"
+    lemma "language"
+@n114 addLexeme
+    surface "languages"
+    class "noun"
+    lemma "language"
+@n115 addLexeme
+    surface "question"
+    class "noun"
+    lemma "question"
+@n116 addLexeme
+    surface "questions"
+    class "noun"
+    lemma "question"
+@n117 addLexeme
+    surface "answer"
+    class "noun"
+    lemma "answer"
+@n118 addLexeme
+    surface "answers"
+    class "noun"
+    lemma "answer"
+@n119 addLexeme
+    surface "task"
+    class "noun"
+    lemma "task"
+@n120 addLexeme
+    surface "tasks"
+    class "noun"
+    lemma "task"
+@n121 addLexeme
+    surface "hypothesis"
+    class "noun"
+    lemma "hypothesis"
+@n122 addLexeme
+    surface "hypothesises"
+    class "noun"
+    lemma "hypothesis"
+@n123 addLexeme
+    surface "theory"
+    class "noun"
+    lemma "theory"
+@n124 addLexeme
+    surface "theories"
+    class "noun"
+    lemma "theory"
+@n125 addLexeme
+    surface "evidence"
+    class "noun"
+    lemma "evidence"
+@n126 addLexeme
+    surface "evidences"
+    class "noun"
+    lemma "evidence"
+@n127 addLexeme
+    surface "conclusion"
+    class "noun"
+    lemma "conclusion"
+@n128 addLexeme
+    surface "conclusions"
+    class "noun"
+    lemma "conclusion"
+@n129 addLexeme
+    surface "premise"
+    class "noun"
+    lemma "premise"
+@n130 addLexeme
+    surface "premises"
+    class "noun"
+    lemma "premise"
+@n131 addLexeme
+    surface "dependency"
+    class "noun"
+    lemma "dependency"
+@n132 addLexeme
+    surface "dependencies"
+    class "noun"
+    lemma "dependency"
+@n133 addLexeme
+    surface "relation"
+    class "noun"
+    lemma "relation"
+@n134 addLexeme
+    surface "relations"
+    class "noun"
+    lemma "relation"
+@n135 addLexeme
+    surface "property"
+    class "noun"
+    lemma "property"
+@n136 addLexeme
+    surface "properties"
+    class "noun"
+    lemma "property"
+@n137 addLexeme
+    surface "entity"
+    class "noun"
+    lemma "entity"
+@n138 addLexeme
+    surface "entities"
+    class "noun"
+    lemma "entity"
+@n139 addLexeme
+    surface "object"
+    class "noun"
+    lemma "object"
+@n140 addLexeme
+    surface "objects"
+    class "noun"
+    lemma "object"
+@n141 addLexeme
+    surface "subject"
+    class "noun"
+    lemma "subject"
+@n142 addLexeme
+    surface "subjects"
+    class "noun"
+    lemma "subject"
+@n143 addLexeme
+    surface "partner"
+    class "noun"
+    lemma "partner"
+@n144 addLexeme
+    surface "partners"
+    class "noun"
+    lemma "partner"
+@n145 addLexeme
+    surface "collaborator"
+    class "noun"
+    lemma "collaborator"
+@n146 addLexeme
+    surface "collaborators"
+    class "noun"
+    lemma "collaborator"
+@n147 addLexeme
+    surface "investor"
+    class "noun"
+    lemma "investor"
+@n148 addLexeme
+    surface "investors"
+    class "noun"
+    lemma "investor"
+@n149 addLexeme
+    surface "founder"
+    class "noun"
+    lemma "founder"
+@n150 addLexeme
+    surface "founders"
+    class "noun"
+    lemma "founder"
+@n151 addLexeme
+    surface "institution"
+    class "noun"
+    lemma "institution"
+@n152 addLexeme
+    surface "institutions"
+    class "noun"
+    lemma "institution"
+@n153 addLexeme
+    surface "university"
+    class "noun"
+    lemma "university"
+@n154 addLexeme
+    surface "universities"
+    class "noun"
+    lemma "university"
+@n155 addLexeme
+    surface "laboratory"
+    class "noun"
+    lemma "laboratory"
+@n156 addLexeme
+    surface "laboratories"
+    class "noun"
+    lemma "laboratory"
+@n157 addLexeme
+    surface "algorithm"
+    class "noun"
+    lemma "algorithm"
+@n158 addLexeme
+    surface "algorithms"
+    class "noun"
+    lemma "algorithm"
+@n159 addLexeme
+    surface "database"
+    class "noun"
+    lemma "database"
+@n160 addLexeme
+    surface "databases"
+    class "noun"
+    lemma "database"
+@n161 addLexeme
+    surface "graph"
+    class "noun"
+    lemma "graph"
+@n162 addLexeme
+    surface "graphs"
+    class "noun"
+    lemma "graph"
+@n163 addLexeme
+    surface "node"
+    class "noun"
+    lemma "node"
+@n164 addLexeme
+    surface "nodes"
+    class "noun"
+    lemma "node"
+@n165 addLexeme
+    surface "edge"
+    class "noun"
+    lemma "edge"
+@n166 addLexeme
+    surface "edges"
+    class "noun"
+    lemma "edge"
+@n167 addLexeme
+    surface "value"
+    class "noun"
+    lemma "value"
+@n168 addLexeme
+    surface "values"
+    class "noun"
+    lemma "value"
+@n169 addLexeme
+    surface "variable"
+    class "noun"
+    lemma "variable"
+@n170 addLexeme
+    surface "variables"
+    class "noun"
+    lemma "variable"
+@n171 addLexeme
+    surface "command"
+    class "noun"
+    lemma "command"
+@n172 addLexeme
+    surface "commands"
+    class "noun"
+    lemma "command"
+@n173 addLexeme
+    surface "workflow"
+    class "noun"
+    lemma "workflow"
+@n174 addLexeme
+    surface "workflows"
+    class "noun"
+    lemma "workflow"
+@n175 addLexeme
+    surface "plan"
+    class "noun"
+    lemma "plan"
+@n176 addLexeme
+    surface "plans"
+    class "noun"
+    lemma "plan"
+@n177 addLexeme
+    surface "goal"
+    class "noun"
+    lemma "goal"
+@n178 addLexeme
+    surface "goals"
+    class "noun"
+    lemma "goal"
+@n179 addLexeme
+    surface "risk"
+    class "noun"
+    lemma "risk"
+@n180 addLexeme
+    surface "risks"
+    class "noun"
+    lemma "risk"
+@n181 addLexeme
+    surface "benefit"
+    class "noun"
+    lemma "benefit"
+@n182 addLexeme
+    surface "benefits"
+    class "noun"
+    lemma "benefit"
+@n183 addLexeme
+    surface "limitation"
+    class "noun"
+    lemma "limitation"
+@n184 addLexeme
+    surface "limitations"
+    class "noun"
+    lemma "limitation"
+@n185 addLexeme
+    surface "problem"
+    class "noun"
+    lemma "problem"
+@n186 addLexeme
+    surface "problems"
+    class "noun"
+    lemma "problem"
+@n187 addLexeme
+    surface "solution"
+    class "noun"
+    lemma "solution"
+@n188 addLexeme
+    surface "solutions"
+    class "noun"
+    lemma "solution"
+@n189 addLexeme
+    surface "example"
+    class "noun"
+    lemma "example"
+@n190 addLexeme
+    surface "examples"
+    class "noun"
+    lemma "example"
+@n191 addLexeme
+    surface "counterexample"
+    class "noun"
+    lemma "counterexample"
+@n192 addLexeme
+    surface "counterexamples"
+    class "noun"
+    lemma "counterexample"
+@ready constant
+    value true
+@output result $ready

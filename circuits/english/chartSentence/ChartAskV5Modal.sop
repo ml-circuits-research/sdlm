@@ -1,0 +1,35 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskV5Modal"
+@mTree chartChild
+    tree $tree
+    index 0
+@sTree chartChild
+    tree $tree
+    index 1
+@vTree chartChild
+    tree $tree
+    index 2
+@oTree chartChild
+    tree $tree
+    index 3
+@m chartNorm
+    tree $mTree
+@s chartTerm
+    tree $sTree
+@v chartLemma
+    tree $vTree
+    class "verbBase"
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $s
+    predicate $v
+    qualifier $m
+    object $o
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

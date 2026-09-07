@@ -1,0 +1,8 @@
+@input tree
+@handlers selectCircuits
+    group "english.chartConditions"
+    value $tree
+@atoms callCandidates
+    candidates $handlers
+    tree $tree
+@output result $atoms

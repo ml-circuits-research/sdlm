@@ -1,0 +1,36 @@
+@event makeConstant
+    value "atlas_start_2024"
+@eventKind makeUnaryAtom
+    subject $event
+    predicate "event"
+@start makeConstant
+    value "start"
+@type makeBinaryAtom
+    subject $event
+    predicate "event_type"
+    object $start
+@atlas makeConstant
+    value "atlas"
+@actor makeBinaryAtom
+    subject $event
+    predicate "actor"
+    object $atlas
+@year makeConstant
+    value "2024"
+@time makeBinaryAtom
+    subject $event
+    predicate "time"
+    object $year
+@sentence makeConstant
+    value "sentence_1"
+@source makeBinaryAtom
+    subject $event
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $eventKind
+    item2 $type
+    item3 $actor
+    item4 $time
+    item5 $source
+@output result $facts

@@ -1,0 +1,56 @@
+# Common contractions represented as lexical knowledge.
+@c1 addLexeme
+    surface "isn't"
+    class "negCopula"
+    lemma "be"
+@c2 addLexeme
+    surface "aren't"
+    class "negCopula"
+    lemma "be"
+@c3 addLexeme
+    surface "wasn't"
+    class "negCopula"
+    lemma "be"
+@c4 addLexeme
+    surface "weren't"
+    class "negCopula"
+    lemma "be"
+@c5 addLexeme
+    surface "doesn't"
+    class "negAuxDo"
+    lemma "do"
+@c6 addLexeme
+    surface "didn't"
+    class "negAuxDo"
+    lemma "do"
+@c7 addLexeme
+    surface "can't"
+    class "negModal"
+    lemma "can"
+@c8 addLexeme
+    surface "cannot"
+    class "negModal"
+    lemma "can"
+@c9 addLexeme
+    surface "won't"
+    class "negModal"
+    lemma "will"
+@c10 addLexeme
+    surface "shouldn't"
+    class "negModal"
+    lemma "should"
+@c11 addLexeme
+    surface "couldn't"
+    class "negModal"
+    lemma "could"
+@c12 addLexeme
+    surface "wouldn't"
+    class "negModal"
+    lemma "would"
+@c13 addLexeme
+    surface "mustn't"
+    class "negModal"
+    lemma "must"
+@ready constant
+    value true
+@output result $ready

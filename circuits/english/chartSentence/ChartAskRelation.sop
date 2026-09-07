@@ -1,0 +1,30 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "AskRelation"
+@s chartChild
+    tree $tree
+    index 1
+@p chartChild
+    tree $tree
+    index 3
+@o chartChild
+    tree $tree
+    index 5
+@subject chartTerm
+    tree $s
+@predicate chartLemma
+    tree $p
+    class "relationNoun"
+@object chartTerm
+    tree $o
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

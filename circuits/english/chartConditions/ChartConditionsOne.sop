@@ -1,0 +1,13 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "ConditionsOne"
+@a chartChild
+    tree $tree
+    index 0
+@atom InterpretChartAtom
+    tree $a
+@atoms list
+    item1 $atom
+@output result $atoms

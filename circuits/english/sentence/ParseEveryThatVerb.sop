@@ -1,0 +1,65 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 8
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "every"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "that"
+@g4 tokenClassIs
+    tokens $tokens
+    index 3
+    class "verb3"
+@g5 tokenClassIs
+    tokens $tokens
+    index 4
+    class "entity"
+@g6 tokenIs
+    tokens $tokens
+    index 5
+    value "is"
+@g7 tokenLastIs
+    tokens $tokens
+    value "."
+@x makeVariable
+    name "X"
+@sourcePred tokenNormAt
+    tokens $tokens
+    index 1
+@verbPred tokenLemmaAt
+    tokens $tokens
+    index 3
+    class "verb3"
+@object constantAt
+    tokens $tokens
+    index 4
+@targetPred tokenNormAt
+    tokens $tokens
+    index 6
+@source makeUnaryAtom
+    subject $x
+    predicate $sourcePred
+    polarity "positive"
+@relation makeBinaryAtom
+    subject $x
+    predicate $verbPred
+    object $object
+    polarity "positive"
+@target makeUnaryAtom
+    subject $x
+    predicate $targetPred
+    polarity "positive"
+@body list
+    item1 $source
+    item2 $relation
+@rule makeRule
+    head $target
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

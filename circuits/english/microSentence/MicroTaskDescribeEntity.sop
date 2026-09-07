@@ -1,0 +1,22 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 3
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "describe"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "."
+@g3 tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@bias candidateWeight
+    weight 22
+@result MicroDescribeEntity
+    tokens $tokens
+    entityIndex 1
+@output result $result

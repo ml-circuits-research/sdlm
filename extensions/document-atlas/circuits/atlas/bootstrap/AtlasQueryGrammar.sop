@@ -1,0 +1,67 @@
+@did grammarToken
+    value "did"
+@subject grammarCategory
+    name "Term"
+@start grammarToken
+    value "start"
+@in grammarToken
+    value "in"
+@year grammarCategory
+    name "number"
+@question grammarToken
+    value "?"
+@rhs list
+    item1 $did
+    item2 $subject
+    item3 $start
+    item4 $in
+    item5 $year
+    item6 $question
+@installed addGrammarRule
+    name "AskStartedIn"
+    lhs "Sentence"
+    rhs $rhs
+    weight 20
+@what grammarToken
+    value "what"
+@does grammarToken
+    value "does"
+@refSubject grammarCategory
+    name "Term"
+@refer grammarToken
+    value "refer"
+@to grammarToken
+    value "to"
+@refQuestion grammarToken
+    value "?"
+@refRhs list
+    item1 $what
+    item2 $does
+    item3 $refSubject
+    item4 $refer
+    item5 $to
+    item6 $refQuestion
+@refInstalled addGrammarRule
+    name "AskRefersTo"
+    lhs "Sentence"
+    rhs $refRhs
+    weight 20
+@who grammarToken
+    value "who"
+@reported grammarToken
+    value "reported"
+@claim grammarCategory
+    name "Term"
+@reportQuestion grammarToken
+    value "?"
+@reportRhs list
+    item1 $who
+    item2 $reported
+    item3 $claim
+    item4 $reportQuestion
+@reportInstalled addGrammarRule
+    name "AskWhoReported"
+    lhs "Sentence"
+    rhs $reportRhs
+    weight 20
+@output result $reportInstalled

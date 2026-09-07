@@ -1,0 +1,11 @@
+@input answer
+
+@renderers selectCircuits
+    group "english.response"
+    value $answer
+
+@text callCandidates
+    candidates $renderers
+    answer $answer
+
+@output result $text

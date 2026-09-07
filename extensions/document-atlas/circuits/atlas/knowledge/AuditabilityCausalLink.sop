@@ -1,0 +1,29 @@
+@link makeConstant
+    value "causal_derivation_links_auditability"
+@kind makeUnaryAtom
+    subject $link
+    predicate "causal_link"
+@causeProp makeConstant
+    value "proposition_derivation_links"
+@cause makeBinaryAtom
+    subject $link
+    predicate "cause"
+    object $causeProp
+@effectProp makeConstant
+    value "proposition_architecture_auditable"
+@effect makeBinaryAtom
+    subject $link
+    predicate "effect"
+    object $effectProp
+@sentence makeConstant
+    value "sentence_5"
+@source makeBinaryAtom
+    subject $link
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $kind
+    item2 $cause
+    item3 $effect
+    item4 $source
+@output result $facts

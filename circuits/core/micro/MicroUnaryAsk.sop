@@ -1,0 +1,14 @@
+@input tokens
+@input predicate
+@input subjectIndex
+@subject termAt
+    tokens $tokens
+    index $subjectIndex
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

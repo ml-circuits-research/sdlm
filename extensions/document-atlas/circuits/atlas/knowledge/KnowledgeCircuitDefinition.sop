@@ -1,0 +1,29 @@
+@term makeConstant
+    value "knowledgecircuit"
+@definition makeConstant
+    value "executable_sop_circuit_generated_from_source_material"
+@fact makeBinaryAtom
+    subject $term
+    predicate "mean"
+    object $definition
+@definitionNode makeConstant
+    value "definition_knowledge_circuit"
+@kind makeUnaryAtom
+    subject $definitionNode
+    predicate "definition"
+@definedTerm makeBinaryAtom
+    subject $definitionNode
+    predicate "defines"
+    object $term
+@sentence makeConstant
+    value "sentence_7"
+@source makeBinaryAtom
+    subject $definitionNode
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact
+    item2 $kind
+    item3 $definedTerm
+    item4 $source
+@output result $facts

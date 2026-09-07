@@ -1,0 +1,35 @@
+@input atom
+@g1 atomArityIs
+    value $atom
+    arity 2
+@g2 atomPolarityIs
+    value $atom
+    polarity "positive"
+@g3 predicateHasLexemeClass
+    atom $atom
+    class "verbBase"
+@bias candidateWeight
+    weight 30
+@subject atomArgument
+    atom $atom
+    index 0
+@object atomArgument
+    atom $atom
+    index 1
+@subjectText display
+    value $subject
+@objectText display
+    value $object
+@predicate atomPredicate
+    atom $atom
+@verb lexemeSurface
+    lemma $predicate
+    class "verb3"
+@text concat
+    part1 $subjectText
+    part2 " "
+    part3 $verb
+    part4 " "
+    part5 $objectText
+    part6 "."
+@output result $text

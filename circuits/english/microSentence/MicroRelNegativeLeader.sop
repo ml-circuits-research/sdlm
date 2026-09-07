@@ -1,0 +1,44 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 8
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "not"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "a"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "leader"
+@g5 tokenIs
+    tokens $tokens
+    index 5
+    value "of"
+@g6 tokenIs
+    tokens $tokens
+    index 7
+    value "."
+@g7 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g8 tokenClassIs
+    tokens $tokens
+    index 6
+    class "entity"
+@bias candidateWeight
+    weight 28
+@result MicroBinaryNegativeFact
+    tokens $tokens
+    predicate "leader"
+    subjectIndex 0
+    objectIndex 6
+@output result $result

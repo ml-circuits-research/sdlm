@@ -1,0 +1,17 @@
+External Datalog Backend Status
+===============================
+
+Intended backend: @suss/datalog 0.19.0
+Observed backend in this build environment: bundled-mini-datalog
+External adapter conformance status: NOT VERIFIED in this build environment
+
+The dedicated external-backend check exits non-zero because @suss/datalog is not installed/loaded. The complete 36-test functional suite reported in TEST_RESULTS.txt therefore ran against the bundled backend.
+
+Required verification in a network-enabled environment:
+
+1. npm install
+2. node src/check-external-datalog.mjs
+3. node --test test/*.test.mjs
+4. compare semantic results and performance with the bundled backend
+
+No claim of external-backend conformance is made until that check succeeds.

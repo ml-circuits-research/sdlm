@@ -1,0 +1,25 @@
+@atlas makeConstant
+    value "atlas"
+@work makeConstant
+    value "repeated_retrieval_work"
+@fact makeBinaryAtom
+    subject $atlas
+    predicate "reduce"
+    object $work
+    qualifier "may"
+@sentence makeConstant
+    value "sentence_6"
+@claim makeConstant
+    value "claim_retrieval_reduction"
+@kind makeUnaryAtom
+    subject $claim
+    predicate "modal_claim"
+@source makeBinaryAtom
+    subject $claim
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact
+    item2 $kind
+    item3 $source
+@output result $facts

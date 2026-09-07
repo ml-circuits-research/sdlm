@@ -1,0 +1,19 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5NegCopulaContraction"
+@sTree chartChild
+    tree $tree
+    index 0
+@pTree chartChild
+    tree $tree
+    index 2
+@s chartTerm
+    tree $sTree
+@p chartNorm
+    tree $pTree
+@atom makeUnaryAtom
+    subject $s
+    predicate $p
+    polarity "negative"
+@output result $atom

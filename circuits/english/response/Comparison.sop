@@ -1,0 +1,58 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "comparison"
+@left field
+    value $answer
+    name "left"
+@right field
+    value $answer
+    name "right"
+@leftName display
+    value $left
+@rightName display
+    value $right
+@common field
+    value $answer
+    name "common"
+@leftOnly field
+    value $answer
+    name "leftOnly"
+@rightOnly field
+    value $answer
+    name "rightOnly"
+@commonNames featurePredicates
+    features $common
+@leftNames featurePredicates
+    features $leftOnly
+@rightNames featurePredicates
+    features $rightOnly
+@commonText joinOrDefault
+    values $commonNames
+    separator ", "
+    fallback "none"
+@leftText joinOrDefault
+    values $leftNames
+    separator ", "
+    fallback "none"
+@rightText joinOrDefault
+    values $rightNames
+    separator ", "
+    fallback "none"
+@text concat
+    part1 "Comparison of "
+    part2 $leftName
+    part3 " and "
+    part4 $rightName
+    part5 ". Shared properties: "
+    part6 $commonText
+    part7 ". Only "
+    part8 $leftName
+    part9 ": "
+    part10 $leftText
+    part11 ". Only "
+    part12 $rightName
+    part13 ": "
+    part14 $rightText
+    part15 "."
+@output result $text

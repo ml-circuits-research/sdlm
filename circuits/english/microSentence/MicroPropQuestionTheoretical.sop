@@ -1,0 +1,27 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "theoretical"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "?"
+@g4 tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@bias candidateWeight
+    weight 24
+@result MicroUnaryAsk
+    tokens $tokens
+    predicate "theoretical"
+    subjectIndex 1
+@output result $result

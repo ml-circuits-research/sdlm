@@ -1,0 +1,38 @@
+Every human is a mortal.
+  Learned.
+
+No mortal is a machine.
+  Learned.
+
+Alice is a human.
+  Learned.
+
+Is Alice a mortal?
+  Yes.
+
+Is Alice a machine?
+  No.
+
+Who is a mortal?
+  Answer: alice
+
+Alice is a parent of Bob.
+  Learned.
+
+Bob is a parent of Carol.
+  Learned.
+
+If X is a parent of Y then X is an ancestor of Y.
+  Learned.
+
+If X is a parent of Y and Y is an ancestor of Z then X is an ancestor of Z.
+  Learned.
+
+Is Alice an ancestor of Carol?
+  Yes.
+
+Why is Alice a mortal?
+  Supported by:
+  Alice is mortal. [rule]
+    Alice is human. [given]
+

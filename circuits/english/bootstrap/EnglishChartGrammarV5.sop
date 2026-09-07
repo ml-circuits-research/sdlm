@@ -1,0 +1,836 @@
+# V5 compositional grammar additions. Installed by a normal SOP bootstrap circuit.
+@rhs0sym1 grammarToken
+    value "is"
+@rhs0 list
+    item1 $rhs0sym1
+@r0 addGrammarRule
+    name "CopulaIs"
+    lhs "Copula"
+    rhs $rhs0
+    weight 3
+@rhs1sym1 grammarToken
+    value "are"
+@rhs1 list
+    item1 $rhs1sym1
+@r1 addGrammarRule
+    name "CopulaAre"
+    lhs "Copula"
+    rhs $rhs1
+    weight 3
+@rhs2sym1 grammarToken
+    value "was"
+@rhs2 list
+    item1 $rhs2sym1
+@r2 addGrammarRule
+    name "CopulaWas"
+    lhs "Copula"
+    rhs $rhs2
+    weight 3
+@rhs3sym1 grammarToken
+    value "were"
+@rhs3 list
+    item1 $rhs3sym1
+@r3 addGrammarRule
+    name "CopulaWere"
+    lhs "Copula"
+    rhs $rhs3
+    weight 3
+@rhs4sym1 grammarToken
+    value "does"
+@rhs4 list
+    item1 $rhs4sym1
+@r4 addGrammarRule
+    name "AuxDoDoes"
+    lhs "AuxDo"
+    rhs $rhs4
+    weight 3
+@rhs5sym1 grammarToken
+    value "did"
+@rhs5 list
+    item1 $rhs5sym1
+@r5 addGrammarRule
+    name "AuxDoDid"
+    lhs "AuxDo"
+    rhs $rhs5
+    weight 3
+@rhs6sym1 grammarToken
+    value "do"
+@rhs6 list
+    item1 $rhs6sym1
+@r6 addGrammarRule
+    name "AuxDoDo"
+    lhs "AuxDo"
+    rhs $rhs6
+    weight 3
+@rhs7sym1 grammarToken
+    value "can"
+@rhs7 list
+    item1 $rhs7sym1
+@r7 addGrammarRule
+    name "ModalCan"
+    lhs "Modal"
+    rhs $rhs7
+    weight 3
+@rhs8sym1 grammarToken
+    value "could"
+@rhs8 list
+    item1 $rhs8sym1
+@r8 addGrammarRule
+    name "ModalCould"
+    lhs "Modal"
+    rhs $rhs8
+    weight 3
+@rhs9sym1 grammarToken
+    value "may"
+@rhs9 list
+    item1 $rhs9sym1
+@r9 addGrammarRule
+    name "ModalMay"
+    lhs "Modal"
+    rhs $rhs9
+    weight 3
+@rhs10sym1 grammarToken
+    value "might"
+@rhs10 list
+    item1 $rhs10sym1
+@r10 addGrammarRule
+    name "ModalMight"
+    lhs "Modal"
+    rhs $rhs10
+    weight 3
+@rhs11sym1 grammarToken
+    value "must"
+@rhs11 list
+    item1 $rhs11sym1
+@r11 addGrammarRule
+    name "ModalMust"
+    lhs "Modal"
+    rhs $rhs11
+    weight 3
+@rhs12sym1 grammarToken
+    value "should"
+@rhs12 list
+    item1 $rhs12sym1
+@r12 addGrammarRule
+    name "ModalShould"
+    lhs "Modal"
+    rhs $rhs12
+    weight 3
+@rhs13sym1 grammarToken
+    value "would"
+@rhs13 list
+    item1 $rhs13sym1
+@r13 addGrammarRule
+    name "ModalWould"
+    lhs "Modal"
+    rhs $rhs13
+    weight 3
+@rhs14sym1 grammarToken
+    value "will"
+@rhs14 list
+    item1 $rhs14sym1
+@r14 addGrammarRule
+    name "ModalWill"
+    lhs "Modal"
+    rhs $rhs14
+    weight 3
+@rhs15sym1 grammarToken
+    value "with"
+@rhs15 list
+    item1 $rhs15sym1
+@r15 addGrammarRule
+    name "PrepWith"
+    lhs "Prep"
+    rhs $rhs15
+    weight 2
+@rhs16sym1 grammarToken
+    value "to"
+@rhs16 list
+    item1 $rhs16sym1
+@r16 addGrammarRule
+    name "PrepTo"
+    lhs "Prep"
+    rhs $rhs16
+    weight 2
+@rhs17sym1 grammarToken
+    value "from"
+@rhs17 list
+    item1 $rhs17sym1
+@r17 addGrammarRule
+    name "PrepFrom"
+    lhs "Prep"
+    rhs $rhs17
+    weight 2
+@rhs18sym1 grammarToken
+    value "for"
+@rhs18 list
+    item1 $rhs18sym1
+@r18 addGrammarRule
+    name "PrepFor"
+    lhs "Prep"
+    rhs $rhs18
+    weight 2
+@rhs19sym1 grammarToken
+    value "about"
+@rhs19 list
+    item1 $rhs19sym1
+@r19 addGrammarRule
+    name "PrepAbout"
+    lhs "Prep"
+    rhs $rhs19
+    weight 2
+@rhs20sym1 grammarToken
+    value "in"
+@rhs20 list
+    item1 $rhs20sym1
+@r20 addGrammarRule
+    name "PrepIn"
+    lhs "Prep"
+    rhs $rhs20
+    weight 2
+@rhs21sym1 grammarToken
+    value "on"
+@rhs21 list
+    item1 $rhs21sym1
+@r21 addGrammarRule
+    name "PrepOn"
+    lhs "Prep"
+    rhs $rhs21
+    weight 2
+@rhs22sym1 grammarToken
+    value "at"
+@rhs22 list
+    item1 $rhs22sym1
+@r22 addGrammarRule
+    name "PrepAt"
+    lhs "Prep"
+    rhs $rhs22
+    weight 2
+@rhs23sym1 grammarToken
+    value "through"
+@rhs23 list
+    item1 $rhs23sym1
+@r23 addGrammarRule
+    name "PrepThrough"
+    lhs "Prep"
+    rhs $rhs23
+    weight 2
+@rhs24sym1 grammarToken
+    value "against"
+@rhs24 list
+    item1 $rhs24sym1
+@r24 addGrammarRule
+    name "PrepAgainst"
+    lhs "Prep"
+    rhs $rhs24
+    weight 2
+@rhs25sym1 grammarToken
+    value "over"
+@rhs25 list
+    item1 $rhs25sym1
+@r25 addGrammarRule
+    name "PrepOver"
+    lhs "Prep"
+    rhs $rhs25
+    weight 2
+@rhs26sym1 grammarToken
+    value "under"
+@rhs26 list
+    item1 $rhs26sym1
+@r26 addGrammarRule
+    name "PrepUnder"
+    lhs "Prep"
+    rhs $rhs26
+    weight 2
+@rhs27sym1 grammarToken
+    value "near"
+@rhs27 list
+    item1 $rhs27sym1
+@r27 addGrammarRule
+    name "PrepNear"
+    lhs "Prep"
+    rhs $rhs27
+    weight 2
+@rhs28sym1 grammarToken
+    value "every"
+@rhs28 list
+    item1 $rhs28sym1
+@r28 addGrammarRule
+    name "UQuantEvery"
+    lhs "UniversalQuant"
+    rhs $rhs28
+    weight 3
+@rhs29sym1 grammarToken
+    value "all"
+@rhs29 list
+    item1 $rhs29sym1
+@r29 addGrammarRule
+    name "UQuantAll"
+    lhs "UniversalQuant"
+    rhs $rhs29
+    weight 3
+@rhs30sym1 grammarToken
+    value "each"
+@rhs30 list
+    item1 $rhs30sym1
+@r30 addGrammarRule
+    name "UQuantEach"
+    lhs "UniversalQuant"
+    rhs $rhs30
+    weight 3
+@rhs31sym1 grammarToken
+    value "no"
+@rhs31 list
+    item1 $rhs31sym1
+@r31 addGrammarRule
+    name "NoQuant"
+    lhs "NoQuant"
+    rhs $rhs31
+    weight 3
+@rhs32sym1 grammarToken
+    value "some"
+@rhs32 list
+    item1 $rhs32sym1
+@r32 addGrammarRule
+    name "SomeQuant"
+    lhs "SomeQuant"
+    rhs $rhs32
+    weight 3
+@rhs33sym1 grammarCategory
+    name "Term"
+@rhs33sym2 grammarCategory
+    name "verbPast"
+@rhs33sym3 grammarCategory
+    name "Term"
+@rhs33 list
+    item1 $rhs33sym1
+    item2 $rhs33sym2
+    item3 $rhs33sym3
+@r33 addGrammarRule
+    name "AtomV5VerbPast"
+    lhs "Atom"
+    rhs $rhs33
+    weight 4
+@rhs34sym1 grammarCategory
+    name "Term"
+@rhs34sym2 grammarCategory
+    name "Modal"
+@rhs34sym3 grammarCategory
+    name "verbBase"
+@rhs34sym4 grammarCategory
+    name "Term"
+@rhs34 list
+    item1 $rhs34sym1
+    item2 $rhs34sym2
+    item3 $rhs34sym3
+    item4 $rhs34sym4
+@r34 addGrammarRule
+    name "AtomV5ModalVerb"
+    lhs "Atom"
+    rhs $rhs34
+    weight 5
+@rhs35sym1 grammarCategory
+    name "Term"
+@rhs35sym2 grammarCategory
+    name "Copula"
+@rhs35sym3 grammarCategory
+    name "verbPart"
+@rhs35sym4 grammarToken
+    value "by"
+@rhs35sym5 grammarCategory
+    name "Term"
+@rhs35 list
+    item1 $rhs35sym1
+    item2 $rhs35sym2
+    item3 $rhs35sym3
+    item4 $rhs35sym4
+    item5 $rhs35sym5
+@r35 addGrammarRule
+    name "AtomV5Passive"
+    lhs "Atom"
+    rhs $rhs35
+    weight 5
+@rhs36sym1 grammarCategory
+    name "Term"
+@rhs36sym2 grammarCategory
+    name "verb3"
+@rhs36 list
+    item1 $rhs36sym1
+    item2 $rhs36sym2
+@r36 addGrammarRule
+    name "AtomV5IntransitivePresent"
+    lhs "Atom"
+    rhs $rhs36
+    weight 3
+@rhs37sym1 grammarCategory
+    name "Term"
+@rhs37sym2 grammarCategory
+    name "verbPast"
+@rhs37 list
+    item1 $rhs37sym1
+    item2 $rhs37sym2
+@r37 addGrammarRule
+    name "AtomV5IntransitivePast"
+    lhs "Atom"
+    rhs $rhs37
+    weight 3
+@rhs38sym1 grammarCategory
+    name "Term"
+@rhs38sym2 grammarCategory
+    name "verb3"
+@rhs38sym3 grammarCategory
+    name "Prep"
+@rhs38sym4 grammarCategory
+    name "Term"
+@rhs38 list
+    item1 $rhs38sym1
+    item2 $rhs38sym2
+    item3 $rhs38sym3
+    item4 $rhs38sym4
+@r38 addGrammarRule
+    name "AtomV5VerbPrep"
+    lhs "Atom"
+    rhs $rhs38
+    weight 4
+@rhs39sym1 grammarCategory
+    name "Term"
+@rhs39sym2 grammarCategory
+    name "verbPast"
+@rhs39sym3 grammarCategory
+    name "Prep"
+@rhs39sym4 grammarCategory
+    name "Term"
+@rhs39 list
+    item1 $rhs39sym1
+    item2 $rhs39sym2
+    item3 $rhs39sym3
+    item4 $rhs39sym4
+@r39 addGrammarRule
+    name "AtomV5VerbPastPrep"
+    lhs "Atom"
+    rhs $rhs39
+    weight 4
+@rhs40sym1 grammarCategory
+    name "Term"
+@rhs40sym2 grammarCategory
+    name "Copula"
+@rhs40sym3 grammarToken
+    value "very"
+@rhs40sym4 grammarCategory
+    name "word"
+@rhs40 list
+    item1 $rhs40sym1
+    item2 $rhs40sym2
+    item3 $rhs40sym3
+    item4 $rhs40sym4
+@r40 addGrammarRule
+    name "AtomV5Very"
+    lhs "Atom"
+    rhs $rhs40
+    weight 4
+@rhs41sym1 grammarCategory
+    name "Term"
+@rhs41sym2 grammarCategory
+    name "Copula"
+@rhs41sym3 grammarToken
+    value "more"
+@rhs41sym4 grammarCategory
+    name "word"
+@rhs41sym5 grammarToken
+    value "than"
+@rhs41sym6 grammarCategory
+    name "Term"
+@rhs41 list
+    item1 $rhs41sym1
+    item2 $rhs41sym2
+    item3 $rhs41sym3
+    item4 $rhs41sym4
+    item5 $rhs41sym5
+    item6 $rhs41sym6
+@r41 addGrammarRule
+    name "AtomV5Comparative"
+    lhs "Atom"
+    rhs $rhs41
+    weight 5
+@rhs42sym1 grammarToken
+    value "when"
+@rhs42sym2 grammarCategory
+    name "ConditionList"
+@rhs42sym3 grammarToken
+    value ","
+@rhs42sym4 grammarCategory
+    name "Atom"
+@rhs42sym5 grammarToken
+    value "."
+@rhs42 list
+    item1 $rhs42sym1
+    item2 $rhs42sym2
+    item3 $rhs42sym3
+    item4 $rhs42sym4
+    item5 $rhs42sym5
+@r42 addGrammarRule
+    name "WhenSentence"
+    lhs "Sentence"
+    rhs $rhs42
+    weight 6
+@rhs43sym1 grammarCategory
+    name "UniversalQuant"
+@rhs43sym2 grammarCategory
+    name "word"
+@rhs43sym3 grammarCategory
+    name "Copula"
+@rhs43sym4 grammarCategory
+    name "word"
+@rhs43sym5 grammarToken
+    value "."
+@rhs43 list
+    item1 $rhs43sym1
+    item2 $rhs43sym2
+    item3 $rhs43sym3
+    item4 $rhs43sym4
+    item5 $rhs43sym5
+@r43 addGrammarRule
+    name "UniversalCopularBare"
+    lhs "Sentence"
+    rhs $rhs43
+    weight 7
+@rhs44sym1 grammarCategory
+    name "UniversalQuant"
+@rhs44sym2 grammarCategory
+    name "word"
+@rhs44sym3 grammarCategory
+    name "Copula"
+@rhs44sym4 grammarCategory
+    name "article"
+@rhs44sym5 grammarCategory
+    name "word"
+@rhs44sym6 grammarToken
+    value "."
+@rhs44 list
+    item1 $rhs44sym1
+    item2 $rhs44sym2
+    item3 $rhs44sym3
+    item4 $rhs44sym4
+    item5 $rhs44sym5
+    item6 $rhs44sym6
+@r44 addGrammarRule
+    name "UniversalCopularArticle"
+    lhs "Sentence"
+    rhs $rhs44
+    weight 7
+@rhs45sym1 grammarCategory
+    name "UniversalQuant"
+@rhs45sym2 grammarCategory
+    name "word"
+@rhs45sym3 grammarCategory
+    name "verb3"
+@rhs45sym4 grammarCategory
+    name "Term"
+@rhs45sym5 grammarToken
+    value "."
+@rhs45 list
+    item1 $rhs45sym1
+    item2 $rhs45sym2
+    item3 $rhs45sym3
+    item4 $rhs45sym4
+    item5 $rhs45sym5
+@r45 addGrammarRule
+    name "UniversalVerb"
+    lhs "Sentence"
+    rhs $rhs45
+    weight 7
+@rhs46sym1 grammarCategory
+    name "UniversalQuant"
+@rhs46sym2 grammarCategory
+    name "word"
+@rhs46sym3 grammarCategory
+    name "Modal"
+@rhs46sym4 grammarCategory
+    name "verbBase"
+@rhs46sym5 grammarCategory
+    name "Term"
+@rhs46sym6 grammarToken
+    value "."
+@rhs46 list
+    item1 $rhs46sym1
+    item2 $rhs46sym2
+    item3 $rhs46sym3
+    item4 $rhs46sym4
+    item5 $rhs46sym5
+    item6 $rhs46sym6
+@r46 addGrammarRule
+    name "UniversalModalVerb"
+    lhs "Sentence"
+    rhs $rhs46
+    weight 7
+@rhs47sym1 grammarCategory
+    name "NoQuant"
+@rhs47sym2 grammarCategory
+    name "word"
+@rhs47sym3 grammarCategory
+    name "Copula"
+@rhs47sym4 grammarCategory
+    name "word"
+@rhs47sym5 grammarToken
+    value "."
+@rhs47 list
+    item1 $rhs47sym1
+    item2 $rhs47sym2
+    item3 $rhs47sym3
+    item4 $rhs47sym4
+    item5 $rhs47sym5
+@r47 addGrammarRule
+    name "NegativeUniversalCopular"
+    lhs "Sentence"
+    rhs $rhs47
+    weight 7
+@rhs48sym1 grammarCategory
+    name "SomeQuant"
+@rhs48sym2 grammarCategory
+    name "word"
+@rhs48sym3 grammarCategory
+    name "Copula"
+@rhs48sym4 grammarCategory
+    name "word"
+@rhs48sym5 grammarToken
+    value "."
+@rhs48 list
+    item1 $rhs48sym1
+    item2 $rhs48sym2
+    item3 $rhs48sym3
+    item4 $rhs48sym4
+    item5 $rhs48sym5
+@r48 addGrammarRule
+    name "SomeCopular"
+    lhs "Sentence"
+    rhs $rhs48
+    weight 5
+@rhs49sym1 grammarCategory
+    name "Copula"
+@rhs49sym2 grammarCategory
+    name "Term"
+@rhs49sym3 grammarCategory
+    name "word"
+@rhs49sym4 grammarToken
+    value "?"
+@rhs49 list
+    item1 $rhs49sym1
+    item2 $rhs49sym2
+    item3 $rhs49sym3
+    item4 $rhs49sym4
+@r49 addGrammarRule
+    name "AskV5Copular"
+    lhs "Sentence"
+    rhs $rhs49
+    weight 6
+@rhs50sym1 grammarCategory
+    name "Copula"
+@rhs50sym2 grammarCategory
+    name "Term"
+@rhs50sym3 grammarCategory
+    name "article"
+@rhs50sym4 grammarCategory
+    name "word"
+@rhs50sym5 grammarToken
+    value "?"
+@rhs50 list
+    item1 $rhs50sym1
+    item2 $rhs50sym2
+    item3 $rhs50sym3
+    item4 $rhs50sym4
+    item5 $rhs50sym5
+@r50 addGrammarRule
+    name "AskV5CopularArticle"
+    lhs "Sentence"
+    rhs $rhs50
+    weight 6
+@rhs51sym1 grammarCategory
+    name "AuxDo"
+@rhs51sym2 grammarCategory
+    name "Term"
+@rhs51sym3 grammarCategory
+    name "verbBase"
+@rhs51sym4 grammarCategory
+    name "Term"
+@rhs51sym5 grammarToken
+    value "?"
+@rhs51 list
+    item1 $rhs51sym1
+    item2 $rhs51sym2
+    item3 $rhs51sym3
+    item4 $rhs51sym4
+    item5 $rhs51sym5
+@r51 addGrammarRule
+    name "AskV5Verb"
+    lhs "Sentence"
+    rhs $rhs51
+    weight 7
+@rhs52sym1 grammarCategory
+    name "Modal"
+@rhs52sym2 grammarCategory
+    name "Term"
+@rhs52sym3 grammarCategory
+    name "verbBase"
+@rhs52sym4 grammarCategory
+    name "Term"
+@rhs52sym5 grammarToken
+    value "?"
+@rhs52 list
+    item1 $rhs52sym1
+    item2 $rhs52sym2
+    item3 $rhs52sym3
+    item4 $rhs52sym4
+    item5 $rhs52sym5
+@r52 addGrammarRule
+    name "AskV5Modal"
+    lhs "Sentence"
+    rhs $rhs52
+    weight 7
+@rhs53sym1 grammarCategory
+    name "Copula"
+@rhs53sym2 grammarCategory
+    name "Term"
+@rhs53sym3 grammarCategory
+    name "verbPart"
+@rhs53sym4 grammarToken
+    value "by"
+@rhs53sym5 grammarCategory
+    name "Term"
+@rhs53sym6 grammarToken
+    value "?"
+@rhs53 list
+    item1 $rhs53sym1
+    item2 $rhs53sym2
+    item3 $rhs53sym3
+    item4 $rhs53sym4
+    item5 $rhs53sym5
+    item6 $rhs53sym6
+@r53 addGrammarRule
+    name "AskV5Passive"
+    lhs "Sentence"
+    rhs $rhs53
+    weight 6
+@rhs54sym1 grammarToken
+    value "who"
+@rhs54sym2 grammarCategory
+    name "verbPast"
+@rhs54sym3 grammarCategory
+    name "Term"
+@rhs54sym4 grammarToken
+    value "?"
+@rhs54 list
+    item1 $rhs54sym1
+    item2 $rhs54sym2
+    item3 $rhs54sym3
+    item4 $rhs54sym4
+@r54 addGrammarRule
+    name "WhoV5VerbPast"
+    lhs "Sentence"
+    rhs $rhs54
+    weight 6
+@rhs55sym1 grammarToken
+    value "who"
+@rhs55sym2 grammarCategory
+    name "Copula"
+@rhs55sym3 grammarCategory
+    name "word"
+@rhs55sym4 grammarToken
+    value "?"
+@rhs55 list
+    item1 $rhs55sym1
+    item2 $rhs55sym2
+    item3 $rhs55sym3
+    item4 $rhs55sym4
+@r55 addGrammarRule
+    name "WhoV5Copular"
+    lhs "Sentence"
+    rhs $rhs55
+    weight 6
+@rhs56sym1 grammarToken
+    value "what"
+@rhs56sym2 grammarCategory
+    name "AuxDo"
+@rhs56sym3 grammarCategory
+    name "Term"
+@rhs56sym4 grammarCategory
+    name "verbBase"
+@rhs56sym5 grammarToken
+    value "?"
+@rhs56 list
+    item1 $rhs56sym1
+    item2 $rhs56sym2
+    item3 $rhs56sym3
+    item4 $rhs56sym4
+    item5 $rhs56sym5
+@r56 addGrammarRule
+    name "WhatV5Verb"
+    lhs "Sentence"
+    rhs $rhs56
+    weight 6
+@rhs57sym1 grammarToken
+    value "which"
+@rhs57sym2 grammarCategory
+    name "word"
+@rhs57sym3 grammarCategory
+    name "Copula"
+@rhs57sym4 grammarCategory
+    name "word"
+@rhs57sym5 grammarToken
+    value "?"
+@rhs57 list
+    item1 $rhs57sym1
+    item2 $rhs57sym2
+    item3 $rhs57sym3
+    item4 $rhs57sym4
+    item5 $rhs57sym5
+@r57 addGrammarRule
+    name "WhichV5Property"
+    lhs "Sentence"
+    rhs $rhs57
+    weight 6
+@rhs58sym1 grammarToken
+    value "how"
+@rhs58sym2 grammarToken
+    value "many"
+@rhs58sym3 grammarCategory
+    name "word"
+@rhs58sym4 grammarCategory
+    name "Copula"
+@rhs58sym5 grammarCategory
+    name "word"
+@rhs58sym6 grammarToken
+    value "?"
+@rhs58 list
+    item1 $rhs58sym1
+    item2 $rhs58sym2
+    item3 $rhs58sym3
+    item4 $rhs58sym4
+    item5 $rhs58sym5
+    item6 $rhs58sym6
+@r58 addGrammarRule
+    name "HowManyV5Property"
+    lhs "Sentence"
+    rhs $rhs58
+    weight 6
+@rhs59sym1 grammarToken
+    value "is"
+@rhs59sym2 grammarToken
+    value "any"
+@rhs59sym3 grammarCategory
+    name "word"
+@rhs59sym4 grammarCategory
+    name "word"
+@rhs59sym5 grammarToken
+    value "?"
+@rhs59 list
+    item1 $rhs59sym1
+    item2 $rhs59sym2
+    item3 $rhs59sym3
+    item4 $rhs59sym4
+    item5 $rhs59sym5
+@r59 addGrammarRule
+    name "IsAnyV5Property"
+    lhs "Sentence"
+    rhs $rhs59
+    weight 5
+@output result $r59

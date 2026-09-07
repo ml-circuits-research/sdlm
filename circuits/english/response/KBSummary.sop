@@ -1,0 +1,37 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "kbSummary"
+@facts field
+    value $answer
+    name "factCount"
+@entities field
+    value $answer
+    name "entityCount"
+@predicates field
+    value $answer
+    name "predicateCount"
+@rules field
+    value $answer
+    name "ruleCount"
+@samples field
+    value $answer
+    name "samples"
+@sentences realizeAtoms
+    atoms $samples
+@sampleText joinOrDefault
+    values $sentences
+    separator " "
+    fallback "none"
+@text concat
+    part1 "The knowledge base contains "
+    part2 $facts
+    part3 " derivable facts over "
+    part4 $entities
+    part5 " entities and "
+    part6 $predicates
+    part7 " predicates, supported by "
+    part8 $rules
+    part9 " rules. Representative facts: "
+    part10 $sampleText
+@output result $text

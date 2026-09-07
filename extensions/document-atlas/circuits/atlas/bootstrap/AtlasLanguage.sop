@@ -1,0 +1,67 @@
+@reconstruct3 addLexeme
+    surface "reconstructs"
+    class "verb3"
+    lemma "reconstruct"
+@reconstructBase addLexeme
+    surface "reconstruct"
+    class "verbBase"
+    lemma "reconstruct"
+@means3 addLexeme
+    surface "means"
+    class "verb3"
+    lemma "mean"
+@meanBase addLexeme
+    surface "mean"
+    class "verbBase"
+    lemma "mean"
+@retains3 addLexeme
+    surface "retains"
+    class "verb3"
+    lemma "retain"
+@retainBase addLexeme
+    surface "retain"
+    class "verbBase"
+    lemma "retain"
+@separates3 addLexeme
+    surface "separates"
+    class "verb3"
+    lemma "separate"
+@separateBase addLexeme
+    surface "separate"
+    class "verbBase"
+    lemma "separate"
+@reports3 addLexeme
+    surface "reports"
+    class "verb3"
+    lemma "report"
+@reportBase addLexeme
+    surface "report"
+    class "verbBase"
+    lemma "report"
+@startedPast addLexeme
+    surface "started"
+    class "verbPast"
+    lemma "start"
+@startBase addLexeme
+    surface "start"
+    class "verbBase"
+    lemma "start"
+@starts3 addLexeme
+    surface "starts"
+    class "verb3"
+    lemma "start"
+@refers3 addLexeme
+    surface "refers"
+    class "verb3"
+    lemma "refer"
+@referBase addLexeme
+    surface "refer"
+    class "verbBase"
+    lemma "refer"
+@reportedPast addLexeme
+    surface "reported"
+    class "verbPast"
+    lemma "report"
+@ready constant
+    value true
+@output result $ready

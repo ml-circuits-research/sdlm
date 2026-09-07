@@ -1,0 +1,13 @@
+@input text
+
+@tokens tokenize
+    text $text
+@classified classifyTokens
+    tokens $tokens
+@parsers selectCircuits
+    group "language.parser"
+    tokens $classified
+@command callCandidates
+    candidates $parsers
+    tokens $classified
+@output result $command

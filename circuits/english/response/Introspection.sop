@@ -1,0 +1,44 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "introspection"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@epochs field
+    value $answer
+    name "epochs"
+@expansions field
+    value $answer
+    name "expansions"
+@reductions field
+    value $answer
+    name "reductions"
+@selections field
+    value $answer
+    name "selections"
+@rewrites field
+    value $answer
+    name "rewrites"
+@circuits field
+    value $answer
+    name "circuits"
+@circuitText joinOrDefault
+    values $circuits
+    separator ", "
+    fallback "none"
+@text concat
+    part1 "For the previous request, the virtual circuit used "
+    part2 $epochs
+    part3 " epochs, "
+    part4 $expansions
+    part5 " expansions, "
+    part6 $reductions
+    part7 " reductions, "
+    part8 $selections
+    part9 " Datalog-guided selections, and "
+    part10 $rewrites
+    part11 " rewrites. Circuits activated: "
+    part12 $circuitText
+    part13 "."
+@output result $text

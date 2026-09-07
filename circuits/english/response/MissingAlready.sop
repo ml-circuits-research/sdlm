@@ -1,0 +1,10 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "missing"
+@g2 answerStatusIs
+    value $answer
+    status "already"
+@text constant
+    value "The claim is already derivable; no additional premise is needed on the closest path."
+@output result $text

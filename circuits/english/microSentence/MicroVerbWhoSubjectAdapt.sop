@@ -1,0 +1,26 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "who"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "adapts"
+@g3 tokenClassIs
+    tokens $tokens
+    index 2
+    class "entity"
+@g4 tokenLastIs
+    tokens $tokens
+    value "?"
+@bias candidateWeight
+    weight 29
+@result MicroBinaryWhoSubject
+    tokens $tokens
+    predicate "adapt"
+    objectIndex 2
+@output result $result

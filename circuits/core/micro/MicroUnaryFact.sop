@@ -1,0 +1,13 @@
+@input tokens
+@input predicate
+@subject termAt
+    tokens $tokens
+    index 0
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "assertFact"
+    payload $atom
+@output result $command

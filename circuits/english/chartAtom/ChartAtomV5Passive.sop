@@ -1,0 +1,26 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5Passive"
+@patientTree chartChild
+    tree $tree
+    index 0
+@verbTree chartChild
+    tree $tree
+    index 2
+@agentTree chartChild
+    tree $tree
+    index 4
+@patient chartTerm
+    tree $patientTree
+@verb chartLemma
+    tree $verbTree
+    class "verbPart"
+@agent chartTerm
+    tree $agentTree
+@atom makeBinaryAtom
+    subject $agent
+    predicate $verb
+    object $patient
+    polarity "positive"
+@output result $atom

@@ -1,0 +1,43 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 7
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenClassIs
+    tokens $tokens
+    index 2
+    class "article"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "and"
+@g5 tokenLastIs
+    tokens $tokens
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 0
+@p1 tokenNormAt
+    tokens $tokens
+    index 3
+@p2 tokenNormAt
+    tokens $tokens
+    index 5
+@a1 makeUnaryAtom
+    subject $subject
+    predicate $p1
+    polarity "positive"
+@a2 makeUnaryAtom
+    subject $subject
+    predicate $p2
+    polarity "positive"
+@atoms list
+    item1 $a1
+    item2 $a2
+@command makeCommand
+    kind "assertFacts"
+    payload $atoms
+@output result $command

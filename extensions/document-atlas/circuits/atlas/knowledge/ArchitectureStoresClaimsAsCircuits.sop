@@ -1,0 +1,24 @@
+@architecture makeConstant
+    value "architecture"
+@knowledge makeConstant
+    value "knowledge_as_executable_sop_circuits"
+@fact makeBinaryAtom
+    subject $architecture
+    predicate "store"
+    object $knowledge
+@sentence makeConstant
+    value "sentence_4"
+@proposition makeConstant
+    value "proposition_knowledge_as_circuits"
+@propositionKind makeUnaryAtom
+    subject $proposition
+    predicate "proposition"
+@source makeBinaryAtom
+    subject $proposition
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact
+    item2 $propositionKind
+    item3 $source
+@output result $facts

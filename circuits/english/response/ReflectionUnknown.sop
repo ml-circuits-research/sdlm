@@ -1,0 +1,25 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "reflection"
+@g2 answerStatusIs
+    value $answer
+    status "unknown"
+@rules field
+    value $answer
+    name "relevantRuleCount"
+@missing field
+    value $answer
+    name "missingPremises"
+@missingSentences realizeAtoms
+    atoms $missing
+@missingText joinOrDefault
+    values $missingSentences
+    separator " "
+    fallback "no concrete missing premise was found"
+@text concat
+    part1 "I cannot currently derive either side of the claim. I found "
+    part2 $rules
+    part3 " rule paths that might become relevant. The closest path is missing: "
+    part4 $missingText
+@output result $text

@@ -1,0 +1,490 @@
+# Compositional CNL grammar installed by an ordinary SOP circuit.
+@rhs0sym1 grammarCategory
+    name "entity"
+@rhs0 list
+    item1 $rhs0sym1
+@r0 addGrammarRule
+    name "TermEntity"
+    lhs "Term"
+    rhs $rhs0
+@rhs1sym1 grammarCategory
+    name "variable"
+@rhs1 list
+    item1 $rhs1sym1
+@r1 addGrammarRule
+    name "TermVariable"
+    lhs "Term"
+    rhs $rhs1
+@rhs2sym1 grammarCategory
+    name "Term"
+@rhs2sym2 grammarToken
+    value "is"
+@rhs2sym3 grammarCategory
+    name "word"
+@rhs2 list
+    item1 $rhs2sym1
+    item2 $rhs2sym2
+    item3 $rhs2sym3
+@r2 addGrammarRule
+    name "AtomUnaryBare"
+    lhs "Atom"
+    rhs $rhs2
+@rhs3sym1 grammarCategory
+    name "Term"
+@rhs3sym2 grammarToken
+    value "is"
+@rhs3sym3 grammarCategory
+    name "article"
+@rhs3sym4 grammarCategory
+    name "word"
+@rhs3 list
+    item1 $rhs3sym1
+    item2 $rhs3sym2
+    item3 $rhs3sym3
+    item4 $rhs3sym4
+@r3 addGrammarRule
+    name "AtomUnaryArticle"
+    lhs "Atom"
+    rhs $rhs3
+@rhs4sym1 grammarCategory
+    name "Term"
+@rhs4sym2 grammarToken
+    value "is"
+@rhs4sym3 grammarToken
+    value "not"
+@rhs4sym4 grammarCategory
+    name "word"
+@rhs4 list
+    item1 $rhs4sym1
+    item2 $rhs4sym2
+    item3 $rhs4sym3
+    item4 $rhs4sym4
+@r4 addGrammarRule
+    name "AtomUnaryNegativeBare"
+    lhs "Atom"
+    rhs $rhs4
+@rhs5sym1 grammarCategory
+    name "Term"
+@rhs5sym2 grammarToken
+    value "is"
+@rhs5sym3 grammarToken
+    value "not"
+@rhs5sym4 grammarCategory
+    name "article"
+@rhs5sym5 grammarCategory
+    name "word"
+@rhs5 list
+    item1 $rhs5sym1
+    item2 $rhs5sym2
+    item3 $rhs5sym3
+    item4 $rhs5sym4
+    item5 $rhs5sym5
+@r5 addGrammarRule
+    name "AtomUnaryNegativeArticle"
+    lhs "Atom"
+    rhs $rhs5
+@rhs6sym1 grammarCategory
+    name "Term"
+@rhs6sym2 grammarCategory
+    name "verb3"
+@rhs6sym3 grammarCategory
+    name "Term"
+@rhs6 list
+    item1 $rhs6sym1
+    item2 $rhs6sym2
+    item3 $rhs6sym3
+@r6 addGrammarRule
+    name "AtomVerb"
+    lhs "Atom"
+    rhs $rhs6
+@rhs7sym1 grammarCategory
+    name "Term"
+@rhs7sym2 grammarToken
+    value "does"
+@rhs7sym3 grammarToken
+    value "not"
+@rhs7sym4 grammarCategory
+    name "verbBase"
+@rhs7sym5 grammarCategory
+    name "Term"
+@rhs7 list
+    item1 $rhs7sym1
+    item2 $rhs7sym2
+    item3 $rhs7sym3
+    item4 $rhs7sym4
+    item5 $rhs7sym5
+@r7 addGrammarRule
+    name "AtomVerbNegative"
+    lhs "Atom"
+    rhs $rhs7
+@rhs8sym1 grammarCategory
+    name "article"
+@rhs8sym2 grammarCategory
+    name "relationNoun"
+@rhs8sym3 grammarToken
+    value "of"
+@rhs8sym4 grammarCategory
+    name "Term"
+@rhs8 list
+    item1 $rhs8sym1
+    item2 $rhs8sym2
+    item3 $rhs8sym3
+    item4 $rhs8sym4
+@r8 addGrammarRule
+    name "RelPhrase"
+    lhs "RelPhrase"
+    rhs $rhs8
+@rhs9sym1 grammarCategory
+    name "Term"
+@rhs9sym2 grammarToken
+    value "is"
+@rhs9sym3 grammarCategory
+    name "RelPhrase"
+@rhs9 list
+    item1 $rhs9sym1
+    item2 $rhs9sym2
+    item3 $rhs9sym3
+@r9 addGrammarRule
+    name "AtomRelationNoun"
+    lhs "Atom"
+    rhs $rhs9
+@rhs10sym1 grammarCategory
+    name "Term"
+@rhs10sym2 grammarToken
+    value "is"
+@rhs10sym3 grammarToken
+    value "not"
+@rhs10sym4 grammarCategory
+    name "RelPhrase"
+@rhs10 list
+    item1 $rhs10sym1
+    item2 $rhs10sym2
+    item3 $rhs10sym3
+    item4 $rhs10sym4
+@r10 addGrammarRule
+    name "AtomRelationNounNegative"
+    lhs "Atom"
+    rhs $rhs10
+@rhs11sym1 grammarCategory
+    name "Atom"
+@rhs11 list
+    item1 $rhs11sym1
+@r11 addGrammarRule
+    name "ConditionsOne"
+    lhs "ConditionList"
+    rhs $rhs11
+@rhs12sym1 grammarCategory
+    name "ConditionList"
+@rhs12sym2 grammarToken
+    value "and"
+@rhs12sym3 grammarCategory
+    name "Atom"
+@rhs12 list
+    item1 $rhs12sym1
+    item2 $rhs12sym2
+    item3 $rhs12sym3
+@r12 addGrammarRule
+    name "ConditionsAnd"
+    lhs "ConditionList"
+    rhs $rhs12
+@rhs13sym1 grammarCategory
+    name "Atom"
+@rhs13sym2 grammarToken
+    value "."
+@rhs13 list
+    item1 $rhs13sym1
+    item2 $rhs13sym2
+@r13 addGrammarRule
+    name "FactSentence"
+    lhs "Sentence"
+    rhs $rhs13
+@rhs14sym1 grammarToken
+    value "if"
+@rhs14sym2 grammarCategory
+    name "ConditionList"
+@rhs14sym3 grammarToken
+    value "then"
+@rhs14sym4 grammarCategory
+    name "Atom"
+@rhs14sym5 grammarToken
+    value "."
+@rhs14 list
+    item1 $rhs14sym1
+    item2 $rhs14sym2
+    item3 $rhs14sym3
+    item4 $rhs14sym4
+    item5 $rhs14sym5
+@r14 addGrammarRule
+    name "IfSentence"
+    lhs "Sentence"
+    rhs $rhs14
+@rhs15sym1 grammarToken
+    value "every"
+@rhs15sym2 grammarCategory
+    name "word"
+@rhs15sym3 grammarToken
+    value "is"
+@rhs15sym4 grammarCategory
+    name "word"
+@rhs15sym5 grammarToken
+    value "."
+@rhs15 list
+    item1 $rhs15sym1
+    item2 $rhs15sym2
+    item3 $rhs15sym3
+    item4 $rhs15sym4
+    item5 $rhs15sym5
+@r15 addGrammarRule
+    name "EveryBare"
+    lhs "Sentence"
+    rhs $rhs15
+@rhs16sym1 grammarToken
+    value "every"
+@rhs16sym2 grammarCategory
+    name "word"
+@rhs16sym3 grammarToken
+    value "is"
+@rhs16sym4 grammarCategory
+    name "article"
+@rhs16sym5 grammarCategory
+    name "word"
+@rhs16sym6 grammarToken
+    value "."
+@rhs16 list
+    item1 $rhs16sym1
+    item2 $rhs16sym2
+    item3 $rhs16sym3
+    item4 $rhs16sym4
+    item5 $rhs16sym5
+    item6 $rhs16sym6
+@r16 addGrammarRule
+    name "EveryArticle"
+    lhs "Sentence"
+    rhs $rhs16
+@rhs17sym1 grammarToken
+    value "no"
+@rhs17sym2 grammarCategory
+    name "word"
+@rhs17sym3 grammarToken
+    value "is"
+@rhs17sym4 grammarCategory
+    name "word"
+@rhs17sym5 grammarToken
+    value "."
+@rhs17 list
+    item1 $rhs17sym1
+    item2 $rhs17sym2
+    item3 $rhs17sym3
+    item4 $rhs17sym4
+    item5 $rhs17sym5
+@r17 addGrammarRule
+    name "NoBare"
+    lhs "Sentence"
+    rhs $rhs17
+@rhs18sym1 grammarToken
+    value "no"
+@rhs18sym2 grammarCategory
+    name "word"
+@rhs18sym3 grammarToken
+    value "is"
+@rhs18sym4 grammarCategory
+    name "article"
+@rhs18sym5 grammarCategory
+    name "word"
+@rhs18sym6 grammarToken
+    value "."
+@rhs18 list
+    item1 $rhs18sym1
+    item2 $rhs18sym2
+    item3 $rhs18sym3
+    item4 $rhs18sym4
+    item5 $rhs18sym5
+    item6 $rhs18sym6
+@r18 addGrammarRule
+    name "NoArticle"
+    lhs "Sentence"
+    rhs $rhs18
+@rhs19sym1 grammarToken
+    value "is"
+@rhs19sym2 grammarCategory
+    name "Term"
+@rhs19sym3 grammarCategory
+    name "word"
+@rhs19sym4 grammarToken
+    value "?"
+@rhs19 list
+    item1 $rhs19sym1
+    item2 $rhs19sym2
+    item3 $rhs19sym3
+    item4 $rhs19sym4
+@r19 addGrammarRule
+    name "AskUnaryBare"
+    lhs "Sentence"
+    rhs $rhs19
+@rhs20sym1 grammarToken
+    value "is"
+@rhs20sym2 grammarCategory
+    name "Term"
+@rhs20sym3 grammarCategory
+    name "article"
+@rhs20sym4 grammarCategory
+    name "word"
+@rhs20sym5 grammarToken
+    value "?"
+@rhs20 list
+    item1 $rhs20sym1
+    item2 $rhs20sym2
+    item3 $rhs20sym3
+    item4 $rhs20sym4
+    item5 $rhs20sym5
+@r20 addGrammarRule
+    name "AskUnaryArticle"
+    lhs "Sentence"
+    rhs $rhs20
+@rhs21sym1 grammarToken
+    value "does"
+@rhs21sym2 grammarCategory
+    name "Term"
+@rhs21sym3 grammarCategory
+    name "verbBase"
+@rhs21sym4 grammarCategory
+    name "Term"
+@rhs21sym5 grammarToken
+    value "?"
+@rhs21 list
+    item1 $rhs21sym1
+    item2 $rhs21sym2
+    item3 $rhs21sym3
+    item4 $rhs21sym4
+    item5 $rhs21sym5
+@r21 addGrammarRule
+    name "AskVerb"
+    lhs "Sentence"
+    rhs $rhs21
+@rhs22sym1 grammarToken
+    value "is"
+@rhs22sym2 grammarCategory
+    name "Term"
+@rhs22sym3 grammarCategory
+    name "article"
+@rhs22sym4 grammarCategory
+    name "relationNoun"
+@rhs22sym5 grammarToken
+    value "of"
+@rhs22sym6 grammarCategory
+    name "Term"
+@rhs22sym7 grammarToken
+    value "?"
+@rhs22 list
+    item1 $rhs22sym1
+    item2 $rhs22sym2
+    item3 $rhs22sym3
+    item4 $rhs22sym4
+    item5 $rhs22sym5
+    item6 $rhs22sym6
+    item7 $rhs22sym7
+@r22 addGrammarRule
+    name "AskRelation"
+    lhs "Sentence"
+    rhs $rhs22
+@rhs23sym1 grammarToken
+    value "who"
+@rhs23sym2 grammarToken
+    value "is"
+@rhs23sym3 grammarCategory
+    name "word"
+@rhs23sym4 grammarToken
+    value "?"
+@rhs23 list
+    item1 $rhs23sym1
+    item2 $rhs23sym2
+    item3 $rhs23sym3
+    item4 $rhs23sym4
+@r23 addGrammarRule
+    name "WhoUnaryBare"
+    lhs "Sentence"
+    rhs $rhs23
+@rhs24sym1 grammarToken
+    value "who"
+@rhs24sym2 grammarToken
+    value "is"
+@rhs24sym3 grammarCategory
+    name "article"
+@rhs24sym4 grammarCategory
+    name "word"
+@rhs24sym5 grammarToken
+    value "?"
+@rhs24 list
+    item1 $rhs24sym1
+    item2 $rhs24sym2
+    item3 $rhs24sym3
+    item4 $rhs24sym4
+    item5 $rhs24sym5
+@r24 addGrammarRule
+    name "WhoUnaryArticle"
+    lhs "Sentence"
+    rhs $rhs24
+@rhs25sym1 grammarToken
+    value "who"
+@rhs25sym2 grammarCategory
+    name "verb3"
+@rhs25sym3 grammarCategory
+    name "Term"
+@rhs25sym4 grammarToken
+    value "?"
+@rhs25 list
+    item1 $rhs25sym1
+    item2 $rhs25sym2
+    item3 $rhs25sym3
+    item4 $rhs25sym4
+@r25 addGrammarRule
+    name "WhoVerbObject"
+    lhs "Sentence"
+    rhs $rhs25
+@rhs26sym1 grammarToken
+    value "what"
+@rhs26sym2 grammarToken
+    value "does"
+@rhs26sym3 grammarCategory
+    name "Term"
+@rhs26sym4 grammarCategory
+    name "verbBase"
+@rhs26sym5 grammarToken
+    value "?"
+@rhs26 list
+    item1 $rhs26sym1
+    item2 $rhs26sym2
+    item3 $rhs26sym3
+    item4 $rhs26sym4
+    item5 $rhs26sym5
+@r26 addGrammarRule
+    name "WhatVerbSubject"
+    lhs "Sentence"
+    rhs $rhs26
+@rhs27sym1 grammarToken
+    value "who"
+@rhs27sym2 grammarToken
+    value "is"
+@rhs27sym3 grammarCategory
+    name "article"
+@rhs27sym4 grammarCategory
+    name "relationNoun"
+@rhs27sym5 grammarToken
+    value "of"
+@rhs27sym6 grammarCategory
+    name "Term"
+@rhs27sym7 grammarToken
+    value "?"
+@rhs27 list
+    item1 $rhs27sym1
+    item2 $rhs27sym2
+    item3 $rhs27sym3
+    item4 $rhs27sym4
+    item5 $rhs27sym5
+    item6 $rhs27sym6
+    item7 $rhs27sym7
+@r27 addGrammarRule
+    name "WhoRelationSubject"
+    lhs "Sentence"
+    rhs $rhs27
+@output result $r27

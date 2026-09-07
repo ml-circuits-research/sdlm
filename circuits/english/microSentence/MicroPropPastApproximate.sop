@@ -1,0 +1,26 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "was"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "approximate"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "."
+@g4 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@bias candidateWeight
+    weight 20
+@result MicroUnaryFact
+    tokens $tokens
+    predicate "approximate"
+@output result $result

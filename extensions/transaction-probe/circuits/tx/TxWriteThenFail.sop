@@ -1,0 +1,26 @@
+@input value
+@entity makeConstant
+    value "temporary_entity"
+@atom makeUnaryAtom
+    subject $entity
+    predicate "temporary_fact"
+    polarity "positive"
+@write kbAssertFact
+    atom $atom
+@lex addLexeme
+    surface "blorp"
+    class "temporaryClass"
+    lemma "blorp"
+@rhssym1 grammarToken
+    value "blorp"
+@rhs list
+    item1 $rhssym1
+@grammar addGrammarRule
+    name "TemporaryGrammar"
+    lhs "Sentence"
+    rhs $rhs
+@fail valueFieldIs
+    value $value
+    name "kind"
+    expected "never"
+@output result $write

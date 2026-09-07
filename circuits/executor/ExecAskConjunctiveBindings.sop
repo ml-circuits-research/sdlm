@@ -1,0 +1,10 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "askConjunctiveBindings"
+@payload field
+    value $command
+    name "payload"
+@answer kbAskConjunctiveBindings
+    atoms $payload
+@output result $answer

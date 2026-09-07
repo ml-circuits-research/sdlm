@@ -1,0 +1,30 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 5
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "not"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "inconsistent"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@g5 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@bias candidateWeight
+    weight 24
+@result MicroUnaryNegativeFact
+    tokens $tokens
+    predicate "inconsistent"
+@output result $result

@@ -1,0 +1,12 @@
+# Teaches a new verb only by extending the lexicon through an SOP circuit.
+@v3 addLexeme
+    surface "admires"
+    class "verb3"
+    lemma "admire"
+@base addLexeme
+    surface "admire"
+    class "verbBase"
+    lemma "admire"
+@ready constant
+    value true
+@output result $ready

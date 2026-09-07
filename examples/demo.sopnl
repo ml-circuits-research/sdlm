@@ -1,0 +1,33 @@
+# Taxonomy and explicit negation
+Every human is a mortal.
+Every mortal is finite.
+No finite is a machine.
+Alice is a human.
+Bob is a human.
+Carol is a machine.
+Is Alice a finite?
+Is Alice a machine?
+Is Carol a human?
+Who is a mortal?
+
+# Conjunctive class rule
+Every human that is smart is rational.
+Alice is smart.
+Is Alice rational?
+
+# Binary facts and recursive user-taught rules
+Alice is a parent of Bob.
+Bob is a parent of Carol.
+Carol is a parent of Dana.
+If X is a parent of Y then X is an ancestor of Y.
+If X is a parent of Y and Y is an ancestor of Z then X is an ancestor of Z.
+Is Alice an ancestor of Dana?
+Who is an ancestor of Dana?
+Why is Alice a finite?
+What is known about Alice?
+
+# Verb relation and a rule expressed in CNL
+Alice likes Bob.
+If X likes Y then Y trusts X.
+Does Bob trust Alice?
+Who does Alice like?

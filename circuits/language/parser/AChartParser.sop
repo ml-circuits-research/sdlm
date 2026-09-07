@@ -1,0 +1,17 @@
+@input tokens
+@g1 tokenCountAtLeast
+    tokens $tokens
+    count 2
+@w candidateWeight
+    weight 10
+@trees chartParseAll
+    tokens $tokens
+    root "Sentence"
+    limit 24
+@command resolveParseForest
+    trees $trees
+    group "english.chartSentence"
+    tokens $tokens
+    beam 16
+    ambiguityMargin 1
+@output result $command

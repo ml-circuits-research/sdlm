@@ -1,0 +1,40 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "entityProfile"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@g3 valueFieldIs
+    value $answer
+    name "mode"
+    expected "summary"
+@entity field
+    value $answer
+    name "entity"
+@displayName display
+    value $entity
+@items field
+    value $answer
+    name "items"
+@ranked sortByNumber
+    values $items
+    field "depth"
+    direction "asc"
+@rankedAtoms arrayField
+    values $ranked
+    name "atom"
+@selected take
+    values $rankedAtoms
+    count 4
+@sentences realizeAtoms
+    atoms $selected
+@joined join
+    values $sentences
+    separator " "
+@text concat
+    part1 "Summary of "
+    part2 $displayName
+    part3 ": "
+    part4 $joined
+@output result $text

@@ -1,0 +1,29 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "reflection"
+@g2 answerStatusIs
+    value $answer
+    status "both"
+@supportTree field
+    value $answer
+    name "support"
+@refuteTree field
+    value $answer
+    name "refutation"
+@supportLines proofLines
+    tree $supportTree
+@refuteLines proofLines
+    tree $refuteTree
+@support join
+    values $supportLines
+    separator "\n"
+@refutation join
+    values $refuteLines
+    separator "\n"
+@text concat
+    part1 "My reasoning is inconsistent on this claim: both it and its explicit opposite are derivable. Support:\n"
+    part2 $support
+    part3 "\nRefutation:\n"
+    part4 $refutation
+@output result $text

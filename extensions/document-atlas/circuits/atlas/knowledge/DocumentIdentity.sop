@@ -1,0 +1,15 @@
+@doc makeConstant
+    value "document_atlas"
+@kind makeUnaryAtom
+    subject $doc
+    predicate "source_document"
+@title makeConstant
+    value "atlas_symbolic_language_note"
+@titleFact makeBinaryAtom
+    subject $doc
+    predicate "title"
+    object $title
+@facts list
+    item1 $kind
+    item2 $titleFact
+@output result $facts

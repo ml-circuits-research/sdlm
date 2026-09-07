@@ -1,0 +1,50 @@
+Representative execution trace excerpt
+======================================
+Filtered from the current runtime --trace output. Bootstrap and unrelated requests are omitted.
+The excerpt is otherwise verbatim and shows activation indexing, Datalog selection, expansion,
+rewrite to chart parsing, hypothesis evaluation, reduction, execution, and response rendering.
+
+[activation-index] language.parser: 3 stored guard rules -> 3 sent to Datalog
+[datalog-select] language.parser: 0MicroParser:41, AChartParser:11, ZLegacyParser:1
+[expand] ParseText.command :: 0MicroParser (8 -> 12 active nodes)
+[activation-index] english.microSentence: 2918 stored guard rules -> 0 sent to Datalog
+[datalog-select] english.microSentence: <none>
+[rewrite] ParseText.command: 0MicroParser -> AChartParser (No candidates supplied at 0MicroParser.command)
+[expand] ParseText.command :: AChartParser (8 -> 12 active nodes)
+[activation-index] english.chartSentence: 42 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.chartSentence: ChartUniversalCopularArticle:1
+[activation-index] english.chartSentence: 42 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.chartSentence: ChartUniversalCopularArticle:1
+[activation-index] english.chartSentence: 42 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.chartSentence: ChartUniversalCopularArticle:1
+[activation-index] english.chartSentence: 42 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.chartSentence: ChartUniversalCopularArticle:1
+[activation-index] english.chartSentence: 42 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.chartSentence: ChartEveryArticle:1
+[hypothesis-frontier] english.chartSentence: UniversalCopularArticle/ChartUniversalCopularArticle:20, UniversalCopularArticle/ChartUniversalCopularArticle:17, UniversalCopularArticle/ChartUniversalCopularArticle:17, UniversalCopularArticle/ChartUniversalCopularArticle:14, EveryArticle/ChartEveryArticle:8
+[expand] ROOT:ChartUniversalCopularArticle :: ChartUniversalCopularArticle (1 -> 12 active nodes)
+[expand] ROOT:ChartUniversalCopularArticle :: ChartUniversalCopularArticle (1 -> 12 active nodes)
+[expand] ROOT:ChartUniversalCopularArticle :: ChartUniversalCopularArticle (1 -> 12 active nodes)
+[expand] ROOT:ChartUniversalCopularArticle :: ChartUniversalCopularArticle (1 -> 12 active nodes)
+[expand] ROOT:ChartEveryArticle :: ChartEveryArticle (1 -> 12 active nodes)
+[reduce] ROOT:ChartUniversalCopularArticle <= ChartUniversalCopularArticle (12 -> 1 active nodes)
+[reduce] ROOT:ChartUniversalCopularArticle <= ChartUniversalCopularArticle (12 -> 1 active nodes)
+[reduce] ROOT:ChartUniversalCopularArticle <= ChartUniversalCopularArticle (12 -> 1 active nodes)
+[reduce] ROOT:ChartUniversalCopularArticle <= ChartUniversalCopularArticle (12 -> 1 active nodes)
+[reduce] ROOT:ChartEveryArticle <= ChartEveryArticle (12 -> 1 active nodes)
+[hypothesis-merge] english.chartSentence: 5 successes, 1 distinct; selected ChartUniversalCopularArticle; margin null
+[reduce] ParseText.command <= AChartParser (12 -> 8 active nodes)
+[reduce] ProcessText.command <= ParseText (8 -> 4 active nodes)
+[expand] ProcessText.answer :: ExecuteCommand (4 -> 6 active nodes)
+[activation-index] executor: 18 stored guard rules -> 1 sent to Datalog
+[datalog-select] executor: ExecAssertRule:1
+[expand] ExecuteCommand.answer :: ExecAssertRule (6 -> 9 active nodes)
+[reduce] ExecuteCommand.answer <= ExecAssertRule (9 -> 6 active nodes)
+[reduce] ProcessText.answer <= ExecuteCommand (6 -> 4 active nodes)
+[expand] ProcessText.rendered :: RenderEnglish (4 -> 6 active nodes)
+[activation-index] english.response: 30 stored guard rules -> 1 sent to Datalog
+[datalog-select] english.response: Ack:1
+[expand] RenderEnglish.text :: Ack (6 -> 8 active nodes)
+[reduce] RenderEnglish.text <= Ack (8 -> 6 active nodes)
+[reduce] ProcessText.rendered <= RenderEnglish (6 -> 4 active nodes)
+[reduce] ROOT:ProcessText <= ProcessText (4 -> 1 active nodes)

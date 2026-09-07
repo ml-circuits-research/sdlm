@@ -1,0 +1,22 @@
+@input tree
+@input subject
+@g parseProductionIs
+    value $tree
+    production "RelativeAtomVerb"
+@vTree chartChild
+    tree $tree
+    index 0
+@oTree chartChild
+    tree $tree
+    index 1
+@v chartLemma
+    tree $vTree
+    class "verb3"
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $subject
+    predicate $v
+    object $o
+    polarity "positive"
+@output result $atom

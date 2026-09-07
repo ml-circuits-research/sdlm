@@ -1,0 +1,28 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 4
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "anyone"
+@g4 tokenLastIs
+    tokens $tokens
+    value "?"
+@x makeVariable
+    name "Answer"
+@predicate tokenNormAt
+    tokens $tokens
+    index 2
+@atom makeUnaryAtom
+    subject $x
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askExists"
+    payload $atom
+@output result $command

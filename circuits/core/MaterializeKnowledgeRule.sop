@@ -1,0 +1,4 @@
+@input rule
+@result kbAssertRule
+    rule $rule
+@output result $result

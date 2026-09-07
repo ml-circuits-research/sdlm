@@ -1,0 +1,22 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskV5Copular"
+@sTree chartChild
+    tree $tree
+    index 1
+@pTree chartChild
+    tree $tree
+    index 2
+@s chartTerm
+    tree $sTree
+@p chartNorm
+    tree $pTree
+@atom makeUnaryAtom
+    subject $s
+    predicate $p
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

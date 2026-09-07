@@ -1,0 +1,34 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "compare"
+@g3 tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "and"
+@g5 tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@g6 tokenLastIs
+    tokens $tokens
+    value "."
+@left constantAt
+    tokens $tokens
+    index 1
+@right constantAt
+    tokens $tokens
+    index 3
+@command makePairCommand
+    kind "compare"
+    left $left
+    right $right
+@output result $command

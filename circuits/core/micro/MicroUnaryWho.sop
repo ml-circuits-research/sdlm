@@ -1,0 +1,11 @@
+@input predicate
+@x makeVariable
+    name "X"
+@atom makeUnaryAtom
+    subject $x
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

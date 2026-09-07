@@ -1,0 +1,29 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "reflection"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@tree field
+    value $answer
+    name "support"
+@lines proofLines
+    tree $tree
+@proof join
+    values $lines
+    separator "\n"
+@depth field
+    value $answer
+    name "supportDepth"
+@rules field
+    value $answer
+    name "relevantRuleCount"
+@text concat
+    part1 "I can derive the claim. The shortest support I found has proof depth "
+    part2 $depth
+    part3 ". I found "
+    part4 $rules
+    part5 " rule paths whose heads could address the query. Symbolic support:\n"
+    part6 $proof
+@output result $text

@@ -1,0 +1,15 @@
+@input tokens
+@g tokenCountAtLeast
+    tokens $tokens
+    count 2
+@w candidateWeight
+    weight 40
+@candidates selectCircuits
+    group "english.microSentence"
+    tokens $tokens
+@command callParallelCandidates
+    candidates $candidates
+    tokens $tokens
+    beam 16
+    ambiguityMargin 0
+@output result $command

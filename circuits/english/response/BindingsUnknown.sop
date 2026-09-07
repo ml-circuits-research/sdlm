@@ -1,0 +1,10 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "bindings"
+@g2 answerStatusIs
+    value $answer
+    status "unknown"
+@text constant
+    value "No bindings are derivable."
+@output result $text

@@ -1,0 +1,14 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "FactSentence"
+@a chartChild
+    tree $tree
+    index 0
+@atom InterpretChartAtom
+    tree $a
+@command makeCommand
+    kind "assertFact"
+    payload $atom
+@output result $command

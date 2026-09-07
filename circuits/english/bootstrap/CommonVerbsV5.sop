@@ -1,0 +1,344 @@
+# Additional common English verb forms.
+@v1 addLexeme
+    surface "work"
+    class "verbBase"
+    lemma "work"
+@v2 addLexeme
+    surface "works"
+    class "verb3"
+    lemma "work"
+@v3 addLexeme
+    surface "worked"
+    class "verbPast"
+    lemma "work"
+@v4 addLexeme
+    surface "worked"
+    class "verbPart"
+    lemma "work"
+@v5 addLexeme
+    surface "working"
+    class "verbIng"
+    lemma "work"
+@v6 addLexeme
+    surface "run"
+    class "verbBase"
+    lemma "run"
+@v7 addLexeme
+    surface "runs"
+    class "verb3"
+    lemma "run"
+@v8 addLexeme
+    surface "ran"
+    class "verbPast"
+    lemma "run"
+@v9 addLexeme
+    surface "run"
+    class "verbPart"
+    lemma "run"
+@v10 addLexeme
+    surface "running"
+    class "verbIng"
+    lemma "run"
+@v11 addLexeme
+    surface "go"
+    class "verbBase"
+    lemma "go"
+@v12 addLexeme
+    surface "goes"
+    class "verb3"
+    lemma "go"
+@v13 addLexeme
+    surface "went"
+    class "verbPast"
+    lemma "go"
+@v14 addLexeme
+    surface "gone"
+    class "verbPart"
+    lemma "go"
+@v15 addLexeme
+    surface "going"
+    class "verbIng"
+    lemma "go"
+@v16 addLexeme
+    surface "have"
+    class "verbBase"
+    lemma "have"
+@v17 addLexeme
+    surface "has"
+    class "verb3"
+    lemma "have"
+@v18 addLexeme
+    surface "had"
+    class "verbPast"
+    lemma "have"
+@v19 addLexeme
+    surface "had"
+    class "verbPart"
+    lemma "have"
+@v20 addLexeme
+    surface "having"
+    class "verbIng"
+    lemma "have"
+@v21 addLexeme
+    surface "say"
+    class "verbBase"
+    lemma "say"
+@v22 addLexeme
+    surface "says"
+    class "verb3"
+    lemma "say"
+@v23 addLexeme
+    surface "said"
+    class "verbPast"
+    lemma "say"
+@v24 addLexeme
+    surface "said"
+    class "verbPart"
+    lemma "say"
+@v25 addLexeme
+    surface "saying"
+    class "verbIng"
+    lemma "say"
+@v26 addLexeme
+    surface "tell"
+    class "verbBase"
+    lemma "tell"
+@v27 addLexeme
+    surface "tells"
+    class "verb3"
+    lemma "tell"
+@v28 addLexeme
+    surface "told"
+    class "verbPast"
+    lemma "tell"
+@v29 addLexeme
+    surface "told"
+    class "verbPart"
+    lemma "tell"
+@v30 addLexeme
+    surface "telling"
+    class "verbIng"
+    lemma "tell"
+@v31 addLexeme
+    surface "speak"
+    class "verbBase"
+    lemma "speak"
+@v32 addLexeme
+    surface "speaks"
+    class "verb3"
+    lemma "speak"
+@v33 addLexeme
+    surface "spoke"
+    class "verbPast"
+    lemma "speak"
+@v34 addLexeme
+    surface "spoken"
+    class "verbPart"
+    lemma "speak"
+@v35 addLexeme
+    surface "speaking"
+    class "verbIng"
+    lemma "speak"
+@v36 addLexeme
+    surface "become"
+    class "verbBase"
+    lemma "become"
+@v37 addLexeme
+    surface "becomes"
+    class "verb3"
+    lemma "become"
+@v38 addLexeme
+    surface "became"
+    class "verbPast"
+    lemma "become"
+@v39 addLexeme
+    surface "become"
+    class "verbPart"
+    lemma "become"
+@v40 addLexeme
+    surface "becoming"
+    class "verbIng"
+    lemma "become"
+@v41 addLexeme
+    surface "seem"
+    class "verbBase"
+    lemma "seem"
+@v42 addLexeme
+    surface "seems"
+    class "verb3"
+    lemma "seem"
+@v43 addLexeme
+    surface "seemed"
+    class "verbPast"
+    lemma "seem"
+@v44 addLexeme
+    surface "seemed"
+    class "verbPart"
+    lemma "seem"
+@v45 addLexeme
+    surface "seeming"
+    class "verbIng"
+    lemma "seem"
+@v46 addLexeme
+    surface "appear"
+    class "verbBase"
+    lemma "appear"
+@v47 addLexeme
+    surface "appears"
+    class "verb3"
+    lemma "appear"
+@v48 addLexeme
+    surface "appeared"
+    class "verbPast"
+    lemma "appear"
+@v49 addLexeme
+    surface "appeared"
+    class "verbPart"
+    lemma "appear"
+@v50 addLexeme
+    surface "appearing"
+    class "verbIng"
+    lemma "appear"
+@v51 addLexeme
+    surface "remain"
+    class "verbBase"
+    lemma "remain"
+@v52 addLexeme
+    surface "remains"
+    class "verb3"
+    lemma "remain"
+@v53 addLexeme
+    surface "remained"
+    class "verbPast"
+    lemma "remain"
+@v54 addLexeme
+    surface "remained"
+    class "verbPart"
+    lemma "remain"
+@v55 addLexeme
+    surface "remaining"
+    class "verbIng"
+    lemma "remain"
+@v56 addLexeme
+    surface "live"
+    class "verbBase"
+    lemma "live"
+@v57 addLexeme
+    surface "lives"
+    class "verb3"
+    lemma "live"
+@v58 addLexeme
+    surface "lived"
+    class "verbPast"
+    lemma "live"
+@v59 addLexeme
+    surface "lived"
+    class "verbPart"
+    lemma "live"
+@v60 addLexeme
+    surface "living"
+    class "verbIng"
+    lemma "live"
+@v61 addLexeme
+    surface "move"
+    class "verbBase"
+    lemma "move"
+@v62 addLexeme
+    surface "moves"
+    class "verb3"
+    lemma "move"
+@v63 addLexeme
+    surface "moved"
+    class "verbPast"
+    lemma "move"
+@v64 addLexeme
+    surface "moved"
+    class "verbPart"
+    lemma "move"
+@v65 addLexeme
+    surface "moving"
+    class "verbIng"
+    lemma "move"
+@v66 addLexeme
+    surface "arrive"
+    class "verbBase"
+    lemma "arrive"
+@v67 addLexeme
+    surface "arrives"
+    class "verb3"
+    lemma "arrive"
+@v68 addLexeme
+    surface "arrived"
+    class "verbPast"
+    lemma "arrive"
+@v69 addLexeme
+    surface "arrived"
+    class "verbPart"
+    lemma "arrive"
+@v70 addLexeme
+    surface "arriving"
+    class "verbIng"
+    lemma "arrive"
+@v71 addLexeme
+    surface "leave"
+    class "verbBase"
+    lemma "leave"
+@v72 addLexeme
+    surface "leaves"
+    class "verb3"
+    lemma "leave"
+@v73 addLexeme
+    surface "left"
+    class "verbPast"
+    lemma "leave"
+@v74 addLexeme
+    surface "left"
+    class "verbPart"
+    lemma "leave"
+@v75 addLexeme
+    surface "leaving"
+    class "verbIng"
+    lemma "leave"
+@v76 addLexeme
+    surface "exist"
+    class "verbBase"
+    lemma "exist"
+@v77 addLexeme
+    surface "exists"
+    class "verb3"
+    lemma "exist"
+@v78 addLexeme
+    surface "existed"
+    class "verbPast"
+    lemma "exist"
+@v79 addLexeme
+    surface "existed"
+    class "verbPart"
+    lemma "exist"
+@v80 addLexeme
+    surface "existing"
+    class "verbIng"
+    lemma "exist"
+@v81 addLexeme
+    surface "depend"
+    class "verbBase"
+    lemma "depend"
+@v82 addLexeme
+    surface "depends"
+    class "verb3"
+    lemma "depend"
+@v83 addLexeme
+    surface "depended"
+    class "verbPast"
+    lemma "depend"
+@v84 addLexeme
+    surface "depended"
+    class "verbPart"
+    lemma "depend"
+@v85 addLexeme
+    surface "depending"
+    class "verbIng"
+    lemma "depend"
+@ready constant
+    value true
+@output result $ready

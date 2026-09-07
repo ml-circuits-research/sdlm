@@ -1,0 +1,32 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskV5Comparative"
+@sTree chartChild
+    tree $tree
+    index 1
+@pTree chartChild
+    tree $tree
+    index 3
+@oTree chartChild
+    tree $tree
+    index 5
+@s chartTerm
+    tree $sTree
+@p chartNorm
+    tree $pTree
+@pred concat
+    a "more_"
+    b $p
+    c "_than"
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $s
+    predicate $pred
+    object $o
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

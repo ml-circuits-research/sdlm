@@ -1,0 +1,11 @@
+@input command
+
+@executors selectCircuits
+    group "executor"
+    value $command
+
+@answer callCandidates
+    candidates $executors
+    command $command
+
+@output result $answer

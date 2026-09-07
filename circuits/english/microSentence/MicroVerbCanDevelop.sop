@@ -1,0 +1,33 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 5
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "can"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "develop"
+@g3 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@g4 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g5 tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@bias candidateWeight
+    weight 24
+@result MicroQualifiedBinaryFact
+    tokens $tokens
+    predicate "develop"
+    qualifier "can"
+    subjectIndex 0
+    objectIndex 3
+@output result $result

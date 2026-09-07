@@ -1,0 +1,26 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "WhoV5VerbPast"
+@vTree chartChild
+    tree $tree
+    index 1
+@oTree chartChild
+    tree $tree
+    index 2
+@v chartLemma
+    tree $vTree
+    class "verbPast"
+@o chartTerm
+    tree $oTree
+@x makeVariable
+    name "X"
+@atom makeBinaryAtom
+    subject $x
+    predicate $v
+    object $o
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

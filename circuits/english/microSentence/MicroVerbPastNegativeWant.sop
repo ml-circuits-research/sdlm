@@ -1,0 +1,36 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 6
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "did"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "not"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "want"
+@g4 tokenIs
+    tokens $tokens
+    index 5
+    value "."
+@g5 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g6 tokenClassIs
+    tokens $tokens
+    index 4
+    class "entity"
+@bias candidateWeight
+    weight 27
+@result MicroBinaryNegativeFact
+    tokens $tokens
+    predicate "want"
+    subjectIndex 0
+    objectIndex 4
+@output result $result

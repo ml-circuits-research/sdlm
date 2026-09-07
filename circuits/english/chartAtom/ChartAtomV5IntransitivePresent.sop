@@ -1,0 +1,20 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5IntransitivePresent"
+@sTree chartChild
+    tree $tree
+    index 0
+@vTree chartChild
+    tree $tree
+    index 1
+@s chartTerm
+    tree $sTree
+@v chartLemma
+    tree $vTree
+    class "verb3"
+@atom makeUnaryAtom
+    subject $s
+    predicate $v
+    polarity "positive"
+@output result $atom

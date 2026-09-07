@@ -1,0 +1,10 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "boolean"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@text constant
+    value "Yes."
+@output result $text

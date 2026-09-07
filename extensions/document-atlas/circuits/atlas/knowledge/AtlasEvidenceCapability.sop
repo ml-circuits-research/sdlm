@@ -1,0 +1,37 @@
+@atlas makeConstant
+    value "atlas"
+@evidence makeConstant
+    value "evidence"
+@fact makeBinaryAtom
+    subject $atlas
+    predicate "reconstruct"
+    object $evidence
+    qualifier "can"
+@claim makeConstant
+    value "evidenceclaim"
+@claimKind makeUnaryAtom
+    subject $claim
+    predicate "reported_claim"
+@team makeConstant
+    value "team"
+@reportedBy makeBinaryAtom
+    subject $claim
+    predicate "reported_by"
+    object $team
+@about makeBinaryAtom
+    subject $claim
+    predicate "about"
+    object $atlas
+@sentence makeConstant
+    value "sentence_3"
+@source makeBinaryAtom
+    subject $claim
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact
+    item2 $claimKind
+    item3 $reportedBy
+    item4 $about
+    item5 $source
+@output result $facts

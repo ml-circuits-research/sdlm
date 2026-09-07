@@ -1,0 +1,11 @@
+@input atom
+
+@candidates selectCircuits
+    group "english.atomRealizer"
+    value $atom
+
+@text callCandidates
+    candidates $candidates
+    atom $atom
+
+@output result $text

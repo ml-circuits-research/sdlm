@@ -1,0 +1,32 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AtomV5ModalVerb"
+@sTree chartChild
+    tree $tree
+    index 0
+@mTree chartChild
+    tree $tree
+    index 1
+@vTree chartChild
+    tree $tree
+    index 2
+@oTree chartChild
+    tree $tree
+    index 3
+@s chartTerm
+    tree $sTree
+@m chartNorm
+    tree $mTree
+@v chartLemma
+    tree $vTree
+    class "verbBase"
+@o chartTerm
+    tree $oTree
+@atom makeBinaryAtom
+    subject $s
+    predicate $v
+    qualifier $m
+    object $o
+    polarity "positive"
+@output result $atom

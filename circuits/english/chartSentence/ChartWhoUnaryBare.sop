@@ -1,0 +1,20 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "WhoUnaryBare"
+@p chartChild
+    tree $tree
+    index 2
+@predicate chartNorm
+    tree $p
+@who makeVariable
+    name "Who"
+@atom makeUnaryAtom
+    subject $who
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

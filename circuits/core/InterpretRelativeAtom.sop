@@ -1,0 +1,10 @@
+@input tree
+@input subject
+@handlers selectCircuits
+    group "english.chartRelativeAtom"
+    value $tree
+@atom callCandidates
+    candidates $handlers
+    tree $tree
+    subject $subject
+@output result $atom

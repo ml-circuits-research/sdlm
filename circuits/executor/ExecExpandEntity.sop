@@ -1,0 +1,14 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "expandEntity"
+@payload field
+    value $command
+    name "payload"
+@profile kbProfile
+    entity $payload
+@answer setField
+    value $profile
+    name "mode"
+    fieldValue "expansion"
+@output result $answer

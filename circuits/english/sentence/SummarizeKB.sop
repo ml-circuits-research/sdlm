@@ -1,0 +1,29 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "summarize"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "the"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "knowledge"
+@g5 tokenIs
+    tokens $tokens
+    index 3
+    value "base"
+@g6 tokenLastIs
+    tokens $tokens
+    value "."
+@payload constant
+    value true
+@command makeCommand
+    kind "summarizeKB"
+    payload $payload
+@output result $command

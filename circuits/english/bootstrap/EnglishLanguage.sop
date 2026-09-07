@@ -1,0 +1,171 @@
+# English knowledge is data installed by an ordinary SOP circuit.
+# The JS kernel does not contain these words or output templates.
+@entityPattern addTokenPattern
+    class "entity"
+    pattern "^[A-Z][A-Za-z0-9_-]*$"
+@variablePattern addTokenPattern
+    class "variable"
+    pattern "^[A-Z]$"
+@wordPattern addTokenPattern
+    class "word"
+    pattern "^[a-z][A-Za-z0-9_-]*$"
+@numberPattern addTokenPattern
+    class "number"
+    pattern "^[0-9]+$"
+
+@a addLexeme
+    surface "a"
+    class "article"
+    lemma "a"
+@an addLexeme
+    surface "an"
+    class "article"
+    lemma "an"
+
+@likes addLexeme
+    surface "likes"
+    class "verb3"
+    lemma "like"
+@like addLexeme
+    surface "like"
+    class "verbBase"
+    lemma "like"
+@trusts addLexeme
+    surface "trusts"
+    class "verb3"
+    lemma "trust"
+@trust addLexeme
+    surface "trust"
+    class "verbBase"
+    lemma "trust"
+@helps addLexeme
+    surface "helps"
+    class "verb3"
+    lemma "help"
+@help addLexeme
+    surface "help"
+    class "verbBase"
+    lemma "help"
+@knows addLexeme
+    surface "knows"
+    class "verb3"
+    lemma "know"
+@know addLexeme
+    surface "know"
+    class "verbBase"
+    lemma "know"
+@sees addLexeme
+    surface "sees"
+    class "verb3"
+    lemma "see"
+@see addLexeme
+    surface "see"
+    class "verbBase"
+    lemma "see"
+@supports addLexeme
+    surface "supports"
+    class "verb3"
+    lemma "support"
+@support addLexeme
+    surface "support"
+    class "verbBase"
+    lemma "support"
+@requires addLexeme
+    surface "requires"
+    class "verb3"
+    lemma "require"
+@require addLexeme
+    surface "require"
+    class "verbBase"
+    lemma "require"
+@uses addLexeme
+    surface "uses"
+    class "verb3"
+    lemma "use"
+@use addLexeme
+    surface "use"
+    class "verbBase"
+    lemma "use"
+@studies addLexeme
+    surface "studies"
+    class "verb3"
+    lemma "study"
+@study addLexeme
+    surface "study"
+    class "verbBase"
+    lemma "study"
+@writes addLexeme
+    surface "writes"
+    class "verb3"
+    lemma "write"
+@write addLexeme
+    surface "write"
+    class "verbBase"
+    lemma "write"
+@improves addLexeme
+    surface "improves"
+    class "verb3"
+    lemma "improve"
+@improve addLexeme
+    surface "improve"
+    class "verbBase"
+    lemma "improve"
+@reduces addLexeme
+    surface "reduces"
+    class "verb3"
+    lemma "reduce"
+@reduce addLexeme
+    surface "reduce"
+    class "verbBase"
+    lemma "reduce"
+@increases addLexeme
+    surface "increases"
+    class "verb3"
+    lemma "increase"
+@increase addLexeme
+    surface "increase"
+    class "verbBase"
+    lemma "increase"
+@causes addLexeme
+    surface "causes"
+    class "verb3"
+    lemma "cause"
+@cause addLexeme
+    surface "cause"
+    class "verbBase"
+    lemma "cause"
+
+@parent addLexeme
+    surface "parent"
+    class "relationNoun"
+    lemma "parent"
+@ancestor addLexeme
+    surface "ancestor"
+    class "relationNoun"
+    lemma "ancestor"
+@friend addLexeme
+    surface "friend"
+    class "relationNoun"
+    lemma "friend"
+@sibling addLexeme
+    surface "sibling"
+    class "relationNoun"
+    lemma "sibling"
+@colleague addLexeme
+    surface "colleague"
+    class "relationNoun"
+    lemma "colleague"
+@member addLexeme
+    surface "member"
+    class "relationNoun"
+    lemma "member"
+@part addLexeme
+    surface "part"
+    class "relationNoun"
+    lemma "part"
+
+# Atom and response realization are ordinary SOP circuits under english/atomRealizer and english/response.
+
+@ready constant
+    value true
+@output result $ready

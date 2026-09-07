@@ -1,0 +1,7 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "ack"
+@text constant
+    value "Learned."
+@output result $text

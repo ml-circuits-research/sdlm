@@ -1,0 +1,14 @@
+@input tree
+@input subject
+@g parseProductionIs
+    value $tree
+    production "RelativeConditionsOne"
+@aTree chartChild
+    tree $tree
+    index 0
+@a InterpretRelativeAtom
+    tree $aTree
+    subject $subject
+@atoms list
+    item1 $a
+@output result $atoms

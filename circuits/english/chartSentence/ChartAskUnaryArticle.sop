@@ -1,0 +1,23 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "AskUnaryArticle"
+@s chartChild
+    tree $tree
+    index 1
+@p chartChild
+    tree $tree
+    index 3
+@subject chartTerm
+    tree $s
+@predicate chartNorm
+    tree $p
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

@@ -1,0 +1,17 @@
+@input tokens
+@input predicate
+@input objectIndex
+@x makeVariable
+    name "X"
+@object termAt
+    tokens $tokens
+    index $objectIndex
+@atom makeBinaryAtom
+    subject $x
+    predicate $predicate
+    object $object
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

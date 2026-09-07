@@ -1,0 +1,33 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 6
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "examine"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "whether"
+@g4 tokenIs
+    tokens $tokens
+    index 3
+    value "is"
+@g5 tokenLastIs
+    tokens $tokens
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 2
+@predicate tokenNormAt
+    tokens $tokens
+    index 4
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "reflect"
+    payload $atom
+@output result $command

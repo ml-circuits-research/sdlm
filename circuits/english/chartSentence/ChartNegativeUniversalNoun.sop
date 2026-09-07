@@ -1,0 +1,34 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "NegativeUniversalNoun"
+@classTree chartChild
+    tree $tree
+    index 1
+@propTree chartChild
+    tree $tree
+    index 3
+@class chartLemma
+    tree $classTree
+    class "noun"
+@prop chartNorm
+    tree $propTree
+@x makeVariable
+    name "X"
+@b makeUnaryAtom
+    subject $x
+    predicate $class
+    polarity "positive"
+@h makeUnaryAtom
+    subject $x
+    predicate $prop
+    polarity "negative"
+@body list
+    item1 $b
+@rule makeRule
+    head $h
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

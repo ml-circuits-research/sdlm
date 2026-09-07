@@ -1,0 +1,23 @@
+@input tokens
+@g1 tokenLastIs
+    tokens $tokens
+    value "."
+@count tokenCount
+    tokens $tokens
+@end add
+    value $count
+    delta -1
+@atomTokens sliceTokens
+    tokens $tokens
+    start 0
+    end $end
+@atomParser selectCircuit
+    group "english.atom"
+    tokens $atomTokens
+@atom callCircuit
+    circuit $atomParser
+    tokens $atomTokens
+@command makeCommand
+    kind "assertFact"
+    payload $atom
+@output result $command

@@ -1,0 +1,19 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "explanation"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@tree field
+    value $answer
+    name "support"
+@lines proofLines
+    tree $tree
+@joined join
+    values $lines
+    separator "\n"
+@text concat
+    part1 "Supported by:\n"
+    part2 $joined
+@output result $text

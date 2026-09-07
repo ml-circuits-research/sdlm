@@ -1,0 +1,15 @@
+@input tree
+@input subject
+@g parseProductionIs
+    value $tree
+    production "RelativeAtomCopular"
+@pTree chartChild
+    tree $tree
+    index 1
+@p chartNorm
+    tree $pTree
+@atom makeUnaryAtom
+    subject $subject
+    predicate $p
+    polarity "positive"
+@output result $atom

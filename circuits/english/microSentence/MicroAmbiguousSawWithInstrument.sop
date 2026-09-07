@@ -1,0 +1,44 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 6
+@g1 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "saw"
+@g3 tokenClassIs
+    tokens $tokens
+    index 2
+    class "entity"
+@g4 tokenIs
+    tokens $tokens
+    index 3
+    value "with"
+@g5 tokenClassIs
+    tokens $tokens
+    index 4
+    class "entity"
+@g6 tokenLastIs
+    tokens $tokens
+    value "."
+@bias candidateWeight
+    weight 50
+@s termAt
+    tokens $tokens
+    index 0
+@o termAt
+    tokens $tokens
+    index 2
+@a makeBinaryAtom
+    subject $s
+    predicate "see"
+    object $o
+    polarity "positive"
+@command makeCommand
+    kind "assertFact"
+    payload $a
+@output result $command

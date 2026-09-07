@@ -1,0 +1,24 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 4
+@g1 tokenIs
+    tokens $tokens
+    index 0
+    value "who"
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "synchronous"
+@g4 tokenLastIs
+    tokens $tokens
+    value "?"
+@bias candidateWeight
+    weight 23
+@result MicroUnaryWho
+    predicate "synchronous"
+@output result $result

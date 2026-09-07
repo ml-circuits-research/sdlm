@@ -1,0 +1,24 @@
+{
+  "name": "sop-sllm-prototype",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "SOP-SLLM research prototype: semantic circuits, circuit-pack knowledge, generic Datalog activation, compositional CNL, transactional rewrite, circuit induction, and symbolic NLG",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/demo.mjs",
+    "trace": "node src/cli.mjs --trace examples/demo.sopnl",
+    "repl": "node src/cli.mjs",
+    "test:external": "node src/check-external-datalog.mjs",
+    "extension:admires": "node src/cli.mjs --extension extensions/admires examples/admires.sopnl",
+    "extension:research": "node src/cli.mjs --extension extensions/research-pack examples/research-pack.sopnl",
+    "library:generate": "python3 tools/generate-v5-library.py",
+    "demo:document": "node src/demo-document-circuits.mjs"
+  },
+  "dependencies": {
+    "@suss/datalog": "0.19.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

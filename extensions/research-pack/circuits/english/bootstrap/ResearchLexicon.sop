@@ -1,0 +1,20 @@
+# Example of a learned/installed circuit pack: vocabulary only, no JS changes.
+@validates addLexeme
+    surface "validates"
+    class "verb3"
+    lemma "validate"
+@validate addLexeme
+    surface "validate"
+    class "verbBase"
+    lemma "validate"
+@audits addLexeme
+    surface "audits"
+    class "verb3"
+    lemma "audit"
+@audit addLexeme
+    surface "audit"
+    class "verbBase"
+    lemma "audit"
+@ready constant
+    value true
+@output result $ready

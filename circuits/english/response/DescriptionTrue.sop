@@ -1,0 +1,17 @@
+@input answer
+@g1 answerKindIs
+    value $answer
+    kind "description"
+@g2 answerStatusIs
+    value $answer
+    status "true"
+@facts field
+    value $answer
+    name "facts"
+@joined join
+    values $facts
+    separator "\n"
+@text concat
+    part1 "Known:\n"
+    part2 $joined
+@output result $text

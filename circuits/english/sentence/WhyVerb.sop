@@ -1,0 +1,46 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 6
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "why"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "does"
+@g4 tokenClassIs
+    tokens $tokens
+    index 2
+    class "entity"
+@g5 tokenClassIs
+    tokens $tokens
+    index 3
+    class "verbBase"
+@g6 tokenClassIs
+    tokens $tokens
+    index 4
+    class "entity"
+@g7 tokenLastIs
+    tokens $tokens
+    value "?"
+@subject constantAt
+    tokens $tokens
+    index 2
+@predicate tokenLemmaAt
+    tokens $tokens
+    index 3
+    class "verbBase"
+@object constantAt
+    tokens $tokens
+    index 4
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "positive"
+@command makeCommand
+    kind "explain"
+    payload $atom
+@output result $command

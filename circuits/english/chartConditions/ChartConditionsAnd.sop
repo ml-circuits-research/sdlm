@@ -1,0 +1,19 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "ConditionsAnd"
+@leftTree chartChild
+    tree $tree
+    index 0
+@rightTree chartChild
+    tree $tree
+    index 2
+@left InterpretConditionList
+    tree $leftTree
+@right InterpretChartAtom
+    tree $rightTree
+@atoms append
+    values $left
+    value $right
+@output result $atoms

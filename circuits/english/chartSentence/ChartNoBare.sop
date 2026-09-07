@@ -1,0 +1,34 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "NoBare"
+@subNode chartChild
+    tree $tree
+    index 1
+@supNode chartChild
+    tree $tree
+    index 3
+@sub chartNorm
+    tree $subNode
+@sup chartNorm
+    tree $supNode
+@x makeVariable
+    name "X"
+@bodyAtom makeUnaryAtom
+    subject $x
+    predicate $sub
+    polarity "positive"
+@headAtom makeUnaryAtom
+    subject $x
+    predicate $sup
+    polarity "negative"
+@body list
+    item1 $bodyAtom
+@rule makeRule
+    head $headAtom
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

@@ -1,0 +1,16 @@
+@architecture makeConstant
+    value "architecture"
+@head makeUnaryAtom
+    subject $architecture
+    predicate "auditable"
+@answerCircuits makeConstant
+    value "answer_circuits"
+@premise makeUnaryAtom
+    subject $answerCircuits
+    predicate "retain_derivation_links"
+@body list
+    item1 $premise
+@rule makeRule
+    head $head
+    body $body
+@output result $rule

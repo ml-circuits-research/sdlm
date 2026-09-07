@@ -1,0 +1,284 @@
+# Additional common English forms for V5.
+@rhs0sym1 grammarCategory
+    name "Term"
+@rhs0sym2 grammarCategory
+    name "Copula"
+@rhs0sym3 grammarCategory
+    name "verbIng"
+@rhs0sym4 grammarCategory
+    name "Term"
+@rhs0 list
+    item1 $rhs0sym1
+    item2 $rhs0sym2
+    item3 $rhs0sym3
+    item4 $rhs0sym4
+@r0 addGrammarRule
+    name "AtomV5Progressive"
+    lhs "Atom"
+    rhs $rhs0
+    weight 5
+@rhs1sym1 grammarCategory
+    name "Term"
+@rhs1sym2 grammarToken
+    value "has"
+@rhs1sym3 grammarCategory
+    name "verbPart"
+@rhs1sym4 grammarCategory
+    name "Term"
+@rhs1 list
+    item1 $rhs1sym1
+    item2 $rhs1sym2
+    item3 $rhs1sym3
+    item4 $rhs1sym4
+@r1 addGrammarRule
+    name "AtomV5Perfect"
+    lhs "Atom"
+    rhs $rhs1
+    weight 5
+@rhs2sym1 grammarCategory
+    name "Term"
+@rhs2sym2 grammarToken
+    value "had"
+@rhs2sym3 grammarCategory
+    name "verbPart"
+@rhs2sym4 grammarCategory
+    name "Term"
+@rhs2 list
+    item1 $rhs2sym1
+    item2 $rhs2sym2
+    item3 $rhs2sym3
+    item4 $rhs2sym4
+@r2 addGrammarRule
+    name "AtomV5PastPerfect"
+    lhs "Atom"
+    rhs $rhs2
+    weight 5
+@rhs3sym1 grammarCategory
+    name "Term"
+@rhs3sym2 grammarCategory
+    name "negCopula"
+@rhs3sym3 grammarCategory
+    name "word"
+@rhs3 list
+    item1 $rhs3sym1
+    item2 $rhs3sym2
+    item3 $rhs3sym3
+@r3 addGrammarRule
+    name "AtomV5NegCopulaContraction"
+    lhs "Atom"
+    rhs $rhs3
+    weight 5
+@rhs4sym1 grammarCategory
+    name "Term"
+@rhs4sym2 grammarCategory
+    name "negAuxDo"
+@rhs4sym3 grammarCategory
+    name "verbBase"
+@rhs4sym4 grammarCategory
+    name "Term"
+@rhs4 list
+    item1 $rhs4sym1
+    item2 $rhs4sym2
+    item3 $rhs4sym3
+    item4 $rhs4sym4
+@r4 addGrammarRule
+    name "AtomV5NegVerbContraction"
+    lhs "Atom"
+    rhs $rhs4
+    weight 5
+@rhs5sym1 grammarCategory
+    name "Term"
+@rhs5sym2 grammarCategory
+    name "negModal"
+@rhs5sym3 grammarCategory
+    name "verbBase"
+@rhs5sym4 grammarCategory
+    name "Term"
+@rhs5 list
+    item1 $rhs5sym1
+    item2 $rhs5sym2
+    item3 $rhs5sym3
+    item4 $rhs5sym4
+@r5 addGrammarRule
+    name "AtomV5NegModalContraction"
+    lhs "Atom"
+    rhs $rhs5
+    weight 5
+@rhs6sym1 grammarCategory
+    name "UniversalQuant"
+@rhs6sym2 grammarCategory
+    name "noun"
+@rhs6sym3 grammarCategory
+    name "Copula"
+@rhs6sym4 grammarCategory
+    name "word"
+@rhs6sym5 grammarToken
+    value "."
+@rhs6 list
+    item1 $rhs6sym1
+    item2 $rhs6sym2
+    item3 $rhs6sym3
+    item4 $rhs6sym4
+    item5 $rhs6sym5
+@r6 addGrammarRule
+    name "UniversalNounCopular"
+    lhs "Sentence"
+    rhs $rhs6
+    weight 9
+@rhs7sym1 grammarCategory
+    name "NoQuant"
+@rhs7sym2 grammarCategory
+    name "noun"
+@rhs7sym3 grammarCategory
+    name "Copula"
+@rhs7sym4 grammarCategory
+    name "word"
+@rhs7sym5 grammarToken
+    value "."
+@rhs7 list
+    item1 $rhs7sym1
+    item2 $rhs7sym2
+    item3 $rhs7sym3
+    item4 $rhs7sym4
+    item5 $rhs7sym5
+@r7 addGrammarRule
+    name "NegativeUniversalNoun"
+    lhs "Sentence"
+    rhs $rhs7
+    weight 9
+@rhs8sym1 grammarToken
+    value "which"
+@rhs8sym2 grammarCategory
+    name "noun"
+@rhs8sym3 grammarCategory
+    name "Copula"
+@rhs8sym4 grammarCategory
+    name "word"
+@rhs8sym5 grammarToken
+    value "?"
+@rhs8 list
+    item1 $rhs8sym1
+    item2 $rhs8sym2
+    item3 $rhs8sym3
+    item4 $rhs8sym4
+    item5 $rhs8sym5
+@r8 addGrammarRule
+    name "WhichV5NounProperty"
+    lhs "Sentence"
+    rhs $rhs8
+    weight 9
+@rhs9sym1 grammarToken
+    value "how"
+@rhs9sym2 grammarToken
+    value "many"
+@rhs9sym3 grammarCategory
+    name "noun"
+@rhs9sym4 grammarCategory
+    name "Copula"
+@rhs9sym5 grammarCategory
+    name "word"
+@rhs9sym6 grammarToken
+    value "?"
+@rhs9 list
+    item1 $rhs9sym1
+    item2 $rhs9sym2
+    item3 $rhs9sym3
+    item4 $rhs9sym4
+    item5 $rhs9sym5
+    item6 $rhs9sym6
+@r9 addGrammarRule
+    name "HowManyV5NounProperty"
+    lhs "Sentence"
+    rhs $rhs9
+    weight 9
+@rhs10sym1 grammarCategory
+    name "Copula"
+@rhs10sym2 grammarCategory
+    name "Term"
+@rhs10sym3 grammarToken
+    value "more"
+@rhs10sym4 grammarCategory
+    name "word"
+@rhs10sym5 grammarToken
+    value "than"
+@rhs10sym6 grammarCategory
+    name "Term"
+@rhs10sym7 grammarToken
+    value "?"
+@rhs10 list
+    item1 $rhs10sym1
+    item2 $rhs10sym2
+    item3 $rhs10sym3
+    item4 $rhs10sym4
+    item5 $rhs10sym5
+    item6 $rhs10sym6
+    item7 $rhs10sym7
+@r10 addGrammarRule
+    name "AskV5Comparative"
+    lhs "Sentence"
+    rhs $rhs10
+    weight 7
+@rhs11sym1 grammarCategory
+    name "Copula"
+@rhs11sym2 grammarCategory
+    name "Term"
+@rhs11sym3 grammarToken
+    value "very"
+@rhs11sym4 grammarCategory
+    name "word"
+@rhs11sym5 grammarToken
+    value "?"
+@rhs11 list
+    item1 $rhs11sym1
+    item2 $rhs11sym2
+    item3 $rhs11sym3
+    item4 $rhs11sym4
+    item5 $rhs11sym5
+@r11 addGrammarRule
+    name "AskV5Very"
+    lhs "Sentence"
+    rhs $rhs11
+    weight 7
+@rhs12sym1 grammarToken
+    value "has"
+@rhs12sym2 grammarCategory
+    name "Term"
+@rhs12sym3 grammarCategory
+    name "verbPart"
+@rhs12sym4 grammarCategory
+    name "Term"
+@rhs12sym5 grammarToken
+    value "?"
+@rhs12 list
+    item1 $rhs12sym1
+    item2 $rhs12sym2
+    item3 $rhs12sym3
+    item4 $rhs12sym4
+    item5 $rhs12sym5
+@r12 addGrammarRule
+    name "AskV5Perfect"
+    lhs "Sentence"
+    rhs $rhs12
+    weight 7
+@rhs13sym1 grammarCategory
+    name "Copula"
+@rhs13sym2 grammarCategory
+    name "Term"
+@rhs13sym3 grammarCategory
+    name "verbIng"
+@rhs13sym4 grammarCategory
+    name "Term"
+@rhs13sym5 grammarToken
+    value "?"
+@rhs13 list
+    item1 $rhs13sym1
+    item2 $rhs13sym2
+    item3 $rhs13sym3
+    item4 $rhs13sym4
+    item5 $rhs13sym5
+@r13 addGrammarRule
+    name "AskV5Progressive"
+    lhs "Sentence"
+    rhs $rhs13
+    weight 7
+@output result $r13

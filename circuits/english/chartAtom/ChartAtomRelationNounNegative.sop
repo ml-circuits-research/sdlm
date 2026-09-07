@@ -1,0 +1,30 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "AtomRelationNounNegative"
+@s chartChild
+    tree $tree
+    index 0
+@rel chartChild
+    tree $tree
+    index 3
+@p chartChild
+    tree $rel
+    index 1
+@o chartChild
+    tree $rel
+    index 3
+@subject chartTerm
+    tree $s
+@predicate chartLemma
+    tree $p
+    class "relationNoun"
+@object chartTerm
+    tree $o
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "negative"
+@output result $atom

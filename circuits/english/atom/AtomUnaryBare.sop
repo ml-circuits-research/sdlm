@@ -1,0 +1,24 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 3
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenClassIs
+    tokens $tokens
+    index 2
+    class "word"
+@subject termAt
+    tokens $tokens
+    index 0
+    variableClass "variable"
+@predicate tokenNormAt
+    tokens $tokens
+    index 2
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@output result $atom

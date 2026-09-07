@@ -1,0 +1,27 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "WhatVerbSubject"
+@s chartChild
+    tree $tree
+    index 2
+@v chartChild
+    tree $tree
+    index 3
+@subject chartTerm
+    tree $s
+@predicate chartLemma
+    tree $v
+    class "verbBase"
+@what makeVariable
+    name "What"
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $what
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

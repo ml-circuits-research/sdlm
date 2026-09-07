@@ -1,0 +1,2464 @@
+# Generated lexical knowledge for V5. This is SOP data, not JavaScript language knowledge.
+@l1 addLexeme
+    surface "can"
+    class "modal"
+    lemma "can"
+@l2 addLexeme
+    surface "could"
+    class "modal"
+    lemma "could"
+@l3 addLexeme
+    surface "may"
+    class "modal"
+    lemma "may"
+@l4 addLexeme
+    surface "might"
+    class "modal"
+    lemma "might"
+@l5 addLexeme
+    surface "must"
+    class "modal"
+    lemma "must"
+@l6 addLexeme
+    surface "should"
+    class "modal"
+    lemma "should"
+@l7 addLexeme
+    surface "would"
+    class "modal"
+    lemma "would"
+@l8 addLexeme
+    surface "will"
+    class "modal"
+    lemma "will"
+@l9 addLexeme
+    surface "is"
+    class "copula"
+    lemma "be"
+@l10 addLexeme
+    surface "are"
+    class "copula"
+    lemma "be"
+@l11 addLexeme
+    surface "was"
+    class "copula"
+    lemma "be"
+@l12 addLexeme
+    surface "were"
+    class "copula"
+    lemma "be"
+@l13 addLexeme
+    surface "does"
+    class "auxDo"
+    lemma "do"
+@l14 addLexeme
+    surface "did"
+    class "auxDo"
+    lemma "do"
+@l15 addLexeme
+    surface "do"
+    class "auxDo"
+    lemma "do"
+@l16 addLexeme
+    surface "like"
+    class "verbBase"
+    lemma "like"
+@l17 addLexeme
+    surface "likes"
+    class "verb3"
+    lemma "like"
+@l18 addLexeme
+    surface "liked"
+    class "verbPast"
+    lemma "like"
+@l19 addLexeme
+    surface "liked"
+    class "verbPart"
+    lemma "like"
+@l20 addLexeme
+    surface "liking"
+    class "verbIng"
+    lemma "like"
+@l21 addLexeme
+    surface "trust"
+    class "verbBase"
+    lemma "trust"
+@l22 addLexeme
+    surface "trusts"
+    class "verb3"
+    lemma "trust"
+@l23 addLexeme
+    surface "trusted"
+    class "verbPast"
+    lemma "trust"
+@l24 addLexeme
+    surface "trusted"
+    class "verbPart"
+    lemma "trust"
+@l25 addLexeme
+    surface "trusting"
+    class "verbIng"
+    lemma "trust"
+@l26 addLexeme
+    surface "help"
+    class "verbBase"
+    lemma "help"
+@l27 addLexeme
+    surface "helps"
+    class "verb3"
+    lemma "help"
+@l28 addLexeme
+    surface "helped"
+    class "verbPast"
+    lemma "help"
+@l29 addLexeme
+    surface "helped"
+    class "verbPart"
+    lemma "help"
+@l30 addLexeme
+    surface "helping"
+    class "verbIng"
+    lemma "help"
+@l31 addLexeme
+    surface "know"
+    class "verbBase"
+    lemma "know"
+@l32 addLexeme
+    surface "knows"
+    class "verb3"
+    lemma "know"
+@l33 addLexeme
+    surface "knew"
+    class "verbPast"
+    lemma "know"
+@l34 addLexeme
+    surface "known"
+    class "verbPart"
+    lemma "know"
+@l35 addLexeme
+    surface "knowing"
+    class "verbIng"
+    lemma "know"
+@l36 addLexeme
+    surface "see"
+    class "verbBase"
+    lemma "see"
+@l37 addLexeme
+    surface "sees"
+    class "verb3"
+    lemma "see"
+@l38 addLexeme
+    surface "saw"
+    class "verbPast"
+    lemma "see"
+@l39 addLexeme
+    surface "seen"
+    class "verbPart"
+    lemma "see"
+@l40 addLexeme
+    surface "seeing"
+    class "verbIng"
+    lemma "see"
+@l41 addLexeme
+    surface "support"
+    class "verbBase"
+    lemma "support"
+@l42 addLexeme
+    surface "supports"
+    class "verb3"
+    lemma "support"
+@l43 addLexeme
+    surface "supported"
+    class "verbPast"
+    lemma "support"
+@l44 addLexeme
+    surface "supported"
+    class "verbPart"
+    lemma "support"
+@l45 addLexeme
+    surface "supporting"
+    class "verbIng"
+    lemma "support"
+@l46 addLexeme
+    surface "require"
+    class "verbBase"
+    lemma "require"
+@l47 addLexeme
+    surface "requires"
+    class "verb3"
+    lemma "require"
+@l48 addLexeme
+    surface "required"
+    class "verbPast"
+    lemma "require"
+@l49 addLexeme
+    surface "required"
+    class "verbPart"
+    lemma "require"
+@l50 addLexeme
+    surface "requiring"
+    class "verbIng"
+    lemma "require"
+@l51 addLexeme
+    surface "use"
+    class "verbBase"
+    lemma "use"
+@l52 addLexeme
+    surface "uses"
+    class "verb3"
+    lemma "use"
+@l53 addLexeme
+    surface "used"
+    class "verbPast"
+    lemma "use"
+@l54 addLexeme
+    surface "used"
+    class "verbPart"
+    lemma "use"
+@l55 addLexeme
+    surface "using"
+    class "verbIng"
+    lemma "use"
+@l56 addLexeme
+    surface "study"
+    class "verbBase"
+    lemma "study"
+@l57 addLexeme
+    surface "studies"
+    class "verb3"
+    lemma "study"
+@l58 addLexeme
+    surface "studied"
+    class "verbPast"
+    lemma "study"
+@l59 addLexeme
+    surface "studied"
+    class "verbPart"
+    lemma "study"
+@l60 addLexeme
+    surface "studying"
+    class "verbIng"
+    lemma "study"
+@l61 addLexeme
+    surface "write"
+    class "verbBase"
+    lemma "write"
+@l62 addLexeme
+    surface "writes"
+    class "verb3"
+    lemma "write"
+@l63 addLexeme
+    surface "wrote"
+    class "verbPast"
+    lemma "write"
+@l64 addLexeme
+    surface "written"
+    class "verbPart"
+    lemma "write"
+@l65 addLexeme
+    surface "writing"
+    class "verbIng"
+    lemma "write"
+@l66 addLexeme
+    surface "improve"
+    class "verbBase"
+    lemma "improve"
+@l67 addLexeme
+    surface "improves"
+    class "verb3"
+    lemma "improve"
+@l68 addLexeme
+    surface "improved"
+    class "verbPast"
+    lemma "improve"
+@l69 addLexeme
+    surface "improved"
+    class "verbPart"
+    lemma "improve"
+@l70 addLexeme
+    surface "improving"
+    class "verbIng"
+    lemma "improve"
+@l71 addLexeme
+    surface "reduce"
+    class "verbBase"
+    lemma "reduce"
+@l72 addLexeme
+    surface "reduces"
+    class "verb3"
+    lemma "reduce"
+@l73 addLexeme
+    surface "reduced"
+    class "verbPast"
+    lemma "reduce"
+@l74 addLexeme
+    surface "reduced"
+    class "verbPart"
+    lemma "reduce"
+@l75 addLexeme
+    surface "reducing"
+    class "verbIng"
+    lemma "reduce"
+@l76 addLexeme
+    surface "increase"
+    class "verbBase"
+    lemma "increase"
+@l77 addLexeme
+    surface "increases"
+    class "verb3"
+    lemma "increase"
+@l78 addLexeme
+    surface "increased"
+    class "verbPast"
+    lemma "increase"
+@l79 addLexeme
+    surface "increased"
+    class "verbPart"
+    lemma "increase"
+@l80 addLexeme
+    surface "increasing"
+    class "verbIng"
+    lemma "increase"
+@l81 addLexeme
+    surface "cause"
+    class "verbBase"
+    lemma "cause"
+@l82 addLexeme
+    surface "causes"
+    class "verb3"
+    lemma "cause"
+@l83 addLexeme
+    surface "caused"
+    class "verbPast"
+    lemma "cause"
+@l84 addLexeme
+    surface "caused"
+    class "verbPart"
+    lemma "cause"
+@l85 addLexeme
+    surface "causing"
+    class "verbIng"
+    lemma "cause"
+@l86 addLexeme
+    surface "create"
+    class "verbBase"
+    lemma "create"
+@l87 addLexeme
+    surface "creates"
+    class "verb3"
+    lemma "create"
+@l88 addLexeme
+    surface "created"
+    class "verbPast"
+    lemma "create"
+@l89 addLexeme
+    surface "created"
+    class "verbPart"
+    lemma "create"
+@l90 addLexeme
+    surface "creating"
+    class "verbIng"
+    lemma "create"
+@l91 addLexeme
+    surface "build"
+    class "verbBase"
+    lemma "build"
+@l92 addLexeme
+    surface "builds"
+    class "verb3"
+    lemma "build"
+@l93 addLexeme
+    surface "built"
+    class "verbPast"
+    lemma "build"
+@l94 addLexeme
+    surface "built"
+    class "verbPart"
+    lemma "build"
+@l95 addLexeme
+    surface "building"
+    class "verbIng"
+    lemma "build"
+@l96 addLexeme
+    surface "test"
+    class "verbBase"
+    lemma "test"
+@l97 addLexeme
+    surface "tests"
+    class "verb3"
+    lemma "test"
+@l98 addLexeme
+    surface "tested"
+    class "verbPast"
+    lemma "test"
+@l99 addLexeme
+    surface "tested"
+    class "verbPart"
+    lemma "test"
+@l100 addLexeme
+    surface "testing"
+    class "verbIng"
+    lemma "test"
+@l101 addLexeme
+    surface "validate"
+    class "verbBase"
+    lemma "validate"
+@l102 addLexeme
+    surface "validates"
+    class "verb3"
+    lemma "validate"
+@l103 addLexeme
+    surface "validated"
+    class "verbPast"
+    lemma "validate"
+@l104 addLexeme
+    surface "validated"
+    class "verbPart"
+    lemma "validate"
+@l105 addLexeme
+    surface "validating"
+    class "verbIng"
+    lemma "validate"
+@l106 addLexeme
+    surface "audit"
+    class "verbBase"
+    lemma "audit"
+@l107 addLexeme
+    surface "audits"
+    class "verb3"
+    lemma "audit"
+@l108 addLexeme
+    surface "audited"
+    class "verbPast"
+    lemma "audit"
+@l109 addLexeme
+    surface "audited"
+    class "verbPart"
+    lemma "audit"
+@l110 addLexeme
+    surface "auditing"
+    class "verbIng"
+    lemma "audit"
+@l111 addLexeme
+    surface "review"
+    class "verbBase"
+    lemma "review"
+@l112 addLexeme
+    surface "reviews"
+    class "verb3"
+    lemma "review"
+@l113 addLexeme
+    surface "reviewed"
+    class "verbPast"
+    lemma "review"
+@l114 addLexeme
+    surface "reviewed"
+    class "verbPart"
+    lemma "review"
+@l115 addLexeme
+    surface "reviewing"
+    class "verbIng"
+    lemma "review"
+@l116 addLexeme
+    surface "analyze"
+    class "verbBase"
+    lemma "analyze"
+@l117 addLexeme
+    surface "analyzes"
+    class "verb3"
+    lemma "analyze"
+@l118 addLexeme
+    surface "analyzed"
+    class "verbPast"
+    lemma "analyze"
+@l119 addLexeme
+    surface "analyzed"
+    class "verbPart"
+    lemma "analyze"
+@l120 addLexeme
+    surface "analyzing"
+    class "verbIng"
+    lemma "analyze"
+@l121 addLexeme
+    surface "explain"
+    class "verbBase"
+    lemma "explain"
+@l122 addLexeme
+    surface "explains"
+    class "verb3"
+    lemma "explain"
+@l123 addLexeme
+    surface "explained"
+    class "verbPast"
+    lemma "explain"
+@l124 addLexeme
+    surface "explained"
+    class "verbPart"
+    lemma "explain"
+@l125 addLexeme
+    surface "explaining"
+    class "verbIng"
+    lemma "explain"
+@l126 addLexeme
+    surface "describe"
+    class "verbBase"
+    lemma "describe"
+@l127 addLexeme
+    surface "describes"
+    class "verb3"
+    lemma "describe"
+@l128 addLexeme
+    surface "described"
+    class "verbPast"
+    lemma "describe"
+@l129 addLexeme
+    surface "described"
+    class "verbPart"
+    lemma "describe"
+@l130 addLexeme
+    surface "describing"
+    class "verbIng"
+    lemma "describe"
+@l131 addLexeme
+    surface "summarize"
+    class "verbBase"
+    lemma "summarize"
+@l132 addLexeme
+    surface "summarizes"
+    class "verb3"
+    lemma "summarize"
+@l133 addLexeme
+    surface "summarized"
+    class "verbPast"
+    lemma "summarize"
+@l134 addLexeme
+    surface "summarized"
+    class "verbPart"
+    lemma "summarize"
+@l135 addLexeme
+    surface "summarizing"
+    class "verbIng"
+    lemma "summarize"
+@l136 addLexeme
+    surface "compare"
+    class "verbBase"
+    lemma "compare"
+@l137 addLexeme
+    surface "compares"
+    class "verb3"
+    lemma "compare"
+@l138 addLexeme
+    surface "compared"
+    class "verbPast"
+    lemma "compare"
+@l139 addLexeme
+    surface "compared"
+    class "verbPart"
+    lemma "compare"
+@l140 addLexeme
+    surface "comparing"
+    class "verbIng"
+    lemma "compare"
+@l141 addLexeme
+    surface "teach"
+    class "verbBase"
+    lemma "teach"
+@l142 addLexeme
+    surface "teaches"
+    class "verb3"
+    lemma "teach"
+@l143 addLexeme
+    surface "taught"
+    class "verbPast"
+    lemma "teach"
+@l144 addLexeme
+    surface "taught"
+    class "verbPart"
+    lemma "teach"
+@l145 addLexeme
+    surface "teaching"
+    class "verbIng"
+    lemma "teach"
+@l146 addLexeme
+    surface "learn"
+    class "verbBase"
+    lemma "learn"
+@l147 addLexeme
+    surface "learns"
+    class "verb3"
+    lemma "learn"
+@l148 addLexeme
+    surface "learned"
+    class "verbPast"
+    lemma "learn"
+@l149 addLexeme
+    surface "learned"
+    class "verbPart"
+    lemma "learn"
+@l150 addLexeme
+    surface "learning"
+    class "verbIng"
+    lemma "learn"
+@l151 addLexeme
+    surface "understand"
+    class "verbBase"
+    lemma "understand"
+@l152 addLexeme
+    surface "understands"
+    class "verb3"
+    lemma "understand"
+@l153 addLexeme
+    surface "understood"
+    class "verbPast"
+    lemma "understand"
+@l154 addLexeme
+    surface "understood"
+    class "verbPart"
+    lemma "understand"
+@l155 addLexeme
+    surface "understanding"
+    class "verbIng"
+    lemma "understand"
+@l156 addLexeme
+    surface "find"
+    class "verbBase"
+    lemma "find"
+@l157 addLexeme
+    surface "finds"
+    class "verb3"
+    lemma "find"
+@l158 addLexeme
+    surface "found"
+    class "verbPast"
+    lemma "find"
+@l159 addLexeme
+    surface "found"
+    class "verbPart"
+    lemma "find"
+@l160 addLexeme
+    surface "finding"
+    class "verbIng"
+    lemma "find"
+@l161 addLexeme
+    surface "discover"
+    class "verbBase"
+    lemma "discover"
+@l162 addLexeme
+    surface "discovers"
+    class "verb3"
+    lemma "discover"
+@l163 addLexeme
+    surface "discovered"
+    class "verbPast"
+    lemma "discover"
+@l164 addLexeme
+    surface "discovered"
+    class "verbPart"
+    lemma "discover"
+@l165 addLexeme
+    surface "discovering"
+    class "verbIng"
+    lemma "discover"
+@l166 addLexeme
+    surface "develop"
+    class "verbBase"
+    lemma "develop"
+@l167 addLexeme
+    surface "develops"
+    class "verb3"
+    lemma "develop"
+@l168 addLexeme
+    surface "developed"
+    class "verbPast"
+    lemma "develop"
+@l169 addLexeme
+    surface "developed"
+    class "verbPart"
+    lemma "develop"
+@l170 addLexeme
+    surface "developing"
+    class "verbIng"
+    lemma "develop"
+@l171 addLexeme
+    surface "design"
+    class "verbBase"
+    lemma "design"
+@l172 addLexeme
+    surface "designs"
+    class "verb3"
+    lemma "design"
+@l173 addLexeme
+    surface "designed"
+    class "verbPast"
+    lemma "design"
+@l174 addLexeme
+    surface "designed"
+    class "verbPart"
+    lemma "design"
+@l175 addLexeme
+    surface "designing"
+    class "verbIng"
+    lemma "design"
+@l176 addLexeme
+    surface "make"
+    class "verbBase"
+    lemma "make"
+@l177 addLexeme
+    surface "makes"
+    class "verb3"
+    lemma "make"
+@l178 addLexeme
+    surface "made"
+    class "verbPast"
+    lemma "make"
+@l179 addLexeme
+    surface "made"
+    class "verbPart"
+    lemma "make"
+@l180 addLexeme
+    surface "making"
+    class "verbIng"
+    lemma "make"
+@l181 addLexeme
+    surface "take"
+    class "verbBase"
+    lemma "take"
+@l182 addLexeme
+    surface "takes"
+    class "verb3"
+    lemma "take"
+@l183 addLexeme
+    surface "took"
+    class "verbPast"
+    lemma "take"
+@l184 addLexeme
+    surface "taken"
+    class "verbPart"
+    lemma "take"
+@l185 addLexeme
+    surface "taking"
+    class "verbIng"
+    lemma "take"
+@l186 addLexeme
+    surface "give"
+    class "verbBase"
+    lemma "give"
+@l187 addLexeme
+    surface "gives"
+    class "verb3"
+    lemma "give"
+@l188 addLexeme
+    surface "gave"
+    class "verbPast"
+    lemma "give"
+@l189 addLexeme
+    surface "given"
+    class "verbPart"
+    lemma "give"
+@l190 addLexeme
+    surface "giving"
+    class "verbIng"
+    lemma "give"
+@l191 addLexeme
+    surface "send"
+    class "verbBase"
+    lemma "send"
+@l192 addLexeme
+    surface "sends"
+    class "verb3"
+    lemma "send"
+@l193 addLexeme
+    surface "sent"
+    class "verbPast"
+    lemma "send"
+@l194 addLexeme
+    surface "sent"
+    class "verbPart"
+    lemma "send"
+@l195 addLexeme
+    surface "sending"
+    class "verbIng"
+    lemma "send"
+@l196 addLexeme
+    surface "receive"
+    class "verbBase"
+    lemma "receive"
+@l197 addLexeme
+    surface "receives"
+    class "verb3"
+    lemma "receive"
+@l198 addLexeme
+    surface "received"
+    class "verbPast"
+    lemma "receive"
+@l199 addLexeme
+    surface "received"
+    class "verbPart"
+    lemma "receive"
+@l200 addLexeme
+    surface "receiving"
+    class "verbIng"
+    lemma "receive"
+@l201 addLexeme
+    surface "read"
+    class "verbBase"
+    lemma "read"
+@l202 addLexeme
+    surface "reads"
+    class "verb3"
+    lemma "read"
+@l203 addLexeme
+    surface "read"
+    class "verbPast"
+    lemma "read"
+@l204 addLexeme
+    surface "read"
+    class "verbPart"
+    lemma "read"
+@l205 addLexeme
+    surface "reading"
+    class "verbIng"
+    lemma "read"
+@l206 addLexeme
+    surface "evaluate"
+    class "verbBase"
+    lemma "evaluate"
+@l207 addLexeme
+    surface "evaluates"
+    class "verb3"
+    lemma "evaluate"
+@l208 addLexeme
+    surface "evaluated"
+    class "verbPast"
+    lemma "evaluate"
+@l209 addLexeme
+    surface "evaluated"
+    class "verbPart"
+    lemma "evaluate"
+@l210 addLexeme
+    surface "evaluating"
+    class "verbIng"
+    lemma "evaluate"
+@l211 addLexeme
+    surface "measure"
+    class "verbBase"
+    lemma "measure"
+@l212 addLexeme
+    surface "measures"
+    class "verb3"
+    lemma "measure"
+@l213 addLexeme
+    surface "measured"
+    class "verbPast"
+    lemma "measure"
+@l214 addLexeme
+    surface "measured"
+    class "verbPart"
+    lemma "measure"
+@l215 addLexeme
+    surface "measuring"
+    class "verbIng"
+    lemma "measure"
+@l216 addLexeme
+    surface "predict"
+    class "verbBase"
+    lemma "predict"
+@l217 addLexeme
+    surface "predicts"
+    class "verb3"
+    lemma "predict"
+@l218 addLexeme
+    surface "predicted"
+    class "verbPast"
+    lemma "predict"
+@l219 addLexeme
+    surface "predicted"
+    class "verbPart"
+    lemma "predict"
+@l220 addLexeme
+    surface "predicting"
+    class "verbIng"
+    lemma "predict"
+@l221 addLexeme
+    surface "classify"
+    class "verbBase"
+    lemma "classify"
+@l222 addLexeme
+    surface "classifies"
+    class "verb3"
+    lemma "classify"
+@l223 addLexeme
+    surface "classified"
+    class "verbPast"
+    lemma "classify"
+@l224 addLexeme
+    surface "classified"
+    class "verbPart"
+    lemma "classify"
+@l225 addLexeme
+    surface "classifying"
+    class "verbIng"
+    lemma "classify"
+@l226 addLexeme
+    surface "detect"
+    class "verbBase"
+    lemma "detect"
+@l227 addLexeme
+    surface "detects"
+    class "verb3"
+    lemma "detect"
+@l228 addLexeme
+    surface "detected"
+    class "verbPast"
+    lemma "detect"
+@l229 addLexeme
+    surface "detected"
+    class "verbPart"
+    lemma "detect"
+@l230 addLexeme
+    surface "detecting"
+    class "verbIng"
+    lemma "detect"
+@l231 addLexeme
+    surface "monitor"
+    class "verbBase"
+    lemma "monitor"
+@l232 addLexeme
+    surface "monitors"
+    class "verb3"
+    lemma "monitor"
+@l233 addLexeme
+    surface "monitored"
+    class "verbPast"
+    lemma "monitor"
+@l234 addLexeme
+    surface "monitored"
+    class "verbPart"
+    lemma "monitor"
+@l235 addLexeme
+    surface "monitoring"
+    class "verbIng"
+    lemma "monitor"
+@l236 addLexeme
+    surface "manage"
+    class "verbBase"
+    lemma "manage"
+@l237 addLexeme
+    surface "manages"
+    class "verb3"
+    lemma "manage"
+@l238 addLexeme
+    surface "managed"
+    class "verbPast"
+    lemma "manage"
+@l239 addLexeme
+    surface "managed"
+    class "verbPart"
+    lemma "manage"
+@l240 addLexeme
+    surface "managing"
+    class "verbIng"
+    lemma "manage"
+@l241 addLexeme
+    surface "control"
+    class "verbBase"
+    lemma "control"
+@l242 addLexeme
+    surface "controls"
+    class "verb3"
+    lemma "control"
+@l243 addLexeme
+    surface "controled"
+    class "verbPast"
+    lemma "control"
+@l244 addLexeme
+    surface "controled"
+    class "verbPart"
+    lemma "control"
+@l245 addLexeme
+    surface "controling"
+    class "verbIng"
+    lemma "control"
+@l246 addLexeme
+    surface "include"
+    class "verbBase"
+    lemma "include"
+@l247 addLexeme
+    surface "includes"
+    class "verb3"
+    lemma "include"
+@l248 addLexeme
+    surface "included"
+    class "verbPast"
+    lemma "include"
+@l249 addLexeme
+    surface "included"
+    class "verbPart"
+    lemma "include"
+@l250 addLexeme
+    surface "including"
+    class "verbIng"
+    lemma "include"
+@l251 addLexeme
+    surface "contain"
+    class "verbBase"
+    lemma "contain"
+@l252 addLexeme
+    surface "contains"
+    class "verb3"
+    lemma "contain"
+@l253 addLexeme
+    surface "contained"
+    class "verbPast"
+    lemma "contain"
+@l254 addLexeme
+    surface "contained"
+    class "verbPart"
+    lemma "contain"
+@l255 addLexeme
+    surface "containing"
+    class "verbIng"
+    lemma "contain"
+@l256 addLexeme
+    surface "produce"
+    class "verbBase"
+    lemma "produce"
+@l257 addLexeme
+    surface "produces"
+    class "verb3"
+    lemma "produce"
+@l258 addLexeme
+    surface "produced"
+    class "verbPast"
+    lemma "produce"
+@l259 addLexeme
+    surface "produced"
+    class "verbPart"
+    lemma "produce"
+@l260 addLexeme
+    surface "producing"
+    class "verbIng"
+    lemma "produce"
+@l261 addLexeme
+    surface "generate"
+    class "verbBase"
+    lemma "generate"
+@l262 addLexeme
+    surface "generates"
+    class "verb3"
+    lemma "generate"
+@l263 addLexeme
+    surface "generated"
+    class "verbPast"
+    lemma "generate"
+@l264 addLexeme
+    surface "generated"
+    class "verbPart"
+    lemma "generate"
+@l265 addLexeme
+    surface "generating"
+    class "verbIng"
+    lemma "generate"
+@l266 addLexeme
+    surface "solve"
+    class "verbBase"
+    lemma "solve"
+@l267 addLexeme
+    surface "solves"
+    class "verb3"
+    lemma "solve"
+@l268 addLexeme
+    surface "solved"
+    class "verbPast"
+    lemma "solve"
+@l269 addLexeme
+    surface "solved"
+    class "verbPart"
+    lemma "solve"
+@l270 addLexeme
+    surface "solving"
+    class "verbIng"
+    lemma "solve"
+@l271 addLexeme
+    surface "answer"
+    class "verbBase"
+    lemma "answer"
+@l272 addLexeme
+    surface "answers"
+    class "verb3"
+    lemma "answer"
+@l273 addLexeme
+    surface "answered"
+    class "verbPast"
+    lemma "answer"
+@l274 addLexeme
+    surface "answered"
+    class "verbPart"
+    lemma "answer"
+@l275 addLexeme
+    surface "answering"
+    class "verbIng"
+    lemma "answer"
+@l276 addLexeme
+    surface "ask"
+    class "verbBase"
+    lemma "ask"
+@l277 addLexeme
+    surface "asks"
+    class "verb3"
+    lemma "ask"
+@l278 addLexeme
+    surface "asked"
+    class "verbPast"
+    lemma "ask"
+@l279 addLexeme
+    surface "asked"
+    class "verbPart"
+    lemma "ask"
+@l280 addLexeme
+    surface "asking"
+    class "verbIng"
+    lemma "ask"
+@l281 addLexeme
+    surface "consider"
+    class "verbBase"
+    lemma "consider"
+@l282 addLexeme
+    surface "considers"
+    class "verb3"
+    lemma "consider"
+@l283 addLexeme
+    surface "considered"
+    class "verbPast"
+    lemma "consider"
+@l284 addLexeme
+    surface "considered"
+    class "verbPart"
+    lemma "consider"
+@l285 addLexeme
+    surface "considering"
+    class "verbIng"
+    lemma "consider"
+@l286 addLexeme
+    surface "believe"
+    class "verbBase"
+    lemma "believe"
+@l287 addLexeme
+    surface "believes"
+    class "verb3"
+    lemma "believe"
+@l288 addLexeme
+    surface "believed"
+    class "verbPast"
+    lemma "believe"
+@l289 addLexeme
+    surface "believed"
+    class "verbPart"
+    lemma "believe"
+@l290 addLexeme
+    surface "believing"
+    class "verbIng"
+    lemma "believe"
+@l291 addLexeme
+    surface "prefer"
+    class "verbBase"
+    lemma "prefer"
+@l292 addLexeme
+    surface "prefers"
+    class "verb3"
+    lemma "prefer"
+@l293 addLexeme
+    surface "prefered"
+    class "verbPast"
+    lemma "prefer"
+@l294 addLexeme
+    surface "prefered"
+    class "verbPart"
+    lemma "prefer"
+@l295 addLexeme
+    surface "prefering"
+    class "verbIng"
+    lemma "prefer"
+@l296 addLexeme
+    surface "need"
+    class "verbBase"
+    lemma "need"
+@l297 addLexeme
+    surface "needs"
+    class "verb3"
+    lemma "need"
+@l298 addLexeme
+    surface "needed"
+    class "verbPast"
+    lemma "need"
+@l299 addLexeme
+    surface "needed"
+    class "verbPart"
+    lemma "need"
+@l300 addLexeme
+    surface "needing"
+    class "verbIng"
+    lemma "need"
+@l301 addLexeme
+    surface "want"
+    class "verbBase"
+    lemma "want"
+@l302 addLexeme
+    surface "wants"
+    class "verb3"
+    lemma "want"
+@l303 addLexeme
+    surface "wanted"
+    class "verbPast"
+    lemma "want"
+@l304 addLexeme
+    surface "wanted"
+    class "verbPart"
+    lemma "want"
+@l305 addLexeme
+    surface "wanting"
+    class "verbIng"
+    lemma "want"
+@l306 addLexeme
+    surface "own"
+    class "verbBase"
+    lemma "own"
+@l307 addLexeme
+    surface "owns"
+    class "verb3"
+    lemma "own"
+@l308 addLexeme
+    surface "owned"
+    class "verbPast"
+    lemma "own"
+@l309 addLexeme
+    surface "owned"
+    class "verbPart"
+    lemma "own"
+@l310 addLexeme
+    surface "owning"
+    class "verbIng"
+    lemma "own"
+@l311 addLexeme
+    surface "follow"
+    class "verbBase"
+    lemma "follow"
+@l312 addLexeme
+    surface "follows"
+    class "verb3"
+    lemma "follow"
+@l313 addLexeme
+    surface "followed"
+    class "verbPast"
+    lemma "follow"
+@l314 addLexeme
+    surface "followed"
+    class "verbPart"
+    lemma "follow"
+@l315 addLexeme
+    surface "following"
+    class "verbIng"
+    lemma "follow"
+@l316 addLexeme
+    surface "lead"
+    class "verbBase"
+    lemma "lead"
+@l317 addLexeme
+    surface "leads"
+    class "verb3"
+    lemma "lead"
+@l318 addLexeme
+    surface "led"
+    class "verbPast"
+    lemma "lead"
+@l319 addLexeme
+    surface "led"
+    class "verbPart"
+    lemma "lead"
+@l320 addLexeme
+    surface "leading"
+    class "verbIng"
+    lemma "lead"
+@l321 addLexeme
+    surface "affect"
+    class "verbBase"
+    lemma "affect"
+@l322 addLexeme
+    surface "affects"
+    class "verb3"
+    lemma "affect"
+@l323 addLexeme
+    surface "affected"
+    class "verbPast"
+    lemma "affect"
+@l324 addLexeme
+    surface "affected"
+    class "verbPart"
+    lemma "affect"
+@l325 addLexeme
+    surface "affecting"
+    class "verbIng"
+    lemma "affect"
+@l326 addLexeme
+    surface "change"
+    class "verbBase"
+    lemma "change"
+@l327 addLexeme
+    surface "changes"
+    class "verb3"
+    lemma "change"
+@l328 addLexeme
+    surface "changed"
+    class "verbPast"
+    lemma "change"
+@l329 addLexeme
+    surface "changed"
+    class "verbPart"
+    lemma "change"
+@l330 addLexeme
+    surface "changing"
+    class "verbIng"
+    lemma "change"
+@l331 addLexeme
+    surface "enable"
+    class "verbBase"
+    lemma "enable"
+@l332 addLexeme
+    surface "enables"
+    class "verb3"
+    lemma "enable"
+@l333 addLexeme
+    surface "enabled"
+    class "verbPast"
+    lemma "enable"
+@l334 addLexeme
+    surface "enabled"
+    class "verbPart"
+    lemma "enable"
+@l335 addLexeme
+    surface "enabling"
+    class "verbIng"
+    lemma "enable"
+@l336 addLexeme
+    surface "prevent"
+    class "verbBase"
+    lemma "prevent"
+@l337 addLexeme
+    surface "prevents"
+    class "verb3"
+    lemma "prevent"
+@l338 addLexeme
+    surface "prevented"
+    class "verbPast"
+    lemma "prevent"
+@l339 addLexeme
+    surface "prevented"
+    class "verbPart"
+    lemma "prevent"
+@l340 addLexeme
+    surface "preventing"
+    class "verbIng"
+    lemma "prevent"
+@l341 addLexeme
+    surface "protect"
+    class "verbBase"
+    lemma "protect"
+@l342 addLexeme
+    surface "protects"
+    class "verb3"
+    lemma "protect"
+@l343 addLexeme
+    surface "protected"
+    class "verbPast"
+    lemma "protect"
+@l344 addLexeme
+    surface "protected"
+    class "verbPart"
+    lemma "protect"
+@l345 addLexeme
+    surface "protecting"
+    class "verbIng"
+    lemma "protect"
+@l346 addLexeme
+    surface "attack"
+    class "verbBase"
+    lemma "attack"
+@l347 addLexeme
+    surface "attacks"
+    class "verb3"
+    lemma "attack"
+@l348 addLexeme
+    surface "attacked"
+    class "verbPast"
+    lemma "attack"
+@l349 addLexeme
+    surface "attacked"
+    class "verbPart"
+    lemma "attack"
+@l350 addLexeme
+    surface "attacking"
+    class "verbIng"
+    lemma "attack"
+@l351 addLexeme
+    surface "verify"
+    class "verbBase"
+    lemma "verify"
+@l352 addLexeme
+    surface "verifies"
+    class "verb3"
+    lemma "verify"
+@l353 addLexeme
+    surface "verified"
+    class "verbPast"
+    lemma "verify"
+@l354 addLexeme
+    surface "verified"
+    class "verbPart"
+    lemma "verify"
+@l355 addLexeme
+    surface "verifying"
+    class "verbIng"
+    lemma "verify"
+@l356 addLexeme
+    surface "prove"
+    class "verbBase"
+    lemma "prove"
+@l357 addLexeme
+    surface "proves"
+    class "verb3"
+    lemma "prove"
+@l358 addLexeme
+    surface "proved"
+    class "verbPast"
+    lemma "prove"
+@l359 addLexeme
+    surface "proved"
+    class "verbPart"
+    lemma "prove"
+@l360 addLexeme
+    surface "proving"
+    class "verbIng"
+    lemma "prove"
+@l361 addLexeme
+    surface "refute"
+    class "verbBase"
+    lemma "refute"
+@l362 addLexeme
+    surface "refutes"
+    class "verb3"
+    lemma "refute"
+@l363 addLexeme
+    surface "refuted"
+    class "verbPast"
+    lemma "refute"
+@l364 addLexeme
+    surface "refuted"
+    class "verbPart"
+    lemma "refute"
+@l365 addLexeme
+    surface "refuting"
+    class "verbIng"
+    lemma "refute"
+@l366 addLexeme
+    surface "derive"
+    class "verbBase"
+    lemma "derive"
+@l367 addLexeme
+    surface "derives"
+    class "verb3"
+    lemma "derive"
+@l368 addLexeme
+    surface "derived"
+    class "verbPast"
+    lemma "derive"
+@l369 addLexeme
+    surface "derived"
+    class "verbPart"
+    lemma "derive"
+@l370 addLexeme
+    surface "deriving"
+    class "verbIng"
+    lemma "derive"
+@l371 addLexeme
+    surface "infer"
+    class "verbBase"
+    lemma "infer"
+@l372 addLexeme
+    surface "infers"
+    class "verb3"
+    lemma "infer"
+@l373 addLexeme
+    surface "infered"
+    class "verbPast"
+    lemma "infer"
+@l374 addLexeme
+    surface "infered"
+    class "verbPart"
+    lemma "infer"
+@l375 addLexeme
+    surface "infering"
+    class "verbIng"
+    lemma "infer"
+@l376 addLexeme
+    surface "store"
+    class "verbBase"
+    lemma "store"
+@l377 addLexeme
+    surface "stores"
+    class "verb3"
+    lemma "store"
+@l378 addLexeme
+    surface "stored"
+    class "verbPast"
+    lemma "store"
+@l379 addLexeme
+    surface "stored"
+    class "verbPart"
+    lemma "store"
+@l380 addLexeme
+    surface "storing"
+    class "verbIng"
+    lemma "store"
+@l381 addLexeme
+    surface "retrieve"
+    class "verbBase"
+    lemma "retrieve"
+@l382 addLexeme
+    surface "retrieves"
+    class "verb3"
+    lemma "retrieve"
+@l383 addLexeme
+    surface "retrieved"
+    class "verbPast"
+    lemma "retrieve"
+@l384 addLexeme
+    surface "retrieved"
+    class "verbPart"
+    lemma "retrieve"
+@l385 addLexeme
+    surface "retrieving"
+    class "verbIng"
+    lemma "retrieve"
+@l386 addLexeme
+    surface "select"
+    class "verbBase"
+    lemma "select"
+@l387 addLexeme
+    surface "selects"
+    class "verb3"
+    lemma "select"
+@l388 addLexeme
+    surface "selected"
+    class "verbPast"
+    lemma "select"
+@l389 addLexeme
+    surface "selected"
+    class "verbPart"
+    lemma "select"
+@l390 addLexeme
+    surface "selecting"
+    class "verbIng"
+    lemma "select"
+@l391 addLexeme
+    surface "rank"
+    class "verbBase"
+    lemma "rank"
+@l392 addLexeme
+    surface "ranks"
+    class "verb3"
+    lemma "rank"
+@l393 addLexeme
+    surface "ranked"
+    class "verbPast"
+    lemma "rank"
+@l394 addLexeme
+    surface "ranked"
+    class "verbPart"
+    lemma "rank"
+@l395 addLexeme
+    surface "ranking"
+    class "verbIng"
+    lemma "rank"
+@l396 addLexeme
+    surface "parse"
+    class "verbBase"
+    lemma "parse"
+@l397 addLexeme
+    surface "parses"
+    class "verb3"
+    lemma "parse"
+@l398 addLexeme
+    surface "parsed"
+    class "verbPast"
+    lemma "parse"
+@l399 addLexeme
+    surface "parsed"
+    class "verbPart"
+    lemma "parse"
+@l400 addLexeme
+    surface "parsing"
+    class "verbIng"
+    lemma "parse"
+@l401 addLexeme
+    surface "interpret"
+    class "verbBase"
+    lemma "interpret"
+@l402 addLexeme
+    surface "interprets"
+    class "verb3"
+    lemma "interpret"
+@l403 addLexeme
+    surface "interpreted"
+    class "verbPast"
+    lemma "interpret"
+@l404 addLexeme
+    surface "interpreted"
+    class "verbPart"
+    lemma "interpret"
+@l405 addLexeme
+    surface "interpreting"
+    class "verbIng"
+    lemma "interpret"
+@l406 addLexeme
+    surface "transform"
+    class "verbBase"
+    lemma "transform"
+@l407 addLexeme
+    surface "transforms"
+    class "verb3"
+    lemma "transform"
+@l408 addLexeme
+    surface "transformed"
+    class "verbPast"
+    lemma "transform"
+@l409 addLexeme
+    surface "transformed"
+    class "verbPart"
+    lemma "transform"
+@l410 addLexeme
+    surface "transforming"
+    class "verbIng"
+    lemma "transform"
+@l411 addLexeme
+    surface "expand"
+    class "verbBase"
+    lemma "expand"
+@l412 addLexeme
+    surface "expands"
+    class "verb3"
+    lemma "expand"
+@l413 addLexeme
+    surface "expanded"
+    class "verbPast"
+    lemma "expand"
+@l414 addLexeme
+    surface "expanded"
+    class "verbPart"
+    lemma "expand"
+@l415 addLexeme
+    surface "expanding"
+    class "verbIng"
+    lemma "expand"
+@l416 addLexeme
+    surface "compress"
+    class "verbBase"
+    lemma "compress"
+@l417 addLexeme
+    surface "compresses"
+    class "verb3"
+    lemma "compress"
+@l418 addLexeme
+    surface "compressed"
+    class "verbPast"
+    lemma "compress"
+@l419 addLexeme
+    surface "compressed"
+    class "verbPart"
+    lemma "compress"
+@l420 addLexeme
+    surface "compressing"
+    class "verbIng"
+    lemma "compress"
+@l421 addLexeme
+    surface "connect"
+    class "verbBase"
+    lemma "connect"
+@l422 addLexeme
+    surface "connects"
+    class "verb3"
+    lemma "connect"
+@l423 addLexeme
+    surface "connected"
+    class "verbPast"
+    lemma "connect"
+@l424 addLexeme
+    surface "connected"
+    class "verbPart"
+    lemma "connect"
+@l425 addLexeme
+    surface "connecting"
+    class "verbIng"
+    lemma "connect"
+@l426 addLexeme
+    surface "link"
+    class "verbBase"
+    lemma "link"
+@l427 addLexeme
+    surface "links"
+    class "verb3"
+    lemma "link"
+@l428 addLexeme
+    surface "linked"
+    class "verbPast"
+    lemma "link"
+@l429 addLexeme
+    surface "linked"
+    class "verbPart"
+    lemma "link"
+@l430 addLexeme
+    surface "linking"
+    class "verbIng"
+    lemma "link"
+@l431 addLexeme
+    surface "map"
+    class "verbBase"
+    lemma "map"
+@l432 addLexeme
+    surface "maps"
+    class "verb3"
+    lemma "map"
+@l433 addLexeme
+    surface "maped"
+    class "verbPast"
+    lemma "map"
+@l434 addLexeme
+    surface "maped"
+    class "verbPart"
+    lemma "map"
+@l435 addLexeme
+    surface "maping"
+    class "verbIng"
+    lemma "map"
+@l436 addLexeme
+    surface "represent"
+    class "verbBase"
+    lemma "represent"
+@l437 addLexeme
+    surface "represents"
+    class "verb3"
+    lemma "represent"
+@l438 addLexeme
+    surface "represented"
+    class "verbPast"
+    lemma "represent"
+@l439 addLexeme
+    surface "represented"
+    class "verbPart"
+    lemma "represent"
+@l440 addLexeme
+    surface "representing"
+    class "verbIng"
+    lemma "represent"
+@l441 addLexeme
+    surface "model"
+    class "verbBase"
+    lemma "model"
+@l442 addLexeme
+    surface "models"
+    class "verb3"
+    lemma "model"
+@l443 addLexeme
+    surface "modeled"
+    class "verbPast"
+    lemma "model"
+@l444 addLexeme
+    surface "modeled"
+    class "verbPart"
+    lemma "model"
+@l445 addLexeme
+    surface "modeling"
+    class "verbIng"
+    lemma "model"
+@l446 addLexeme
+    surface "simulate"
+    class "verbBase"
+    lemma "simulate"
+@l447 addLexeme
+    surface "simulates"
+    class "verb3"
+    lemma "simulate"
+@l448 addLexeme
+    surface "simulated"
+    class "verbPast"
+    lemma "simulate"
+@l449 addLexeme
+    surface "simulated"
+    class "verbPart"
+    lemma "simulate"
+@l450 addLexeme
+    surface "simulating"
+    class "verbIng"
+    lemma "simulate"
+@l451 addLexeme
+    surface "plan"
+    class "verbBase"
+    lemma "plan"
+@l452 addLexeme
+    surface "plans"
+    class "verb3"
+    lemma "plan"
+@l453 addLexeme
+    surface "planed"
+    class "verbPast"
+    lemma "plan"
+@l454 addLexeme
+    surface "planed"
+    class "verbPart"
+    lemma "plan"
+@l455 addLexeme
+    surface "planing"
+    class "verbIng"
+    lemma "plan"
+@l456 addLexeme
+    surface "execute"
+    class "verbBase"
+    lemma "execute"
+@l457 addLexeme
+    surface "executes"
+    class "verb3"
+    lemma "execute"
+@l458 addLexeme
+    surface "executed"
+    class "verbPast"
+    lemma "execute"
+@l459 addLexeme
+    surface "executed"
+    class "verbPart"
+    lemma "execute"
+@l460 addLexeme
+    surface "executing"
+    class "verbIng"
+    lemma "execute"
+@l461 addLexeme
+    surface "call"
+    class "verbBase"
+    lemma "call"
+@l462 addLexeme
+    surface "calls"
+    class "verb3"
+    lemma "call"
+@l463 addLexeme
+    surface "called"
+    class "verbPast"
+    lemma "call"
+@l464 addLexeme
+    surface "called"
+    class "verbPart"
+    lemma "call"
+@l465 addLexeme
+    surface "calling"
+    class "verbIng"
+    lemma "call"
+@l466 addLexeme
+    surface "invoke"
+    class "verbBase"
+    lemma "invoke"
+@l467 addLexeme
+    surface "invokes"
+    class "verb3"
+    lemma "invoke"
+@l468 addLexeme
+    surface "invoked"
+    class "verbPast"
+    lemma "invoke"
+@l469 addLexeme
+    surface "invoked"
+    class "verbPart"
+    lemma "invoke"
+@l470 addLexeme
+    surface "invoking"
+    class "verbIng"
+    lemma "invoke"
+@l471 addLexeme
+    surface "process"
+    class "verbBase"
+    lemma "process"
+@l472 addLexeme
+    surface "processes"
+    class "verb3"
+    lemma "process"
+@l473 addLexeme
+    surface "processed"
+    class "verbPast"
+    lemma "process"
+@l474 addLexeme
+    surface "processed"
+    class "verbPart"
+    lemma "process"
+@l475 addLexeme
+    surface "processing"
+    class "verbIng"
+    lemma "process"
+@l476 addLexeme
+    surface "combine"
+    class "verbBase"
+    lemma "combine"
+@l477 addLexeme
+    surface "combines"
+    class "verb3"
+    lemma "combine"
+@l478 addLexeme
+    surface "combined"
+    class "verbPast"
+    lemma "combine"
+@l479 addLexeme
+    surface "combined"
+    class "verbPart"
+    lemma "combine"
+@l480 addLexeme
+    surface "combining"
+    class "verbIng"
+    lemma "combine"
+@l481 addLexeme
+    surface "separate"
+    class "verbBase"
+    lemma "separate"
+@l482 addLexeme
+    surface "separates"
+    class "verb3"
+    lemma "separate"
+@l483 addLexeme
+    surface "separated"
+    class "verbPast"
+    lemma "separate"
+@l484 addLexeme
+    surface "separated"
+    class "verbPart"
+    lemma "separate"
+@l485 addLexeme
+    surface "separating"
+    class "verbIng"
+    lemma "separate"
+@l486 addLexeme
+    surface "organize"
+    class "verbBase"
+    lemma "organize"
+@l487 addLexeme
+    surface "organizes"
+    class "verb3"
+    lemma "organize"
+@l488 addLexeme
+    surface "organized"
+    class "verbPast"
+    lemma "organize"
+@l489 addLexeme
+    surface "organized"
+    class "verbPart"
+    lemma "organize"
+@l490 addLexeme
+    surface "organizing"
+    class "verbIng"
+    lemma "organize"
+@l491 addLexeme
+    surface "coordinate"
+    class "verbBase"
+    lemma "coordinate"
+@l492 addLexeme
+    surface "coordinates"
+    class "verb3"
+    lemma "coordinate"
+@l493 addLexeme
+    surface "coordinated"
+    class "verbPast"
+    lemma "coordinate"
+@l494 addLexeme
+    surface "coordinated"
+    class "verbPart"
+    lemma "coordinate"
+@l495 addLexeme
+    surface "coordinating"
+    class "verbIng"
+    lemma "coordinate"
+@l496 addLexeme
+    surface "collaborate"
+    class "verbBase"
+    lemma "collaborate"
+@l497 addLexeme
+    surface "collaborates"
+    class "verb3"
+    lemma "collaborate"
+@l498 addLexeme
+    surface "collaborated"
+    class "verbPast"
+    lemma "collaborate"
+@l499 addLexeme
+    surface "collaborated"
+    class "verbPart"
+    lemma "collaborate"
+@l500 addLexeme
+    surface "collaborating"
+    class "verbIng"
+    lemma "collaborate"
+@l501 addLexeme
+    surface "observe"
+    class "verbBase"
+    lemma "observe"
+@l502 addLexeme
+    surface "observes"
+    class "verb3"
+    lemma "observe"
+@l503 addLexeme
+    surface "observed"
+    class "verbPast"
+    lemma "observe"
+@l504 addLexeme
+    surface "observed"
+    class "verbPart"
+    lemma "observe"
+@l505 addLexeme
+    surface "observing"
+    class "verbIng"
+    lemma "observe"
+@l506 addLexeme
+    surface "report"
+    class "verbBase"
+    lemma "report"
+@l507 addLexeme
+    surface "reports"
+    class "verb3"
+    lemma "report"
+@l508 addLexeme
+    surface "reported"
+    class "verbPast"
+    lemma "report"
+@l509 addLexeme
+    surface "reported"
+    class "verbPart"
+    lemma "report"
+@l510 addLexeme
+    surface "reporting"
+    class "verbIng"
+    lemma "report"
+@l511 addLexeme
+    surface "document"
+    class "verbBase"
+    lemma "document"
+@l512 addLexeme
+    surface "documents"
+    class "verb3"
+    lemma "document"
+@l513 addLexeme
+    surface "documented"
+    class "verbPast"
+    lemma "document"
+@l514 addLexeme
+    surface "documented"
+    class "verbPart"
+    lemma "document"
+@l515 addLexeme
+    surface "documenting"
+    class "verbIng"
+    lemma "document"
+@l516 addLexeme
+    surface "publish"
+    class "verbBase"
+    lemma "publish"
+@l517 addLexeme
+    surface "publishes"
+    class "verb3"
+    lemma "publish"
+@l518 addLexeme
+    surface "published"
+    class "verbPast"
+    lemma "publish"
+@l519 addLexeme
+    surface "published"
+    class "verbPart"
+    lemma "publish"
+@l520 addLexeme
+    surface "publishing"
+    class "verbIng"
+    lemma "publish"
+@l521 addLexeme
+    surface "cite"
+    class "verbBase"
+    lemma "cite"
+@l522 addLexeme
+    surface "cites"
+    class "verb3"
+    lemma "cite"
+@l523 addLexeme
+    surface "cited"
+    class "verbPast"
+    lemma "cite"
+@l524 addLexeme
+    surface "cited"
+    class "verbPart"
+    lemma "cite"
+@l525 addLexeme
+    surface "citing"
+    class "verbIng"
+    lemma "cite"
+@l526 addLexeme
+    surface "reference"
+    class "verbBase"
+    lemma "reference"
+@l527 addLexeme
+    surface "references"
+    class "verb3"
+    lemma "reference"
+@l528 addLexeme
+    surface "referenced"
+    class "verbPast"
+    lemma "reference"
+@l529 addLexeme
+    surface "referenced"
+    class "verbPart"
+    lemma "reference"
+@l530 addLexeme
+    surface "referencing"
+    class "verbIng"
+    lemma "reference"
+@l531 addLexeme
+    surface "query"
+    class "verbBase"
+    lemma "query"
+@l532 addLexeme
+    surface "queries"
+    class "verb3"
+    lemma "query"
+@l533 addLexeme
+    surface "queried"
+    class "verbPast"
+    lemma "query"
+@l534 addLexeme
+    surface "queried"
+    class "verbPart"
+    lemma "query"
+@l535 addLexeme
+    surface "querying"
+    class "verbIng"
+    lemma "query"
+@l536 addLexeme
+    surface "search"
+    class "verbBase"
+    lemma "search"
+@l537 addLexeme
+    surface "searches"
+    class "verb3"
+    lemma "search"
+@l538 addLexeme
+    surface "searched"
+    class "verbPast"
+    lemma "search"
+@l539 addLexeme
+    surface "searched"
+    class "verbPart"
+    lemma "search"
+@l540 addLexeme
+    surface "searching"
+    class "verbIng"
+    lemma "search"
+@l541 addLexeme
+    surface "filter"
+    class "verbBase"
+    lemma "filter"
+@l542 addLexeme
+    surface "filters"
+    class "verb3"
+    lemma "filter"
+@l543 addLexeme
+    surface "filtered"
+    class "verbPast"
+    lemma "filter"
+@l544 addLexeme
+    surface "filtered"
+    class "verbPart"
+    lemma "filter"
+@l545 addLexeme
+    surface "filtering"
+    class "verbIng"
+    lemma "filter"
+@l546 addLexeme
+    surface "optimize"
+    class "verbBase"
+    lemma "optimize"
+@l547 addLexeme
+    surface "optimizes"
+    class "verb3"
+    lemma "optimize"
+@l548 addLexeme
+    surface "optimized"
+    class "verbPast"
+    lemma "optimize"
+@l549 addLexeme
+    surface "optimized"
+    class "verbPart"
+    lemma "optimize"
+@l550 addLexeme
+    surface "optimizing"
+    class "verbIng"
+    lemma "optimize"
+@l551 addLexeme
+    surface "train"
+    class "verbBase"
+    lemma "train"
+@l552 addLexeme
+    surface "trains"
+    class "verb3"
+    lemma "train"
+@l553 addLexeme
+    surface "trained"
+    class "verbPast"
+    lemma "train"
+@l554 addLexeme
+    surface "trained"
+    class "verbPart"
+    lemma "train"
+@l555 addLexeme
+    surface "training"
+    class "verbIng"
+    lemma "train"
+@l556 addLexeme
+    surface "adapt"
+    class "verbBase"
+    lemma "adapt"
+@l557 addLexeme
+    surface "adapts"
+    class "verb3"
+    lemma "adapt"
+@l558 addLexeme
+    surface "adapted"
+    class "verbPast"
+    lemma "adapt"
+@l559 addLexeme
+    surface "adapted"
+    class "verbPart"
+    lemma "adapt"
+@l560 addLexeme
+    surface "adapting"
+    class "verbIng"
+    lemma "adapt"
+@l561 addLexeme
+    surface "align"
+    class "verbBase"
+    lemma "align"
+@l562 addLexeme
+    surface "aligns"
+    class "verb3"
+    lemma "align"
+@l563 addLexeme
+    surface "aligned"
+    class "verbPast"
+    lemma "align"
+@l564 addLexeme
+    surface "aligned"
+    class "verbPart"
+    lemma "align"
+@l565 addLexeme
+    surface "aligning"
+    class "verbIng"
+    lemma "align"
+@l566 addLexeme
+    surface "justify"
+    class "verbBase"
+    lemma "justify"
+@l567 addLexeme
+    surface "justifies"
+    class "verb3"
+    lemma "justify"
+@l568 addLexeme
+    surface "justified"
+    class "verbPast"
+    lemma "justify"
+@l569 addLexeme
+    surface "justified"
+    class "verbPart"
+    lemma "justify"
+@l570 addLexeme
+    surface "justifying"
+    class "verbIng"
+    lemma "justify"
+@l571 addLexeme
+    surface "challenge"
+    class "verbBase"
+    lemma "challenge"
+@l572 addLexeme
+    surface "challenges"
+    class "verb3"
+    lemma "challenge"
+@l573 addLexeme
+    surface "challenged"
+    class "verbPast"
+    lemma "challenge"
+@l574 addLexeme
+    surface "challenged"
+    class "verbPart"
+    lemma "challenge"
+@l575 addLexeme
+    surface "challenging"
+    class "verbIng"
+    lemma "challenge"
+@l576 addLexeme
+    surface "accept"
+    class "verbBase"
+    lemma "accept"
+@l577 addLexeme
+    surface "accepts"
+    class "verb3"
+    lemma "accept"
+@l578 addLexeme
+    surface "accepted"
+    class "verbPast"
+    lemma "accept"
+@l579 addLexeme
+    surface "accepted"
+    class "verbPart"
+    lemma "accept"
+@l580 addLexeme
+    surface "accepting"
+    class "verbIng"
+    lemma "accept"
+@l581 addLexeme
+    surface "reject"
+    class "verbBase"
+    lemma "reject"
+@l582 addLexeme
+    surface "rejects"
+    class "verb3"
+    lemma "reject"
+@l583 addLexeme
+    surface "rejected"
+    class "verbPast"
+    lemma "reject"
+@l584 addLexeme
+    surface "rejected"
+    class "verbPart"
+    lemma "reject"
+@l585 addLexeme
+    surface "rejecting"
+    class "verbIng"
+    lemma "reject"
+@l586 addLexeme
+    surface "propose"
+    class "verbBase"
+    lemma "propose"
+@l587 addLexeme
+    surface "proposes"
+    class "verb3"
+    lemma "propose"
+@l588 addLexeme
+    surface "proposed"
+    class "verbPast"
+    lemma "propose"
+@l589 addLexeme
+    surface "proposed"
+    class "verbPart"
+    lemma "propose"
+@l590 addLexeme
+    surface "proposing"
+    class "verbIng"
+    lemma "propose"
+@l591 addLexeme
+    surface "inspect"
+    class "verbBase"
+    lemma "inspect"
+@l592 addLexeme
+    surface "inspects"
+    class "verb3"
+    lemma "inspect"
+@l593 addLexeme
+    surface "inspected"
+    class "verbPast"
+    lemma "inspect"
+@l594 addLexeme
+    surface "inspected"
+    class "verbPart"
+    lemma "inspect"
+@l595 addLexeme
+    surface "inspecting"
+    class "verbIng"
+    lemma "inspect"
+@l596 addLexeme
+    surface "calculate"
+    class "verbBase"
+    lemma "calculate"
+@l597 addLexeme
+    surface "calculates"
+    class "verb3"
+    lemma "calculate"
+@l598 addLexeme
+    surface "calculated"
+    class "verbPast"
+    lemma "calculate"
+@l599 addLexeme
+    surface "calculated"
+    class "verbPart"
+    lemma "calculate"
+@l600 addLexeme
+    surface "calculating"
+    class "verbIng"
+    lemma "calculate"
+@l601 addLexeme
+    surface "estimate"
+    class "verbBase"
+    lemma "estimate"
+@l602 addLexeme
+    surface "estimates"
+    class "verb3"
+    lemma "estimate"
+@l603 addLexeme
+    surface "estimated"
+    class "verbPast"
+    lemma "estimate"
+@l604 addLexeme
+    surface "estimated"
+    class "verbPart"
+    lemma "estimate"
+@l605 addLexeme
+    surface "estimating"
+    class "verbIng"
+    lemma "estimate"
+@l606 addLexeme
+    surface "check"
+    class "verbBase"
+    lemma "check"
+@l607 addLexeme
+    surface "checks"
+    class "verb3"
+    lemma "check"
+@l608 addLexeme
+    surface "checked"
+    class "verbPast"
+    lemma "check"
+@l609 addLexeme
+    surface "checked"
+    class "verbPart"
+    lemma "check"
+@l610 addLexeme
+    surface "checking"
+    class "verbIng"
+    lemma "check"
+@l611 addLexeme
+    surface "track"
+    class "verbBase"
+    lemma "track"
+@l612 addLexeme
+    surface "tracks"
+    class "verb3"
+    lemma "track"
+@l613 addLexeme
+    surface "tracked"
+    class "verbPast"
+    lemma "track"
+@l614 addLexeme
+    surface "tracked"
+    class "verbPart"
+    lemma "track"
+@l615 addLexeme
+    surface "tracking"
+    class "verbIng"
+    lemma "track"
+@ready constant
+    value true
+@output result $ready

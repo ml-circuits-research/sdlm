@@ -1,0 +1,38 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 7
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "write"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "a"
+@g4 tokenIs
+    tokens $tokens
+    index 2
+    value "short"
+@g5 tokenIs
+    tokens $tokens
+    index 3
+    value "paragraph"
+@g6 tokenIs
+    tokens $tokens
+    index 4
+    value "about"
+@g7 tokenClassIs
+    tokens $tokens
+    index 5
+    class "entity"
+@g8 tokenLastIs
+    tokens $tokens
+    value "."
+@entity constantAt
+    tokens $tokens
+    index 5
+@command makeCommand
+    kind "expandEntity"
+    payload $entity
+@output result $command

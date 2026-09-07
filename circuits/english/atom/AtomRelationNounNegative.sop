@@ -1,0 +1,42 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 7
+@g2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 2
+    value "not"
+@g4 tokenClassIs
+    tokens $tokens
+    index 3
+    class "article"
+@g5 tokenClassIs
+    tokens $tokens
+    index 4
+    class "relationNoun"
+@g6 tokenIs
+    tokens $tokens
+    index 5
+    value "of"
+@subject termAt
+    tokens $tokens
+    index 0
+    variableClass "variable"
+@predicate tokenLemmaAt
+    tokens $tokens
+    index 4
+    class "relationNoun"
+@object termAt
+    tokens $tokens
+    index 6
+    variableClass "variable"
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+    polarity "negative"
+@output result $atom

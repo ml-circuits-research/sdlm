@@ -1,0 +1,35 @@
+@input atom
+@g1 atomArityIs
+    value $atom
+    arity 2
+@g2 atomPolarityIs
+    value $atom
+    polarity "positive"
+@g3 predicateHasLexemeClass
+    atom $atom
+    class "relationNoun"
+@bias candidateWeight
+    weight 40
+@subject atomArgument
+    atom $atom
+    index 0
+@object atomArgument
+    atom $atom
+    index 1
+@subjectText display
+    value $subject
+@objectText display
+    value $object
+@predicate atomPredicate
+    atom $atom
+@relation lexemeSurface
+    lemma $predicate
+    class "relationNoun"
+@text concat
+    part1 $subjectText
+    part2 " is a "
+    part3 $relation
+    part4 " of "
+    part5 $objectText
+    part6 "."
+@output result $text

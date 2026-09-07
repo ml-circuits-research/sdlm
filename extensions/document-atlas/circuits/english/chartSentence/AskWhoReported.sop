@@ -1,0 +1,19 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "AskWhoReported"
+@claimNode chartChild
+    tree $tree
+    index 2
+@claim chartTerm
+    tree $claimNode
+@answerVar makeVariable
+    name "X"
+@query makeBinaryAtom
+    subject $claim
+    predicate "reported_by"
+    object $answerVar
+@command makeCommand
+    kind "askBindings"
+    payload $query
+@output result $command

@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: chart parser composes arbitrarily long condition lists from one recursive grammar rule
+ok 1 - chart parser composes arbitrarily long condition lists from one recursive grammar rule
+  ---
+  duration_ms: 2721.515202
+  type: 'test'
+  ...
+# Subtest: surface length differences caused by articles use grammar productions rather than token offsets in JS
+ok 2 - surface length differences caused by articles use grammar productions rather than token offsets in JS
+  ---
+  duration_ms: 786.481147
+  type: 'test'
+  ...
+# Subtest: a circuit pack adds vocabulary and task phrasings without JavaScript changes
+ok 3 - a circuit pack adds vocabulary and task phrasings without JavaScript changes
+  ---
+  duration_ms: 938.312853
+  type: 'test'
+  ...
+# Subtest: unary inheritance, explicit negation, unknown and bindings
+ok 4 - unary inheritance, explicit negation, unknown and bindings
+  ---
+  duration_ms: 1005.125454
+  type: 'test'
+  ...
+# Subtest: rules taught through CNL derive a recursive binary closure
+ok 5 - rules taught through CNL derive a recursive binary closure
+  ---
+  duration_ms: 2827.41987
+  type: 'test'
+  ...
+# Subtest: conjunctive and mixed rules work
+ok 6 - conjunctive and mixed rules work
+  ---
+  duration_ms: 906.204155
+  type: 'test'
+  ...
+# Subtest: four-valued result reports contradiction instead of collapsing it
+ok 7 - four-valued result reports contradiction instead of collapsing it
+  ---
+  duration_ms: 835.018357
+  type: 'test'
+  ...
+# Subtest: broad CNL smoke suite covers common declarative, interrogative and inflectional families
+ok 8 - broad CNL smoke suite covers common declarative, interrogative and inflectional families
+  ---
+  duration_ms: 1656.746516
+  type: 'test'
+  ...
+# Subtest: a document is installed as SOP circuits and materialized knowledge supports reasoning
+ok 9 - a document is installed as SOP circuits and materialized knowledge supports reasoning
+  ---
+  duration_ms: 1044.380517
+  type: 'test'
+  ...
+# Subtest: the circuit pack is the persistent source: a fresh runtime reconstructs the same materialized KB
+ok 10 - the circuit pack is the persistent source: a fresh runtime reconstructs the same materialized KB
+  ---
+  duration_ms: 976.429162
+  type: 'test'
+  ...
+# Subtest: document knowledge pack contains SOP circuits rather than a second knowledge DSL
+ok 11 - document knowledge pack contains SOP circuits rather than a second knowledge DSL
+  ---
+  duration_ms: 2.187388
+  type: 'test'
+  ...
+# Subtest: dynamic circuit-pack installation is transactional for both circuits and materialized state
+ok 12 - dynamic circuit-pack installation is transactional for both circuits and materialized state
+  ---
+  duration_ms: 633.214053
+  type: 'test'
+  ...
+# Subtest: All A are B is now part of the base CNL circuits
+ok 13 - All A are B is now part of the base CNL circuits
+  ---
+  duration_ms: 1068.135
+  type: 'test'
+  ...
+# Subtest: a new verb is still taught by an SOP lexicon circuit only
+ok 14 - a new verb is still taught by an SOP lexicon circuit only
+  ---
+  duration_ms: 810.827728
+  type: 'test'
+  ...
+# Subtest: paired surface/canonical examples synthesize inspectable SOP circuits and survive restart
+ok 15 - paired surface/canonical examples synthesize inspectable SOP circuits and survive restart
+  ---
+  duration_ms: 1764.816517
+  type: 'test'
+  ...
+# Subtest: runtime has no hidden activation, grammar-token, text-template, or predicate-qualifier DSL
+ok 16 - runtime has no hidden activation, grammar-token, text-template, or predicate-qualifier DSL
+  ---
+  duration_ms: 400.673635
+  type: 'test'
+  ...
+# Subtest: grammar symbols are structured values and NLG expands through SOP realizer circuits
+ok 17 - grammar symbols are structured values and NLG expands through SOP realizer circuits
+  ---
+  duration_ms: 1001.398527
+  type: 'test'
+  ...
+# Subtest: JavaScript kernel contains no CNL vocabulary/domain predicates
+ok 18 - JavaScript kernel contains no CNL vocabulary/domain predicates
+  ---
+  duration_ms: 6.997981
+  type: 'test'
+  ...
+# Subtest: representative CNL surface forms parse and execute
+ok 19 - representative CNL surface forms parse and execute
+  ---
+  duration_ms: 1713.156936
+  type: 'test'
+  ...
+# Subtest: larger CNL: conjunction facts, universal verb rules, conjunction queries, count and exists
+ok 20 - larger CNL: conjunction facts, universal verb rules, conjunction queries, count and exists
+  ---
+  duration_ms: 2031.036099
+  type: 'test'
+  ...
+# Subtest: symbolic summarization and expansion generate multi-sentence text from KB profiles
+ok 21 - symbolic summarization and expansion generate multi-sentence text from KB profiles
+  ---
+  duration_ms: 1038.7944
+  type: 'test'
+  ...
+# Subtest: comparison and KB summary are generated from symbolic state
+ok 22 - comparison and KB summary are generated from symbolic state
+  ---
+  duration_ms: 876.975785
+  type: 'test'
+  ...
+# Subtest: reflection inspects proofs and missing premises
+ok 23 - reflection inspects proofs and missing premises
+  ---
+  duration_ms: 1679.04963
+  type: 'test'
+  ...
+# Subtest: chart grammar handles conjunction depth compositionally instead of ParseIfN templates
+ok 24 - chart grammar handles conjunction depth compositionally instead of ParseIfN templates
+  ---
+  duration_ms: 2526.545219
+  type: 'test'
+  ...
+# Subtest: runtime can inspect its previous explicit symbolic execution trace
+ok 25 - runtime can inspect its previous explicit symbolic execution trace
+  ---
+  duration_ms: 457.749516
+  type: 'test'
+  ...
+# Subtest: runtime loads a genuinely large circuit library
+ok 26 - runtime loads a genuinely large circuit library
+  ---
+  duration_ms: 976.14898
+  type: 'test'
+  ...
+# Subtest: common tense, voice, aspect, modality, contractions, plurals and comparative forms compose
+ok 27 - common tense, voice, aspect, modality, contractions, plurals and comparative forms compose
+  ---
+  duration_ms: 1244.197265
+  type: 'test'
+  ...
+# Subtest: recursive chart grammar remains the general fallback beyond the specialized micro-circuits
+ok 28 - recursive chart grammar remains the general fallback beyond the specialized micro-circuits
+  ---
+  duration_ms: 2801.390128
+  type: 'test'
+  ...
+# Subtest: parallel speculative micro-circuits preserve a real ambiguity instead of arbitrary early commitment
+ok 29 - parallel speculative micro-circuits preserve a real ambiguity instead of arbitrary early commitment
+  ---
+  duration_ms: 652.06611
+  type: 'test'
+  ...
+# Subtest: Datalog candidate rules are partitioned, activation-indexed, and return a narrow frontier
+ok 30 - Datalog candidate rules are partitioned, activation-indexed, and return a narrow frontier
+  ---
+  duration_ms: 533.827424
+  type: 'test'
+  ...
+# Subtest: induction accepts paraphrases with different lengths and slot positions and persists them
+ok 31 - induction accepts paraphrases with different lengths and slot positions and persists them
+  ---
+  duration_ms: 1046.129082
+  type: 'test'
+  ...
+# Subtest: generation task paraphrases delegate through specialized circuits to symbolic NLG
+ok 32 - generation task paraphrases delegate through specialized circuits to symbolic NLG
+  ---
+  duration_ms: 541.412089
+  type: 'test'
+  ...
+# Subtest: relative clauses compose recursively and gate rule firing on all relative conditions
+ok 33 - relative clauses compose recursively and gate rule firing on all relative conditions
+  ---
+  duration_ms: 1028.10077
+  type: 'test'
+  ...
+# Subtest: failed candidate rolls back KB, lexicon and grammar before rewrite
+ok 34 - failed candidate rolls back KB, lexicon and grammar before rewrite
+  ---
+  duration_ms: 1049.986821
+  type: 'test'
+  ...
+# Subtest: runtime genuinely expands and reduces nested virtual circuits
+ok 35 - runtime genuinely expands and reduces nested virtual circuits
+  ---
+  duration_ms: 1064.402176
+  type: 'test'
+  ...
+# Subtest: If rule causes multiple nested parser selections and expansions
+ok 36 - If rule causes multiple nested parser selections and expansions
+  ---
+  duration_ms: 2512.30548
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16190.03683

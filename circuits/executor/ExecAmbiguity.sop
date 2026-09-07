@@ -1,0 +1,5 @@
+@input command
+@g commandKindIs
+    value $command
+    kind "ambiguity"
+@output result $command

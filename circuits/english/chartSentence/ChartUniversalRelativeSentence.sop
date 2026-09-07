@@ -1,0 +1,41 @@
+@input tree
+@g parseProductionIs
+    value $tree
+    production "UniversalRelativeSentence"
+@classTree chartChild
+    tree $tree
+    index 1
+@conditionsTree chartChild
+    tree $tree
+    index 3
+@headTree chartChild
+    tree $tree
+    index 5
+@class chartLemma
+    tree $classTree
+    class "noun"
+@headPred chartNorm
+    tree $headTree
+@x makeVariable
+    name "X"
+@classAtom makeUnaryAtom
+    subject $x
+    predicate $class
+    polarity "positive"
+@conditions InterpretRelativeConditionList
+    tree $conditionsTree
+    subject $x
+@body prepend
+    values $conditions
+    value $classAtom
+@head makeUnaryAtom
+    subject $x
+    predicate $headPred
+    polarity "positive"
+@rule makeRule
+    head $head
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@output result $command

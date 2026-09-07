@@ -1,0 +1,27 @@
+@input tree
+@g valueFieldIs
+    value $tree
+    name "production"
+    expected "WhoRelationSubject"
+@p chartChild
+    tree $tree
+    index 3
+@o chartChild
+    tree $tree
+    index 5
+@who makeVariable
+    name "Who"
+@predicate chartLemma
+    tree $p
+    class "relationNoun"
+@object chartTerm
+    tree $o
+@atom makeBinaryAtom
+    subject $who
+    predicate $predicate
+    object $object
+    polarity "positive"
+@command makeCommand
+    kind "askBindings"
+    payload $atom
+@output result $command

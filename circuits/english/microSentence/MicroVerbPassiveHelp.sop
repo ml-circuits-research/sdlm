@@ -1,0 +1,36 @@
+@input tokens
+@g0 tokenCountIs
+    tokens $tokens
+    count 6
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "helped"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "by"
+@g4 tokenIs
+    tokens $tokens
+    index 5
+    value "."
+@g5 tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@g6 tokenClassIs
+    tokens $tokens
+    index 4
+    class "entity"
+@bias candidateWeight
+    weight 26
+@result MicroBinaryFact
+    tokens $tokens
+    predicate "help"
+    subjectIndex 4
+    objectIndex 0
+@output result $result

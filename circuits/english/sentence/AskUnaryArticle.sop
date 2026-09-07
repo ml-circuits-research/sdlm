@@ -1,0 +1,33 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 5
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "is"
+@g3 tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@g4 tokenClassIs
+    tokens $tokens
+    index 2
+    class "article"
+@g5 tokenLastIs
+    tokens $tokens
+    value "?"
+@subject constantAt
+    tokens $tokens
+    index 1
+@predicate tokenNormAt
+    tokens $tokens
+    index 3
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+    polarity "positive"
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@output result $command

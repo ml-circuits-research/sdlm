@@ -1,0 +1,94 @@
+@rp1sym1 grammarToken
+    value "who"
+@rp1 list
+    item1 $rp1sym1
+@r1 addGrammarRule
+    name "RelativeWho"
+    lhs "RelativePronoun"
+    rhs $rp1
+    weight 4
+@rp2sym1 grammarToken
+    value "that"
+@rp2 list
+    item1 $rp2sym1
+@r2 addGrammarRule
+    name "RelativeThat"
+    lhs "RelativePronoun"
+    rhs $rp2
+    weight 4
+@a1sym1 grammarCategory
+    name "Copula"
+@a1sym2 grammarCategory
+    name "word"
+@a1 list
+    item1 $a1sym1
+    item2 $a1sym2
+@r3 addGrammarRule
+    name "RelativeAtomCopular"
+    lhs "RelativeAtom"
+    rhs $a1
+    weight 5
+@a2sym1 grammarCategory
+    name "verb3"
+@a2sym2 grammarCategory
+    name "Term"
+@a2 list
+    item1 $a2sym1
+    item2 $a2sym2
+@r4 addGrammarRule
+    name "RelativeAtomVerb"
+    lhs "RelativeAtom"
+    rhs $a2
+    weight 5
+@c1sym1 grammarCategory
+    name "RelativeAtom"
+@c1 list
+    item1 $c1sym1
+@r5 addGrammarRule
+    name "RelativeConditionsOne"
+    lhs "RelativeConditionList"
+    rhs $c1
+    weight 5
+@c2sym1 grammarCategory
+    name "RelativeConditionList"
+@c2sym2 grammarToken
+    value "and"
+@c2sym3 grammarCategory
+    name "RelativeAtom"
+@c2 list
+    item1 $c2sym1
+    item2 $c2sym2
+    item3 $c2sym3
+@r6 addGrammarRule
+    name "RelativeConditionsAnd"
+    lhs "RelativeConditionList"
+    rhs $c2
+    weight 6
+@ssym1 grammarCategory
+    name "UniversalQuant"
+@ssym2 grammarCategory
+    name "noun"
+@ssym3 grammarCategory
+    name "RelativePronoun"
+@ssym4 grammarCategory
+    name "RelativeConditionList"
+@ssym5 grammarCategory
+    name "Copula"
+@ssym6 grammarCategory
+    name "word"
+@ssym7 grammarToken
+    value "."
+@s list
+    item1 $ssym1
+    item2 $ssym2
+    item3 $ssym3
+    item4 $ssym4
+    item5 $ssym5
+    item6 $ssym6
+    item7 $ssym7
+@r7 addGrammarRule
+    name "UniversalRelativeSentence"
+    lhs "Sentence"
+    rhs $s
+    weight 12
+@output result $r7

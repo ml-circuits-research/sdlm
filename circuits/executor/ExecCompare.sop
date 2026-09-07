@@ -1,0 +1,17 @@
+@input command
+@g1 commandKindIs
+    value $command
+    kind "compare"
+@payload field
+    value $command
+    name "payload"
+@left field
+    value $payload
+    name "left"
+@right field
+    value $payload
+    name "right"
+@answer kbCompare
+    left $left
+    right $right
+@output result $answer

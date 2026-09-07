@@ -1,0 +1,50 @@
+@input tokens
+@g1 tokenCountIs
+    tokens $tokens
+    count 8
+@g2 tokenIs
+    tokens $tokens
+    index 0
+    value "who"
+@g3 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g4 tokenClassIs
+    tokens $tokens
+    index 2
+    class "article"
+@g5 tokenIs
+    tokens $tokens
+    index 4
+    value "and"
+@g6 tokenClassIs
+    tokens $tokens
+    index 5
+    class "article"
+@g7 tokenLastIs
+    tokens $tokens
+    value "?"
+@x makeVariable
+    name "Answer"
+@p1 tokenNormAt
+    tokens $tokens
+    index 3
+@p2 tokenNormAt
+    tokens $tokens
+    index 6
+@a1 makeUnaryAtom
+    subject $x
+    predicate $p1
+    polarity "positive"
+@a2 makeUnaryAtom
+    subject $x
+    predicate $p2
+    polarity "positive"
+@atoms list
+    item1 $a1
+    item2 $a2
+@command makeCommand
+    kind "askConjunctiveBindings"
+    payload $atoms
+@output result $command

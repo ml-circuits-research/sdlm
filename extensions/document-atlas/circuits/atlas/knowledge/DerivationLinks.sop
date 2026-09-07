@@ -1,0 +1,21 @@
+@answerCircuits makeConstant
+    value "answer_circuits"
+@fact makeUnaryAtom
+    subject $answerCircuits
+    predicate "retain_derivation_links"
+@sentence makeConstant
+    value "sentence_5"
+@proposition makeConstant
+    value "proposition_derivation_links"
+@propositionKind makeUnaryAtom
+    subject $proposition
+    predicate "proposition"
+@source makeBinaryAtom
+    subject $proposition
+    predicate "derived_from"
+    object $sentence
+@facts list
+    item1 $fact
+    item2 $propositionKind
+    item3 $source
+@output result $facts
