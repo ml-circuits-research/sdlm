@@ -1,0 +1,34 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 5
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "in"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 0
+@value tokenNormAt
+    tokens $tokens
+    index 3
+@payload record
+    subject $subject
+    predicate "in"
+    value $value
+@command makeCommand
+    kind "setValue"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

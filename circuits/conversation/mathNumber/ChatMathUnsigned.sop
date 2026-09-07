@@ -1,0 +1,14 @@
+@input tokens
+@n1 numericToken
+    tokens $tokens
+    index 0
+@n2 tokenCount
+    tokens $tokens
+@n3 sliceTokens
+    tokens $tokens
+    start 1
+    end $n2
+@n4 record
+    value $n1
+    rest $n3
+@output result $n4

@@ -1,0 +1,6 @@
+@input answer
+@priority candidateWeight
+    weight -10
+@result constant
+    value null
+@output result $result

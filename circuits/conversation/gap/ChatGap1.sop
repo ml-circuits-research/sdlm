@@ -1,0 +1,7 @@
+@input tokens
+@n1 tokenContains
+    tokens $tokens
+    value "weather"
+@n2 constant
+    value "I cannot check live weather. Tell me the conditions you know, such as \"Mia is outside. Mia is in rain. Is Mia wet?\"."
+@output result $n2

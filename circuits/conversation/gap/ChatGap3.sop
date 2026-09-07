@@ -1,0 +1,7 @@
+@input tokens
+@n1 tokenContains
+    tokens $tokens
+    value "why"
+@n2 constant
+    value "Which conclusion should I explain? For example: \"Every cat is an animal. Toby is a cat. Why is Toby an animal?\". I use the facts and rules stored in this session."
+@output result $n2

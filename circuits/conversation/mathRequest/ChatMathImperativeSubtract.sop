@@ -1,0 +1,77 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 4
+@n2 record
+    surface "subtract"
+    value "subtract"
+@n3 list
+    item0 $n2
+@n4 matchTokenChoice
+    tokens $tokens
+    index 0
+    choices $n3
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n5 tokenCount
+    tokens $tokens
+@n6 sliceTokens
+    tokens $tokens
+    start 1
+    end $n5
+@n7 ChatMathNumber
+    tokens $n6
+@n8 field
+    value $n7
+    name "rest"
+@n9 record
+    surface "from"
+    value "from"
+@n10 list
+    item0 $n9
+@n11 matchTokenChoice
+    tokens $n8
+    index 0
+    choices $n10
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n12 tokenCount
+    tokens $n8
+@n13 sliceTokens
+    tokens $n8
+    start 1
+    end $n12
+@n14 ChatMathNumber
+    tokens $n13
+@n15 field
+    value $n14
+    name "rest"
+@n16 tokenCountIs
+    tokens $n15
+    count 0
+@n17 field
+    value $n7
+    name "value"
+@n18 field
+    value $n14
+    name "value"
+@n19 record
+    left $n18
+    right $n17
+    operation "subtract"
+@n20 makeCommand
+    kind "calculateNumber"
+    payload $n19
+@n21 collectDecisions
+    part0 $n4
+    part1 $n11
+@n22 record
+    command $n20
+    decisions $n21
+@output result $n22

@@ -1,0 +1,38 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 6
+@g0 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "times"
+@g5 tokenIs
+    tokens $tokens
+    index 5
+    value "?"
+@left numericToken
+    tokens $tokens
+    index 2
+@right numericToken
+    tokens $tokens
+    index 4
+@payload record
+    left $left
+    right $right
+    operation "multiply"
+@command makeCommand
+    kind "calculateNumber"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

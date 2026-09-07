@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLI | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="cli">CLI</h1>
+<p>Use the CLI to test sentences, inspect their meaning, compare expected and actual results, and continue saved <a class="definition-link" href="wiki.html#definition-session">sessions</a>. It needs Node.js 22 or newer and installed dependencies. No cloud account is required.</p>
+<p>Say <code>Hello</code>, introduce yourself with <code>My name is Jhon.</code>, or ask <code>What can you do?</code>. Read <a href="conversation.html">Everyday conversation</a> for personal references and useful requests. <code>/example 21</code> runs a complete conversation; <code>/example 22</code> tries polite requests and clarification. <code>/example 23</code> tests arithmetic wording and spelling repair, including <code>hwo much is 3 plus 5?</code>.</p>
+<h2 id="interactive-use">Interactive use</h2>
+<pre><code class="language-sh">npm start
+</code></pre>
+<p>Interactive startup automatically resumes the last <a class="definition-link" href="wiki.html#definition-session">session</a> selected in this <a class="definition-link" href="wiki.html#definition-session">session</a> store. If no selection has been recorded, it resumes the most recently updated saved <a class="definition-link" href="wiki.html#definition-session">session</a> or creates a durable <a class="definition-link" href="wiki.html#definition-session">session</a> when none exists. The startup banner shows the selected ID. Knowledge, learned <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>, saved values and <a class="definition-link" href="wiki.html#definition-response-style">response preferences</a> continue from its SOP <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a>.</p>
+<p>Use Up/Down to recall submitted input across restarts, including slash commands and failed attempts. Recall only fills the editor; it does not execute old input. Switching <a class="definition-link" href="wiki.html#definition-session">sessions</a> loads that <a class="definition-link" href="wiki.html#definition-session">session</a>&#39;s own command history. <code>/history commands</code> displays submitted CLI input, while <code>/history</code> displays the retained conversation.</p>
+<pre><code class="language-text">/session new work
+/verbosity answer
+Alice is human.
+Is Alice human?
+/quit
+</code></pre>
+<p>Start <code>npm start</code> again and press Up. The question is recalled from <code>work</code>; press Enter to run it. <code>/quit</code> is omitted from recall so the first Up does not immediately offer another exit.</p>
+<table>
+<thead>
+<tr>
+<th>Command or startup option</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/session new [name]</code></td>
+<td>Create and select an independent durable <a class="definition-link" href="wiki.html#definition-session">session</a>; omitted names get an ID automatically</td>
+</tr>
+<tr>
+<td><code>/session list</code></td>
+<td>List saved <a class="definition-link" href="wiki.html#definition-session">sessions</a></td>
+</tr>
+<tr>
+<td><code>/session use &lt;name&gt;</code></td>
+<td>Resume a chosen <a class="definition-link" href="wiki.html#definition-session">session</a> and its input history</td>
+</tr>
+<tr>
+<td><code>/session save &lt;name&gt;</code></td>
+<td>Fork current state into a new durable <a class="definition-link" href="wiki.html#definition-session">session</a></td>
+</tr>
+<tr>
+<td><code>/reset</code></td>
+<td>Start a new durable <a class="definition-link" href="wiki.html#definition-session">session</a> in interactive use</td>
+</tr>
+<tr>
+<td><code>npm start -- --session &lt;name&gt;</code></td>
+<td>Override automatic selection</td>
+</tr>
+<tr>
+<td><code>npm start -- --temporary</code></td>
+<td>Start temporary work without changing the remembered selection</td>
+</tr>
+</tbody></table>
+<p>Temporary work becomes durable if you use <code>/session save &lt;name&gt;</code> or select a named <a class="definition-link" href="wiki.html#definition-session">session</a>. Each <code>--sessions &lt;directory&gt;</code> has an independent remembered selection. The last explicit interactive selection wins when several terminals share a store. File and pipe input start with temporary state unless <code>--session</code> is supplied; they do not update the remembered interactive selection.</p>
+<p>Conversation mode accepts several sentences on one line and attempts interpretations with explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. <code>/mode strict</code> selects exact controlled-English parsing. <code>/help</code> lists every command. <code>/examples</code> lists the catalog; <code>/examples 14</code> displays the scenario, its inputs and expected results without executing it. <code>/example 14</code> executes it immediately. <code>/example all</code> runs the entire catalog. Each run uses separate temporary state and reports PASS or FAIL per step.</p>
+<p>Examples 1 through 13 exercise strict core behavior; 14 through 16 exercise <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, correction and partial understanding. These original scenarios disable elementary <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a> for isolation. Examples 17 through 20 enable it and cover elementary reasoning, quantities and movement, conditional defaults and <a class="definition-link" href="wiki.html#definition-response-style">response style</a>. Use <code>/benchmark eval</code> for the separate 44-case evaluation split or <code>/benchmark all</code> for all 88 questions. Read <a href="benchmark.html">Elementary evaluation</a> for scoring and limits.</p>
+<p>Use <code>/verbosity answer</code> to show only answers and <code>/verbosity explain</code> to restore explanations and <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. You can also enter <code>Answer only.</code> or <code>Show assumptions.</code> in the conversation. <code>/verbosity</code> shows the preference; <code>/assumptions</code> always exposes the evidence. The <a href="response-style.html">response style guide</a> explains persistence, API controls and supported input instructions.</p>
+<p>Typing and pasted text appear at the prompt before execution. Use Backspace to edit and the Up/Down arrows to recall commands. Paste through your terminal&#39;s normal shortcut, usually Ctrl+Shift+V on Linux. Complete pasted lines execute in order; a final line without a newline stays visible for editing until you press Enter. <code>/quit</code> or Ctrl+C exits and restores the terminal&#39;s normal input mode.</p>
+<p>Read <a href="assumptions.html">Assumptions and correction</a> for <code>/assumptions</code>, <code>/reject</code> and <code>/feedback</code>. Rejected decisions can retract dependent knowledge and invalidate saved references. The mode is a CLI setting; <a class="definition-link" href="wiki.html#definition-session">session</a> state preserves decisions and corrections.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/help</code></td>
+<td>Show commands and the <a class="definition-link" href="wiki.html#definition-cnl">controlled-language</a> input rules.</td>
+</tr>
+<tr>
+<td><code>/examples [number&amp;#124;all]</code></td>
+<td>List examples or show their instructions and expected results without executing.</td>
+</tr>
+<tr>
+<td><code>/example &lt;number&amp;#124;all&gt;</code></td>
+<td>Execute examples in isolated temporary <a class="definition-link" href="wiki.html#definition-session">sessions</a> and compare expected with actual results.</td>
+</tr>
+<tr>
+<td><code>/benchmarks [case-id]</code></td>
+<td>Show the early-school evaluation questions and expected answers without executing.</td>
+</tr>
+<tr>
+<td><code>/benchmark [dev&amp;#124;eval&amp;#124;all]</code></td>
+<td>Evaluate fresh isolated <a class="definition-link" href="wiki.html#definition-session">sessions</a> and report accuracy, gaps and incorrect assertions. Default: eval.</td>
+</tr>
+<tr>
+<td><code>/capabilities</code></td>
+<td>Show the supported capability families and their limits.</td>
+</tr>
+<tr>
+<td><code>/status</code></td>
+<td>Show backend, <a class="definition-link" href="wiki.html#definition-session">session</a>, <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>/fact/rule counts, limits and the last execution summary.</td>
+</tr>
+<tr>
+<td><code>/vars</code></td>
+<td>Inspect <a class="definition-link" href="wiki.html#definition-value-reference">reusable values</a> saved in the current <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/verbosity [answer&amp;#124;explain]</code></td>
+<td>Show only answers or restore explanations and <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Saved per <a class="definition-link" href="wiki.html#definition-session">session</a>; /<a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> always shows audit data.</td>
+</tr>
+<tr>
+<td><code>/mode [assist&amp;#124;strict]</code></td>
+<td>Choose assumption-guided conversation or exact <a class="definition-link" href="wiki.html#definition-cnl">controlled-language</a> execution.</td>
+</tr>
+<tr>
+<td><code>/assumptions</code></td>
+<td>Show actual interpretation decisions and the knowledge that depends on them.</td>
+</tr>
+<tr>
+<td><code>/reject &lt;id&gt; [reason]</code></td>
+<td>Reject an <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>, retract unsupported knowledge, and retain correction feedback.</td>
+</tr>
+<tr>
+<td><code>/feedback [new file.json]</code></td>
+<td>Show or export <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, rejected decisions and unresolved inputs for <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> improvement.</td>
+</tr>
+<tr>
+<td><code>/run &lt;circuit&gt; &lt;JSON inputs&gt;</code></td>
+<td>Execute a <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>; inputs may contain {&quot;$ref&quot;:&quot;saved.path&quot;}. Save its result as last_task.</td>
+</tr>
+<tr>
+<td><code>/kb</code></td>
+<td>Inspect committed facts and rules as JSON.</td>
+</tr>
+<tr>
+<td><code>/parse &lt;sentence&gt;</code></td>
+<td>Inspect a <a class="definition-link" href="wiki.html#definition-semantic-command">semantic command</a> without asserting its knowledge.</td>
+</tr>
+<tr>
+<td><code>/trace [on&amp;#124;off&amp;#124;last]</code></td>
+<td>Control terminal tracing or inspect the retained execution events.</td>
+</tr>
+<tr>
+<td><code>/forget &lt;fact or rule&gt;</code></td>
+<td>Retract an assertion and recompute dependent facts.</td>
+</tr>
+<tr>
+<td><code>/save &lt;new directory&gt;</code></td>
+<td>Export asserted knowledge and rules as an installable SOP pack.</td>
+</tr>
+<tr>
+<td><code>/load &lt;pack directory&gt;</code></td>
+<td>Validate and install a <a class="definition-link" href="wiki.html#definition-circuit-pack">circuit pack</a> in this <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/learn &lt;examples.json&gt;</code></td>
+<td>Train surface/canonical pairs and publish validated <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>.</td>
+</tr>
+<tr>
+<td><code>/session new [name]</code></td>
+<td>Start an independent durable <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/session use &lt;name&gt;</code></td>
+<td>Resume a durable <a class="definition-link" href="wiki.html#definition-session">session</a>, including its learned <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>.</td>
+</tr>
+<tr>
+<td><code>/session save &lt;name&gt;</code></td>
+<td>Save or fork the selected <a class="definition-link" href="wiki.html#definition-session">session</a> into a new durable <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/session list</code></td>
+<td>List saved <a class="definition-link" href="wiki.html#definition-session">sessions</a>.</td>
+</tr>
+<tr>
+<td><code>/history commands</code></td>
+<td>Show submitted CLI input, including slash commands, for this <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/history</code></td>
+<td>Show the retained conversation for the selected durable <a class="definition-link" href="wiki.html#definition-session">session</a>.</td>
+</tr>
+<tr>
+<td><code>/reset</code></td>
+<td>Start a new durable <a class="definition-link" href="wiki.html#definition-session">session</a> interactively, or clean temporary state in batch use. Saved <a class="definition-link" href="wiki.html#definition-session">sessions</a> remain available.</td>
+</tr>
+<tr>
+<td><code>/quit</code></td>
+<td>Exit. Durable <a class="definition-link" href="wiki.html#definition-session">session</a> changes have already been saved.</td>
+</tr>
+</tbody></table>
+<h2 id="a-session-you-can-continue">A session you can continue</h2>
+<pre><code class="language-text">/session new demo
+Alice is human.
+Every human is mortal.
+Is Alice mortal?
+Why is Alice mortal?
+/kb
+/session list
+/quit
+</code></pre>
+<pre><code class="language-sh">npm start -- --session demo
+</code></pre>
+<pre><code class="language-text">Is Alice mortal?
+/forget Alice is human.
+Is Alice mortal?
+/history
+</code></pre>
+<p>The first question returns <code>Yes.</code>. After retraction the question returns <code>Unknown</code> with the missing support. <code>/session save copy</code> forks the current knowledge and competence into a new <a class="definition-link" href="wiki.html#definition-session">session</a>. <code>/reset</code> selects a new durable <a class="definition-link" href="wiki.html#definition-session">session</a> interactively and a clean temporary runtime in batch use. Ordinary temporary work needs <code>/session save &lt;name&gt;</code> for persistence. A new name must not already exist.</p>
+<h2 id="inspect-structured-execution">Inspect structured execution</h2>
+<pre><code class="language-text">/parse Alice is human.
+/run ProcessTextResult {&quot;text&quot;:&quot;Is Alice human?&quot;}
+/vars
+/run RenderEnglish {&quot;answer&quot;:{&quot;$ref&quot;:&quot;last_task.answer&quot;}}
+/trace last
+/status
+</code></pre>
+<p><code>/run</code> executes an installed <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> and stores its result as <code>last_task</code>. A <code>$ref</code> input reads a saved value by its dot-separated path. <code>/parse</code> returns the <a class="definition-link" href="wiki.html#definition-semantic-command">semantic command</a> without asserting the fact. <code>/trace off</code> disables terminal trace output; bounded trace retention remains available for inspection.</p>
+<h2 id="automation-and-exit-codes">Automation and exit codes</h2>
+<pre><code class="language-sh">node src/cli.mjs --run 5 --json
+node src/cli.mjs --run all --backend bundled --json
+node src/cli.mjs --backend external examples/demo.sopnl
+node src/cli.mjs --extension extensions/research-pack examples/research-pack.sopnl
+printf &#39;/help\n/example 5\n/quit\n&#39; | node src/cli.mjs
+</code></pre>
+<p>A failed command, strict-mode unsupported sentence, execution failure or failed expected result gives exit code 1 in batch use. In conversation mode an unresolved sentence is a successful partial response and is saved as a gap for inspection. The interactive prompt continues after an error. <code>--sessions &lt;directory&gt;</code> selects the <a class="definition-link" href="wiki.html#definition-session">session</a> store; use the same directory in the API for shared local <a class="definition-link" href="wiki.html#definition-session">sessions</a>. <code>--trace</code> prints execution events. <code>--help</code>, <code>--examples</code>, <code>--run</code>, <code>--json</code>, <code>--backend</code>, <code>--extension</code>, <code>--session</code>, and <code>--temporary</code> are the supported startup switches.</p>
+<h2 id="example-catalog">Example catalog</h2>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Capability</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/example 1</code></td>
+<td>Facts and questions</td>
+<td>Names and sentence forms must fit the <a class="definition-link" href="wiki.html#definition-cnl">controlled language</a>.</td>
+</tr>
+<tr>
+<td><code>/example 2</code></td>
+<td>Rules and derived answers</td>
+<td>Rules require every head variable to occur in a premise.</td>
+</tr>
+<tr>
+<td><code>/example 3</code></td>
+<td>Explicit contradiction</td>
+<td>Contradictions are reported; the system does not choose a source to trust.</td>
+</tr>
+<tr>
+<td><code>/example 4</code></td>
+<td>Recursive reasoning</td>
+<td>Positive Horn rules over unary and binary <a class="definition-link" href="wiki.html#definition-atom">atoms</a>.</td>
+</tr>
+<tr>
+<td><code>/example 5</code></td>
+<td>Document knowledge as <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a></td>
+<td>Atlas is a supplied <a class="definition-link" href="wiki.html#definition-circuit-pack">circuit pack</a>, not automatic extraction from arbitrary text.</td>
+</tr>
+<tr>
+<td><code>/example 6</code></td>
+<td>Summaries and explanations</td>
+<td>Summaries select symbolic facts; they do not summarize an arbitrary document.</td>
+</tr>
+<tr>
+<td><code>/example 7</code></td>
+<td>Ambiguity without committing facts</td>
+<td>Only alternatives retained by the bounded search can be reported.</td>
+</tr>
+<tr>
+<td><code>/example 8</code></td>
+<td>Modal <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a></td>
+<td>A <a class="definition-link" href="wiki.html#definition-qualifier">qualifier</a> such as can is preserved; full modal logic is outside the supported semantics.</td>
+</tr>
+<tr>
+<td><code>/example 9</code></td>
+<td>Learning new phrases</td>
+<td>Supervised paraphrase <a class="definition-link" href="wiki.html#definition-induction">induction</a> needs canonical examples, not raw documents.</td>
+</tr>
+<tr>
+<td><code>/example 10</code></td>
+<td>Retraction and recomputation</td>
+<td>Retraction removes an asserted fact or rule and rebuilds derived knowledge.</td>
+</tr>
+<tr>
+<td><code>/example 11</code></td>
+<td>Strict input and safe rule rejection</td>
+<td>This example uses strict parsing. Conversation mode tries accountable interpretations; there is no neural fallback.</td>
+</tr>
+<tr>
+<td><code>/example 12</code></td>
+<td>Tense normalization boundary</td>
+<td>Past and present often map to the same atemporal predicate. This is not temporal reasoning.</td>
+</tr>
+<tr>
+<td><code>/example 13</code></td>
+<td>Saved values across SOP <a class="definition-link" href="wiki.html#definition-session">session</a> restart</td>
+<td>Explicit references reuse structured results; continuation rebuilds indexes and closure, not conversational execution.</td>
+</tr>
+<tr>
+<td><code>/example 14</code></td>
+<td><a class="definition-link" href="wiki.html#definition-assumption">Assumptions</a> and the Socrate question</td>
+<td>Name similarity and future-to-timeless projection are explicit heuristics, not evidence of an event date.</td>
+</tr>
+<tr>
+<td><code>/example 15</code></td>
+<td>Unknown predicates and correction</td>
+<td>A guessed word category does not supply its real-world meaning. Rejecting its <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> removes dependent rules.</td>
+</tr>
+<tr>
+<td><code>/example 16</code></td>
+<td>Partial understanding and missing premises</td>
+<td>A missing-premise <a class="definition-link" href="wiki.html#definition-hypothesis">hypothesis</a> remains conditional. Unsupported fragments are saved for correction.</td>
+</tr>
+<tr>
+<td><code>/example 17</code></td>
+<td>Elementary <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a></td>
+<td>Explicit elementary rules and ordinary-object models; exceptions beyond those encoded remain unknown.</td>
+</tr>
+<tr>
+<td><code>/example 18</code></td>
+<td>Quantities and changing locations</td>
+<td>The latest explicit location or quantity is current. Negative inventory updates are rejected.</td>
+</tr>
+<tr>
+<td><code>/example 19</code></td>
+<td>Everyday defaults and their exceptions</td>
+<td>Rain exposure supports an explicit conditional guess; known shelter blocks it. The guessed wet fact is not stored.</td>
+</tr>
+<tr>
+<td><code>/example 20</code></td>
+<td>Answer length and retained <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a></td>
+<td>Answer-only mode hides visible explanations; actual <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> remain in the <a class="definition-link" href="wiki.html#definition-session">session</a> audit and API metadata.</td>
+</tr>
+<tr>
+<td><code>/example 21</code></td>
+<td>A conversation with a remembered speaker</td>
+<td>Names and first-person references use <a class="definition-link" href="wiki.html#definition-session">session</a> evidence. A bare unfamiliar introduction is a correctable name <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>.</td>
+</tr>
+<tr>
+<td><code>/example 22</code></td>
+<td>Polite requests and useful clarification</td>
+<td>Supported prefixes compose with existing tasks. An unsupported request stays a gap and cannot become a claimed result.</td>
+</tr>
+<tr>
+<td><code>/example 23</code></td>
+<td>Arithmetic wording and spelling repair</td>
+<td>Two numeric operands and one operation. Word repairs are recorded; unsupported words, units and longer expressions are not silently discarded.</td>
+</tr>
+</tbody></table>
+<h2 id="stored-terminal-history">Stored terminal history</h2>
+<p>The store keeps the selected ID in <code>.cli-state.json</code> and up to 1,000 submitted entries per <a class="definition-link" href="wiki.html#definition-session">session</a> in <code>&lt;session&gt;/cli-history.json</code>. Blank lines, comments, <code>/quit</code> and entries longer than 8,192 characters are omitted. Consecutive duplicate entries collapse. Writes are atomic and locked so concurrent terminals do not overwrite each other&#39;s appended history. Saving recall does not publish a new semantic revision.</p>
+<p>If a saved <a class="definition-link" href="wiki.html#definition-session">session</a> has no CLI history file, its retained user messages seed recall. Old slash commands that were never recorded cannot be recovered. A missing remembered <a class="definition-link" href="wiki.html#definition-session">session</a> falls back to another saved <a class="definition-link" href="wiki.html#definition-session">session</a> or a new one, with a notice. Corrupt existing <a class="definition-link" href="wiki.html#definition-session">session</a> state fails restoration rather than silently switching to unrelated knowledge. These JSON files are terminal bookkeeping; semantic state remains SOP and API history matching remains separate.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

@@ -1,8 +1,8 @@
-import { createSLLM } from './sllm.mjs';
+import { createSDLM } from './sd_lm.mjs';
 import { Trace } from './kernel/trace.mjs';
 
 const trace = new Trace(false);
-const s = await createSLLM({ trace, learnedRoots: [] });
+const s = await createSDLM({ trace, learnedRoots: [] });
 const lines = [
   'All researchers are curious.',
   'Every researcher who is curious and validates Paper is trusted.',

@@ -1,0 +1,17 @@
+@input value
+@n1 field
+    value $value
+    name "context_assumptions"
+@n2 hasItems
+    values $n1
+@n3 mapReadCircuit
+    values $n1
+    circuit "RenderContextAssumption"
+@n4 join
+    values $n3
+    separator "; "
+@n5 concat
+    part1 "\nSession context contains additional assumptions: "
+    part2 $n4
+    part3 ". Their individual contribution to this aggregate or incomplete proof has not been established."
+@output result $n5

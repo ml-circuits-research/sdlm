@@ -1,0 +1,8 @@
+@input answer
+@n1 answerKindIs
+    value $answer
+    kind "chat"
+@n2 field
+    value $answer
+    name "message"
+@output result $n2

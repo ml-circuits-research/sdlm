@@ -1,0 +1,21 @@
+@input command
+@guard commandKindIs
+    value $command
+    kind "readValue"
+@payload field
+    value $command
+    name "payload"
+@subject field
+    value $payload
+    name "subject"
+@predicate field
+    value $payload
+    name "predicate"
+@numeric field
+    value $payload
+    name "numeric"
+@result kbReadValue
+    subject $subject
+    predicate $predicate
+    numeric $numeric
+@output result $result

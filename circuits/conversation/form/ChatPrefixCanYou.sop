@@ -1,0 +1,36 @@
+@input tokens
+@input originalTokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "can"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "you"
+@n4 tokenCount
+    tokens $originalTokens
+@n5 sliceTokens
+    tokens $originalTokens
+    start 2
+    end $n4
+@n6 list
+    item0 ","
+@n7 trimTokenEdges
+    tokens $n5
+    leading $n6
+@n8 arrayField
+    values $n7
+    name "surface"
+@n9 join
+    values $n8
+    separator " "
+@n10 list
+@n11 record
+    rewrite $n9
+    decisions $n10
+    policy "ChatPrefixCanYou"
+@output result $n11

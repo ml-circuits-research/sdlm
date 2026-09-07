@@ -1,0 +1,19 @@
+@input command
+@n1 commandKindIs
+    value $command
+    kind "chatPerson"
+@n2 field
+    value $command
+    name "payload"
+@n3 field
+    value $n2
+    name "value"
+@n4 kbProfile
+    entity $n3
+@n5 selectCircuits
+    group "conversation.person"
+    value $n4
+@n6 callCandidates
+    candidates $n5
+    value $n4
+@output result $n6

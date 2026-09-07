@@ -1,0 +1,4 @@
+@input value
+@n1 atomText
+    atom $value
+@output result $n1

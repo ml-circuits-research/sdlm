@@ -1,0 +1,36 @@
+@input command
+@n1 commandKindIs
+    value $command
+    kind "introduceSpeaker"
+@n2 field
+    value $command
+    name "payload"
+@n3 field
+    value $n2
+    name "value"
+@n4 makeUnaryAtom
+    subject $n2
+    predicate "introduced"
+@n5 kbAssertFact
+    atom $n4
+@n6 makeConstant
+    value "_conversation"
+@n7 kbSetValue
+    subject $n6
+    predicate "conversation_speaker"
+    value $n3
+@n8 makeBinaryAtom
+    subject $n6
+    predicate "conversation_speaker"
+    object $n2
+@n9 display
+    value $n3
+@n10 concat
+    part1 "Nice to meet you, "
+    part2 $n9
+    part3 ". I'll use that name in this session."
+@n11 record
+    kind "chat"
+    message $n10
+    atom $n8
+@output result $n11

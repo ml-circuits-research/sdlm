@@ -1,0 +1,158 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeConstant
+    value "eye"
+@n2 makeConstant
+    value "see"
+@n3 makeBinaryAtom
+    subject $n1
+    predicate "purpose"
+    polarity "positive"
+    object $n2
+@n4 kbAssertFact
+    atom $n3
+@n5 makeConstant
+    value "ear"
+@n6 makeConstant
+    value "hear"
+@n7 makeBinaryAtom
+    subject $n5
+    predicate "purpose"
+    polarity "positive"
+    object $n6
+@n8 kbAssertFact
+    atom $n7
+@n9 makeConstant
+    value "nose"
+@n10 makeConstant
+    value "smell"
+@n11 makeBinaryAtom
+    subject $n9
+    predicate "purpose"
+    polarity "positive"
+    object $n10
+@n12 kbAssertFact
+    atom $n11
+@n13 makeConstant
+    value "tongue"
+@n14 makeConstant
+    value "taste"
+@n15 makeBinaryAtom
+    subject $n13
+    predicate "purpose"
+    polarity "positive"
+    object $n14
+@n16 kbAssertFact
+    atom $n15
+@n17 makeConstant
+    value "skin"
+@n18 makeConstant
+    value "feel"
+@n19 makeBinaryAtom
+    subject $n17
+    predicate "purpose"
+    polarity "positive"
+    object $n18
+@n20 kbAssertFact
+    atom $n19
+@n21 makeConstant
+    value "pencil"
+@n22 makeConstant
+    value "write"
+@n23 makeBinaryAtom
+    subject $n21
+    predicate "purpose"
+    polarity "positive"
+    object $n22
+@n24 kbAssertFact
+    atom $n23
+@n25 makeConstant
+    value "pen"
+@n26 makeConstant
+    value "write"
+@n27 makeBinaryAtom
+    subject $n25
+    predicate "purpose"
+    polarity "positive"
+    object $n26
+@n28 kbAssertFact
+    atom $n27
+@n29 makeConstant
+    value "key"
+@n30 makeConstant
+    value "unlock"
+@n31 makeBinaryAtom
+    subject $n29
+    predicate "purpose"
+    polarity "positive"
+    object $n30
+@n32 kbAssertFact
+    atom $n31
+@n33 makeConstant
+    value "umbrella"
+@n34 makeConstant
+    value "shelter"
+@n35 makeBinaryAtom
+    subject $n33
+    predicate "purpose"
+    polarity "positive"
+    object $n34
+@n36 kbAssertFact
+    atom $n35
+@n37 makeConstant
+    value "ruler"
+@n38 makeConstant
+    value "measure"
+@n39 makeBinaryAtom
+    subject $n37
+    predicate "purpose"
+    polarity "positive"
+    object $n38
+@n40 kbAssertFact
+    atom $n39
+@n41 makeConstant
+    value "scissors"
+@n42 makeConstant
+    value "cut"
+@n43 makeBinaryAtom
+    subject $n41
+    predicate "purpose"
+    polarity "positive"
+    object $n42
+@n44 kbAssertFact
+    atom $n43
+@n45 makeConstant
+    value "spoon"
+@n46 makeConstant
+    value "eat"
+@n47 makeBinaryAtom
+    subject $n45
+    predicate "purpose"
+    polarity "positive"
+    object $n46
+@n48 kbAssertFact
+    atom $n47
+@n49 makeConstant
+    value "book"
+@n50 makeConstant
+    value "read"
+@n51 makeBinaryAtom
+    subject $n49
+    predicate "purpose"
+    polarity "positive"
+    object $n50
+@n52 kbAssertFact
+    atom $n51
+@n53 makeConstant
+    value "clock"
+@n54 makeConstant
+    value "time"
+@n55 makeBinaryAtom
+    subject $n53
+    predicate "purpose"
+    polarity "positive"
+    object $n54
+@n56 kbAssertFact
+    atom $n55
+@result constant
+    value true
+@output result $result

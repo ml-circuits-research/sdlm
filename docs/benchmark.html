@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elementary evaluation | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="elementary-evaluation">Elementary evaluation</h1>
+<p>The early-school <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> evaluates 88 authored English questions across eleven elementary domains. Each case supplies context, a question and an exact typed expectation. The dataset is available at <a href="assets/benchmarks/v1.json">v1.json</a> and is separate from the runtime&#39;s knowledge. Ordinary replies never read expected <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> answers.</p>
+<h2 id="run-and-inspect">Run and inspect</h2>
+<pre><code class="language-text">/benchmarks
+/benchmarks animals-01
+/benchmark dev
+/benchmark eval
+/benchmark all
+</code></pre>
+<pre><code class="language-sh">npm run benchmark -- --split eval
+npm run benchmark -- --split all --backend external --output /tmp/sdlm-evaluation.json
+npm run benchmark -- --split all --no-foundation --output /tmp/sdlm-ablation.json
+</code></pre>
+<p>Each case runs in a fresh isolated runtime. It does not change your selected CLI <a class="definition-link" href="wiki.html#definition-session">session</a> and does not load learned packs. Progress appears after every ten cases. The report includes expected and actual values, <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, incorrect assertions, understood inputs, backend, corpus hash and runtime source hash. A failed expectation makes the command return a failing exit status, including an intentional ablation with <code>--no-foundation</code>.</p>
+<h2 id="corpus-design-and-scoring">Corpus design and scoring</h2>
+<p>There are eight cases per domain: four development cases and four evaluation cases, giving 44 cases in each split. Domains cover animals, plants and materials, senses and tools, arithmetic, quantities, space, order and calendar, family, everyday causes, comparisons and evidence boundaries. The question set and expectations were written before adding the elementary <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. The evaluation split is a reserved regression set from the same author; it is not an independent blind test.</p>
+<p>A supported Yes, No, Both or Unknown must match the expected boolean status exactly. Numbers must match exactly. Binding lists must contain exactly the expected values, independent of order. A parser failure does not count as a correct Unknown. Reports separately count wrong asserted answers so a system that guesses incorrectly is distinguishable from one that cannot interpret the input. Regression tests outside the corpus also exercise new names and arithmetic operands, movement, negative inventory updates, conditional defaults and <a class="definition-link" href="wiki.html#definition-session">session</a> isolation.</p>
+<p>Topic selection uses the early primary coverage in the <a href="https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study">English mathematics curriculum</a> and <a href="https://www.gov.uk/government/publications/national-curriculum-in-england-science-programmes-of-study/national-curriculum-in-england-science-programmes-of-study">science curriculum</a>, alongside authored everyday reasoning cases. The sources guide topic choice; they do not validate these questions as an age-standardized instrument. A score does not establish equivalence to a seven-year-old child, general intelligence or broad language comprehension.</p>
+<p>The fixed school corpus does not cover every arithmetic paraphrase or spelling error. In particular, an earlier 88/88 score coexisted with failure on <code>how much is 3 plus 5?</code>. The separate <code>arithmetic-conversation.test.mjs</code> regression set and example 23 exercise request variants, new operands, lexical repair, rejection and incomplete calculations. These checks extend measured input coverage without changing the frozen dataset.</p>
+<h2 id="recorded-measurements">Recorded measurements</h2>
+<table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Correct</th>
+<th>Understood</th>
+<th>Incorrect assertions</th>
+<th>Cases with <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Before elementary <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a></td>
+<td>9/88</td>
+<td>27/88</td>
+<td>0</td>
+<td>17</td>
+</tr>
+<tr>
+<td>bundled, dev</td>
+<td>44/44</td>
+<td>44/44</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>bundled, eval</td>
+<td>44/44</td>
+<td>44/44</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>external, dev</td>
+<td>44/44</td>
+<td>44/44</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>external, eval</td>
+<td>44/44</td>
+<td>44/44</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<p><a href="assets/benchmarks/baseline.json">Baseline report</a>. <a href="assets/benchmarks/current-bundled.json">bundled report</a>, measured 2026-09-07T13:21:35.760Z. <a href="assets/benchmarks/current-external.json">external report</a>, measured 2026-09-07T13:21:36.504Z.</p>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Before elementary <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a></th>
+<th>Bundled, all cases</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>animals</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>plants_materials</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>senses_tools</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>arithmetic</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>quantities</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>space</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>order_calendar</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>family</td>
+<td>1/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>causal</td>
+<td>1/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>comparisons</td>
+<td>0/8</td>
+<td>8/8</td>
+</tr>
+<tr>
+<td>epistemic</td>
+<td>7/8</td>
+<td>8/8</td>
+</tr>
+</tbody></table>
+<p>The baseline was measured before adding <a class="definition-link" href="wiki.html#definition-base-knowledge">elementary knowledge</a> and quantity <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. Its original report records a corpus hash but no source fingerprint. The complete final reports record both hashes and can be compared case by case. Development and evaluation use the same fixed expectations across runs. Changes to expectations require a new dataset version and an explanation, rather than silently repairing a failing score.</p>
+<h2 id="improve-a-failure">Improve a failure</h2>
+<p>Inspect its context, actual answer and <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Reproduce it with <code>/verbosity explain</code> and inspect <code>/parse</code>, <code>/kb</code>, <code>/assumptions</code> and <code>/trace last</code>. Decide whether the missing piece is vocabulary, a construction, a domain rule, a state update or a mistaken default. Add or correct the corresponding <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuit</a>, add regression cases with changed names and values, and repeat both splits and both backends. Use the <a href="learning.html">learning guide</a> for validated packs and the <a href="foundation.html">foundation guide</a> for source ownership.</p>
+<p>This corpus deliberately uses supported sentence patterns. Unseen paraphrases, pronouns, rich narratives, units and event timelines require separate evaluations. A perfect score here is evidence for this finite corpus only.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

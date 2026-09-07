@@ -1,0 +1,8 @@
+@input style
+@n1 valueIs
+    value $style
+    expected "answer"
+@n2 setSessionSetting
+    name "response_style"
+    value "answer"
+@output result $n2

@@ -1,0 +1,16 @@
+@input tokens
+@n1 list
+    item0 "."
+    item1 "!"
+    item2 "?"
+@n2 trimTokenEdges
+    tokens $tokens
+    trailing $n1
+@n3 selectCircuits
+    group "conversation.form"
+    tokens $n2
+@n4 callCandidates
+    candidates $n3
+    originalTokens $tokens
+    tokens $n2
+@output result $n4

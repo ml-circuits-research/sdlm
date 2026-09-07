@@ -1,0 +1,34 @@
+
+> sdlm-prototype@0.6.0 demo:document
+> node src/demo-document-circuits.mjs
+
+Before installing document circuits:
+Unknown: neither the statement nor its explicit negation is derivable.
+
+Installed 19 SOP circuits from the document pack.
+
+> Did Atlas start in 2024?
+Yes.
+
+> Can Atlas reconstruct Evidence?
+Yes.
+
+> What does PronounIt refer to?
+Answer: atlas
+
+> Who reported EvidenceClaim?
+Answer: team
+
+> What does KnowledgeCircuit mean?
+Answer: executable_sop_circuit_generated_from_source_material
+
+> Is Architecture auditable?
+Yes.
+
+> Why is Architecture auditable?
+Supported by:
+Architecture is auditable. [rule]
+  Answer circuits is retain derivation links. [given]
+
+> Summarize Atlas.
+Summary of Atlas: Atlas uses Semantic circuits. Claim atlas uses semantic circuits about Atlas. Atlas start 2024 actor Atlas. Atlas can reconstruct Evidence.

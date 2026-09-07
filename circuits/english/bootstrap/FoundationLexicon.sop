@@ -1,0 +1,511 @@
+@n1 addLexeme
+    surface "dog"
+    class "noun"
+    lemma "dog"
+@n2 addLexeme
+    surface "dogs"
+    class "noun"
+    lemma "dog"
+@n3 addLexeme
+    surface "cat"
+    class "noun"
+    lemma "cat"
+@n4 addLexeme
+    surface "cats"
+    class "noun"
+    lemma "cat"
+@n5 addLexeme
+    surface "human"
+    class "noun"
+    lemma "human"
+@n6 addLexeme
+    surface "humans"
+    class "noun"
+    lemma "human"
+@n7 addLexeme
+    surface "mammal"
+    class "noun"
+    lemma "mammal"
+@n8 addLexeme
+    surface "mammals"
+    class "noun"
+    lemma "mammal"
+@n9 addLexeme
+    surface "animal"
+    class "noun"
+    lemma "animal"
+@n10 addLexeme
+    surface "animals"
+    class "noun"
+    lemma "animal"
+@n11 addLexeme
+    surface "bird"
+    class "noun"
+    lemma "bird"
+@n12 addLexeme
+    surface "birds"
+    class "noun"
+    lemma "bird"
+@n13 addLexeme
+    surface "sparrow"
+    class "noun"
+    lemma "sparrow"
+@n14 addLexeme
+    surface "sparrows"
+    class "noun"
+    lemma "sparrow"
+@n15 addLexeme
+    surface "penguin"
+    class "noun"
+    lemma "penguin"
+@n16 addLexeme
+    surface "penguins"
+    class "noun"
+    lemma "penguin"
+@n17 addLexeme
+    surface "insect"
+    class "noun"
+    lemma "insect"
+@n18 addLexeme
+    surface "insects"
+    class "noun"
+    lemma "insect"
+@n19 addLexeme
+    surface "ant"
+    class "noun"
+    lemma "ant"
+@n20 addLexeme
+    surface "ants"
+    class "noun"
+    lemma "ant"
+@n21 addLexeme
+    surface "bee"
+    class "noun"
+    lemma "bee"
+@n22 addLexeme
+    surface "bees"
+    class "noun"
+    lemma "bee"
+@n23 addLexeme
+    surface "rock"
+    class "noun"
+    lemma "rock"
+@n24 addLexeme
+    surface "rocks"
+    class "noun"
+    lemma "rock"
+@n25 addLexeme
+    surface "plant"
+    class "noun"
+    lemma "plant"
+@n26 addLexeme
+    surface "plants"
+    class "noun"
+    lemma "plant"
+@n27 addLexeme
+    surface "tree"
+    class "noun"
+    lemma "tree"
+@n28 addLexeme
+    surface "trees"
+    class "noun"
+    lemma "tree"
+@n29 addLexeme
+    surface "flower"
+    class "noun"
+    lemma "flower"
+@n30 addLexeme
+    surface "flowers"
+    class "noun"
+    lemma "flower"
+@n31 addLexeme
+    surface "grass"
+    class "noun"
+    lemma "grass"
+@n33 addLexeme
+    surface "glass"
+    class "noun"
+    lemma "glass"
+@n35 addLexeme
+    surface "metal"
+    class "noun"
+    lemma "metal"
+@n37 addLexeme
+    surface "cotton"
+    class "noun"
+    lemma "cotton"
+@n39 addLexeme
+    surface "rubber"
+    class "noun"
+    lemma "rubber"
+@n41 addLexeme
+    surface "wood"
+    class "noun"
+    lemma "wood"
+@n43 addLexeme
+    surface "eye"
+    class "noun"
+    lemma "eye"
+@n44 addLexeme
+    surface "eyes"
+    class "noun"
+    lemma "eye"
+@n45 addLexeme
+    surface "ear"
+    class "noun"
+    lemma "ear"
+@n46 addLexeme
+    surface "ears"
+    class "noun"
+    lemma "ear"
+@n47 addLexeme
+    surface "nose"
+    class "noun"
+    lemma "nose"
+@n48 addLexeme
+    surface "noses"
+    class "noun"
+    lemma "nose"
+@n49 addLexeme
+    surface "tongue"
+    class "noun"
+    lemma "tongue"
+@n50 addLexeme
+    surface "tongues"
+    class "noun"
+    lemma "tongue"
+@n51 addLexeme
+    surface "skin"
+    class "noun"
+    lemma "skin"
+@n53 addLexeme
+    surface "pencil"
+    class "noun"
+    lemma "pencil"
+@n54 addLexeme
+    surface "pencils"
+    class "noun"
+    lemma "pencil"
+@n55 addLexeme
+    surface "pen"
+    class "noun"
+    lemma "pen"
+@n56 addLexeme
+    surface "pens"
+    class "noun"
+    lemma "pen"
+@n57 addLexeme
+    surface "key"
+    class "noun"
+    lemma "key"
+@n58 addLexeme
+    surface "keys"
+    class "noun"
+    lemma "key"
+@n59 addLexeme
+    surface "umbrella"
+    class "noun"
+    lemma "umbrella"
+@n60 addLexeme
+    surface "umbrellas"
+    class "noun"
+    lemma "umbrella"
+@n61 addLexeme
+    surface "ruler"
+    class "noun"
+    lemma "ruler"
+@n62 addLexeme
+    surface "rulers"
+    class "noun"
+    lemma "ruler"
+@n63 addLexeme
+    surface "spoon"
+    class "noun"
+    lemma "spoon"
+@n64 addLexeme
+    surface "spoons"
+    class "noun"
+    lemma "spoon"
+@n65 addLexeme
+    surface "book"
+    class "noun"
+    lemma "book"
+@n66 addLexeme
+    surface "books"
+    class "noun"
+    lemma "book"
+@n67 addLexeme
+    surface "clock"
+    class "noun"
+    lemma "clock"
+@n68 addLexeme
+    surface "clocks"
+    class "noun"
+    lemma "clock"
+@n69 addLexeme
+    surface "apple"
+    class "noun"
+    lemma "apple"
+@n70 addLexeme
+    surface "apples"
+    class "noun"
+    lemma "apple"
+@n71 addLexeme
+    surface "pear"
+    class "noun"
+    lemma "pear"
+@n72 addLexeme
+    surface "pears"
+    class "noun"
+    lemma "pear"
+@n73 addLexeme
+    surface "marble"
+    class "noun"
+    lemma "marble"
+@n74 addLexeme
+    surface "marbles"
+    class "noun"
+    lemma "marble"
+@n75 addLexeme
+    surface "water"
+    class "noun"
+    lemma "water"
+@n77 addLexeme
+    surface "food"
+    class "noun"
+    lemma "food"
+@n79 addLexeme
+    surface "light"
+    class "noun"
+    lemma "light"
+@n81 addLexeme
+    surface "rest"
+    class "noun"
+    lemma "rest"
+@n83 addLexeme
+    surface "warmth"
+    class "noun"
+    lemma "warmth"
+@n85 addLexeme
+    surface "shelter"
+    class "noun"
+    lemma "shelter"
+@n87 addLexeme
+    surface "rain"
+    class "noun"
+    lemma "rain"
+@n89 addLexeme
+    surface "mother"
+    class "noun"
+    lemma "mother"
+@n90 addLexeme
+    surface "mothers"
+    class "noun"
+    lemma "mother"
+@n91 addLexeme
+    surface "father"
+    class "noun"
+    lemma "father"
+@n92 addLexeme
+    surface "fathers"
+    class "noun"
+    lemma "father"
+@n93 addLexeme
+    surface "parent"
+    class "noun"
+    lemma "parent"
+@n94 addLexeme
+    surface "parents"
+    class "noun"
+    lemma "parent"
+@n95 addLexeme
+    surface "child"
+    class "noun"
+    lemma "child"
+@n96 addLexeme
+    surface "children"
+    class "noun"
+    lemma "child"
+@n97 addLexeme
+    surface "grandparent"
+    class "noun"
+    lemma "grandparent"
+@n98 addLexeme
+    surface "grandparents"
+    class "noun"
+    lemma "grandparent"
+@n99 addLexeme
+    surface "grandchild"
+    class "noun"
+    lemma "grandchild"
+@n100 addLexeme
+    surface "grandchildren"
+    class "noun"
+    lemma "grandchild"
+@n101 addLexeme
+    surface "sibling"
+    class "noun"
+    lemma "sibling"
+@n102 addLexeme
+    surface "siblings"
+    class "noun"
+    lemma "sibling"
+@n103 addLexeme
+    surface "brother"
+    class "noun"
+    lemma "brother"
+@n104 addLexeme
+    surface "brothers"
+    class "noun"
+    lemma "brother"
+@n105 addLexeme
+    surface "sister"
+    class "noun"
+    lemma "sister"
+@n106 addLexeme
+    surface "sisters"
+    class "noun"
+    lemma "sister"
+@n107 addLexeme
+    surface "alive"
+    class "adjective"
+    lemma "alive"
+@n108 addLexeme
+    surface "living"
+    class "adjective"
+    lemma "living"
+@n109 addLexeme
+    surface "fragile"
+    class "adjective"
+    lemma "fragile"
+@n110 addLexeme
+    surface "transparent"
+    class "adjective"
+    lemma "transparent"
+@n111 addLexeme
+    surface "hard"
+    class "adjective"
+    lemma "hard"
+@n112 addLexeme
+    surface "absorbent"
+    class "adjective"
+    lemma "absorbent"
+@n113 addLexeme
+    surface "stretchy"
+    class "adjective"
+    lemma "stretchy"
+@n114 addLexeme
+    surface "warm"
+    class "adjective"
+    lemma "warm"
+@n115 addLexeme
+    surface "hungry"
+    class "adjective"
+    lemma "hungry"
+@n116 addLexeme
+    surface "thirsty"
+    class "adjective"
+    lemma "thirsty"
+@n117 addLexeme
+    surface "tired"
+    class "adjective"
+    lemma "tired"
+@n118 addLexeme
+    surface "cold"
+    class "adjective"
+    lemma "cold"
+@n119 addLexeme
+    surface "wet"
+    class "adjective"
+    lemma "wet"
+@n120 addLexeme
+    surface "outside"
+    class "adjective"
+    lemma "outside"
+@n121 addLexeme
+    surface "fly"
+    class "verbBase"
+    lemma "fly"
+@n122 addLexeme
+    surface "flies"
+    class "verb3"
+    lemma "fly"
+@n123 addLexeme
+    surface "melt"
+    class "verbBase"
+    lemma "melt"
+@n124 addLexeme
+    surface "melts"
+    class "verb3"
+    lemma "melt"
+@extra0_0 addLexeme
+    surface "horse"
+    class "noun"
+    lemma "horse"
+@extra0_1 addLexeme
+    surface "horses"
+    class "noun"
+    lemma "horse"
+@extra1_0 addLexeme
+    surface "cow"
+    class "noun"
+    lemma "cow"
+@extra1_1 addLexeme
+    surface "cows"
+    class "noun"
+    lemma "cow"
+@extra2_0 addLexeme
+    surface "rabbit"
+    class "noun"
+    lemma "rabbit"
+@extra2_1 addLexeme
+    surface "rabbits"
+    class "noun"
+    lemma "rabbit"
+@extra3_0 addLexeme
+    surface "duck"
+    class "noun"
+    lemma "duck"
+@extra3_1 addLexeme
+    surface "ducks"
+    class "noun"
+    lemma "duck"
+@extra4_0 addLexeme
+    surface "butterfly"
+    class "noun"
+    lemma "butterfly"
+@extra4_1 addLexeme
+    surface "butterflies"
+    class "noun"
+    lemma "butterfly"
+@extra5_0 addLexeme
+    surface "fish"
+    class "noun"
+    lemma "fish"
+@extra6_0 addLexeme
+    surface "frog"
+    class "noun"
+    lemma "frog"
+@extra6_1 addLexeme
+    surface "frogs"
+    class "noun"
+    lemma "frog"
+@extra7_0 addLexeme
+    surface "amphibian"
+    class "noun"
+    lemma "amphibian"
+@extra7_1 addLexeme
+    surface "amphibians"
+    class "noun"
+    lemma "amphibian"
+@extra8_0 addLexeme
+    surface "ice"
+    class "noun"
+    lemma "ice"
+@extra9_0 addLexeme
+    surface "scissors"
+    class "noun"
+    lemma "scissors"
+@result constant
+    value true
+@output result $result

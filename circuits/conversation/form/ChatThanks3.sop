@@ -1,0 +1,31 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 4
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "thank"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "you"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "very"
+@n5 tokenIs
+    tokens $tokens
+    index 3
+    value "much"
+@n6 record
+    kind "chat"
+    message "You're welcome."
+@n7 makeCommand
+    kind "chat"
+    payload $n6
+@n8 list
+@n9 record
+    command $n7
+    decisions $n8
+@output result $n9

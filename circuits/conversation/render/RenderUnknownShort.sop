@@ -1,0 +1,3 @@
+@n1 constant
+    value "I don't know."
+@output result $n1

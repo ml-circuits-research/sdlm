@@ -1,0 +1,462 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeVariable
+    name "X"
+@n2 makeUnaryAtom
+    subject $n1
+    predicate "mammal"
+    polarity "positive"
+@n3 makeVariable
+    name "X"
+@n4 makeUnaryAtom
+    subject $n3
+    predicate "dog"
+    polarity "positive"
+@n5 list
+    item0 $n4
+@n6 makeRule
+    head $n2
+    body $n5
+@n7 kbAssertRule
+    rule $n6
+@n8 makeVariable
+    name "X"
+@n9 makeUnaryAtom
+    subject $n8
+    predicate "mammal"
+    polarity "positive"
+@n10 makeVariable
+    name "X"
+@n11 makeUnaryAtom
+    subject $n10
+    predicate "cat"
+    polarity "positive"
+@n12 list
+    item0 $n11
+@n13 makeRule
+    head $n9
+    body $n12
+@n14 kbAssertRule
+    rule $n13
+@n15 makeVariable
+    name "X"
+@n16 makeUnaryAtom
+    subject $n15
+    predicate "mammal"
+    polarity "positive"
+@n17 makeVariable
+    name "X"
+@n18 makeUnaryAtom
+    subject $n17
+    predicate "human"
+    polarity "positive"
+@n19 list
+    item0 $n18
+@n20 makeRule
+    head $n16
+    body $n19
+@n21 kbAssertRule
+    rule $n20
+@n22 makeVariable
+    name "X"
+@n23 makeUnaryAtom
+    subject $n22
+    predicate "human"
+    polarity "positive"
+@n24 makeVariable
+    name "X"
+@n25 makeUnaryAtom
+    subject $n24
+    predicate "child"
+    polarity "positive"
+@n26 list
+    item0 $n25
+@n27 makeRule
+    head $n23
+    body $n26
+@n28 kbAssertRule
+    rule $n27
+@n29 makeVariable
+    name "X"
+@n30 makeUnaryAtom
+    subject $n29
+    predicate "mammal"
+    polarity "positive"
+@n31 makeVariable
+    name "X"
+@n32 makeUnaryAtom
+    subject $n31
+    predicate "horse"
+    polarity "positive"
+@n33 list
+    item0 $n32
+@n34 makeRule
+    head $n30
+    body $n33
+@n35 kbAssertRule
+    rule $n34
+@n36 makeVariable
+    name "X"
+@n37 makeUnaryAtom
+    subject $n36
+    predicate "mammal"
+    polarity "positive"
+@n38 makeVariable
+    name "X"
+@n39 makeUnaryAtom
+    subject $n38
+    predicate "cow"
+    polarity "positive"
+@n40 list
+    item0 $n39
+@n41 makeRule
+    head $n37
+    body $n40
+@n42 kbAssertRule
+    rule $n41
+@n43 makeVariable
+    name "X"
+@n44 makeUnaryAtom
+    subject $n43
+    predicate "mammal"
+    polarity "positive"
+@n45 makeVariable
+    name "X"
+@n46 makeUnaryAtom
+    subject $n45
+    predicate "rabbit"
+    polarity "positive"
+@n47 list
+    item0 $n46
+@n48 makeRule
+    head $n44
+    body $n47
+@n49 kbAssertRule
+    rule $n48
+@n50 makeVariable
+    name "X"
+@n51 makeUnaryAtom
+    subject $n50
+    predicate "animal"
+    polarity "positive"
+@n52 makeVariable
+    name "X"
+@n53 makeUnaryAtom
+    subject $n52
+    predicate "mammal"
+    polarity "positive"
+@n54 list
+    item0 $n53
+@n55 makeRule
+    head $n51
+    body $n54
+@n56 kbAssertRule
+    rule $n55
+@n57 makeVariable
+    name "X"
+@n58 makeUnaryAtom
+    subject $n57
+    predicate "bird"
+    polarity "positive"
+@n59 makeVariable
+    name "X"
+@n60 makeUnaryAtom
+    subject $n59
+    predicate "penguin"
+    polarity "positive"
+@n61 list
+    item0 $n60
+@n62 makeRule
+    head $n58
+    body $n61
+@n63 kbAssertRule
+    rule $n62
+@n64 makeVariable
+    name "X"
+@n65 makeUnaryAtom
+    subject $n64
+    predicate "bird"
+    polarity "positive"
+@n66 makeVariable
+    name "X"
+@n67 makeUnaryAtom
+    subject $n66
+    predicate "sparrow"
+    polarity "positive"
+@n68 list
+    item0 $n67
+@n69 makeRule
+    head $n65
+    body $n68
+@n70 kbAssertRule
+    rule $n69
+@n71 makeVariable
+    name "X"
+@n72 makeUnaryAtom
+    subject $n71
+    predicate "bird"
+    polarity "positive"
+@n73 makeVariable
+    name "X"
+@n74 makeUnaryAtom
+    subject $n73
+    predicate "duck"
+    polarity "positive"
+@n75 list
+    item0 $n74
+@n76 makeRule
+    head $n72
+    body $n75
+@n77 kbAssertRule
+    rule $n76
+@n78 makeVariable
+    name "X"
+@n79 makeUnaryAtom
+    subject $n78
+    predicate "animal"
+    polarity "positive"
+@n80 makeVariable
+    name "X"
+@n81 makeUnaryAtom
+    subject $n80
+    predicate "bird"
+    polarity "positive"
+@n82 list
+    item0 $n81
+@n83 makeRule
+    head $n79
+    body $n82
+@n84 kbAssertRule
+    rule $n83
+@n85 makeVariable
+    name "X"
+@n86 makeUnaryAtom
+    subject $n85
+    predicate "insect"
+    polarity "positive"
+@n87 makeVariable
+    name "X"
+@n88 makeUnaryAtom
+    subject $n87
+    predicate "bee"
+    polarity "positive"
+@n89 list
+    item0 $n88
+@n90 makeRule
+    head $n86
+    body $n89
+@n91 kbAssertRule
+    rule $n90
+@n92 makeVariable
+    name "X"
+@n93 makeUnaryAtom
+    subject $n92
+    predicate "insect"
+    polarity "positive"
+@n94 makeVariable
+    name "X"
+@n95 makeUnaryAtom
+    subject $n94
+    predicate "ant"
+    polarity "positive"
+@n96 list
+    item0 $n95
+@n97 makeRule
+    head $n93
+    body $n96
+@n98 kbAssertRule
+    rule $n97
+@n99 makeVariable
+    name "X"
+@n100 makeUnaryAtom
+    subject $n99
+    predicate "insect"
+    polarity "positive"
+@n101 makeVariable
+    name "X"
+@n102 makeUnaryAtom
+    subject $n101
+    predicate "butterfly"
+    polarity "positive"
+@n103 list
+    item0 $n102
+@n104 makeRule
+    head $n100
+    body $n103
+@n105 kbAssertRule
+    rule $n104
+@n106 makeVariable
+    name "X"
+@n107 makeUnaryAtom
+    subject $n106
+    predicate "animal"
+    polarity "positive"
+@n108 makeVariable
+    name "X"
+@n109 makeUnaryAtom
+    subject $n108
+    predicate "insect"
+    polarity "positive"
+@n110 list
+    item0 $n109
+@n111 makeRule
+    head $n107
+    body $n110
+@n112 kbAssertRule
+    rule $n111
+@n113 makeVariable
+    name "X"
+@n114 makeUnaryAtom
+    subject $n113
+    predicate "animal"
+    polarity "positive"
+@n115 makeVariable
+    name "X"
+@n116 makeUnaryAtom
+    subject $n115
+    predicate "fish"
+    polarity "positive"
+@n117 list
+    item0 $n116
+@n118 makeRule
+    head $n114
+    body $n117
+@n119 kbAssertRule
+    rule $n118
+@n120 makeVariable
+    name "X"
+@n121 makeUnaryAtom
+    subject $n120
+    predicate "amphibian"
+    polarity "positive"
+@n122 makeVariable
+    name "X"
+@n123 makeUnaryAtom
+    subject $n122
+    predicate "frog"
+    polarity "positive"
+@n124 list
+    item0 $n123
+@n125 makeRule
+    head $n121
+    body $n124
+@n126 kbAssertRule
+    rule $n125
+@n127 makeVariable
+    name "X"
+@n128 makeUnaryAtom
+    subject $n127
+    predicate "animal"
+    polarity "positive"
+@n129 makeVariable
+    name "X"
+@n130 makeUnaryAtom
+    subject $n129
+    predicate "amphibian"
+    polarity "positive"
+@n131 list
+    item0 $n130
+@n132 makeRule
+    head $n128
+    body $n131
+@n133 kbAssertRule
+    rule $n132
+@n134 makeVariable
+    name "X"
+@n135 makeUnaryAtom
+    subject $n134
+    predicate "living"
+    polarity "positive"
+@n136 makeVariable
+    name "X"
+@n137 makeUnaryAtom
+    subject $n136
+    predicate "animal"
+    polarity "positive"
+@n138 list
+    item0 $n137
+@n139 makeRule
+    head $n135
+    body $n138
+@n140 kbAssertRule
+    rule $n139
+@n141 makeVariable
+    name "X"
+@n142 makeUnaryAtom
+    subject $n141
+    predicate "alive"
+    polarity "positive"
+@n143 makeVariable
+    name "X"
+@n144 makeUnaryAtom
+    subject $n143
+    predicate "living"
+    polarity "positive"
+@n145 list
+    item0 $n144
+@n146 makeRule
+    head $n142
+    body $n145
+@n147 kbAssertRule
+    rule $n146
+@n148 makeVariable
+    name "X"
+@n149 makeUnaryAtom
+    subject $n148
+    predicate "alive"
+    polarity "negative"
+@n150 makeVariable
+    name "X"
+@n151 makeUnaryAtom
+    subject $n150
+    predicate "rock"
+    polarity "positive"
+@n152 list
+    item0 $n151
+@n153 makeRule
+    head $n149
+    body $n152
+@n154 kbAssertRule
+    rule $n153
+@n155 makeVariable
+    name "X"
+@n156 makeUnaryAtom
+    subject $n155
+    predicate "fly"
+    polarity "positive"
+    qualifier "can"
+@n157 makeVariable
+    name "X"
+@n158 makeUnaryAtom
+    subject $n157
+    predicate "sparrow"
+    polarity "positive"
+@n159 list
+    item0 $n158
+@n160 makeRule
+    head $n156
+    body $n159
+@n161 kbAssertRule
+    rule $n160
+@n162 makeVariable
+    name "X"
+@n163 makeUnaryAtom
+    subject $n162
+    predicate "fly"
+    polarity "negative"
+    qualifier "can"
+@n164 makeVariable
+    name "X"
+@n165 makeUnaryAtom
+    subject $n164
+    predicate "penguin"
+    polarity "positive"
+@n166 list
+    item0 $n165
+@n167 makeRule
+    head $n163
+    body $n166
+@n168 kbAssertRule
+    rule $n167
+@result constant
+    value true
+@output result $result

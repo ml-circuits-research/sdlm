@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elementary knowledge | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="elementary-knowledge">Elementary knowledge</h1>
+<p>Fresh <a class="definition-link" href="wiki.html#definition-sdlm">sdlm</a> <a class="definition-link" href="wiki.html#definition-session">sessions</a> include elementary facts and rules as <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuits</a>. You can ask about familiar categories, needs, simple quantities, locations and relationships without first teaching every rule. The knowledge is visible under <code>circuits/foundation/bootstrap/</code>; <code>/kb</code> shows the resulting assertions and rules.</p>
+<h2 id="try-the-knowledge">Try the knowledge</h2>
+<pre><code class="language-text">/example 17
+/example 18
+/example 19
+/verbosity answer
+Pip is a cat. Is Pip an animal?
+Nori is a penguin. Can Nori fly?
+What do eyes help us do?
+What is 7 plus 8?
+Mia has 5 apples. Mia gets 2 apples. How many apples does Mia have?
+Mia is in Kitchen. Mia goes to Garden. Where is Mia?
+</code></pre>
+<p>The answers are <code>Yes.</code>, <code>No.</code>, <code>see</code>, <code>15.</code>, <code>7.</code> and <code>garden</code>. Binding lists use the existing list renderer, so their punctuation differs from numeric answers. <code>/examples 17</code> shows the scenario without executing it. Turn explanations back on with <code>/verbosity explain</code>.</p>
+<h2 id="covered-domains">Covered domains</h2>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Executable knowledge or operation</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Animals</td>
+<td>Familiar mammals, birds, insects and living things; sparrows can fly, penguins cannot</td>
+<td>No default that all birds fly</td>
+</tr>
+<tr>
+<td>Plants and materials</td>
+<td>Plants need water and light; simple glass, metal, cotton, rubber and wood properties</td>
+<td>Ordinary material models omit special treatments and exceptions</td>
+</tr>
+<tr>
+<td>Senses and tools</td>
+<td>Eyes help us see; pencils are used for writing; other registered purposes</td>
+<td>A registered purpose is not a complete object model</td>
+</tr>
+<tr>
+<td>Arithmetic</td>
+<td>Addition, subtraction, multiplication and division of signed numeric tokens and decimals</td>
+<td>Finite values with magnitude at most one trillion; division by zero returns Unknown</td>
+</tr>
+<tr>
+<td>Quantities</td>
+<td>Initial counts, gains, losses and eating; current count queries</td>
+<td>One numeric value per entity and item; missing or impossible updates return Unknown; negative initial counts are unresolved</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Containment, left/right, on/under and explicit movement</td>
+<td>Containment is transitive; current location is replaced when movement is stated</td>
+</tr>
+<tr>
+<td>Order and calendar</td>
+<td>Before/after, size and age comparisons; next/previous day or month</td>
+<td>Calendar names form a cycle; there is no date arithmetic or duration model</td>
+</tr>
+<tr>
+<td>Family</td>
+<td>Parents, children, grandparents and explicit siblings</td>
+<td>Shared parents do not automatically establish sibling relationships</td>
+</tr>
+<tr>
+<td>Everyday causes</td>
+<td>Hunger, thirst, tiredness and cold imply simple needs; warm ice melts</td>
+<td>Rules are authored simplifications</td>
+</tr>
+<tr>
+<td>Numeric comparisons</td>
+<td>Greater, less and equal</td>
+<td>No measurement-unit conversion</td>
+</tr>
+<tr>
+<td>Evidence boundaries</td>
+<td>Unknown, explicit negative support, contradiction and conditional defaults</td>
+<td>Missing support does not mean false</td>
+</tr>
+</tbody></table>
+<h2 id="state-changes-and-defaults">State changes and defaults</h2>
+<p><code>Mia is in Kitchen.</code> records one current direct location. <code>Mia goes to Garden.</code> replaces it; a later question about Kitchen returns Unknown unless another rule supplies support. Nested containment is recomputed from the new location. Quantity updates likewise replace the current count. State statements keep their supplied entity names. <code>Nora has 5 apples.</code> and <code>Cora has 3 apples.</code> create separate quantities; name-similarity guesses cannot merge these declarations or quantity updates. These operations do not retain an event timeline. ASCII signs are supported, for example <code>What is -2 plus 3?</code> returns <code>1.</code>. Other punctuation is preserved for parsing instead of silently changing a number; the Unicode minus sign is outside the numeric grammar.</p>
+<pre><code class="language-text">Poppy is outside. Poppy is in rain. Is Poppy wet?
+Poppy has shelter. Is Poppy wet?
+</code></pre>
+<p>The first question can return a conditional Yes with an <code>everyday-default</code> <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>. The <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> is that no unmentioned protection prevents wetness. Its recorded premises must hold, and known shelter blocks the default. The runtime does not store a wet fact from that guess. The second question is Unknown unless wetness has independent support. Compact mode hides the explanation but retains the conditional answer and <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> in structured results.</p>
+<h2 id="source-and-continuation">Source and continuation</h2>
+<p><code>FoundationAnimals</code>, <code>FoundationPlants</code>, <code>FoundationMaterials</code>, <code>FoundationPurposes</code>, <code>FoundationNeeds</code>, <code>FoundationOrder</code>, <code>FoundationSpace</code>, <code>FoundationFamily</code> and <code>FoundationCalendar</code> contain the base assertions and rules. <code>School*.sop</code> <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> recognize sentence forms and construct typed commands. Quantity host operations perform generic arithmetic and functional relation updates. The <a class="definition-link" href="wiki.html#definition-virtual-machine">VM</a> contains no animal taxonomy, grammar for these sentences, or rain policy.</p>
+<p>Library callers can pass <code>foundation: false</code> to <code>createSDLM</code> for an empty domain baseline. Grammar and response controls remain available. Examples 1 through 16 use this isolation to preserve their original explicit-knowledge scenarios; examples 17 through 20 enable <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a>. The <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> uses fresh <a class="definition-link" href="wiki.html#definition-session">sessions</a> with <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a> unless <code>--no-foundation</code> is supplied.</p>
+<p>A saved <a class="definition-link" href="wiki.html#definition-session">session</a>&#39;s knowledge <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a> is authoritative. Resuming an older <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a> preserves its original assertions and retractions; it does not silently add newly released base facts or rules. Start a new <a class="definition-link" href="wiki.html#definition-session">session</a> to evaluate the complete base library. <a class="definition-link" href="wiki.html#definition-session">Session</a> <a class="definition-link" href="wiki.html#definition-snapshot">snapshots</a> depend on the installed base <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> version and are not a general version-migration format.</p>
+<p>The <a href="benchmark.html">evaluation guide</a> measures these domains with an inspectable authored corpus. The <a href="capabilities.html">capabilities guide</a> separates this bounded competence from unrestricted language understanding.</p>
+<h2 id="arithmetic-wording">Arithmetic wording</h2>
+<p>Conversation mode also accepts <code>How much is 3 plus 5?</code>, <code>3+5</code>, <code>Calculate -3.5 times 2</code> and <code>Subtract 3 from 8</code>. It can repair a nearby word such as <code>hwo</code> to <code>how</code>, with an explicit <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>, after recognizing the whole two-operand calculation. These forms are available with or without foundation facts. Run <code>/example 23</code> and read <a href="conversation.html#ask-for-a-calculation">Everyday conversation</a> for operators, signs, precision and interpretation limits. Strict parsing retains its exact school forms.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

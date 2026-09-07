@@ -1,0 +1,8 @@
+@input results
+@input answers
+@n1 candidateWeight
+    weight -10
+@n2 arrayField
+    values $results
+    name "answer_text"
+@output result $n2

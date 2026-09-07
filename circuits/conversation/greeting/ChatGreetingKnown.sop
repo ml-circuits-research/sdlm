@@ -1,0 +1,20 @@
+@n1 candidateWeight
+    weight 10
+@n2 ChatCurrentSpeaker
+@n3 field
+    value $n2
+    name "value"
+@n4 display
+    value $n3
+@n5 concat
+    part1 "Hello, "
+    part2 $n4
+    part3 "! What would you like to work out?"
+@n6 field
+    value $n2
+    name "atom"
+@n7 record
+    kind "chat"
+    message $n5
+    atom $n6
+@output result $n7

@@ -1,0 +1,47 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 5
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "loses"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 0
+@noun InterpretNoun
+    tokens $tokens
+    index 3
+@lemma field
+    value $noun
+    name "value"
+@predicate concat
+    part1 "count_"
+    part2 $lemma
+@amount numericToken
+    tokens $tokens
+    index 2
+@negative calculateNumber
+    left $amount
+    right -1
+    operation "multiply"
+@value field
+    value $negative
+    name "value"
+@payload record
+    subject $subject
+    predicate $predicate
+    delta $value
+@decisions collectDecisions
+    noun $noun
+@command makeCommand
+    kind "adjustNumber"
+    payload $payload
+@result record
+    command $command
+    decisions $decisions
+@output result $result

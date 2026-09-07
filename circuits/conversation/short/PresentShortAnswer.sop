@@ -1,0 +1,7 @@
+@input value
+@n1 candidateWeight
+    weight -10
+@n2 field
+    value $value
+    name "answer_text"
+@output result $n2

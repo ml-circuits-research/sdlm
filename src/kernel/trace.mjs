@@ -1,11 +1,41 @@
 export class Trace {
-  constructor(enabled = false) {
+  constructor(enabled = false, { maxEvents = 10000 } = {}) {
+    if (!Number.isSafeInteger(maxEvents) || maxEvents < 0) throw new Error('Invalid trace retention limit');
     this.enabled = enabled;
+    this.maxEvents = maxEvents;
+    this.droppedEvents = 0;
     this.events = [];
+    this.audit = null;
   }
   push(event) {
-    this.events.push(event);
+    if (this.maxEvents > 0) {
+      if (this.events.length >= this.maxEvents) {
+        const count = Math.max(1, Math.ceil(this.maxEvents / 4));
+        this.events.splice(0, count);
+        this.droppedEvents += count;
+      }
+      this.events.push(event);
+    } else this.droppedEvents++;
+    if (this.audit) {
+      const counters = { epoch: 'epochs', expand: 'expansions', reduce: 'reductions', rewrite: 'rewrites', select: 'selections' };
+      if (counters[event.type]) this.audit[counters[event.type]]++;
+      if (event.type === 'expand') this.audit.circuits.add(event.circuit);
+      if (event.type === 'select' && this.audit.candidateSelections.length < 64) {
+        this.audit.candidateSelections.push({ group: event.group, candidates: event.candidates });
+      }
+    }
     if (this.enabled) console.error(this.format(event));
+  }
+  startAudit() {
+    this.audit = {
+      kind: 'introspection', status: 'true', epochs: 0, expansions: 0, reductions: 0,
+      rewrites: 0, selections: 0, circuits: new Set(), candidateSelections: []
+    };
+  }
+  finishAudit() {
+    const result = this.audit && { ...this.audit, circuits: [...this.audit.circuits] };
+    this.audit = null;
+    return result;
   }
   format(e) {
     if (e.type === 'epoch') return `[epoch ${e.epoch}] ${e.message}`;

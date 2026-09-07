@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
-import { createSLLM } from './sllm.mjs';
-const s = await createSLLM();
-const text = await fs.readFile(new URL('../examples/sllm-v3-demo.sopnl', import.meta.url), 'utf8');
+import { createSDLM } from './sd_lm.mjs';
+const s = await createSDLM();
+const text = await fs.readFile(new URL('../examples/sd_lm-v3-demo.sopnl', import.meta.url), 'utf8');
 for (const raw of text.split(/\r?\n/)) {
   const line = raw.trim();
   if (!line || line.startsWith('#')) continue;

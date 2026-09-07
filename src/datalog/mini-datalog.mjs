@@ -14,6 +14,7 @@ export class Database {
     this.relations = new Map();
   }
   add(relation, tuple) {
+    if (tuple.some(value => value === undefined)) throw new Error('Datalog tuple contains an undefined value');
     if (!this.relations.has(relation)) this.relations.set(relation, new Map());
     this.relations.get(relation).set(key(tuple), tuple.slice());
   }
@@ -50,6 +51,12 @@ function solutions(db, body, index = 0, env = new Map()) {
 }
 
 export function evaluate(db, rules) {
+  for (const r of rules) {
+    const bound = new Set(r.body.flatMap(literal => literal.terms.filter(t => t.kind === 'var').map(t => t.name)));
+    for (const term of r.headTerms) {
+      if (term.kind === 'var' && !bound.has(term.name)) throw new Error(`Unsafe rule: unbound head variable ${term.name}`);
+    }
+  }
   let changed = true;
   let rounds = 0;
   while (changed) {

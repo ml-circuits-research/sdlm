@@ -1,0 +1,8 @@
+@input results
+@input answers
+@n1 hasItems
+    values $answers
+@n2 mapReadCircuit
+    values $results
+    circuit "RenderAnswerOrSilence"
+@output result $n2

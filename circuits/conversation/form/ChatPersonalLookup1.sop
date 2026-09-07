@@ -1,0 +1,59 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 6
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "do"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "you"
+@n5 tokenIs
+    tokens $tokens
+    index 3
+    value "know"
+@n6 tokenIs
+    tokens $tokens
+    index 4
+    value "about"
+@n7 tokenIs
+    tokens $tokens
+    index 5
+    value "me"
+@n8 ChatCurrentSpeaker
+@n9 field
+    value $n8
+    name "value"
+@n10 field
+    value $n8
+    name "atom"
+@n11 record
+    category "speaker-reference"
+    original "me"
+    value $n9
+    reason "Resolved the first-person reference to the current speaker introduced in this session."
+    certainty "contextual"
+    evidence $n10
+@n12 makeConstant
+    value $n9
+@n13 list
+    item0 $n11
+@n14 makeCommand
+    kind "chatPerson"
+    payload $n12
+@n15 record
+    command $n14
+    decisions $n13
+@n16 list
+    item0 $n10
+@n17 setField
+    value $n15
+    name "evidence_atoms"
+    fieldValue $n16
+@output result $n17

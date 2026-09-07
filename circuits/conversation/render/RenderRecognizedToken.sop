@@ -1,0 +1,17 @@
+@input value
+@n1 field
+    value $value
+    name "surface"
+@n2 field
+    value $value
+    name "classes"
+@n3 joinOrDefault
+    values $n2
+    separator ", "
+    fallback "unclassified"
+@n4 concat
+    part1 $n1
+    part2 " ["
+    part3 $n3
+    part4 "]"
+@output result $n4

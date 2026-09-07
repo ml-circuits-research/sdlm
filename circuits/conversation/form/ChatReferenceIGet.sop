@@ -1,0 +1,56 @@
+@input tokens
+@input originalTokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "i"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "get"
+@n4 tokenCount
+    tokens $originalTokens
+@n5 sliceTokens
+    tokens $originalTokens
+    start 2
+    end $n4
+@n6 ChatCurrentSpeaker
+@n7 field
+    value $n6
+    name "value"
+@n8 field
+    value $n6
+    name "atom"
+@n9 upperInitial
+    value $n7
+@n10 arrayField
+    values $n5
+    name "surface"
+@n11 join
+    values $n10
+    separator " "
+@n12 concat
+    part1 $n9
+    part2 " gets "
+    part3 $n11
+@n13 record
+    category "speaker-reference"
+    original "i"
+    value $n7
+    reason "Resolved the first-person reference to the current speaker introduced in this session."
+    certainty "contextual"
+    evidence $n8
+@n14 list
+    item0 $n13
+@n15 list
+    item0 $n8
+@n16 record
+    rewrite $n12
+    decisions $n14
+    evidence_atoms $n15
+    exclusive true
+    policy "ChatReferenceIGet"
+@output result $n16

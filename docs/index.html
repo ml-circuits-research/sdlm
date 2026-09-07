@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sdlm | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="sdlm">sdlm</h1>
+<p><a class="definition-link" href="wiki.html#definition-sdlm">sdlm</a> is a local symbolic language runtime for asserting knowledge, applying explicit rules, asking questions, and adding competence through executable <a class="definition-link" href="wiki.html#definition-sop-lang">SOP Lang</a> <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. Conversation mode tries bounded interpretations and lets users correct explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Its CLI makes the supported language testable. Its text Chat Completions API lets applications use the same engine with isolated, durable <a class="definition-link" href="wiki.html#definition-session">sessions</a>.</p>
+<p>The technical name is <code>sd_lm</code>; documentation and interfaces use <strong><a class="definition-link" href="wiki.html#definition-sdlm">sdlm</a></strong>. The first letter means Symbolic, Small or Specific, <code>d</code> means <a class="definition-link" href="wiki.html#definition-datalog">Datalog</a>, and <code>lm</code> means Language Model.</p>
+<p>Start with the CLI, say <code>Hello</code> and run example 21 for a conversation. Read <a href="conversation.html">Everyday conversation</a> for introductions and personal references. Run example 5 to inspect the document knowledge pack. Run example 14 for the Socrate question and explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Read Capabilities and <a class="definition-link" href="wiki.html#definition-assumption">Assumptions</a> before choosing tasks, then Architecture and the Book for the execution model. Developers can install <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>, verify them against acceptance examples, and inspect the normative Specifications. The Wiki explains project terms.</p>
+<h2 id="start-locally">Start locally</h2>
+<pre><code class="language-sh">npm ci
+npm start
+</code></pre>
+<pre><code class="language-text">/help
+/examples
+/examples 14
+/example 14
+/example 17
+/example all
+/session new demo
+/verbosity answer
+Alice is human.
+Every human is mortal.
+Is Alice mortal?
+/status
+/quit
+</code></pre>
+<p>Interactive <code>npm start</code> resumes the last selected <a class="definition-link" href="wiki.html#definition-session">session</a> automatically, including command recall with Up/Down. Use <code>/session new [name]</code> for separate work or <code>npm start -- --session demo</code> to select a specific <a class="definition-link" href="wiki.html#definition-session">session</a>. Start HTTP with <code>npm run server</code>. Start this documentation with <code>npm run docs:serve</code> and open <code>http://127.0.0.1:8080</code>. If the port is occupied, use <code>SD_LM_DOCS_PORT=8088 npm run docs:serve</code>.</p>
+<h2 id="documentation-map">Documentation Map</h2>
+<table class="doc-map"><thead><tr><th scope="col">Use</th><th scope="col">Understand</th><th scope="col">Develop</th></tr></thead><tbody><tr><td><a href="index.html">Overview</a><p>Start the runtime and choose a reading path.</p></td><td><a href="capabilities.html">Capabilities</a><p>Compare demonstrated behavior with remaining limits.</p></td><td><a href="learning.html">Learning and packs</a><p>Train expressions and submit tested SOP circuits.</p></td></tr>
+<tr><td><a href="cli.html">CLI</a><p>Run examples and inspect local execution.</p></td><td><a href="foundation.html">Elementary knowledge</a><p>Use base rules, quantities, locations and everyday defaults.</p></td><td><a href="benchmark.html">Elementary evaluation</a><p>Inspect the fixed corpus and measured capability results.</p></td></tr>
+<tr><td><a href="conversation.html">Conversation</a><p>Introduce yourself, use personal references and ask for useful help.</p></td><td><a href="assumptions.html">Assumptions</a><p>Inspect attempted meanings and correct their consequences.</p></td><td><a href="validation.html">Validation</a><p>Repeat the checks and maintain current evidence.</p></td></tr>
+<tr><td><a href="api.html">API</a><p>Connect text clients and reuse session results.</p></td><td><a href="architecture.html">Architecture</a><p>Follow parsing, circuit execution and reasoning.</p></td><td><a href="specsLoader.html?spec=matrix.md">Specifications</a><p>Read the normative design contracts.</p></td></tr>
+<tr><td><a href="response-style.html">Response style</a><p>Choose short answers or explanations while retaining audit evidence.</p></td><td><a href="book.html">Book</a><p>Read the research monograph and operational chapters.</p></td><td></td></tr>
+<tr><td><a href="sessions.html">Sessions</a><p>Save, isolate and continue symbolic state.</p></td><td><a href="wiki.html">Wiki</a><p>Understand canonical project terms.</p></td><td></td></tr></tbody></table><h2 id="product-boundary">Product boundary</h2>
+<p>The installed <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> recognize <a class="definition-link" href="wiki.html#definition-cnl">controlled English</a> and supported domain constructions. <a class="definition-link" href="wiki.html#definition-semantic-circuit">Circuit</a> authors can add new parsers, <a class="definition-link" href="wiki.html#definition-semantic-command">semantic commands</a>, domain knowledge, and response strategies. General English understanding, autonomous research, and neural text generation are outside the demonstrated contract. Repository-local agent instructions are development tooling; the product distributes <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuits</a> and a JavaScript runtime, not a product skill catalog.</p>
+<table>
+<thead>
+<tr>
+<th>Source inventory, version 0.7.0</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base and extension SOP files</td>
+<td>3475</td>
+</tr>
+<tr>
+<td>Generated micro-circuits</td>
+<td>2918</td>
+</tr>
+<tr>
+<td>SOP source lines</td>
+<td>114228</td>
+</tr>
+<tr>
+<td>Runtime modules</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Runtime JavaScript lines</td>
+<td>4349</td>
+</tr>
+</tbody></table>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+@input value
+@n1 field
+    value $value
+    name "proof"
+@n2 field
+    value $n1
+    name "support"
+@n3 valuePresent
+    value $n2
+@n4 RenderSupport
+    value $n2
+@n5 concat
+    part1 "\nSupport: "
+    part2 $n4
+    part3 "."
+@output result $n5

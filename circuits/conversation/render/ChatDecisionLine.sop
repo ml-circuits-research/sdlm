@@ -1,0 +1,4 @@
+@input value
+@n1 RenderAssumption
+    value $value
+@output result $n1

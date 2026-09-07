@@ -1,0 +1,42 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "call"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "me"
+@n4 candidateWeight
+    weight 20
+@n5 tokenCount
+    tokens $tokens
+@n6 sliceTokens
+    tokens $tokens
+    start 2
+    end $n5
+@n7 list
+    item0 "chatReserved"
+@n8 symbolicTokenSpan
+    tokens $n6
+    maximum 4
+    excludedClasses $n7
+@n9 arrayField
+    values $n6
+    name "norm"
+@n10 join
+    values $n9
+    separator "_"
+@n11 makeConstant
+    value $n10
+@n12 list
+@n13 makeCommand
+    kind "introduceSpeaker"
+    payload $n11
+@n14 record
+    command $n13
+    decisions $n12
+@output result $n14

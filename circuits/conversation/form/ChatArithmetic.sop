@@ -1,0 +1,18 @@
+@input tokens
+@n1 candidateWeight
+    weight -5
+@n2 tokensWithClass
+    tokens $tokens
+    class "number"
+@n3 tokenCountAtLeast
+    tokens $n2
+    count 2
+@n4 list
+    item0 "+"
+    item1 "-"
+@n5 splitTokenSymbols
+    tokens $tokens
+    symbols $n4
+@n6 ChatMathRequest
+    tokens $n5
+@output result $n6

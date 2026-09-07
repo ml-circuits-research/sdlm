@@ -1,0 +1,56 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 6
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "do"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "you"
+@n5 tokenIs
+    tokens $tokens
+    index 3
+    value "know"
+@n6 tokenIs
+    tokens $tokens
+    index 4
+    value "about"
+@n7 tokenCount
+    tokens $tokens
+@n8 sliceTokens
+    tokens $tokens
+    start 5
+    end $n7
+@n9 list
+    item0 "chatReserved"
+    item1 "noun"
+    item2 "relationNoun"
+    item3 "verbBase"
+    item4 "verb3"
+@n10 symbolicTokenSpan
+    tokens $n8
+    maximum 4
+    excludedClasses $n9
+@n11 arrayField
+    values $n8
+    name "norm"
+@n12 join
+    values $n11
+    separator "_"
+@n13 makeConstant
+    value $n12
+@n14 makeCommand
+    kind "chatPerson"
+    payload $n13
+@n15 list
+@n16 record
+    command $n14
+    decisions $n15
+@output result $n16

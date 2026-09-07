@@ -1,0 +1,12 @@
+@input tokens
+@n1 tokenIs
+    tokens $tokens
+    index 0
+    value "is"
+@n2 arrayField
+    values $tokens
+    name "surface"
+@n3 join
+    values $n2
+    separator " "
+@output result $n3

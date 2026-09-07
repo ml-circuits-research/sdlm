@@ -1,0 +1,25 @@
+@input value
+@n1 candidateWeight
+    weight 20
+@n2 field
+    value $value
+    name "answer"
+@n3 answerKindIs
+    value $n2
+    kind "chat"
+@n4 field
+    value $value
+    name "assumptions"
+@n5 hasItems
+    values $n4
+@n6 mapReadCircuit
+    values $n4
+    circuit "ChatDecisionLine"
+@n7 join
+    values $n6
+    separator "\n"
+@n8 concat
+    part1 "\n"
+    part2 $n7
+    part3 " Use /reject <id> to correct an assumption."
+@output result $n8

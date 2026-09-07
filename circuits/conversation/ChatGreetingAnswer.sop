@@ -1,0 +1,5 @@
+@n1 selectCircuits
+    group "conversation.greeting"
+@n2 callCandidates
+    candidates $n1
+@output result $n2

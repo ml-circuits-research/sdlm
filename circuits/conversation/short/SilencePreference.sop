@@ -1,0 +1,10 @@
+@input value
+@n1 field
+    value $value
+    name "answer"
+@n2 answerKindIs
+    value $n1
+    kind "preference"
+@n3 constant
+    value ""
+@output result $n3

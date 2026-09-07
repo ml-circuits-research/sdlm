@@ -1,0 +1,44 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 5
+@end tokenLastIs
+    tokens $tokens
+    value "?"
+@prefix tokenIs
+    tokens $tokens
+    index 0
+    value "do"
+@subjectGuard tokenClassIs
+    tokens $tokens
+    index 1
+    class "entity"
+@subject constantAt
+    tokens $tokens
+    index 1
+@objectGuard tokenClassIs
+    tokens $tokens
+    index 3
+    class "entity"
+@object constantAt
+    tokens $tokens
+    index 3
+@verb InterpretVerb
+    tokens $tokens
+    index 2
+@predicate field
+    value $verb
+    name "value"
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@decisions collectDecisions
+    verb $verb
+@result record
+    command $command
+    decisions $decisions
+@output result $result

@@ -1,0 +1,19 @@
+@input tokens
+@input index
+@classes list
+    item0 "verbBase"
+    item1 "verb3"
+@suffix record
+    suffix "s"
+    replacement ""
+    minStem 3
+@transforms list
+    item1 $suffix
+@result interpretSymbol
+    tokens $tokens
+    index $index
+    classes $classes
+    category "predicate-inference"
+    reason "Used this word as a unary verb because it occupies the predicate position in an intransitive construction. An unknown final s is treated as an inflection."
+    transforms $transforms
+@output result $result

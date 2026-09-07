@@ -1,3 +1,5 @@
+import { validateAtom, validateRule } from './validation.mjs';
+
 const tupleKey = (relation, tuple) => `${relation}:${JSON.stringify(tuple)}`;
 const isVar = (t) => t?.kind === 'var';
 const isConst = (t) => t?.kind === 'const';
@@ -62,7 +64,8 @@ export class KnowledgeBase {
   }
 
   addFact(a) {
-    if (a.args.some(isVar)) throw new Error(`Cannot assert non-ground fact ${atomText(a)}`);
+    validateAtom(a, { ground: true });
+    a = structuredClone(a);
     if (!this.baseFacts.some(f => sameAtom(f, a))) this.baseFacts.push(a);
     this.db.add(atomRelation(a), atomTuple(a));
     this.datalog.evaluate(this.db, this.rules.map(r => this.#rule(r)));
@@ -71,12 +74,17 @@ export class KnowledgeBase {
   }
 
   addFacts(atoms) {
+    for (const a of atoms ?? []) validateAtom(a, { ground: true });
     for (const a of atoms ?? []) this.addFact(a);
     return { kind: 'ack', action: 'facts', count: (atoms ?? []).length };
   }
 
   addRule(r) {
-    this.rules.push(r);
+    validateRule(r);
+    if (this.rules.some(existing => JSON.stringify(existing) === JSON.stringify(r))) {
+      return { kind: 'ack', action: 'rule', text: atomText(r.head) };
+    }
+    this.rules.push(structuredClone(r));
     this.#rebuild();
     this.trace?.push({ type: 'datalog', message: `installed rule ${atomText(r.head)} <= ${r.body.map(atomText).join(', ')}` });
     return { kind: 'ack', action: 'rule', text: `${atomText(r.head)} <= ${r.body.map(atomText).join(', ')}` };
@@ -173,7 +181,7 @@ export class KnowledgeBase {
       if (!headEnv) continue;
       for (const env of this.#bodyGroundings(r.body, 0, headEnv)) {
         const children = r.body.map(b => this.#proof(this.#groundAtom(b, env), nextVisited, depth + 1));
-        if (children.every(Boolean)) return { atom: atomText(a), atomObject: a, source: 'rule', children };
+        if (children.every(Boolean)) return { atom: atomText(a), atomObject: a, source: 'rule', rule: structuredClone(r), children };
       }
     }
     return { atom: atomText(a), atomObject: a, source: 'derived', children: [] };
@@ -309,7 +317,22 @@ export class KnowledgeBase {
     return { baseFacts: structuredClone(this.baseFacts), rules: structuredClone(this.rules) };
   }
 
+  forget(command) {
+    const before = this.baseFacts.length + this.rules.length;
+    if (command.kind === 'assertFact' || command.kind === 'assertFacts') {
+      const atoms = command.kind === 'assertFact' ? [command.payload] : command.payload;
+      atoms.forEach(a => validateAtom(a, { ground: true }));
+      this.baseFacts = this.baseFacts.filter(fact => !atoms.some(a => sameAtom(fact, a)));
+    } else if (command.kind === 'assertRule') {
+      this.rules = this.rules.filter(rule => JSON.stringify(rule) !== JSON.stringify(command.payload));
+    } else throw new Error('Forget requires an asserted fact, conjunction of facts, or rule');
+    this.#rebuild();
+    return { removed: before - this.baseFacts.length - this.rules.length };
+  }
+
   importState(state) {
+    for (const fact of state.baseFacts ?? []) validateAtom(fact, { ground: true });
+    for (const rule of state.rules ?? []) validateRule(rule);
     this.baseFacts = structuredClone(state.baseFacts ?? []);
     this.rules = structuredClone(state.rules ?? []);
     this.#rebuild();

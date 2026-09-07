@@ -1,0 +1,14 @@
+@input tokens
+@input index
+@classes list
+    item0 "noun"
+    item1 "adjective"
+@transforms list
+@result interpretSymbol
+    tokens $tokens
+    index $index
+    classes $classes
+    category "category-inference"
+    reason "Used this word as a unary property because it follows the copula. No external definition was assumed."
+    transforms $transforms
+@output result $result

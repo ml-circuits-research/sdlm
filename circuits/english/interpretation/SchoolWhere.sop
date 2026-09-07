@@ -1,0 +1,33 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 4
+@g0 tokenIs
+    tokens $tokens
+    index 0
+    value "where"
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "?"
+@subject constantAt
+    tokens $tokens
+    index 2
+@object makeVariable
+    name "Place"
+@payload makeBinaryAtom
+    subject $subject
+    predicate "in"
+    object $object
+@command makeCommand
+    kind "askBindings"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

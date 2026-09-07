@@ -1,0 +1,24 @@
+@input answer
+@kind answerKindIs
+    value $answer
+    kind "boolean"
+@status answerStatusIs
+    value $answer
+    status "unknown"
+@atom field
+    value $answer
+    name "atom"
+@analysis kbMissing
+    atom $atom
+@missing field
+    value $analysis
+    name "missing"
+@guard hasItems
+    values $missing
+@result record
+    category "missing-premise"
+    asserted false
+    premises $missing
+    conclusion $atom
+    reason "These premises complete an installed rule; their truth is not established."
+@output result $result

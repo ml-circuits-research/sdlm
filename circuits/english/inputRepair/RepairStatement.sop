@@ -1,0 +1,22 @@
+@input tokens
+@g0 tokenNotContains
+    tokens $tokens
+    value "."
+@g1 tokenNotContains
+    tokens $tokens
+    value "?"
+@g2 tokenNotContains
+    tokens $tokens
+    value "!"
+@weight candidateWeight
+    weight 1
+@decision record
+    category "sentence-boundary"
+    original "missing terminator"
+    value "."
+    reason "Added a sentence terminator from the leading token so the input can be parsed. This is a formatting assumption."
+    certainty "heuristic"
+@result record
+    suffix "."
+    decision $decision
+@output result $result

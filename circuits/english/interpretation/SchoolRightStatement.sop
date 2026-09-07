@@ -1,0 +1,38 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 6
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "right"
+@g3 tokenIs
+    tokens $tokens
+    index 3
+    value "of"
+@g5 tokenIs
+    tokens $tokens
+    index 5
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 0
+@object constantAt
+    tokens $tokens
+    index 4
+@payload makeBinaryAtom
+    subject $subject
+    predicate "right"
+    object $object
+@command makeCommand
+    kind "assertFact"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

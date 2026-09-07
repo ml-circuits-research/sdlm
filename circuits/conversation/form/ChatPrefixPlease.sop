@@ -1,0 +1,32 @@
+@input tokens
+@input originalTokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 2
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "please"
+@n3 tokenCount
+    tokens $originalTokens
+@n4 sliceTokens
+    tokens $originalTokens
+    start 1
+    end $n3
+@n5 list
+    item0 ","
+@n6 trimTokenEdges
+    tokens $n4
+    leading $n5
+@n7 arrayField
+    values $n6
+    name "surface"
+@n8 join
+    values $n7
+    separator " "
+@n9 list
+@n10 record
+    rewrite $n8
+    decisions $n9
+    policy "ChatPrefixPlease"
+@output result $n10

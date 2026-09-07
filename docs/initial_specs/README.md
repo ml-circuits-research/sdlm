@@ -1,9 +1,5 @@
-# SOP-SLLM Technical Monograph
+# Book source
 
-This folder contains the current self-contained technical description of the executable system.
+`sd_lm_book.md` is the editable research-book source. The current [HTML book](../book.html) includes this text and generated operational chapters drawn from the same sources as the CLI, API, session, and validation guides. Run `npm run docs:build` after edits. `npm run docs:check` rejects stale output.
 
-- `SOP_SLLM_book.md` — editable source.
-- `SOP_SLLM_Semantic_Circuits_as_a_Symbolic_Language_Model.docx` — formatted monograph.
-- `assets/` — figures used by the source and embedded in the DOCX.
-
-The book describes the current architecture, tested behavior, limitations, and research program.
+The DOCX file is the original August 2026 edition and is retained as an archival artifact. It is not synchronized with the current runtime. Original figure assets are preserved here and copied to the HTML asset directory during the documentation build.

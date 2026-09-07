@@ -1,0 +1,20 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 1
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "help"
+@capabilitiesText ChatCapabilitiesMessage
+@n3 record
+    kind "chat"
+    message $capabilitiesText
+@n4 makeCommand
+    kind "chat"
+    payload $n3
+@n5 list
+@n6 record
+    command $n4
+    decisions $n5
+@output result $n6

@@ -1,15 +1,15 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createSLLM } from './sllm.mjs';
+import { createSDLM } from './sd_lm.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const pack = path.resolve(here, '..', 'extensions', 'document-atlas');
-const sllm = await createSLLM();
+const sdlm = await createSDLM();
 
 console.log('Before installing document circuits:');
-console.log(await sllm.process('Is Architecture auditable?'));
+console.log(await sdlm.process('Is Architecture auditable?'));
 
-const installed = await sllm.installCircuitPack(pack);
+const installed = await sdlm.installCircuitPack(pack);
 console.log(`\nInstalled ${installed.circuits.length} SOP circuits from the document pack.`);
 
 for (const question of [
@@ -23,5 +23,5 @@ for (const question of [
   'Summarize Atlas.'
 ]) {
   console.log(`\n> ${question}`);
-  console.log(await sllm.process(question));
+  console.log(await sdlm.process(question));
 }

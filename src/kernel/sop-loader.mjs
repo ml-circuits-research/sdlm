@@ -36,6 +36,7 @@ export function parseCircuit(text, { name, group, file }) {
       flush();
       const input = trimmed.slice(7).trim();
       if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(input)) throw new Error(`${file}:${lineNo + 1}: invalid input ${input}`);
+      if (inputs.includes(input)) throw new Error(`${file}:${lineNo + 1}: duplicate input ${input}`);
       inputs.push(input);
       continue;
     }
@@ -44,6 +45,7 @@ export function parseCircuit(text, { name, group, file }) {
       flush();
       const m = trimmed.match(/^@output\s+([A-Za-z_][A-Za-z0-9_]*)\s+(\$[A-Za-z_][A-Za-z0-9_]*)$/);
       if (!m) throw new Error(`${file}:${lineNo + 1}: expected @output name $ref`);
+      if (outputs.has(m[1])) throw new Error(`${file}:${lineNo + 1}: duplicate output ${m[1]}`);
       outputs.set(m[1], m[2].slice(1));
       continue;
     }
@@ -80,7 +82,7 @@ export function parseCircuit(text, { name, group, file }) {
     if (!names.has(ref)) throw new Error(`${file}: output ${out} references unknown $${ref}`);
   }
   if (outputs.size === 0) throw new Error(`${file}: circuit needs at least one @output`);
-  return { name, group, file, inputs, nodes, outputs };
+  return { name, group, file, source: text, inputs, nodes, outputs };
 }
 
 async function walk(dir) {

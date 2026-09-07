@@ -1,0 +1,12 @@
+@input answer
+@guard answerKindIs
+    value $answer
+    kind "operationGap"
+@value field
+    value $answer
+    name "reason"
+@result concat
+    part1 "Unknown: "
+    part2 $value
+    part3 ""
+@output result $result

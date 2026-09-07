@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.resolve(here, '..');
@@ -19,29 +19,29 @@ function semanticSnapshot(snapshot) {
 }
 
 test('a document is installed as SOP circuits and materialized knowledge supports reasoning', async () => {
-  const sllm = await createSLLM();
-  assert.match(await sllm.process('Is Architecture auditable?'), /Unknown/i);
+  const sdlm = await createSDLM();
+  assert.match(await sdlm.process('Is Architecture auditable?'), /Unknown/i);
 
-  const installed = await sllm.installCircuitPack(atlasPack);
+  const installed = await sdlm.installCircuitPack(atlasPack);
   assert.ok(installed.circuits.length >= 10);
   assert.ok(installed.bootstraps.includes('AtlasDocumentKnowledge'));
 
-  assert.equal(await sllm.process('Can Atlas reconstruct Evidence?'), 'Yes.');
-  assert.equal(await sllm.process('Is Architecture auditable?'), 'Yes.');
-  assert.equal(await sllm.process('Did Atlas start in 2024?'), 'Yes.');
-  assert.match(await sllm.process('Did Atlas start in 2023?'), /Unknown/i);
-  assert.match(await sllm.process('What does Atlas use?'), /semantic_circuits/i);
-  assert.match(await sllm.process('What does KnowledgeCircuit mean?'), /executable_sop_circuit_generated_from_source_material/i);
-  assert.match(await sllm.process('What does PronounIt refer to?'), /atlas/i);
-  assert.match(await sllm.process('Who reported EvidenceClaim?'), /team/i);
+  assert.equal(await sdlm.process('Can Atlas reconstruct Evidence?'), 'Yes.');
+  assert.equal(await sdlm.process('Is Architecture auditable?'), 'Yes.');
+  assert.equal(await sdlm.process('Did Atlas start in 2024?'), 'Yes.');
+  assert.match(await sdlm.process('Did Atlas start in 2023?'), /Unknown/i);
+  assert.match(await sdlm.process('What does Atlas use?'), /semantic_circuits/i);
+  assert.match(await sdlm.process('What does KnowledgeCircuit mean?'), /executable_sop_circuit_generated_from_source_material/i);
+  assert.match(await sdlm.process('What does PronounIt refer to?'), /atlas/i);
+  assert.match(await sdlm.process('Who reported EvidenceClaim?'), /team/i);
 
-  const explanation = await sllm.process('Why is Architecture auditable?');
+  const explanation = await sdlm.process('Why is Architecture auditable?');
   assert.match(explanation, /retain derivation links/i);
 });
 
 test('the circuit pack is the persistent source: a fresh runtime reconstructs the same materialized KB', async () => {
-  const a = await createSLLM({ extensions: [atlasPack] });
-  const b = await createSLLM({ extensions: [atlasPack] });
+  const a = await createSDLM({ extensions: [atlasPack] });
+  const b = await createSDLM({ extensions: [atlasPack] });
   assert.deepEqual(semanticSnapshot(a.snapshot()), semanticSnapshot(b.snapshot()));
 });
 
@@ -67,10 +67,10 @@ test('dynamic circuit-pack installation is transactional for both circuits and m
   await fs.mkdir(circuitDir, { recursive: true });
   await fs.writeFile(path.join(circuitDir, 'BadDocumentBootstrap.sop'), `@temp makeConstant\n    value "temporary_document_fact"\n@fact makeUnaryAtom\n    subject $temp\n    predicate "temporary_fact"\n@written kbAssertFact\n    atom $fact\n@value constant\n    value "not_an_object"\n@fail valueFieldIs\n    value $value\n    name "missing"\n    expected "required"\n@output result $fail\n`);
 
-  const sllm = await createSLLM();
-  const before = semanticSnapshot(sllm.snapshot());
-  await assert.rejects(() => sllm.installCircuitPack(root));
-  const after = semanticSnapshot(sllm.snapshot());
+  const sdlm = await createSDLM();
+  const before = semanticSnapshot(sdlm.snapshot());
+  await assert.rejects(() => sdlm.installCircuitPack(root));
+  const after = semanticSnapshot(sdlm.snapshot());
   assert.deepEqual(after, before);
-  assert.equal(sllm.circuits.has('BadDocumentBootstrap'), false);
+  assert.equal(sdlm.circuits.has('BadDocumentBootstrap'), false);
 });

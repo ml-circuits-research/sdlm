@@ -1,0 +1,20 @@
+@input tokens
+@priority candidateWeight
+    weight 5
+@candidates selectCircuits
+    group "english.interpretation"
+    tokens $tokens
+@proposal callCandidates
+    candidates $candidates
+    tokens $tokens
+@decisions field
+    value $proposal
+    name "decisions"
+@exact valueFieldIs
+    value $decisions
+    name "length"
+    expected 0
+@command field
+    value $proposal
+    name "command"
+@output result $command

@@ -1,0 +1,6 @@
+@input tokens
+@n1 candidateWeight
+    weight -10
+@n2 constant
+    value "What should I work out, and which facts or numbers should I use? You can also ask \"What can you do?\" or browse /examples."
+@output result $n2

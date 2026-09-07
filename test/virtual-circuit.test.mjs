@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 import { Trace } from '../src/kernel/trace.mjs';
 
 test('runtime genuinely expands and reduces nested virtual circuits', async () => {
   const trace = new Trace(false);
-  const s = await createSLLM({ trace });
+  const s = await createSDLM({ trace });
   trace.events.length = 0;
   await s.process('Alice is a human.');
   const expands = trace.events.filter(e => e.type === 'expand').map(e => e.circuit);
@@ -29,7 +29,7 @@ test('runtime genuinely expands and reduces nested virtual circuits', async () =
 
 test('If rule causes multiple nested parser selections and expansions', async () => {
   const trace = new Trace(false);
-  const s = await createSLLM({ trace });
+  const s = await createSDLM({ trace });
   trace.events.length = 0;
   await s.process('If X is a parent of Y and Y is a parent of Z then X is an ancestor of Z.');
   const atomSelections = trace.events.filter(e => e.type === 'select' && e.group === 'english.chartAtom');

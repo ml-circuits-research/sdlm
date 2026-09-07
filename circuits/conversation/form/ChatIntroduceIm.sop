@@ -1,0 +1,58 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 2
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "i'm"
+@n3 candidateWeight
+    weight 20
+@n4 tokenCount
+    tokens $tokens
+@n5 sliceTokens
+    tokens $tokens
+    start 1
+    end $n4
+@n6 list
+    item0 "chatReserved"
+    item1 "noun"
+    item2 "relationNoun"
+    item3 "verbBase"
+    item4 "verb3"
+    item5 "article"
+    item6 "number"
+@n7 symbolicTokenSpan
+    tokens $n5
+    maximum 4
+    excludedClasses $n6
+@n8 arrayField
+    values $n5
+    name "norm"
+@n9 join
+    values $n8
+    separator "_"
+@n10 makeConstant
+    value $n9
+@n11 list
+@n12 arrayField
+    values $n5
+    name "surface"
+@n13 join
+    values $n12
+    separator " "
+@n14 record
+    category "name-classification"
+    original $n13
+    value $n9
+    reason "Treated the unfamiliar words after the introduction as a personal name."
+    certainty "heuristic"
+@n15 list
+    item0 $n14
+@n16 makeCommand
+    kind "introduceSpeaker"
+    payload $n10
+@n17 record
+    command $n16
+    decisions $n15
+@output result $n17

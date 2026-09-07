@@ -1,24 +1,42 @@
 {
-  "name": "sop-sllm-prototype",
-  "version": "0.6.0",
+  "name": "sd_lm",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
-  "description": "SOP-SLLM research prototype: semantic circuits, circuit-pack knowledge, generic Datalog activation, compositional CNL, transactional rewrite, circuit induction, and symbolic NLG",
+  "description": "Trainable symbolic language runtime with SOP circuits, isolated persistent sessions, CLI examples and a text Chat Completions API",
   "scripts": {
-    "test": "node --test",
+    "benchmark": "node tools/benchmark.mjs",
+    "test": "node --test --test-concurrency=2",
     "demo": "node src/demo.mjs",
     "trace": "node src/cli.mjs --trace examples/demo.sopnl",
     "repl": "node src/cli.mjs",
-    "test:external": "node src/check-external-datalog.mjs",
+    "test:external": "SD_LM_DATALOG_BACKEND=external node --test --test-concurrency=2",
     "extension:admires": "node src/cli.mjs --extension extensions/admires examples/admires.sopnl",
     "extension:research": "node src/cli.mjs --extension extensions/research-pack examples/research-pack.sopnl",
     "library:generate": "python3 tools/generate-v5-library.py",
-    "demo:document": "node src/demo-document-circuits.mjs"
+    "demo:document": "node src/demo-document-circuits.mjs",
+    "start": "node src/cli.mjs",
+    "server": "node src/server.mjs",
+    "examples": "node src/cli.mjs --run all",
+    "test:bundled": "SD_LM_DATALOG_BACKEND=bundled node --test --test-concurrency=2",
+    "test:backends": "node tools/verify.mjs backends",
+    "verify:record": "node tools/verify.mjs record",
+    "docs:build": "node tools/docs-build.mjs",
+    "docs:check": "node tools/docs-check.mjs",
+    "docs:serve": "node tools/docs-serve.mjs",
+    "check": "node tools/verify.mjs all",
+    "check:syntax": "node tools/verify.mjs syntax"
   },
   "dependencies": {
-    "@suss/datalog": "0.19.0"
+    "@suss/datalog": "0.19.0",
+    "proper-lockfile": "4.1.2"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "marked": "18.0.11",
+    "openai": "7.10.0"
   }
 }

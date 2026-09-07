@@ -1,0 +1,17 @@
+@input command
+@guard commandKindIs
+    value $command
+    kind "conditionalBoolean"
+@payload field
+    value $command
+    name "payload"
+@target field
+    value $payload
+    name "target"
+@premises field
+    value $payload
+    name "premises"
+@result kbConditionalAnswer
+    target $target
+    premises $premises
+@output result $result

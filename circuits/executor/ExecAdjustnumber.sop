@@ -1,0 +1,21 @@
+@input command
+@guard commandKindIs
+    value $command
+    kind "adjustNumber"
+@payload field
+    value $command
+    name "payload"
+@subject field
+    value $payload
+    name "subject"
+@predicate field
+    value $payload
+    name "predicate"
+@delta field
+    value $payload
+    name "delta"
+@result kbAdjustNumber
+    subject $subject
+    predicate $predicate
+    delta $delta
+@output result $result

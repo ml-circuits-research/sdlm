@@ -1,0 +1,13 @@
+@input command
+@n1 commandKindIs
+    value $command
+    kind "responseStyle"
+@n2 field
+    value $command
+    name "payload"
+@n3 SetResponseStyle
+    style $n2
+@n4 record
+    kind "preference"
+    value $n3
+@output result $n4

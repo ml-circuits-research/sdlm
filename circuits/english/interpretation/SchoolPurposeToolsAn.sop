@@ -1,0 +1,51 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 7
+@g0 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "an"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "used"
+@g5 tokenIs
+    tokens $tokens
+    index 5
+    value "for"
+@g6 tokenIs
+    tokens $tokens
+    index 6
+    value "?"
+@noun InterpretNoun
+    tokens $tokens
+    index 3
+@lemma field
+    value $noun
+    name "value"
+@subject makeConstant
+    value $lemma
+@object makeVariable
+    name "Purpose"
+@payload makeBinaryAtom
+    subject $subject
+    predicate "purpose"
+    object $object
+@decisions collectDecisions
+    noun $noun
+@command makeCommand
+    kind "askBindings"
+    payload $payload
+@result record
+    command $command
+    decisions $decisions
+@output result $result

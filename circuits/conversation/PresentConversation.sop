@@ -1,0 +1,11 @@
+@input results
+@n1 getSessionSetting
+    name "response_style"
+@n2 selectCircuits
+    group "conversation.presentation"
+    value $n1
+@n3 callCandidates
+    candidates $n2
+    results $results
+    style $n1
+@output result $n3

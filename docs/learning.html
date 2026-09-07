@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning and circuit packs | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="learning-and-circuit-packs">Learning and circuit packs</h1>
+<p>Use a <a class="definition-link" href="wiki.html#definition-circuit-pack">circuit pack</a> to add language constructions, semantic execution, response strategies, or explicit document knowledge. A coding agent can author the pack and submit acceptance examples. Installation validates syntax, references, <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> names, call inputs, and local dependency cycles before publishing competence.</p>
+<h2 id="learn-a-paraphrase">Learn a paraphrase</h2>
+<p>Create <code>training.json</code> with surface/canonical examples:</p>
+<pre><code class="language-json">[
+  {&quot;surface&quot;:&quot;Able Alice.&quot;,&quot;canonical&quot;:&quot;Alice can help Bob.&quot;},
+  {&quot;surface&quot;:&quot;Able Carol.&quot;,&quot;canonical&quot;:&quot;Carol can help Bob.&quot;}
+]
+</code></pre>
+<pre><code class="language-text">/session new training
+/learn training.json
+Able Dana.
+Can Dana help Bob?
+Does Dana help Bob?
+</code></pre>
+<p>The modal question returns Yes. The unqualified question remains Unknown. <a class="definition-link" href="wiki.html#definition-induction">Induction</a> preserves the <a class="definition-link" href="wiki.html#definition-qualifier">qualifier</a>, validates all supplied samples in memory, then publishes the pack. A failed validation or name collision rolls back registry and symbolic state. Named <a class="definition-link" href="wiki.html#definition-session">sessions</a> preserve learned <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> across restarts. Temporary <a class="definition-link" href="wiki.html#definition-session">sessions</a> require an explicit save.</p>
+<h2 id="author-and-install-a-pack">Author and install a pack</h2>
+<p>A pack root contains <code>circuits/</code> with named <code>.sop</code> files. Subdirectories define groups, and names are unique across the loaded library. A group ending in <code>.bootstrap</code> runs on installation and startup. <code>/load extensions/document-atlas</code> installs the repository&#39;s authored Atlas pack. <code>/save new-pack</code> exports current asserted knowledge as an installable <a class="definition-link" href="wiki.html#definition-bootstrap">bootstrap</a> pack; it does not export learned grammar and refuses knowledge with active <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> dependencies. <code>/session save &lt;name&gt;</code> captures the complete <a class="definition-link" href="wiki.html#definition-session">session</a> competence and knowledge instead.</p>
+<p>Agents can call <code>POST /v1/sessions/{id}/packs</code> with SOP files and mandatory exact-result tests:</p>
+<pre><code class="language-json">{
+  &quot;files&quot;: [{
+    &quot;path&quot;: &quot;agent/bootstrap/AgentFact.sop&quot;,
+    &quot;source&quot;: &quot;@a makeConstant\n value \&quot;delta\&quot;\n@f makeUnaryAtom\n subject $a\n predicate \&quot;reliable\&quot;\n@w kbAssertFact\n atom $f\n@output result $w\n&quot;
+  }],
+  &quot;tests&quot;: [{&quot;input&quot;:&quot;Is Delta reliable?&quot;,&quot;expected&quot;:&quot;Yes.&quot;}]
+}
+</code></pre>
+<p>Paths are relative to the uploaded pack&#39;s <code>circuits/</code> directory. Absolute paths, traversal, duplicate <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> names, empty packs, and missing tests are rejected. The limit is 1,000 files and 128 acceptance tests within the API body limit. Tests run in a separate trial <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a>, so test assertions do not become <a class="definition-link" href="wiki.html#definition-session">session</a> knowledge. Accepted installation and its <a class="definition-link" href="wiki.html#definition-bootstrap">bootstraps</a> commit together as a new <a class="definition-link" href="wiki.html#definition-session">session</a> revision. This endpoint executes supplied SOP; it does not launch an external coding agent or grant shell access.</p>
+<h2 id="authoring-contract">Authoring contract</h2>
+<p>Use ordinary SOP calls and typed values for competence. Keep domain vocabulary and linguistic decisions in <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. Generic host operations belong in the runtime only when they express a reusable execution need. A reusable result may contain JSON-compatible scalars, lists, and objects. References resolve explicitly; source strings are never evaluated as JavaScript.</p>
+<p><a class="definition-link" href="wiki.html#definition-semantic-circuit">Circuits</a> may recurse. Local wire cycles are invalid, and runtime recursion consumes the request budget. SOP syntax validity and passing acceptance examples do not prove a <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>&#39;s behavior on every input. Include rejection, ambiguity, and session-restart examples when the pack changes those boundaries.</p>
+<h2 id="improve-a-failed-interpretation">Improve a failed interpretation</h2>
+<p>Run <code>/example 15</code>, then try an unfamiliar construction in a named <a class="definition-link" href="wiki.html#definition-session">session</a>. <code>/assumptions</code> shows the selected category, original word, resulting predicate and <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>. <code>/reject &lt;id&gt; &lt;reason&gt;</code> records the correction and removes dependent knowledge. <code>/feedback new-file.json</code> exports this evidence and unresolved inputs without overwriting an existing file.</p>
+<p>A coding agent can turn the failing input and correction into a canonical training pair or a SOP interpretation <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>. Language policies belong in <code>circuits/english/interpretation/</code>, reusable slot and review policies in <code>interpretationSupport/</code>, and punctuation policies in <code>inputRepair/</code>. Installed strict parser competence takes precedence over fallback guesses. Include successful variations, incorrect alternatives, rejection and <a class="definition-link" href="wiki.html#definition-session">session</a> restart in regression evidence. Pack acceptance tests remain strict; they do not pass merely because conversation mode guessed a plausible meaning. The exported report does not launch or train an agent by itself.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+@input tokens
+@n1 record
+    surface "plus"
+    value "add"
+@n2 record
+    surface "+"
+    value "add"
+@n3 record
+    surface "minus"
+    value "subtract"
+@n4 record
+    surface "-"
+    value "subtract"
+@n5 record
+    surface "times"
+    value "multiply"
+@n6 record
+    surface "*"
+    value "multiply"
+@n7 record
+    surface "x"
+    value "multiply"
+@n8 record
+    surface "\u00d7"
+    value "multiply"
+@n9 record
+    surface "/"
+    value "divide"
+@n10 record
+    surface "\u00f7"
+    value "divide"
+@n11 record
+    surface "over"
+    value "divide"
+@n12 list
+    item0 $n1
+    item1 $n2
+    item2 $n3
+    item3 $n4
+    item4 $n5
+    item5 $n6
+    item6 $n7
+    item7 $n8
+    item8 $n9
+    item9 $n10
+    item10 $n11
+@n13 matchTokenChoice
+    tokens $tokens
+    index 0
+    choices $n12
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n14 field
+    value $n13
+    name "value"
+@n15 tokenCount
+    tokens $tokens
+@n16 sliceTokens
+    tokens $tokens
+    start 1
+    end $n15
+@n17 field
+    value $n13
+    name "decisions"
+@n18 record
+    value $n14
+    rest $n16
+    decisions $n17
+@output result $n18

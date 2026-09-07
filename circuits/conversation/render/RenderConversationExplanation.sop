@@ -1,0 +1,28 @@
+@input value
+@n1 field
+    value $value
+    name "answer_text"
+@n2 selectCircuits
+    group "conversation.hypothesis"
+    value $value
+@n3 callCandidates
+    candidates $n2
+    value $value
+@n4 selectCircuits
+    group "conversation.assumptions"
+    value $value
+@n5 callCandidates
+    candidates $n4
+    value $value
+@n6 selectCircuits
+    group "conversation.context"
+    value $value
+@n7 callCandidates
+    candidates $n6
+    value $value
+@n8 concat
+    part1 $n1
+    part2 $n3
+    part3 $n5
+    part4 $n7
+@output result $n8

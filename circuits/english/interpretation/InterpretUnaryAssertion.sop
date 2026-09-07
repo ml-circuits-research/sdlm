@@ -1,0 +1,33 @@
+@input tokens
+@size tokenCountIs
+    tokens $tokens
+    count 3
+@guard2 tokenIs
+    tokens $tokens
+    index 2
+    value "."
+@entityGuard tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@subject InterpretEntity
+    tokens $tokens
+    index 0
+@verb InterpretVerb
+    tokens $tokens
+    index 1
+@predicate field
+    value $verb
+    name "value"
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+@command makeCommand
+    kind "assertFact"
+    payload $atom
+@decisions collectDecisions
+    verb $verb
+@result record
+    command $command
+    decisions $decisions
+@output result $result

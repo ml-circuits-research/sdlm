@@ -1,0 +1,46 @@
+@input tokens
+@size tokenCountIs
+    tokens $tokens
+    count 7
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "a"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "of"
+@g6 tokenIs
+    tokens $tokens
+    index 6
+    value "."
+@noun tokenClassIs
+    tokens $tokens
+    index 3
+    class "noun"
+@subject constantAt
+    tokens $tokens
+    index 0
+@object constantAt
+    tokens $tokens
+    index 5
+@predicate tokenLemmaAt
+    tokens $tokens
+    index 3
+    class "noun"
+@payload makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+@command makeCommand
+    kind "assertFact"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

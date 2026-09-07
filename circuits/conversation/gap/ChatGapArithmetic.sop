@@ -1,0 +1,18 @@
+@input tokens
+@n1 tokensWithClass
+    tokens $tokens
+    class "number"
+@n2 tokenCountAtLeast
+    tokens $n1
+    count 2
+@n3 arrayField
+    values $n1
+    name "surface"
+@n4 join
+    values $n3
+    separator ", "
+@n5 concat
+    part1 "I found these numbers: "
+    part2 $n4
+    part3 ". For a calculation, give two numbers and one operation, for example \"3 plus 5\", \"10 divided by 2\", or \"subtract 3 from 8\". I have not calculated a partial expression."
+@output result $n5

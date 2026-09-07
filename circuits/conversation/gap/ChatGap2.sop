@@ -1,0 +1,7 @@
+@input tokens
+@n1 tokenContains
+    tokens $tokens
+    value "code"
+@n2 constant
+    value "I can load tested SOP circuits, but I cannot author and run arbitrary code on request. Use /help load to inspect circuit loading, or ask \"What can you do?\"."
+@output result $n2

@@ -1,0 +1,18 @@
+@input value
+@n1 field
+    value $value
+    name "id"
+@n2 field
+    value $value
+    name "original"
+@n3 field
+    value $value
+    name "value"
+@n4 concat
+    part1 "["
+    part2 $n1
+    part3 "] "
+    part4 $n2
+    part5 " -> "
+    part6 $n3
+@output result $n4

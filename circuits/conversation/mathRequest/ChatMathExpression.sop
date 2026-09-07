@@ -1,0 +1,43 @@
+@input tokens
+@n1 candidateWeight
+    weight -10
+@n2 ChatMathNumber
+    tokens $tokens
+@n3 field
+    value $n2
+    name "rest"
+@n4 ChatMathOperator
+    tokens $n3
+@n5 field
+    value $n4
+    name "rest"
+@n6 ChatMathNumber
+    tokens $n5
+@n7 field
+    value $n6
+    name "rest"
+@n8 tokenCountIs
+    tokens $n7
+    count 0
+@n9 field
+    value $n2
+    name "value"
+@n10 field
+    value $n6
+    name "value"
+@n11 field
+    value $n4
+    name "value"
+@n12 record
+    left $n9
+    right $n10
+    operation $n11
+@n13 makeCommand
+    kind "calculateNumber"
+    payload $n12
+@n14 collectDecisions
+    part0 $n4
+@n15 record
+    command $n13
+    decisions $n14
+@output result $n15

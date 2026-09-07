@@ -1,0 +1,9 @@
+@base addLexeme
+    surface "die"
+    class "verbBase"
+    lemma "die"
+@third addLexeme
+    surface "dies"
+    class "verb3"
+    lemma "die"
+@output result $third

@@ -1,0 +1,8 @@
+@input command
+@n1 commandKindIs
+    value $command
+    kind "chat"
+@n2 field
+    value $command
+    name "payload"
+@output result $n2

@@ -1,61 +1,65 @@
 import { primitiveMetadata } from './primitive-registry.mjs';
 
-const ORDER = new Map([['pure',0],['read',1],['write',2],['external',3],['unknown',4]]);
+const ORDER = new Map([['pure', 0], ['read', 1], ['write', 2], ['external', 3], ['unknown', 4]]);
 const STRUCTURAL_CALLS = new Set(['callCircuit', 'callCandidates', 'callParallelCandidates']);
-
-function maxEffect(a, b) { return ORDER.get(a) >= ORDER.get(b) ? a : b; }
+const maxEffect = (a, b) => ORDER.get(a) >= ORDER.get(b) ? a : b;
 
 export class EffectAnalyzer {
   constructor({ circuits, primitives }) {
     this.circuits = circuits;
     this.primitives = primitives;
-    this.memo = new Map();
+    this.refresh();
   }
 
-  refresh() { this.memo.clear(); }
+  refresh() {
+    this.memo = new Map();
+    this.groups = new Map();
+    for (const def of this.circuits.values()) {
+      if (!this.groups.has(def.group)) this.groups.set(def.group, []);
+      this.groups.get(def.group).push(def.name);
+    }
+  }
 
   primitiveEffect(name) {
-    const metadata = primitiveMetadata(this.primitives, name);
-    return metadata?.effect ?? (this.primitives.has(name) ? 'pure' : 'unknown');
+    const effect = primitiveMetadata(this.primitives, name)?.effect;
+    return ORDER.has(effect) ? effect : 'unknown';
   }
 
-  #groupEffect(group, stack) {
-    const defs = [...this.circuits.values()].filter(circuit => circuit.group === group);
-    if (!defs.length) return 'unknown';
-    return defs.reduce((effect, def) => maxEffect(effect, this.circuitEffect(def.name, stack)), 'pure');
-  }
-
-  #dynamicTargetEffect(def, node, stack) {
+  #targets(def, node) {
+    if (typeof node.args.circuit === 'string') return [node.args.circuit];
     const ref = node.args.candidates?.ref ?? node.args.circuit?.ref;
-    if (!ref) return 'unknown';
     const source = def.nodes.find(candidate => candidate.id === ref);
-    const metadata = source ? primitiveMetadata(this.primitives, source.command) : null;
-    const group = source?.args?.group;
-    if (metadata?.selectsGroup && typeof group === 'string') return this.#groupEffect(group, stack);
-    return 'unknown';
+    const metadata = source && primitiveMetadata(this.primitives, source.command);
+    return metadata?.selectsGroup && typeof source.args.group === 'string'
+      ? this.groups.get(source.args.group) ?? [] : [];
   }
 
-  circuitEffect(name, stack = new Set()) {
+  circuitEffect(name) {
     if (this.memo.has(name)) return this.memo.get(name);
-    if (stack.has(name)) return 'pure';
-    const def = this.circuits.get(name);
-    if (!def) return this.primitiveEffect(name);
-
-    const next = new Set(stack); next.add(name);
+    const pending = [name];
+    const visited = new Set();
     let effect = 'pure';
-    for (const node of def.nodes) {
-      let nodeEffect;
-      if (STRUCTURAL_CALLS.has(node.command)) {
-        const literal = node.args.circuit;
-        if (typeof literal === 'string') nodeEffect = this.circuitEffect(literal, next);
-        else nodeEffect = this.#dynamicTargetEffect(def, node, next);
-      } else if (this.circuits.has(node.command)) nodeEffect = this.circuitEffect(node.command, next);
-      else nodeEffect = this.primitiveEffect(node.command);
-      effect = maxEffect(effect, nodeEffect);
+    while (pending.length) {
+      const target = pending.pop();
+      if (visited.has(target)) continue;
+      visited.add(target);
+      const def = this.circuits.get(target);
+      if (!def) {
+        effect = maxEffect(effect, this.primitiveEffect(target));
+        continue;
+      }
+      for (const node of def.nodes) {
+        if (STRUCTURAL_CALLS.has(node.command)) {
+          const targets = this.#targets(def, node);
+          if (!targets.length) effect = 'unknown';
+          pending.push(...targets);
+        } else pending.push(node.command);
+      }
     }
+    // Cache only the root after visiting all reachable dependencies, including cycles.
     this.memo.set(name, effect);
     return effect;
   }
 
-  isSpeculativelySafe(name) { return ['pure','read'].includes(this.circuitEffect(name)); }
+  isSpeculativelySafe(name) { return ['pure', 'read'].includes(this.circuitEffect(name)); }
 }

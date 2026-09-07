@@ -1,0 +1,9 @@
+@n1 makeConstant
+    value "_conversation"
+@n2 kbReadValue
+    subject $n1
+    predicate "conversation_speaker"
+@n3 answerKindIs
+    value $n2
+    kind "value"
+@output result $n2

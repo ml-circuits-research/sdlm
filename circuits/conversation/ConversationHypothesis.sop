@@ -1,0 +1,8 @@
+@input answer
+@choices selectCircuits
+    group "conversation.missingPremise"
+    value $answer
+@result callCandidates
+    candidates $choices
+    answer $answer
+@output result $result

@@ -1,0 +1,197 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeVariable
+    name "X"
+@n2 makeUnaryAtom
+    subject $n1
+    predicate "plant"
+    polarity "positive"
+@n3 makeVariable
+    name "X"
+@n4 makeUnaryAtom
+    subject $n3
+    predicate "tree"
+    polarity "positive"
+@n5 list
+    item0 $n4
+@n6 makeRule
+    head $n2
+    body $n5
+@n7 kbAssertRule
+    rule $n6
+@n8 makeVariable
+    name "X"
+@n9 makeUnaryAtom
+    subject $n8
+    predicate "plant"
+    polarity "positive"
+@n10 makeVariable
+    name "X"
+@n11 makeUnaryAtom
+    subject $n10
+    predicate "flower"
+    polarity "positive"
+@n12 list
+    item0 $n11
+@n13 makeRule
+    head $n9
+    body $n12
+@n14 kbAssertRule
+    rule $n13
+@n15 makeVariable
+    name "X"
+@n16 makeUnaryAtom
+    subject $n15
+    predicate "plant"
+    polarity "positive"
+@n17 makeVariable
+    name "X"
+@n18 makeUnaryAtom
+    subject $n17
+    predicate "grass"
+    polarity "positive"
+@n19 list
+    item0 $n18
+@n20 makeRule
+    head $n16
+    body $n19
+@n21 kbAssertRule
+    rule $n20
+@n22 makeVariable
+    name "X"
+@n23 makeUnaryAtom
+    subject $n22
+    predicate "living"
+    polarity "positive"
+@n24 makeVariable
+    name "X"
+@n25 makeUnaryAtom
+    subject $n24
+    predicate "plant"
+    polarity "positive"
+@n26 list
+    item0 $n25
+@n27 makeRule
+    head $n23
+    body $n26
+@n28 kbAssertRule
+    rule $n27
+@n29 makeVariable
+    name "X"
+@n30 makeConstant
+    value "water"
+@n31 makeBinaryAtom
+    subject $n29
+    predicate "need"
+    polarity "positive"
+    object $n30
+@n32 makeVariable
+    name "X"
+@n33 makeUnaryAtom
+    subject $n32
+    predicate "plant"
+    polarity "positive"
+@n34 list
+    item0 $n33
+@n35 makeRule
+    head $n31
+    body $n34
+@n36 kbAssertRule
+    rule $n35
+@n37 makeVariable
+    name "X"
+@n38 makeConstant
+    value "light"
+@n39 makeBinaryAtom
+    subject $n37
+    predicate "need"
+    polarity "positive"
+    object $n38
+@n40 makeVariable
+    name "X"
+@n41 makeUnaryAtom
+    subject $n40
+    predicate "plant"
+    polarity "positive"
+@n42 list
+    item0 $n41
+@n43 makeRule
+    head $n39
+    body $n42
+@n44 kbAssertRule
+    rule $n43
+@n45 makeVariable
+    name "X"
+@n46 makeConstant
+    value "water"
+@n47 makeBinaryAtom
+    subject $n45
+    predicate "need"
+    polarity "positive"
+    object $n46
+@n48 makeVariable
+    name "X"
+@n49 makeUnaryAtom
+    subject $n48
+    predicate "animal"
+    polarity "positive"
+@n50 list
+    item0 $n49
+@n51 makeRule
+    head $n47
+    body $n50
+@n52 kbAssertRule
+    rule $n51
+@n53 makeVariable
+    name "X"
+@n54 makeConstant
+    value "food"
+@n55 makeBinaryAtom
+    subject $n53
+    predicate "need"
+    polarity "positive"
+    object $n54
+@n56 makeVariable
+    name "X"
+@n57 makeUnaryAtom
+    subject $n56
+    predicate "animal"
+    polarity "positive"
+@n58 list
+    item0 $n57
+@n59 makeRule
+    head $n55
+    body $n58
+@n60 kbAssertRule
+    rule $n59
+@n61 makeVariable
+    name "X"
+@n62 makeUnaryAtom
+    subject $n61
+    predicate "thirsty"
+    polarity "positive"
+@n63 makeVariable
+    name "X"
+@n64 makeUnaryAtom
+    subject $n63
+    predicate "plant"
+    polarity "positive"
+@n65 makeVariable
+    name "X"
+@n66 makeConstant
+    value "water"
+@n67 makeBinaryAtom
+    subject $n65
+    predicate "without"
+    polarity "positive"
+    object $n66
+@n68 list
+    item0 $n64
+    item1 $n67
+@n69 makeRule
+    head $n62
+    body $n68
+@n70 kbAssertRule
+    rule $n69
+@result constant
+    value true
+@output result $result

@@ -1,0 +1,40 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 4
+@end tokenLastIs
+    tokens $tokens
+    value "."
+@subjectGuard tokenClassIs
+    tokens $tokens
+    index 0
+    class "entity"
+@subject constantAt
+    tokens $tokens
+    index 0
+@objectGuard tokenClassIs
+    tokens $tokens
+    index 2
+    class "entity"
+@object constantAt
+    tokens $tokens
+    index 2
+@verb InterpretVerb
+    tokens $tokens
+    index 1
+@predicate field
+    value $verb
+    name "value"
+@atom makeBinaryAtom
+    subject $subject
+    predicate $predicate
+    object $object
+@command makeCommand
+    kind "assertFact"
+    payload $atom
+@decisions collectDecisions
+    verb $verb
+@result record
+    command $command
+    decisions $decisions
+@output result $result

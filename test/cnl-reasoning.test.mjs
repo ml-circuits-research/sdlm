@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 
 test('unary inheritance, explicit negation, unknown and bindings', async () => {
-  const s = await createSLLM();
+  const s = await createSDLM();
   assert.equal(await s.process('Every human is a mortal.'), 'Learned.');
   assert.equal(await s.process('Every mortal is finite.'), 'Learned.');
   assert.equal(await s.process('No finite is a machine.'), 'Learned.');
@@ -15,7 +15,7 @@ test('unary inheritance, explicit negation, unknown and bindings', async () => {
 });
 
 test('rules taught through CNL derive a recursive binary closure', async () => {
-  const s = await createSLLM();
+  const s = await createSDLM();
   for (const line of [
     'Alice is a parent of Bob.',
     'Bob is a parent of Carol.',
@@ -28,7 +28,7 @@ test('rules taught through CNL derive a recursive binary closure', async () => {
 });
 
 test('conjunctive and mixed rules work', async () => {
-  const s = await createSLLM();
+  const s = await createSDLM();
   for (const line of [
     'Every human that is smart is rational.',
     'Alice is human.',
@@ -41,7 +41,7 @@ test('conjunctive and mixed rules work', async () => {
 });
 
 test('four-valued result reports contradiction instead of collapsing it', async () => {
-  const s = await createSLLM();
+  const s = await createSDLM();
   await s.process('Every human is mortal.');
   await s.process('Alice is human.');
   await s.process('Alice is not mortal.');

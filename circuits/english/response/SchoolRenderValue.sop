@@ -1,0 +1,12 @@
+@input answer
+@guard answerKindIs
+    value $answer
+    kind "value"
+@value field
+    value $answer
+    name "value"
+@result concat
+    part1 ""
+    part2 $value
+    part3 "."
+@output result $result

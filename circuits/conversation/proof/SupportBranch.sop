@@ -1,0 +1,20 @@
+@input value
+@n1 field
+    value $value
+    name "children"
+@n2 hasItems
+    values $n1
+@n3 field
+    value $value
+    name "atom"
+@n4 mapReadCircuit
+    values $n1
+    circuit "RenderSupport"
+@n5 join
+    values $n4
+    separator " and "
+@n6 concat
+    part1 $n3
+    part2 " from "
+    part3 $n5
+@output result $n6

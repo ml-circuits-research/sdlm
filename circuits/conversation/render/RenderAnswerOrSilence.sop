@@ -1,0 +1,11 @@
+@input value
+@n1 field
+    value $value
+    name "answer"
+@n2 selectCircuits
+    group "conversation.short"
+    value $n1
+@n3 callCandidates
+    candidates $n2
+    value $value
+@output result $n3

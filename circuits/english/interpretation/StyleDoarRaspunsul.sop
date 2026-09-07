@@ -1,0 +1,24 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "doar"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "raspunsul"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "."
+@n5 makeCommand
+    kind "responseStyle"
+    payload "answer"
+@n6 list
+@n7 record
+    command $n5
+    decisions $n6
+@output result $n7

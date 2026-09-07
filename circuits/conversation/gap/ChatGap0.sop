@@ -1,0 +1,7 @@
+@input tokens
+@n1 tokenContains
+    tokens $tokens
+    value "write"
+@n2 constant
+    value "I can reason about facts and rules, but I cannot write arbitrary prose or programs yet. Give me a fact to remember or a question to work out. Ask \"What can you do?\" for examples."
+@output result $n2

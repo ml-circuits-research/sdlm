@@ -1,0 +1,36 @@
+@input tokens
+@input originalTokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 5
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "do"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "you"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "know"
+@n5 tokenIs
+    tokens $tokens
+    index 3
+    value "if"
+@n6 tokenCount
+    tokens $originalTokens
+@n7 sliceTokens
+    tokens $originalTokens
+    start 4
+    end $n6
+@n8 ChatEmbeddedQuestion
+    tokens $n7
+@n9 list
+@n10 record
+    rewrite $n8
+    decisions $n9
+    exclusive true
+    policy "ChatPrefixDoYouKnowIf"
+@output result $n10

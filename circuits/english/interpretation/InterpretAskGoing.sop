@@ -1,0 +1,50 @@
+@input tokens
+@size tokenCountIs
+    tokens $tokens
+    count 6
+@guard0 tokenIs
+    tokens $tokens
+    index 0
+    value "is"
+@guard5 tokenIs
+    tokens $tokens
+    index 5
+    value "?"
+@guard2 tokenIs
+    tokens $tokens
+    index 2
+    value "going"
+@guard3 tokenIs
+    tokens $tokens
+    index 3
+    value "to"
+@subject InterpretEntity
+    tokens $tokens
+    index 1
+@verb InterpretVerb
+    tokens $tokens
+    index 4
+@predicate field
+    value $verb
+    name "value"
+@atom makeUnaryAtom
+    subject $subject
+    predicate $predicate
+@command makeCommand
+    kind "askBoolean"
+    payload $atom
+@lexical collectDecisions
+    verb $verb
+@temporal record
+    category "temporal-projection"
+    original "going to"
+    value "unqualified predicate"
+    reason "Interpreted the tense as a query about the unqualified predicate. The knowledge base has no date or event-time evidence; this does not establish when an event occurs or occurred."
+    certainty "heuristic"
+@decisions append
+    values $lexical
+    value $temporal
+@result record
+    command $command
+    decisions $decisions
+@output result $result

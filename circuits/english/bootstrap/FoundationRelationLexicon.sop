@@ -1,0 +1,88 @@
+# Register concepts whose meanings are supplied by the elementary SOP library.
+@relation0 addLexeme
+    surface "made_of"
+    class "relation"
+    lemma "made_of"
+@relation1 addLexeme
+    surface "purpose"
+    class "relation"
+    lemma "purpose"
+@relation2 addLexeme
+    surface "in"
+    class "relation"
+    lemma "in"
+@relation3 addLexeme
+    surface "on"
+    class "relation"
+    lemma "on"
+@relation4 addLexeme
+    surface "under"
+    class "relation"
+    lemma "under"
+@relation5 addLexeme
+    surface "without"
+    class "relation"
+    lemma "without"
+@relation6 addLexeme
+    surface "left"
+    class "relation"
+    lemma "left"
+@relation7 addLexeme
+    surface "right"
+    class "relation"
+    lemma "right"
+@relation8 addLexeme
+    surface "next"
+    class "relation"
+    lemma "next"
+@relation9 addLexeme
+    surface "before"
+    class "relation"
+    lemma "before"
+@relation10 addLexeme
+    surface "after"
+    class "relation"
+    lemma "after"
+@relation11 addLexeme
+    surface "taller"
+    class "relation"
+    lemma "taller"
+@relation12 addLexeme
+    surface "shorter"
+    class "relation"
+    lemma "shorter"
+@relation13 addLexeme
+    surface "heavier"
+    class "relation"
+    lemma "heavier"
+@relation14 addLexeme
+    surface "lighter"
+    class "relation"
+    lemma "lighter"
+@relation15 addLexeme
+    surface "older"
+    class "relation"
+    lemma "older"
+@relation16 addLexeme
+    surface "younger"
+    class "relation"
+    lemma "younger"
+@adjective0 addLexeme
+    surface "red"
+    class "adjective"
+    lemma "red"
+@adjective1 addLexeme
+    surface "round"
+    class "adjective"
+    lemma "round"
+@adjective2 addLexeme
+    surface "happy"
+    class "adjective"
+    lemma "happy"
+@adjective3 addLexeme
+    surface "mortal"
+    class "adjective"
+    lemma "mortal"
+@result constant
+    value true
+@output result $result

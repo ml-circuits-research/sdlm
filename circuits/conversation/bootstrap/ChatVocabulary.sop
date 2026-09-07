@@ -1,0 +1,228 @@
+@n1 addLexeme
+    surface "hello"
+    class "chatGreeting"
+@n2 addLexeme
+    surface "hi"
+    class "chatGreeting"
+@n3 addLexeme
+    surface "hey"
+    class "chatGreeting"
+@n4 addLexeme
+    surface "salut"
+    class "chatGreeting"
+@n5 addLexeme
+    surface "buna"
+    class "chatGreeting"
+@n6 addLexeme
+    surface "i"
+    class "chatReserved"
+@n7 addLexeme
+    surface "am"
+    class "chatReserved"
+@n8 addLexeme
+    surface "is"
+    class "chatReserved"
+@n9 addLexeme
+    surface "are"
+    class "chatReserved"
+@n10 addLexeme
+    surface "my"
+    class "chatReserved"
+@n11 addLexeme
+    surface "me"
+    class "chatReserved"
+@n12 addLexeme
+    surface "you"
+    class "chatReserved"
+@n13 addLexeme
+    surface "your"
+    class "chatReserved"
+@n14 addLexeme
+    surface "he"
+    class "chatReserved"
+@n15 addLexeme
+    surface "she"
+    class "chatReserved"
+@n16 addLexeme
+    surface "it"
+    class "chatReserved"
+@n17 addLexeme
+    surface "we"
+    class "chatReserved"
+@n18 addLexeme
+    surface "they"
+    class "chatReserved"
+@n19 addLexeme
+    surface "a"
+    class "chatReserved"
+@n20 addLexeme
+    surface "an"
+    class "chatReserved"
+@n21 addLexeme
+    surface "the"
+    class "chatReserved"
+@n22 addLexeme
+    surface "not"
+    class "chatReserved"
+@n23 addLexeme
+    surface "and"
+    class "chatReserved"
+@n24 addLexeme
+    surface "but"
+    class "chatReserved"
+@n25 addLexeme
+    surface "or"
+    class "chatReserved"
+@n26 addLexeme
+    surface "in"
+    class "chatReserved"
+@n27 addLexeme
+    surface "at"
+    class "chatReserved"
+@n28 addLexeme
+    surface "on"
+    class "chatReserved"
+@n29 addLexeme
+    surface "from"
+    class "chatReserved"
+@n30 addLexeme
+    surface "to"
+    class "chatReserved"
+@n31 addLexeme
+    surface "for"
+    class "chatReserved"
+@n32 addLexeme
+    surface "with"
+    class "chatReserved"
+@n33 addLexeme
+    surface "of"
+    class "chatReserved"
+@n34 addLexeme
+    surface "please"
+    class "chatReserved"
+@n35 addLexeme
+    surface "what"
+    class "chatReserved"
+@n36 addLexeme
+    surface "who"
+    class "chatReserved"
+@n37 addLexeme
+    surface "where"
+    class "chatReserved"
+@n38 addLexeme
+    surface "when"
+    class "chatReserved"
+@n39 addLexeme
+    surface "how"
+    class "chatReserved"
+@n40 addLexeme
+    surface "why"
+    class "chatReserved"
+@n41 addLexeme
+    surface "can"
+    class "chatReserved"
+@n42 addLexeme
+    surface "could"
+    class "chatReserved"
+@n43 addLexeme
+    surface "would"
+    class "chatReserved"
+@n44 addLexeme
+    surface "should"
+    class "chatReserved"
+@n45 addLexeme
+    surface "do"
+    class "chatReserved"
+@n46 addLexeme
+    surface "does"
+    class "chatReserved"
+@n47 addLexeme
+    surface "did"
+    class "chatReserved"
+@n48 addLexeme
+    surface "will"
+    class "chatReserved"
+@n49 addLexeme
+    surface "have"
+    class "chatReserved"
+@n50 addLexeme
+    surface "has"
+    class "chatReserved"
+@n51 addLexeme
+    surface "want"
+    class "chatReserved"
+@n52 addLexeme
+    surface "need"
+    class "chatReserved"
+@n53 addLexeme
+    surface "called"
+    class "chatReserved"
+@n54 addLexeme
+    surface "name"
+    class "chatReserved"
+@n55 addLexeme
+    surface "thanks"
+    class "chatReserved"
+@n56 addLexeme
+    surface "hello"
+    class "chatReserved"
+@n57 addLexeme
+    surface "hi"
+    class "chatReserved"
+@n58 addLexeme
+    surface "hey"
+    class "chatReserved"
+@n59 addLexeme
+    surface "really"
+    class "chatReserved"
+@n60 addLexeme
+    surface "very"
+    class "chatReserved"
+@n61 addLexeme
+    surface "also"
+    class "chatReserved"
+@n62 addLexeme
+    surface "just"
+    class "chatReserved"
+@n63 addLexeme
+    surface "happy"
+    class "noun"
+@n64 addLexeme
+    surface "sad"
+    class "noun"
+@n65 addLexeme
+    surface "tired"
+    class "noun"
+@n66 addLexeme
+    surface "hungry"
+    class "noun"
+@n67 addLexeme
+    surface "thirsty"
+    class "noun"
+@n68 addLexeme
+    surface "angry"
+    class "noun"
+@n69 addLexeme
+    surface "fine"
+    class "noun"
+@n70 addLexeme
+    surface "okay"
+    class "noun"
+@n71 addLexeme
+    surface "ready"
+    class "noun"
+@n72 addLexeme
+    surface "human"
+    class "noun"
+@n73 addLexeme
+    surface "person"
+    class "noun"
+@n74 addLexeme
+    surface "conversation_speaker"
+    class "noun"
+@n75 addLexeme
+    surface "introduced"
+    class "noun"
+@n76 constant
+    value true
+@output result $n76

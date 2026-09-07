@@ -1,0 +1,32 @@
+@input tokens
+@input originalTokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 4
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "tell"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "me"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "if"
+@n5 tokenCount
+    tokens $originalTokens
+@n6 sliceTokens
+    tokens $originalTokens
+    start 3
+    end $n5
+@n7 ChatEmbeddedQuestion
+    tokens $n6
+@n8 list
+@n9 record
+    rewrite $n7
+    decisions $n8
+    exclusive true
+    policy "ChatPrefixTellMeIf"
+@output result $n9

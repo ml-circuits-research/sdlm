@@ -1,0 +1,92 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeVariable
+    name "X"
+@n2 makeConstant
+    value "food"
+@n3 makeBinaryAtom
+    subject $n1
+    predicate "need"
+    polarity "positive"
+    object $n2
+@n4 makeVariable
+    name "X"
+@n5 makeUnaryAtom
+    subject $n4
+    predicate "hungry"
+    polarity "positive"
+@n6 list
+    item0 $n5
+@n7 makeRule
+    head $n3
+    body $n6
+@n8 kbAssertRule
+    rule $n7
+@n9 makeVariable
+    name "X"
+@n10 makeConstant
+    value "water"
+@n11 makeBinaryAtom
+    subject $n9
+    predicate "need"
+    polarity "positive"
+    object $n10
+@n12 makeVariable
+    name "X"
+@n13 makeUnaryAtom
+    subject $n12
+    predicate "thirsty"
+    polarity "positive"
+@n14 list
+    item0 $n13
+@n15 makeRule
+    head $n11
+    body $n14
+@n16 kbAssertRule
+    rule $n15
+@n17 makeVariable
+    name "X"
+@n18 makeConstant
+    value "rest"
+@n19 makeBinaryAtom
+    subject $n17
+    predicate "need"
+    polarity "positive"
+    object $n18
+@n20 makeVariable
+    name "X"
+@n21 makeUnaryAtom
+    subject $n20
+    predicate "tired"
+    polarity "positive"
+@n22 list
+    item0 $n21
+@n23 makeRule
+    head $n19
+    body $n22
+@n24 kbAssertRule
+    rule $n23
+@n25 makeVariable
+    name "X"
+@n26 makeConstant
+    value "warmth"
+@n27 makeBinaryAtom
+    subject $n25
+    predicate "need"
+    polarity "positive"
+    object $n26
+@n28 makeVariable
+    name "X"
+@n29 makeUnaryAtom
+    subject $n28
+    predicate "cold"
+    polarity "positive"
+@n30 list
+    item0 $n29
+@n31 makeRule
+    head $n27
+    body $n30
+@n32 kbAssertRule
+    rule $n31
+@result constant
+    value true
+@output result $result

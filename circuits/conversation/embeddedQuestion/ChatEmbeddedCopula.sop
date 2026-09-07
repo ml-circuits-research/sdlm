@@ -1,0 +1,29 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 1
+    value "is"
+@n3 tokenSurfaceAt
+    tokens $tokens
+    index 0
+@n4 tokenCount
+    tokens $tokens
+@n5 sliceTokens
+    tokens $tokens
+    start 2
+    end $n4
+@n6 arrayField
+    values $n5
+    name "surface"
+@n7 join
+    values $n6
+    separator " "
+@n8 concat
+    part1 "Is "
+    part2 $n3
+    part3 " "
+    part4 $n7
+@output result $n8

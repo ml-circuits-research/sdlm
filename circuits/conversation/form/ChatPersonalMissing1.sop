@@ -1,0 +1,41 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 6
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "do"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "you"
+@n5 tokenIs
+    tokens $tokens
+    index 3
+    value "know"
+@n6 tokenIs
+    tokens $tokens
+    index 4
+    value "about"
+@n7 tokenIs
+    tokens $tokens
+    index 5
+    value "me"
+@n8 candidateWeight
+    weight -10
+@n9 record
+    kind "chat"
+    message "What name should I use? You can say \"My name is Jhon.\"."
+@n10 makeCommand
+    kind "chat"
+    payload $n9
+@n11 list
+@n12 record
+    command $n10
+    decisions $n11
+@output result $n12

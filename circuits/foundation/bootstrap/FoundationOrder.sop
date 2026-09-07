@@ -1,0 +1,429 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeVariable
+    name "Y"
+@n2 makeVariable
+    name "X"
+@n3 makeBinaryAtom
+    subject $n1
+    predicate "right"
+    polarity "positive"
+    object $n2
+@n4 makeVariable
+    name "X"
+@n5 makeVariable
+    name "Y"
+@n6 makeBinaryAtom
+    subject $n4
+    predicate "left"
+    polarity "positive"
+    object $n5
+@n7 list
+    item0 $n6
+@n8 makeRule
+    head $n3
+    body $n7
+@n9 kbAssertRule
+    rule $n8
+@n10 makeVariable
+    name "Y"
+@n11 makeVariable
+    name "X"
+@n12 makeBinaryAtom
+    subject $n10
+    predicate "left"
+    polarity "positive"
+    object $n11
+@n13 makeVariable
+    name "X"
+@n14 makeVariable
+    name "Y"
+@n15 makeBinaryAtom
+    subject $n13
+    predicate "right"
+    polarity "positive"
+    object $n14
+@n16 list
+    item0 $n15
+@n17 makeRule
+    head $n12
+    body $n16
+@n18 kbAssertRule
+    rule $n17
+@n19 makeVariable
+    name "X"
+@n20 makeVariable
+    name "Z"
+@n21 makeBinaryAtom
+    subject $n19
+    predicate "left"
+    polarity "positive"
+    object $n20
+@n22 makeVariable
+    name "X"
+@n23 makeVariable
+    name "Y"
+@n24 makeBinaryAtom
+    subject $n22
+    predicate "left"
+    polarity "positive"
+    object $n23
+@n25 makeVariable
+    name "Y"
+@n26 makeVariable
+    name "Z"
+@n27 makeBinaryAtom
+    subject $n25
+    predicate "left"
+    polarity "positive"
+    object $n26
+@n28 list
+    item0 $n24
+    item1 $n27
+@n29 makeRule
+    head $n21
+    body $n28
+@n30 kbAssertRule
+    rule $n29
+@n31 makeVariable
+    name "Y"
+@n32 makeVariable
+    name "X"
+@n33 makeBinaryAtom
+    subject $n31
+    predicate "after"
+    polarity "positive"
+    object $n32
+@n34 makeVariable
+    name "X"
+@n35 makeVariable
+    name "Y"
+@n36 makeBinaryAtom
+    subject $n34
+    predicate "before"
+    polarity "positive"
+    object $n35
+@n37 list
+    item0 $n36
+@n38 makeRule
+    head $n33
+    body $n37
+@n39 kbAssertRule
+    rule $n38
+@n40 makeVariable
+    name "Y"
+@n41 makeVariable
+    name "X"
+@n42 makeBinaryAtom
+    subject $n40
+    predicate "before"
+    polarity "positive"
+    object $n41
+@n43 makeVariable
+    name "X"
+@n44 makeVariable
+    name "Y"
+@n45 makeBinaryAtom
+    subject $n43
+    predicate "after"
+    polarity "positive"
+    object $n44
+@n46 list
+    item0 $n45
+@n47 makeRule
+    head $n42
+    body $n46
+@n48 kbAssertRule
+    rule $n47
+@n49 makeVariable
+    name "X"
+@n50 makeVariable
+    name "Z"
+@n51 makeBinaryAtom
+    subject $n49
+    predicate "before"
+    polarity "positive"
+    object $n50
+@n52 makeVariable
+    name "X"
+@n53 makeVariable
+    name "Y"
+@n54 makeBinaryAtom
+    subject $n52
+    predicate "before"
+    polarity "positive"
+    object $n53
+@n55 makeVariable
+    name "Y"
+@n56 makeVariable
+    name "Z"
+@n57 makeBinaryAtom
+    subject $n55
+    predicate "before"
+    polarity "positive"
+    object $n56
+@n58 list
+    item0 $n54
+    item1 $n57
+@n59 makeRule
+    head $n51
+    body $n58
+@n60 kbAssertRule
+    rule $n59
+@n61 makeVariable
+    name "Y"
+@n62 makeVariable
+    name "X"
+@n63 makeBinaryAtom
+    subject $n61
+    predicate "shorter"
+    polarity "positive"
+    object $n62
+@n64 makeVariable
+    name "X"
+@n65 makeVariable
+    name "Y"
+@n66 makeBinaryAtom
+    subject $n64
+    predicate "taller"
+    polarity "positive"
+    object $n65
+@n67 list
+    item0 $n66
+@n68 makeRule
+    head $n63
+    body $n67
+@n69 kbAssertRule
+    rule $n68
+@n70 makeVariable
+    name "Y"
+@n71 makeVariable
+    name "X"
+@n72 makeBinaryAtom
+    subject $n70
+    predicate "taller"
+    polarity "positive"
+    object $n71
+@n73 makeVariable
+    name "X"
+@n74 makeVariable
+    name "Y"
+@n75 makeBinaryAtom
+    subject $n73
+    predicate "shorter"
+    polarity "positive"
+    object $n74
+@n76 list
+    item0 $n75
+@n77 makeRule
+    head $n72
+    body $n76
+@n78 kbAssertRule
+    rule $n77
+@n79 makeVariable
+    name "X"
+@n80 makeVariable
+    name "Z"
+@n81 makeBinaryAtom
+    subject $n79
+    predicate "taller"
+    polarity "positive"
+    object $n80
+@n82 makeVariable
+    name "X"
+@n83 makeVariable
+    name "Y"
+@n84 makeBinaryAtom
+    subject $n82
+    predicate "taller"
+    polarity "positive"
+    object $n83
+@n85 makeVariable
+    name "Y"
+@n86 makeVariable
+    name "Z"
+@n87 makeBinaryAtom
+    subject $n85
+    predicate "taller"
+    polarity "positive"
+    object $n86
+@n88 list
+    item0 $n84
+    item1 $n87
+@n89 makeRule
+    head $n81
+    body $n88
+@n90 kbAssertRule
+    rule $n89
+@n91 makeVariable
+    name "Y"
+@n92 makeVariable
+    name "X"
+@n93 makeBinaryAtom
+    subject $n91
+    predicate "lighter"
+    polarity "positive"
+    object $n92
+@n94 makeVariable
+    name "X"
+@n95 makeVariable
+    name "Y"
+@n96 makeBinaryAtom
+    subject $n94
+    predicate "heavier"
+    polarity "positive"
+    object $n95
+@n97 list
+    item0 $n96
+@n98 makeRule
+    head $n93
+    body $n97
+@n99 kbAssertRule
+    rule $n98
+@n100 makeVariable
+    name "Y"
+@n101 makeVariable
+    name "X"
+@n102 makeBinaryAtom
+    subject $n100
+    predicate "heavier"
+    polarity "positive"
+    object $n101
+@n103 makeVariable
+    name "X"
+@n104 makeVariable
+    name "Y"
+@n105 makeBinaryAtom
+    subject $n103
+    predicate "lighter"
+    polarity "positive"
+    object $n104
+@n106 list
+    item0 $n105
+@n107 makeRule
+    head $n102
+    body $n106
+@n108 kbAssertRule
+    rule $n107
+@n109 makeVariable
+    name "X"
+@n110 makeVariable
+    name "Z"
+@n111 makeBinaryAtom
+    subject $n109
+    predicate "heavier"
+    polarity "positive"
+    object $n110
+@n112 makeVariable
+    name "X"
+@n113 makeVariable
+    name "Y"
+@n114 makeBinaryAtom
+    subject $n112
+    predicate "heavier"
+    polarity "positive"
+    object $n113
+@n115 makeVariable
+    name "Y"
+@n116 makeVariable
+    name "Z"
+@n117 makeBinaryAtom
+    subject $n115
+    predicate "heavier"
+    polarity "positive"
+    object $n116
+@n118 list
+    item0 $n114
+    item1 $n117
+@n119 makeRule
+    head $n111
+    body $n118
+@n120 kbAssertRule
+    rule $n119
+@n121 makeVariable
+    name "Y"
+@n122 makeVariable
+    name "X"
+@n123 makeBinaryAtom
+    subject $n121
+    predicate "younger"
+    polarity "positive"
+    object $n122
+@n124 makeVariable
+    name "X"
+@n125 makeVariable
+    name "Y"
+@n126 makeBinaryAtom
+    subject $n124
+    predicate "older"
+    polarity "positive"
+    object $n125
+@n127 list
+    item0 $n126
+@n128 makeRule
+    head $n123
+    body $n127
+@n129 kbAssertRule
+    rule $n128
+@n130 makeVariable
+    name "Y"
+@n131 makeVariable
+    name "X"
+@n132 makeBinaryAtom
+    subject $n130
+    predicate "older"
+    polarity "positive"
+    object $n131
+@n133 makeVariable
+    name "X"
+@n134 makeVariable
+    name "Y"
+@n135 makeBinaryAtom
+    subject $n133
+    predicate "younger"
+    polarity "positive"
+    object $n134
+@n136 list
+    item0 $n135
+@n137 makeRule
+    head $n132
+    body $n136
+@n138 kbAssertRule
+    rule $n137
+@n139 makeVariable
+    name "X"
+@n140 makeVariable
+    name "Z"
+@n141 makeBinaryAtom
+    subject $n139
+    predicate "older"
+    polarity "positive"
+    object $n140
+@n142 makeVariable
+    name "X"
+@n143 makeVariable
+    name "Y"
+@n144 makeBinaryAtom
+    subject $n142
+    predicate "older"
+    polarity "positive"
+    object $n143
+@n145 makeVariable
+    name "Y"
+@n146 makeVariable
+    name "Z"
+@n147 makeBinaryAtom
+    subject $n145
+    predicate "older"
+    polarity "positive"
+    object $n146
+@n148 list
+    item0 $n144
+    item1 $n147
+@n149 makeRule
+    head $n141
+    body $n148
+@n150 kbAssertRule
+    rule $n149
+@result constant
+    value true
+@output result $result

@@ -1,0 +1,25 @@
+@input tokens
+@n1 tokenIs
+    tokens $tokens
+    index 0
+    value "+"
+@n2 numericToken
+    tokens $tokens
+    index 1
+@n3 calculateNumber
+    left $n2
+    right 1
+    operation "multiply"
+@n4 field
+    value $n3
+    name "value"
+@n5 tokenCount
+    tokens $tokens
+@n6 sliceTokens
+    tokens $tokens
+    start 2
+    end $n5
+@n7 record
+    value $n4
+    rest $n6
+@output result $n7

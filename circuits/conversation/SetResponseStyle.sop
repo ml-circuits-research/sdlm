@@ -1,0 +1,8 @@
+@input style
+@n1 selectCircuits
+    group "conversation.style"
+    value $style
+@n2 callCandidates
+    candidates $n1
+    style $style
+@output result $n2

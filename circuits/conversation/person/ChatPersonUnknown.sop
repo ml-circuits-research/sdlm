@@ -1,0 +1,19 @@
+@input value
+@n1 answerStatusIs
+    value $value
+    status "unknown"
+@n2 field
+    value $value
+    name "entity"
+@n3 display
+    value $n2
+@n4 concat
+    part1 "I don't know "
+    part2 $n3
+    part3 " yet. Tell me something about them, for example \""
+    part4 $n3
+    part5 " likes Music.\"."
+@n5 record
+    kind "chat"
+    message $n4
+@output result $n5

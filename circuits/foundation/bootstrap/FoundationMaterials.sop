@@ -1,0 +1,170 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeConstant
+    value "ice"
+@n2 makeUnaryAtom
+    subject $n1
+    predicate "ice"
+    polarity "positive"
+@n3 kbAssertFact
+    atom $n2
+@n4 makeVariable
+    name "X"
+@n5 makeUnaryAtom
+    subject $n4
+    predicate "fragile"
+    polarity "positive"
+@n6 makeVariable
+    name "X"
+@n7 makeConstant
+    value "glass"
+@n8 makeBinaryAtom
+    subject $n6
+    predicate "made_of"
+    polarity "positive"
+    object $n7
+@n9 list
+    item0 $n8
+@n10 makeRule
+    head $n5
+    body $n9
+@n11 kbAssertRule
+    rule $n10
+@n12 makeVariable
+    name "X"
+@n13 makeUnaryAtom
+    subject $n12
+    predicate "transparent"
+    polarity "positive"
+@n14 makeVariable
+    name "X"
+@n15 makeConstant
+    value "glass"
+@n16 makeBinaryAtom
+    subject $n14
+    predicate "made_of"
+    polarity "positive"
+    object $n15
+@n17 list
+    item0 $n16
+@n18 makeRule
+    head $n13
+    body $n17
+@n19 kbAssertRule
+    rule $n18
+@n20 makeVariable
+    name "X"
+@n21 makeUnaryAtom
+    subject $n20
+    predicate "hard"
+    polarity "positive"
+@n22 makeVariable
+    name "X"
+@n23 makeConstant
+    value "metal"
+@n24 makeBinaryAtom
+    subject $n22
+    predicate "made_of"
+    polarity "positive"
+    object $n23
+@n25 list
+    item0 $n24
+@n26 makeRule
+    head $n21
+    body $n25
+@n27 kbAssertRule
+    rule $n26
+@n28 makeVariable
+    name "X"
+@n29 makeUnaryAtom
+    subject $n28
+    predicate "absorbent"
+    polarity "positive"
+@n30 makeVariable
+    name "X"
+@n31 makeConstant
+    value "cotton"
+@n32 makeBinaryAtom
+    subject $n30
+    predicate "made_of"
+    polarity "positive"
+    object $n31
+@n33 list
+    item0 $n32
+@n34 makeRule
+    head $n29
+    body $n33
+@n35 kbAssertRule
+    rule $n34
+@n36 makeVariable
+    name "X"
+@n37 makeUnaryAtom
+    subject $n36
+    predicate "stretchy"
+    polarity "positive"
+@n38 makeVariable
+    name "X"
+@n39 makeConstant
+    value "rubber"
+@n40 makeBinaryAtom
+    subject $n38
+    predicate "made_of"
+    polarity "positive"
+    object $n39
+@n41 list
+    item0 $n40
+@n42 makeRule
+    head $n37
+    body $n41
+@n43 kbAssertRule
+    rule $n42
+@n44 makeVariable
+    name "X"
+@n45 makeUnaryAtom
+    subject $n44
+    predicate "hard"
+    polarity "positive"
+@n46 makeVariable
+    name "X"
+@n47 makeConstant
+    value "wood"
+@n48 makeBinaryAtom
+    subject $n46
+    predicate "made_of"
+    polarity "positive"
+    object $n47
+@n49 list
+    item0 $n48
+@n50 makeRule
+    head $n45
+    body $n49
+@n51 kbAssertRule
+    rule $n50
+@n52 makeVariable
+    name "X"
+@n53 makeUnaryAtom
+    subject $n52
+    predicate "melt"
+    polarity "positive"
+@n54 makeVariable
+    name "X"
+@n55 makeUnaryAtom
+    subject $n54
+    predicate "ice"
+    polarity "positive"
+@n56 makeVariable
+    name "X"
+@n57 makeUnaryAtom
+    subject $n56
+    predicate "warm"
+    polarity "positive"
+@n58 list
+    item0 $n55
+    item1 $n57
+@n59 makeRule
+    head $n53
+    body $n58
+@n60 kbAssertRule
+    rule $n59
+@result constant
+    value true
+@output result $result

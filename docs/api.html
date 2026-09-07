@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text API | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="text-api">Text API</h1>
+<p>Applications can use the local runtime through text Chat Completions and Models endpoints. The request and response envelope follows the <a href="https://developers.openai.com/api/reference/resources/chat">OpenAI Chat Completions reference</a> and the <a href="https://developers.openai.com/api/reference/resources/models/methods/list">Models reference</a>. Compatibility covers the documented subset, not every OpenAI endpoint or request option. <a class="definition-link" href="wiki.html#definition-session">Session</a> references, <a class="definition-link" href="wiki.html#definition-value-reference">reusable values</a>, interpretation metadata, <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> correction and <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> installation are <a class="definition-link" href="wiki.html#definition-sdlm">sdlm</a> extensions.</p>
+<h2 id="start-and-connect">Start and connect</h2>
+<pre><code class="language-sh">npm run server
+</code></pre>
+<p>The default address is <code>http://127.0.0.1:3000/v1</code>. Use model <code>sdlm</code>. Set <code>SD_LM_API_KEY</code> to require a bearer token. Binding a non-loopback address requires this token. The server is intended for one trusted workspace. Every holder of the token can access every <a class="definition-link" href="wiki.html#definition-session">session</a>; there is no per-user authorization or tenant isolation.</p>
+<pre><code class="language-js">import OpenAI from &#39;openai&#39;;
+const client = new OpenAI({
+  baseURL: &#39;http://127.0.0.1:3000/v1&#39;,
+  apiKey: process.env.SD_LM_API_KEY || &#39;local&#39;,
+  maxRetries: 0
+});
+const answer = await client.chat.completions.create({
+  model: &#39;sdlm&#39;,
+  messages: [{ role: &#39;user&#39;, content: &#39;Alice is human.\nIs Alice human?&#39; }]
+});
+console.log(answer.choices[0].message.content);
+</code></pre>
+<p>Without a <a class="definition-link" href="wiki.html#definition-session">session</a> reference each request starts with fresh knowledge. Conversation mode splits newline input and sentence boundaries, tries supported interpretations, and commits usable results together. Unresolved language produces a partial result without undoing useful sentences. Operational failures still roll back the request. Set <code>interpretation: &quot;strict&quot;</code> to require exact parsing and rollback on unsupported input. The SDK needs a nonempty placeholder API key even when local authentication is disabled.</p>
+<h2 id="session-references-and-history">Session references and history</h2>
+<p>Create the <a class="definition-link" href="wiki.html#definition-session">session</a> explicitly, then send its ID with each new turn.</p>
+<pre><code class="language-sh">curl -s http://127.0.0.1:3000/v1/sessions -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;id&quot;:&quot;demo&quot;}&#39;
+curl -s http://127.0.0.1:3000/v1/chat/completions -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;model&quot;:&quot;sdlm&quot;,&quot;session_id&quot;:&quot;demo&quot;,&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Alice is human.&quot;}]}&#39;
+</code></pre>
+<p>Use <code>session_id</code>, <code>metadata.session_id</code>, <code>X-SDLM-Session-Id</code>, or <code>session: {id, revision}</code>. Conflicting IDs are rejected. A supplied revision must equal the current committed revision; a stale revision returns 409 before executing new input. This allows a client to protect a retry against double execution. Requests without a revision append a new turn and are not idempotent.</p>
+<p>A <a class="definition-link" href="wiki.html#definition-session">session</a> pointer can also occupy the first history message. It is an extension that the server consumes before language parsing:</p>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;sdlm&quot;,
+  &quot;messages&quot;: [
+    {&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:[{&quot;type&quot;:&quot;sdlm_session&quot;,&quot;id&quot;:&quot;demo&quot;}]},
+    {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Is Alice human?&quot;}
+  ]
+}
+</code></pre>
+<p>Send either one new user message or the unchanged full conversation followed by new messages. The server compares a hash of the prefix, ignores the already committed messages, and executes only the suffix. It also accepts the retained history returned by the <a class="definition-link" href="wiki.html#definition-session">session</a> endpoint. A mismatch returns 409, and assistant messages never assert knowledge. The server restores the SOP <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a>; it does not replay historical language commands. <a class="definition-link" href="wiki.html#definition-snapshot">Snapshot</a> loading still builds runtime indexes and recomputes rule closure.</p>
+<p>Each named completion contains <code>sdlm.session_id</code>, <code>sdlm.revision</code>, <code>sdlm.ignored_messages</code>, <code>sdlm.executed_inputs</code>, <code>sdlm.history_messages</code>, and <code>sdlm.variables</code>. Response headers also include <code>X-SDLM-Session-Id</code> and <code>X-SDLM-Session-Revision</code>. These fields describe the revision committed before the response. Stateless completions have no durable variables. Successful pack, learning, run and retraction responses also expose the committed ID and revision under <code>sdlm</code>.</p>
+<h2 id="reuse-values-in-new-tasks">Reuse values in new tasks</h2>
+<p>A turn stores <code>turn_N</code> as SOP constructors with <code>results</code> and <code>text</code>. Each result contains the original processed input, parsed command, structured answer, and rendered text. Conversation results also expose <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, selected <a class="definition-link" href="wiki.html#definition-candidate">candidates</a>, token <a class="definition-link" href="wiki.html#definition-rewrite">rewrite</a> chains, reconstructed <a class="definition-link" href="wiki.html#definition-proof">proofs</a>, <a class="definition-link" href="wiki.html#definition-proof">proof</a> dependencies, conditional premises and unresolved gaps. Introductions and personal references use the same <a href="conversation.html">conversational circuits</a> as the CLI. The <a class="definition-link" href="wiki.html#definition-current-speaker">current speaker</a> persists in named <a class="definition-link" href="wiki.html#definition-session">sessions</a>; an unresolved earlier introduction must be submitted again. <a class="definition-link" href="wiki.html#definition-assumption">Assumption</a> rejection invalidates dependent saved values and further values made through explicit references. Their contents remain inspectable but reference lookup fails. Names are session-local. Up to 200 named values are retained; an expired or unknown path is an error.</p>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;sdlm&quot;,
+  &quot;session_id&quot;: &quot;demo&quot;,
+  &quot;bindings&quot;: {&quot;person&quot;:&quot;turn_1.results.0.command.payload.args.0.value&quot;},
+  &quot;messages&quot;: [{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;Is {{person|capitalize}} human?&quot;}]
+}
+</code></pre>
+<p>For a first turn <code>Alice is human.</code>, the binding resolves to <code>alice</code>. The explicit <code>|capitalize</code> filter restores the initial capital required by entity patterns. Text bindings accept scalars and perform explicit substitution without evaluating code. Use the run endpoint to pass complete structured values into <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>:</p>
+<pre><code class="language-sh">curl -s http://127.0.0.1:3000/v1/sessions/demo/run -H &#39;Content-Type: application/json&#39; -d &#39;{&quot;circuit&quot;:&quot;RenderEnglish&quot;,&quot;inputs&quot;:{&quot;answer&quot;:{&quot;$ref&quot;:&quot;turn_2.results.0.answer&quot;}},&quot;save_as&quot;:&quot;rendered&quot;}&#39;
+</code></pre>
+<h2 id="routes">Routes</h2>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /health</code></td>
+<td>Process availability and model name</td>
+</tr>
+<tr>
+<td><code>GET /v1/models</code> and <code>GET /v1/models/sdlm</code></td>
+<td>Model envelope</td>
+</tr>
+<tr>
+<td><code>POST /v1/chat/completions</code></td>
+<td>Text completion or SSE chunks</td>
+</tr>
+<tr>
+<td><code>GET /v1/capabilities</code></td>
+<td>Examples and compatibility boundary</td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions</code></td>
+<td>Create an isolated <a class="definition-link" href="wiki.html#definition-session">session</a>; optional <code>id</code></td>
+</tr>
+<tr>
+<td><code>GET /v1/sessions</code></td>
+<td>List <a class="definition-link" href="wiki.html#definition-session">session</a> records</td>
+</tr>
+<tr>
+<td><code>GET /v1/sessions/{id}</code></td>
+<td>Revision, retained conversation, audit and history digest</td>
+</tr>
+<tr>
+<td><code>GET /v1/sessions/{id}/values</code></td>
+<td>Saved values and invalidated value names</td>
+</tr>
+<tr>
+<td><code>GET /v1/sessions/{id}/assumptions</code></td>
+<td>Decisions, assertion supports, rejected interpretations and gaps</td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions/{id}/reject</code></td>
+<td>Reject an <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> by <code>id</code> with optional <code>reason</code>, retract dependencies and invalidate results</td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions/{id}/run</code></td>
+<td>Run a <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> with <code>inputs</code> and optional <code>save_as</code></td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions/{id}/packs</code></td>
+<td>Install SOP sources after acceptance tests</td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions/{id}/learn</code></td>
+<td>Induce <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> from <code>examples</code> pairs</td>
+</tr>
+<tr>
+<td><code>POST /v1/sessions/{id}/forget</code></td>
+<td>Retract the assertion given in <code>text</code></td>
+</tr>
+</tbody></table>
+<h2 id="supported-protocol-and-limits">Supported protocol and limits</h2>
+<p>Messages contain string <code>content</code> with roles <code>user</code>, <code>assistant</code>, <code>system</code>, or <code>developer</code>. System and developer text uses the same supported language and response-style instruction <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> as user input. It is not general instruction understanding. The last message must be user. The <a class="definition-link" href="wiki.html#definition-session">session</a> pointer above is the only supported content-array extension. At most 4,096 history messages and 1 MiB of JSON are accepted; at most 128 new nonempty lines and 128 conversation sentences execute per request.</p>
+<p>The supported parameters are <code>model</code>, <code>messages</code>, <code>stream</code>, <code>stream_options.include_usage</code>, deterministic <code>temperature: 0</code>, <code>top_p: 1</code>, <code>n: 1</code>, <code>interpretation: &quot;assist&quot; | &quot;strict&quot;</code>, <code>verbosity: &quot;answer&quot; | &quot;explain&quot;</code>, and the <a class="definition-link" href="wiki.html#definition-session">session</a> extensions described here. Unsupported parameters return 400. There are no tools, function calling, images, audio, embeddings, Responses API, or stochastic sampling. Usage counts come from the SOP tokenizer and do not equal OpenAI token counts.</p>
+<p>SSE emits <code>chat.completion.chunk</code> objects, a stop chunk, optional usage, and <code>[DONE]</code>. Computation and durable publication finish before chunks are delivered. This is buffered streaming, not incremental inference. <a class="definition-link" href="wiki.html#definition-session">Session</a> metadata appears on chunks. Clients must handle errors before opening the stream.</p>
+<p>Errors use the <code>error</code> envelope. Malformed requests return 400, invalid authentication 401, missing <a class="definition-link" href="wiki.html#definition-session">sessions</a> 404, duplicate names or history/revision conflicts 409, oversized bodies 413, unsupported language in strict mode 422, and exhausted execution or request capacity 429. Storage failures return 500. The server admits at most 16 pending requests by default. Cooperative <a class="definition-link" href="wiki.html#definition-virtual-machine">VM</a> limits do not preempt a blocking backend call. Use process isolation and external storage quotas for deployments accepting hostile workloads.</p>
+<h2 id="interpretation-metadata">Interpretation metadata</h2>
+<p>Every completion, including a stateless one, contains <code>sdlm.interpretation</code>, <code>sdlm.results</code> and <code>sdlm.assumptions</code>. Each <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> has an ID, input, category, original symbol, selected value, reason and <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>. These records describe decisions made before execution. <code>context_assumptions</code> in a result names <a class="definition-link" href="wiki.html#definition-session">session</a> contributors whose individual role in an aggregate has not been established. <code>provenance_complete: false</code> marks an incomplete reconstructed <a class="definition-link" href="wiki.html#definition-proof">proof</a>.</p>
+<p>Use <code>GET /v1/sessions/{id}/assumptions</code> to inspect durable evidence. <code>POST /v1/sessions/{id}/reject</code> accepts <code>{&quot;id&quot;:&quot;a2&quot;,&quot;reason&quot;:&quot;These are different people&quot;}</code> and returns retracted assertions, invalidated value names and the new <a class="definition-link" href="wiki.html#definition-session">session</a> revision. <a href="assumptions.html">Assumptions and correction</a> documents the complete contract and limitations.</p>
+<h2 id="response-detail">Response detail</h2>
+<p>Set <code>verbosity: &quot;answer&quot;</code> for answer-only visible text or <code>verbosity: &quot;explain&quot;</code> to include explanations and <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Supported input such as <code>Answer only.</code> or <code>Show assumptions.</code> invokes the same SOP policy. The preference persists in named <a class="definition-link" href="wiki.html#definition-session">sessions</a> and is exposed as <code>sdlm.preferences.response_style</code>. Requests using strict interpretation reject an explicit <a class="definition-link" href="wiki.html#definition-response-style">verbosity</a> parameter. See <a href="response-style.html">Response style</a> for precedence and complete examples.</p>
+<p>Compact replies retain full typed results, <code>answer_text</code>, <code>explanation</code>, <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> and <a class="definition-link" href="wiki.html#definition-proof">proof</a> metadata. They reduce visible prose, not the audit payload. Fresh <a class="definition-link" href="wiki.html#definition-session">sessions</a> include the <a href="foundation.html">elementary base knowledge</a>; restored <a class="definition-link" href="wiki.html#definition-session">sessions</a> retain their authoritative <a class="definition-link" href="wiki.html#definition-snapshot">snapshots</a>.</p>
+<h2 id="naming">Naming</h2>
+<p>The model ID and metadata key are <code>sdlm</code>; pointer types use <code>sdlm_session</code>, headers use <code>X-SDLM-Session-*</code>, and environment variables use <code>SD_LM_</code>. Integrations must use these documented identifiers. Historical prototype identifiers have no compatibility alias.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

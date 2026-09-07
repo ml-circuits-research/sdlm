@@ -1,0 +1,3 @@
+@n1 constant
+    value "I can calculate, remember facts in this session, apply rules, and track quantities and locations. Try \"How much is 3 plus 5?\", \"Mia has 5 apples. Mia gets 2 apples. How many apples does Mia have?\", or \"Mia is in Garden. Where is Mia?\". Use /examples to browse, /example 23 to try arithmetic, or /example 21 for a conversation. I can learn supported phrases and load new circuits."
+@output result $n1

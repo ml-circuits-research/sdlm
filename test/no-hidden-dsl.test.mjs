@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -46,7 +46,7 @@ test('runtime has no hidden activation, grammar-token, text-template, or predica
 });
 
 test('grammar symbols are structured values and NLG expands through SOP realizer circuits', async () => {
-  const s = await createSLLM({ learnedRoots: [] });
+  const s = await createSDLM({ learnedRoots: [] });
   const rules = s.grammar.rules;
   assert.ok(rules.length > 20);
   for (const rule of rules) for (const symbol of rule.rhs) {

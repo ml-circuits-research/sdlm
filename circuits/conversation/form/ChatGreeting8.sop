@@ -1,0 +1,21 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 2
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "good"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "afternoon"
+@n4 ChatGreetingAnswer
+@n5 makeCommand
+    kind "chat"
+    payload $n4
+@n6 list
+@n7 record
+    command $n5
+    decisions $n6
+@output result $n7

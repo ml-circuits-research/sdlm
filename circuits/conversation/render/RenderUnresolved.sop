@@ -1,0 +1,9 @@
+@input input
+@input tokens
+@n1 selectCircuits
+    group "conversation.gap"
+    tokens $tokens
+@n2 callCandidates
+    candidates $n1
+    tokens $tokens
+@output result $n2

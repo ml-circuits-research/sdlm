@@ -1,0 +1,46 @@
+@input tokens
+@n1 record
+    surface "divided"
+    value "divide"
+@n2 list
+    item0 $n1
+@n3 matchTokenChoice
+    tokens $tokens
+    index 0
+    choices $n2
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n4 record
+    surface "by"
+    value "by"
+@n5 list
+    item0 $n4
+@n6 matchTokenChoice
+    tokens $tokens
+    index 1
+    choices $n5
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n7 collectDecisions
+    first $n3
+    second $n6
+@n8 field
+    value $n3
+    name "value"
+@n9 tokenCount
+    tokens $tokens
+@n10 sliceTokens
+    tokens $tokens
+    start 2
+    end $n9
+@n11 record
+    value $n8
+    rest $n10
+    decisions $n7
+@output result $n11

@@ -1,0 +1,27 @@
+@input value
+@n1 field
+    value $value
+    name "hypothesis"
+@n2 valuePresent
+    value $n1
+@n3 field
+    value $n1
+    name "premises"
+@n4 mapReadCircuit
+    values $n3
+    circuit "RenderSymbolicAtom"
+@n5 join
+    values $n4
+    separator " and "
+@n6 field
+    value $n1
+    name "conclusion"
+@n7 atomText
+    atom $n6
+@n8 concat
+    part1 " If "
+    part2 $n5
+    part3 ", then "
+    part4 $n7
+    part5 ". This is a conditional possibility; I have not asserted the missing premises."
+@output result $n8

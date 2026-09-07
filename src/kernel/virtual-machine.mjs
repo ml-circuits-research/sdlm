@@ -3,12 +3,13 @@ let globalRun = 0;
 const refDeps = (args) => Object.values(args).filter(v => v && typeof v === 'object' && v.node).map(v => v.node);
 
 export class VirtualMachine {
-  constructor({ circuits, primitives, trace, transactions = null, effectAnalyzer = null }) {
+  constructor({ circuits, primitives, trace, transactions = null, effectAnalyzer = null, budget = null }) {
     this.circuits = circuits;
     this.primitives = primitives;
     this.trace = trace;
     this.transactions = transactions;
     this.effectAnalyzer = effectAnalyzer;
+    this.budget = budget;
     this.nodes = new Map();
     this.frames = new Map();
     this.frameNo = 0;
@@ -76,6 +77,7 @@ export class VirtualMachine {
     for (const required of def.inputs) if (!Object.hasOwn(inputs, required)) throw new Error(`${circuitName}: missing input ${required}`);
 
     const before = this.nodes.size;
+    this.budget?.check(before + def.nodes.length);
     const frameId = `f${++this.frameNo}:${circuitName}`;
     const localMap = new Map();
     def.nodes.forEach(n => localMap.set(n.id, `${frameId}/${n.id}`));
@@ -185,7 +187,11 @@ export class VirtualMachine {
         node.candidateIndex = 0;
         node.transactionId = this.transactions?.begin(`candidate ${node.label} :: ${node.candidates[0] ?? 'none'}`) ?? null;
       }
-      if (!node.candidates.length) throw new Error(`No candidates supplied at ${node.label}`);
+      if (!node.candidates.length) {
+        const error = new Error(`No candidates supplied at ${node.label}`);
+        error.name = 'NoMatchError';
+        throw error;
+      }
       this.#expand(node, node.candidates[node.candidateIndex], node.candidateInputs);
       return 'structural';
     }
@@ -200,7 +206,10 @@ export class VirtualMachine {
       const unsafe = candidates.filter(c => !safe.includes(c));
       this.trace?.push({ type: 'parallel-start', epoch: this.epoch, node: node.label, candidates: candidates.map(c => c.circuit), safe: safe.length, sequentialFallback: unsafe.length });
       const runOne = async (c) => {
-        const vm = new VirtualMachine({ circuits: this.circuits, primitives: this.primitives, trace: this.trace, transactions: this.transactions, effectAnalyzer: this.effectAnalyzer });
+        const vm = new VirtualMachine({
+          circuits: this.circuits, primitives: this.primitives, trace: this.trace,
+          transactions: this.transactions, effectAnalyzer: this.effectAnalyzer, budget: this.budget
+        });
         try {
           const value = await vm.run(c.circuit, inputs);
           this.trace?.push({ type: 'parallel-branch', epoch: this.epoch, node: node.label, circuit: c.circuit, score: Number(c.score ?? 0), status: 'success' });
@@ -261,6 +270,7 @@ export class VirtualMachine {
     this.nodes.set(root.uid, root);
 
     while (root.status !== 'done') {
+      this.budget?.check(this.nodes.size);
       this.trace?.push({ type: 'epoch', epoch: this.epoch, message: `${this.nodes.size} active nodes; topo-sort / execute / expand / reduce / rewrite` });
 
       if (this.#reduceOne()) { this.epoch++; continue; }
@@ -269,6 +279,7 @@ export class VirtualMachine {
       let progress = false;
       let structural = false;
       for (const node of order) {
+        this.budget?.check(this.nodes.size);
         if (!this.#ready(node)) continue;
         try {
           const result = await this.#stepNode(node);

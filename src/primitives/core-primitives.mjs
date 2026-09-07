@@ -3,6 +3,10 @@ import { firstToken, descendantNodes } from '../parsing/chart-parser.mjs';
 import { tokenize } from './tokenizer.mjs';
 import { registerPrimitive, literalArgument, referencesCircuitInput } from '../kernel/primitive-registry.mjs';
 import { observationKey } from '../datalog/activation-observations.mjs';
+import { registerInterpretationPrimitives } from '../interpretation/symbols.mjs';
+import { registerSessionPrimitives } from './session-primitives.mjs';
+import { registerQuantityPrimitives } from './quantity-primitives.mjs';
+import { registerTokenPrimitives } from './token-primitives.mjs';
 
 export class NoMatchError extends Error {
   constructor(message) { super(message); this.name = 'NoMatchError'; }
@@ -50,7 +54,13 @@ export function createPrimitives(context) {
   let freshSequence = 0;
 
   add('constant', ({ value }) => value);
-  add('tokenize', ({ text }) => tokenize(text));
+  add('record', args => ({ ...args }));
+  add('objectFromEntries', ({ entries }) => Object.fromEntries(entries));
+  add('tokenize', ({ text }) => {
+    context.checkText?.(text);
+    const tokens = tokenize(text);
+    return context.checkTokens ? context.checkTokens(tokens) : tokens;
+  });
   add('classifyTokens', ({ tokens }) => tokens.map(t => { const c = context.language.classify(t); if ((c.classes ?? []).includes('entity')) context.language.rememberDisplay(c.norm, c.surface); return c; }), { effect: 'write' });
 
   add('addTokenPattern', ({ class: klass, pattern }) => { context.language.addPattern(klass, pattern); return true; }, { effect: 'write' });
@@ -195,7 +205,8 @@ export function createPrimitives(context) {
   add('valueFieldIs', ({ value, name, expected }) => req(String(value?.[String(name)]) === String(expected), `field ${name} != ${expected}`), activationOnInput('value', args => {
     const name = literalArgument(args, 'name'), expected = literalArgument(args, 'expected');
     if (name === undefined || expected === undefined) return null;
-    return required(`value.${String(name)}`, expected, request => String(request.value?.[String(name)]) === String(expected));
+    // The guard coerces values to strings, so a typed observation is not a necessary condition.
+    return { test: request => String(request.value?.[String(name)]) === String(expected), score: 1 };
   }));
 
   add('atomArityIs', ({ value, atom: atomValue, arity }) => {
@@ -257,9 +268,21 @@ export function createPrimitives(context) {
   add('selectCircuit', async ({ group, tokens, value }) => (await context.selector.select(String(group), { tokens, value })).circuit, { effect: 'read', selectsGroup: true });
   add('selectCircuits', ({ group, tokens, value }) => context.selector.selectAll(String(group), { tokens, value }), { effect: 'read', selectsGroup: true });
 
-  add('kbAssertFact', ({ atom: a }) => context.kb.addFact(a), { effect: 'write' });
-  add('kbAssertFacts', ({ atoms }) => context.kb.addFacts(atoms), { effect: 'write' });
-  add('kbAssertRule', ({ rule }) => context.kb.addRule(rule), { effect: 'write' });
+  add('kbAssertFact', ({ atom: a }) => {
+    const result = context.kb.addFact(a);
+    context.evidence.record('fact', a);
+    return result;
+  }, { effect: 'write' });
+  add('kbAssertFacts', ({ atoms }) => {
+    const result = context.kb.addFacts(atoms);
+    for (const a of atoms) context.evidence.record('fact', a);
+    return result;
+  }, { effect: 'write' });
+  add('kbAssertRule', ({ rule }) => {
+    const result = context.kb.addRule(rule);
+    context.evidence.record('rule', rule);
+    return result;
+  }, { effect: 'write' });
   add('kbAskBoolean', ({ atom: a }) => context.kb.askBoolean(a), { effect: 'read' });
   add('kbAskBindings', ({ atom: a }) => context.kb.askBindings(a), { effect: 'read' });
   add('kbAskConjunctiveBindings', ({ atoms }) => context.kb.askConjunctiveBindings(atoms), { effect: 'read' });
@@ -293,5 +316,9 @@ export function createPrimitives(context) {
   add('featurePredicates', ({ features }) => (features ?? []).map(f => `${f.polarity === 'negative' ? 'not ' : ''}${f.predicate}`));
   add('pathMissingAtoms', ({ paths }) => (paths ?? []).flatMap(p => p.missing ?? []));
 
+  registerInterpretationPrimitives(p, context);
+  registerQuantityPrimitives(p, context);
+  registerTokenPrimitives(p, context);
+  registerSessionPrimitives(p, context);
   return p;
 }

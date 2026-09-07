@@ -1,0 +1,23 @@
+@input results
+@input style
+@n1 valueIs
+    value $style
+    expected "answer"
+@n2 list
+    item1 "answer"
+    item2 "kind"
+@n3 list
+    item1 "ack"
+    item2 "preference"
+@n4 filterField
+    values $results
+    path $n2
+    excluded $n3
+@n5 selectCircuits
+    group "conversation.compact"
+    value $n4
+@n6 callCandidates
+    candidates $n5
+    results $results
+    answers $n4
+@output result $n6

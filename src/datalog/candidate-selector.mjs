@@ -48,7 +48,6 @@ export class CandidateSelector {
         score += Number(compiled.score ?? ((keys.length || compiled.test) ? 1 : 0));
       }
 
-      if (!constrained && score === 0) continue;
       const uniqueKeys = [...new Set(requiredKeys)];
       const body = [lit('request', request), ...uniqueKeys.map(key => lit('observation', request, c(key)))];
       const compiledRule = rule('candidate', [request, c(def.group), c(def.name), c(score)], body);

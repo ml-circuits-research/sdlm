@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Response style | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="response-style">Response style</h1>
+<p>Choose whether conversation replies show only the answer or also show the <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> and explanations used to obtain it. This preference changes visible text. Structured answers, actual decisions, <a class="definition-link" href="wiki.html#definition-proof">proof</a> support and correction remain available in both modes.</p>
+<h2 id="switch-in-the-cli">Switch in the CLI</h2>
+<pre><code class="language-text">/verbosity
+/verbosity answer
+Socrate is a human. All humans die. Is Scorate going to die?
+/assumptions
+/verbosity explain
+Is Scorate going to die?
+</code></pre>
+<p><code>/verbosity</code> displays the selected preference. In <code>answer</code> mode the first question displays only <code>Yes.</code>. In <code>explain</code> mode the answer includes the name correction, temporal projection and support. <code>/assumptions</code> always inspects the ledger; <code>/reject &lt;id&gt;</code> still corrects a hidden <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>. <code>/example 20</code> executes this workflow, including a <a class="definition-link" href="wiki.html#definition-session">session</a> restart.</p>
+<p>The default is <code>explain</code>. The setting belongs to the selected <a class="definition-link" href="wiki.html#definition-session">session</a>. Named <a class="definition-link" href="wiki.html#definition-session">sessions</a> save it automatically; <code>/session save &lt;name&gt;</code> preserves it with temporary work. Switching to a fresh <a class="definition-link" href="wiki.html#definition-session">session</a> starts with its own default. <code>/mode strict</code> selects exact low-level language execution and bypasses conversation presentation; use <code>/mode assist</code> to apply the preference again.</p>
+<h2 id="give-an-instruction-in-the-input">Give an instruction in the input</h2>
+<p>These complete sentences are recognized by <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuits</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Select only the answer</th>
+<th>Restore explanation and <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Answer only.</code></td>
+<td><code>Show assumptions.</code></td>
+</tr>
+<tr>
+<td><code>Keep answers short.</code></td>
+<td><code>Explain your answers.</code></td>
+</tr>
+<tr>
+<td><code>Just the answer.</code></td>
+<td><code>Arată presupunerile.</code></td>
+</tr>
+<tr>
+<td><code>Doar răspunsul.</code></td>
+<td><code>Arata presupunerile.</code></td>
+</tr>
+<tr>
+<td><code>Doar raspunsul.</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<pre><code class="language-text">Answer only. Socrate is a human. All humans die. Is Scorate going to die?
+</code></pre>
+<p>This returns <code>Yes.</code>. The instruction is a preference command, not an asserted fact. If a request contains a question, compact presentation suppresses fact acknowledgements and preference acknowledgements. Multiple questions keep their respective answers. A request containing only an assertion still returns <code>Learned.</code>; a preference-only request confirms its setting. Uninterpreted text returns <code>I don&#39;t know.</code> in compact mode while the gap and recognized categories remain inspectable.</p>
+<p>Instructions persist for subsequent turns. Within one request, the final selected preference formats all its results. Use separate turns when you want one answer explained and the next shortened. These are supported instruction forms, not general instruction understanding. The Romanian controls do not imply Romanian reasoning coverage.</p>
+<h2 id="use-the-api-or-library">Use the API or library</h2>
+<pre><code class="language-json">{
+  &quot;model&quot;: &quot;sdlm&quot;,
+  &quot;verbosity&quot;: &quot;answer&quot;,
+  &quot;messages&quot;: [
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Socrate is a human. All humans die. Is Scorate going to die?&quot;}
+  ]
+}
+</code></pre>
+<p>The visible answer is <code>choices[0].message.content</code>. <code>sdlm.preferences.response_style</code> gives the selected preference. Each item in <code>sdlm.results</code> retains <code>answer_text</code>, <code>explanation</code>, <code>assumptions</code>, <code>proof</code> where available, and the selected <code>text</code>. Top-level <code>sdlm.assumptions</code> also remains available. Compact mode reduces displayed prose; it does not reduce the audit payload or the computation needed to produce it. SSE uses the same final text and metadata.</p>
+<p>Supported system, developer or user text can contain the instruction sentences above. The optional <code>verbosity</code> parameter is applied before the new input; an explicit later input instruction can change it. Named requests save the setting in that <a class="definition-link" href="wiki.html#definition-session">session</a>; stateless requests start independently. <code>interpretation: &quot;strict&quot;</code> with an explicit <code>verbosity</code> parameter is rejected, since strict execution bypasses conversation formatting.</p>
+<pre><code class="language-js">import { createSDLM } from &#39;./src/sd_lm.mjs&#39;;
+
+const model = await createSDLM();
+await model.setResponseStyle(&#39;answer&#39;);
+console.log(await model.respond(&#39;What is 6 times 7?&#39;));
+const results = await model.respondDetailed([&#39;Is Nobody a cat?&#39;], { verbosity: &#39;explain&#39; });
+console.log(results[0].text);
+</code></pre>
+<h2 id="circuit-ownership">Circuit ownership</h2>
+<p><code>SetResponseStyle</code>, <code>PresentConversation</code> and <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> under <code>circuits/conversation/</code> validate choices, select text and assemble explanatory sections. Input forms live under <code>circuits/english/interpretation/</code>. <code>SessionSettings.sop</code> stores the preference with ordinary SOP constructors. JavaScript supplies generic <a class="definition-link" href="wiki.html#definition-session">session</a> storage, collection operations and read-only <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> mapping. The mapping checks the target&#39;s <a class="definition-link" href="wiki.html#definition-effect-analysis">effects</a> before executing it and shares the request budget. A failed request rolls back preference changes with other symbolic state.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "what's"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "my"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "name"
+@n5 makeCommand
+    kind "identifySpeaker"
+    payload null
+@n6 list
+@n7 record
+    command $n5
+    decisions $n6
+@output result $n7

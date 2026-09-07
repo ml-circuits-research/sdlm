@@ -1,0 +1,69 @@
+@input command
+@kind commandKindIs
+    value $command
+    kind "askBoolean"
+@target field
+    value $command
+    name "payload"
+@guard valueFieldIs
+    value $target
+    name "predicate"
+    expected "wet"
+@subject atomArgument
+    atom $target
+    index 0
+@positive atomPolarityIs
+    atom $target
+    polarity "positive"
+@unary atomArityIs
+    atom $target
+    arity 1
+@unqualified valueFieldIs
+    value $target
+    name "qualifier"
+    expected null
+@outside makeUnaryAtom
+    subject $subject
+    predicate "outside"
+@rain makeConstant
+    value "rain"
+@shelter makeConstant
+    value "shelter"
+@exposed makeBinaryAtom
+    subject $subject
+    predicate "in"
+    object $rain
+@covered makeBinaryAtom
+    subject $subject
+    predicate "have"
+    object $shelter
+@premises list
+    item1 $outside
+    item2 $exposed
+@blockers list
+    item1 $covered
+@eligible kbDefaultApplicable
+    target $target
+    premises $premises
+    blockers $blockers
+@decision record
+    category "everyday-default"
+    original "outside in rain without known shelter"
+    value "probably wet"
+    reason "Rain usually makes an exposed person wet. Assumed no unmentioned shelter or other protection. This conclusion is conditional and is not stored as a fact."
+    certainty "heuristic"
+    premises $premises
+    blockers $blockers
+@decisions list
+    item1 $decision
+@payload record
+    target $target
+    premises $premises
+@newCommand makeCommand
+    kind "conditionalBoolean"
+    payload $payload
+@result record
+    command $newCommand
+    decisions $decisions
+    applicable $eligible
+@output result $result

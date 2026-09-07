@@ -1,0 +1,49 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 5
+@n2 record
+    surface "what"
+    value "what"
+@n3 list
+    item0 $n2
+@n4 matchTokenChoice
+    tokens $tokens
+    index 0
+    choices $n3
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n5 record
+    surface "equals"
+    value "equals"
+@n6 list
+    item0 $n5
+@n7 matchTokenChoice
+    tokens $tokens
+    index 1
+    choices $n6
+    maxDistance 1
+    minLength 3
+    maxLength 32
+    category "lexical-repair"
+    reason "Used the unique nearest spelling allowed in this arithmetic position. The complete request matched two numeric operands and an operation; the numbers were not changed."
+@n8 tokenCount
+    tokens $tokens
+@n9 sliceTokens
+    tokens $tokens
+    start 2
+    end $n8
+@n10 ChatMathRequest
+    tokens $n9
+@n11 collectDecisions
+    part0 $n4
+    part1 $n7
+    part2 $n10
+@n12 setField
+    value $n10
+    name "decisions"
+    fieldValue $n11
+@output result $n12

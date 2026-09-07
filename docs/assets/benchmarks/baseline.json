@@ -1,0 +1,2755 @@
+{
+  "name": "early-school",
+  "version": 1,
+  "split": "all",
+  "language": "en",
+  "checkedAt": "2026-09-07T11:19:41.655Z",
+  "datasetHash": "b9d74bb9727c55f57bdac770d8ca198fc033f6adb0040d3bbcb7e24bd07c3572",
+  "backend": "bundled",
+  "foundation": false,
+  "summary": {
+    "total": 88,
+    "passed": 9,
+    "answered": 27,
+    "assertedWrong": 0,
+    "withAssumptions": 17,
+    "accuracy": 0.10227272727272728
+  },
+  "domains": {
+    "animals": {
+      "total": 8,
+      "passed": 0,
+      "answered": 6,
+      "assertedWrong": 0,
+      "withAssumptions": 2,
+      "accuracy": 0
+    },
+    "plants_materials": {
+      "total": 8,
+      "passed": 0,
+      "answered": 5,
+      "assertedWrong": 0,
+      "withAssumptions": 5,
+      "accuracy": 0
+    },
+    "senses_tools": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "arithmetic": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "quantities": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "space": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "order_calendar": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "family": {
+      "total": 8,
+      "passed": 1,
+      "answered": 5,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0.125
+    },
+    "causal": {
+      "total": 8,
+      "passed": 1,
+      "answered": 4,
+      "assertedWrong": 0,
+      "withAssumptions": 4,
+      "accuracy": 0.125
+    },
+    "comparisons": {
+      "total": 8,
+      "passed": 0,
+      "answered": 0,
+      "assertedWrong": 0,
+      "withAssumptions": 0,
+      "accuracy": 0
+    },
+    "epistemic": {
+      "total": 8,
+      "passed": 7,
+      "answered": 7,
+      "assertedWrong": 0,
+      "withAssumptions": 6,
+      "accuracy": 0.875
+    }
+  },
+  "results": [
+    {
+      "id": "animals-01",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Biscuit is a dog."
+      ],
+      "question": "Is Biscuit an animal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "animal",
+          "args": [
+            {
+              "kind": "const",
+              "value": "biscuit"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 613
+    },
+    {
+      "id": "animals-02",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Mimi is a cat."
+      ],
+      "question": "Is Mimi a mammal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "mammal",
+          "args": [
+            {
+              "kind": "const",
+              "value": "mimi"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 547
+    },
+    {
+      "id": "animals-03",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Buzz is a bee."
+      ],
+      "question": "Is Buzz an insect?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "insect",
+          "args": [
+            {
+              "kind": "const",
+              "value": "buzz"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "insect",
+          "value": "insect",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Buzz an insect?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"insect\" -> \"insect\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 524
+    },
+    {
+      "id": "animals-04",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Pebble is a rock."
+      ],
+      "question": "Is Pebble alive?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "alive",
+          "args": [
+            {
+              "kind": "const",
+              "value": "pebble"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "alive",
+          "value": "alive",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Pebble alive?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"alive\" -> \"alive\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 510
+    },
+    {
+      "id": "animals-05",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Is Nori a bird?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "bird",
+          "args": [
+            {
+              "kind": "const",
+              "value": "nori"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 499
+    },
+    {
+      "id": "animals-06",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Can Nori fly?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Can Nori fly?\nRecognized categories: Can [entity, modal]; Nori [entity]; fly [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 482
+    },
+    {
+      "id": "animals-07",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Tiki is a sparrow."
+      ],
+      "question": "Can Tiki fly?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Can Tiki fly?\nRecognized categories: Can [entity, modal]; Tiki [entity]; fly [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 483
+    },
+    {
+      "id": "animals-08",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Dot is an ant."
+      ],
+      "question": "Is Dot an animal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "animal",
+          "args": [
+            {
+              "kind": "const",
+              "value": "dot"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 479
+    },
+    {
+      "id": "plants_materials-01",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Rose is a plant."
+      ],
+      "question": "Does Rose need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Rose need water?\nRecognized categories: Does [entity, auxDo]; Rose [entity]; need [word, verbBase]; water [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 488
+    },
+    {
+      "id": "plants_materials-02",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Fern is a plant."
+      ],
+      "question": "Does Fern need light?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Fern need light?\nRecognized categories: Does [entity, auxDo]; Fern [entity]; need [word, verbBase]; light [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 483
+    },
+    {
+      "id": "plants_materials-03",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Cup is made of glass."
+      ],
+      "question": "Is Cup fragile?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "fragile",
+          "args": [
+            {
+              "kind": "const",
+              "value": "cup"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "fragile",
+          "value": "fragile",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Is Cup fragile?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a1] predicate-classification: \"fragile\" -> \"fragile\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 462
+    },
+    {
+      "id": "plants_materials-04",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Spoon is made of metal."
+      ],
+      "question": "Is Spoon hard?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "hard",
+          "args": [
+            {
+              "kind": "const",
+              "value": "spoon"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "hard",
+          "value": "hard",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Is Spoon hard?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a1] predicate-classification: \"hard\" -> \"hard\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 473
+    },
+    {
+      "id": "plants_materials-05",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Oak is a tree."
+      ],
+      "question": "Is Oak a plant?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "plant",
+          "args": [
+            {
+              "kind": "const",
+              "value": "oak"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "plant",
+          "value": "plant",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Oak a plant?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"plant\" -> \"plant\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 472
+    },
+    {
+      "id": "plants_materials-06",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Tulip is a flower."
+      ],
+      "question": "Does Tulip need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Tulip need water?\nRecognized categories: Does [entity, auxDo]; Tulip [entity]; need [word, verbBase]; water [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 498
+    },
+    {
+      "id": "plants_materials-07",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Towel is made of cotton."
+      ],
+      "question": "Is Towel absorbent?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "absorbent",
+          "args": [
+            {
+              "kind": "const",
+              "value": "towel"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "absorbent",
+          "value": "absorbent",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Is Towel absorbent?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a1] predicate-classification: \"absorbent\" -> \"absorbent\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 489
+    },
+    {
+      "id": "plants_materials-08",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Window is made of glass."
+      ],
+      "question": "Is Window transparent?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "transparent",
+          "args": [
+            {
+              "kind": "const",
+              "value": "window"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "transparent",
+          "value": "transparent",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Is Window transparent?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a1] predicate-classification: \"transparent\" -> \"transparent\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 463
+    },
+    {
+      "id": "senses_tools-01",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do eyes help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "see"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What do eyes help us do?\nRecognized categories: What [entity]; do [word, auxDo]; eyes [word]; help [word, verbBase]; us [word]; do [word, auxDo]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 457
+    },
+    {
+      "id": "senses_tools-02",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do ears help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "hear"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What do ears help us do?\nRecognized categories: What [entity]; do [word, auxDo]; ears [word]; help [word, verbBase]; us [word]; do [word, auxDo]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 469
+    },
+    {
+      "id": "senses_tools-03",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do noses help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "smell"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What do noses help us do?\nRecognized categories: What [entity]; do [word, auxDo]; noses [word]; help [word, verbBase]; us [word]; do [word, auxDo]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 455
+    },
+    {
+      "id": "senses_tools-04",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What is a pencil used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "write"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is a pencil used for?\nRecognized categories: What [entity]; is [word, copula]; a [word, article]; pencil [word]; used [word, verbPast, verbPart]; for [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 451
+    },
+    {
+      "id": "senses_tools-05",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What do tongues help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "taste"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What do tongues help us do?\nRecognized categories: What [entity]; do [word, auxDo]; tongues [word]; help [word, verbBase]; us [word]; do [word, auxDo]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 462
+    },
+    {
+      "id": "senses_tools-06",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is a key used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "unlock"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is a key used for?\nRecognized categories: What [entity]; is [word, copula]; a [word, article]; key [word]; used [word, verbPast, verbPart]; for [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 448
+    },
+    {
+      "id": "senses_tools-07",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is an umbrella used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "shelter"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is an umbrella used for?\nRecognized categories: What [entity]; is [word, copula]; an [word, article]; umbrella [word]; used [word, verbPast, verbPart]; for [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 473
+    },
+    {
+      "id": "senses_tools-08",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is a ruler used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "measure"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is a ruler used for?\nRecognized categories: What [entity]; is [word, copula]; a [word, article]; ruler [word]; used [word, verbPast, verbPart]; for [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 458
+    },
+    {
+      "id": "arithmetic-01",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 4 plus 3?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 4 plus 3?\nRecognized categories: What [entity]; is [word, copula]; 4 [number]; plus [word]; 3 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 445
+    },
+    {
+      "id": "arithmetic-02",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 9 minus 4?",
+      "expected": {
+        "kind": "number",
+        "value": 5
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 9 minus 4?\nRecognized categories: What [entity]; is [word, copula]; 9 [number]; minus [word]; 4 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 471
+    },
+    {
+      "id": "arithmetic-03",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 2 times 3?",
+      "expected": {
+        "kind": "number",
+        "value": 6
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 2 times 3?\nRecognized categories: What [entity]; is [word, copula]; 2 [number]; times [word]; 3 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 491
+    },
+    {
+      "id": "arithmetic-04",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 8 divided by 2?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 8 divided by 2?\nRecognized categories: What [entity]; is [word, copula]; 8 [number]; divided [word]; by [word]; 2 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 460
+    },
+    {
+      "id": "arithmetic-05",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 8 plus 7?",
+      "expected": {
+        "kind": "number",
+        "value": 15
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 8 plus 7?\nRecognized categories: What [entity]; is [word, copula]; 8 [number]; plus [word]; 7 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 462
+    },
+    {
+      "id": "arithmetic-06",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 15 minus 8?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 15 minus 8?\nRecognized categories: What [entity]; is [word, copula]; 15 [number]; minus [word]; 8 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 461
+    },
+    {
+      "id": "arithmetic-07",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 4 times 5?",
+      "expected": {
+        "kind": "number",
+        "value": 20
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 4 times 5?\nRecognized categories: What [entity]; is [word, copula]; 4 [number]; times [word]; 5 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 450
+    },
+    {
+      "id": "arithmetic-08",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 12 divided by 3?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What is 12 divided by 3?\nRecognized categories: What [entity]; is [word, copula]; 12 [number]; divided [word]; by [word]; 3 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 473
+    },
+    {
+      "id": "quantities-01",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Mia has 5 apples.",
+        "Mia gets 2 apples."
+      ],
+      "question": "How many apples does Mia have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many apples does Mia have?\nRecognized categories: How [entity]; many [word]; apples [word]; does [word, auxDo]; Mia [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 488
+    },
+    {
+      "id": "quantities-02",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Leo has 8 pencils.",
+        "Leo loses 3 pencils."
+      ],
+      "question": "How many pencils does Leo have?",
+      "expected": {
+        "kind": "number",
+        "value": 5
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many pencils does Leo have?\nRecognized categories: How [entity]; many [word]; pencils [word]; does [word, auxDo]; Leo [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 499
+    },
+    {
+      "id": "quantities-03",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Mia has 2 apples.",
+        "Mia has 3 pears."
+      ],
+      "question": "How many apples does Mia have?",
+      "expected": {
+        "kind": "number",
+        "value": 2
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many apples does Mia have?\nRecognized categories: How [entity]; many [word]; apples [word]; does [word, auxDo]; Mia [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 495
+    },
+    {
+      "id": "quantities-04",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Ana has 4 books.",
+        "Bo has 9 books."
+      ],
+      "question": "How many books does Ana have?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many books does Ana have?\nRecognized categories: How [entity]; many [word]; books [word]; does [word, auxDo]; Ana [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 514
+    },
+    {
+      "id": "quantities-05",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Ivo has 6 marbles.",
+        "Ivo gets 4 marbles.",
+        "Ivo loses 3 marbles."
+      ],
+      "question": "How many marbles does Ivo have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many marbles does Ivo have?\nRecognized categories: How [entity]; many [word]; marbles [word]; does [word, auxDo]; Ivo [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 532
+    },
+    {
+      "id": "quantities-06",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Zoe has 9 apples.",
+        "Zoe eats 2 apples."
+      ],
+      "question": "How many apples does Zoe have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many apples does Zoe have?\nRecognized categories: How [entity]; many [word]; apples [word]; does [word, auxDo]; Zoe [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 516
+    },
+    {
+      "id": "quantities-07",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Eli has 3 pencils.",
+        "Eli loses 3 pencils."
+      ],
+      "question": "How many pencils does Eli have?",
+      "expected": {
+        "kind": "number",
+        "value": 0
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many pencils does Eli have?\nRecognized categories: How [entity]; many [word]; pencils [word]; does [word, auxDo]; Eli [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 489
+    },
+    {
+      "id": "quantities-08",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Ada has 8 pears.",
+        "Ada gets 1 pear."
+      ],
+      "question": "How many pears does Ada have?",
+      "expected": {
+        "kind": "number",
+        "value": 9
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: How many pears does Ada have?\nRecognized categories: How [entity]; many [word]; pears [word]; does [word, auxDo]; Ada [entity]; have [word, verbBase]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 492
+    },
+    {
+      "id": "space-01",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Ball is in Box."
+      ],
+      "question": "Where is Ball?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "box"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Where is Ball?\nRecognized categories: Where [entity]; is [word, copula]; Ball [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 460
+    },
+    {
+      "id": "space-02",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Ball is in Box.",
+        "Box is in Room."
+      ],
+      "question": "Is Ball in Room?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Ball in Room?\nRecognized categories: Is [entity, copula]; Ball [entity]; in [word]; Room [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 503
+    },
+    {
+      "id": "space-03",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Mia is in Kitchen.",
+        "Mia goes to Garden."
+      ],
+      "question": "Where is Mia?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "garden"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Where is Mia?\nRecognized categories: Where [entity]; is [word, copula]; Mia [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 503
+    },
+    {
+      "id": "space-04",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Book is on Table."
+      ],
+      "question": "Is Book on Table?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Book on Table?\nRecognized categories: Is [entity, copula]; Book [entity]; on [word]; Table [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 460
+    },
+    {
+      "id": "space-05",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Key is in Bag.",
+        "Bag is in Drawer.",
+        "Drawer is in Bedroom."
+      ],
+      "question": "Is Key in Bedroom?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Key in Bedroom?\nRecognized categories: Is [entity, copula]; Key [entity]; in [word]; Bedroom [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 553
+    },
+    {
+      "id": "space-06",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Zoe is in Park.",
+        "Zoe goes to School."
+      ],
+      "question": "Is Zoe in Park?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Zoe in Park?\nRecognized categories: Is [entity, copula]; Zoe [entity]; in [word]; Park [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 527
+    },
+    {
+      "id": "space-07",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Cup is under Desk."
+      ],
+      "question": "Is Cup under Desk?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Cup under Desk?\nRecognized categories: Is [entity, copula]; Cup [entity]; under [word]; Desk [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 478
+    },
+    {
+      "id": "space-08",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Ball is left of Box."
+      ],
+      "question": "Is Box right of Ball?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Box right of Ball?\nRecognized categories: Is [entity, copula]; Box [entity]; right [word]; of [word]; Ball [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 465
+    },
+    {
+      "id": "order_calendar-01",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [],
+      "question": "What comes after Monday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "tuesday"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What comes after Monday?\nRecognized categories: What [entity]; comes [word]; after [word]; Monday [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 463
+    },
+    {
+      "id": "order_calendar-02",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [],
+      "question": "What comes before Friday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "thursday"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What comes before Friday?\nRecognized categories: What [entity]; comes [word]; before [word]; Friday [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 466
+    },
+    {
+      "id": "order_calendar-03",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [
+        "Breakfast is before School.",
+        "School is before Lunch."
+      ],
+      "question": "Is Breakfast before Lunch?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Breakfast before Lunch?\nRecognized categories: Is [entity, copula]; Breakfast [entity]; before [word]; Lunch [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 497
+    },
+    {
+      "id": "order_calendar-04",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [
+        "Dinner is after Lunch."
+      ],
+      "question": "Is Lunch before Dinner?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Lunch before Dinner?\nRecognized categories: Is [entity, copula]; Lunch [entity]; before [word]; Dinner [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 483
+    },
+    {
+      "id": "order_calendar-05",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes after Sunday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "monday"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What comes after Sunday?\nRecognized categories: What [entity]; comes [word]; after [word]; Sunday [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 507
+    },
+    {
+      "id": "order_calendar-06",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes before Tuesday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "monday"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What comes before Tuesday?\nRecognized categories: What [entity]; comes [word]; before [word]; Tuesday [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 477
+    },
+    {
+      "id": "order_calendar-07",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [
+        "Reading is before Drawing.",
+        "Drawing is before Play."
+      ],
+      "question": "Is Play after Reading?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Play after Reading?\nRecognized categories: Is [entity, copula]; Play [entity]; after [word]; Reading [entity, verbIng]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 487
+    },
+    {
+      "id": "order_calendar-08",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes after December?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "january"
+        ]
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: What comes after December?\nRecognized categories: What [entity]; comes [word]; after [word]; December [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 474
+    },
+    {
+      "id": "family-01",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a mother of Ben."
+      ],
+      "question": "Is Ana a parent of Ben?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "parent",
+          "args": [
+            {
+              "kind": "const",
+              "value": "ana"
+            },
+            {
+              "kind": "const",
+              "value": "ben"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 502
+    },
+    {
+      "id": "family-02",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a parent of Ben.",
+        "Ben is a parent of Cora."
+      ],
+      "question": "Is Ana a grandparent of Cora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Ana a grandparent of Cora?\nRecognized categories: Is [entity, copula]; Ana [entity]; a [word, article]; grandparent [word]; of [word]; Cora [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 480
+    },
+    {
+      "id": "family-03",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ben is a brother of Cora."
+      ],
+      "question": "Is Cora a sibling of Ben?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "sibling",
+          "args": [
+            {
+              "kind": "const",
+              "value": "cora"
+            },
+            {
+              "kind": "const",
+              "value": "ben"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 480
+    },
+    {
+      "id": "family-04",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a parent of Ben."
+      ],
+      "question": "Is Ben a child of Ana?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Ben a child of Ana?\nRecognized categories: Is [entity, copula]; Ben [entity]; a [word, article]; child [word]; of [word]; Ana [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 471
+    },
+    {
+      "id": "family-05",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Ivo is a father of Zoe."
+      ],
+      "question": "Is Ivo a parent of Zoe?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "parent",
+          "args": [
+            {
+              "kind": "const",
+              "value": "ivo"
+            },
+            {
+              "kind": "const",
+              "value": "zoe"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 484
+    },
+    {
+      "id": "family-06",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Nora is a parent of Eli.",
+        "Eli is a parent of Pip."
+      ],
+      "question": "Is Pip a grandchild of Nora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Pip a grandchild of Nora?\nRecognized categories: Is [entity, copula]; Pip [entity]; a [word, article]; grandchild [word]; of [word]; Nora [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 507
+    },
+    {
+      "id": "family-07",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Lia is a sister of Max."
+      ],
+      "question": "Is Max a sibling of Lia?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "sibling",
+          "args": [
+            {
+              "kind": "const",
+              "value": "max"
+            },
+            {
+              "kind": "const",
+              "value": "lia"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 469
+    },
+    {
+      "id": "family-08",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Nora is a parent of Eli."
+      ],
+      "question": "Is Eli a parent of Nora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "parent",
+          "args": [
+            {
+              "kind": "const",
+              "value": "eli"
+            },
+            {
+              "kind": "const",
+              "value": "nora"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 456
+    },
+    {
+      "id": "causal-01",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Mia is outside.",
+        "Mia is in rain."
+      ],
+      "question": "Is Mia wet?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "wet",
+          "args": [
+            {
+              "kind": "const",
+              "value": "mia"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "wet",
+          "value": "wet",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Mia wet?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"wet\" -> \"wet\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 482
+    },
+    {
+      "id": "causal-02",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Ice is warm."
+      ],
+      "question": "Does Ice melt?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "melt",
+          "args": [
+            {
+              "kind": "const",
+              "value": "ice"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-inference",
+          "original": "melt",
+          "value": "melt",
+          "reason": "Used this word as a unary verb because it occupies the predicate position in an intransitive construction. An unknown final s is treated as an inflection.",
+          "evidence": {
+            "index": 2,
+            "classes": [
+              "word"
+            ],
+            "transformation": null
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Does Ice melt?",
+          "circuit": "InterpretAskDoes",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-inference: \"melt\" -> \"melt\". Used this word as a unary verb because it occupies the predicate position in an intransitive construction. An unknown final s is treated as an inflection.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 471
+    },
+    {
+      "id": "causal-03",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Plant is a plant.",
+        "Plant is without water."
+      ],
+      "question": "Is Plant thirsty?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "thirsty",
+          "args": [
+            {
+              "kind": "const",
+              "value": "plant"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "thirsty",
+          "value": "thirsty",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Plant thirsty?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"thirsty\" -> \"thirsty\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 530
+    },
+    {
+      "id": "causal-04",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Tom is tired."
+      ],
+      "question": "Does Tom need rest?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Tom need rest?\nRecognized categories: Does [entity, auxDo]; Tom [entity]; need [word, verbBase]; rest [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 495
+    },
+    {
+      "id": "causal-05",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Zoe is hungry."
+      ],
+      "question": "Does Zoe need food?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Zoe need food?\nRecognized categories: Does [entity, auxDo]; Zoe [entity]; need [word, verbBase]; food [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 467
+    },
+    {
+      "id": "causal-06",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Eli is thirsty."
+      ],
+      "question": "Does Eli need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Eli need water?\nRecognized categories: Does [entity, auxDo]; Eli [entity]; need [word, verbBase]; water [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 481
+    },
+    {
+      "id": "causal-07",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Ada is outside.",
+        "Ada is in rain.",
+        "Ada has shelter."
+      ],
+      "question": "Is Ada wet?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "wet",
+          "args": [
+            {
+              "kind": "const",
+              "value": "ada"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "wet",
+          "value": "wet",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Ada wet?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"wet\" -> \"wet\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 548
+    },
+    {
+      "id": "causal-08",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Ivo is cold."
+      ],
+      "question": "Does Ivo need warmth?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Does Ivo need warmth?\nRecognized categories: Does [entity, auxDo]; Ivo [entity]; need [word, verbBase]; warmth [word]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 480
+    },
+    {
+      "id": "comparisons-01",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [],
+      "question": "Is 8 greater than 3?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is 8 greater than 3?\nRecognized categories: Is [entity, copula]; 8 [number]; greater [word]; than [word]; 3 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 456
+    },
+    {
+      "id": "comparisons-02",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [],
+      "question": "Is 2 greater than 7?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is 2 greater than 7?\nRecognized categories: Is [entity, copula]; 2 [number]; greater [word]; than [word]; 7 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 447
+    },
+    {
+      "id": "comparisons-03",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [
+        "Oak is taller than Bush.",
+        "Bush is taller than Grass."
+      ],
+      "question": "Is Oak taller than Grass?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Oak taller than Grass?\nRecognized categories: Is [entity, copula]; Oak [entity]; taller [word]; than [word]; Grass [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 507
+    },
+    {
+      "id": "comparisons-04",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [
+        "Box is heavier than Bag."
+      ],
+      "question": "Is Bag lighter than Box?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Bag lighter than Box?\nRecognized categories: Is [entity, copula]; Bag [entity]; lighter [word]; than [word]; Box [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 469
+    },
+    {
+      "id": "comparisons-05",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 6 less than 9?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is 6 less than 9?\nRecognized categories: Is [entity, copula]; 6 [number]; less [word]; than [word]; 9 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 459
+    },
+    {
+      "id": "comparisons-06",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 5 equal to 5?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is 5 equal to 5?\nRecognized categories: Is [entity, copula]; 5 [number]; equal [word]; to [word]; 5 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 445
+    },
+    {
+      "id": "comparisons-07",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [
+        "Ana is older than Ben.",
+        "Ben is older than Cora."
+      ],
+      "question": "Is Cora younger than Ana?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Cora younger than Ana?\nRecognized categories: Is [entity, copula]; Cora [entity]; younger [word]; than [word]; Ana [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 510
+    },
+    {
+      "id": "comparisons-08",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 10 less than 4?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is 10 less than 4?\nRecognized categories: Is [entity, copula]; 10 [number]; less [word]; than [word]; 4 [number]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 462
+    },
+    {
+      "id": "epistemic-01",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Mia is a child."
+      ],
+      "question": "Is Mia happy?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "happy",
+          "args": [
+            {
+              "kind": "const",
+              "value": "mia"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "happy",
+          "value": "happy",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is Mia happy?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.\nAssumptions used:\n- [a2] predicate-classification: \"happy\" -> \"happy\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 476
+    },
+    {
+      "id": "epistemic-02",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Ball is red.",
+        "Ball is not red."
+      ],
+      "question": "Is Ball red?",
+      "expected": {
+        "kind": "boolean",
+        "status": "both"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "both",
+        "atom": {
+          "kind": "atom",
+          "predicate": "red",
+          "args": [
+            {
+              "kind": "const",
+              "value": "ball"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "red",
+          "value": "red",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a3",
+          "input": "Is Ball red?",
+          "circuit": "ParseText",
+          "status": "active"
+        },
+        {
+          "category": "predicate-classification",
+          "original": "red",
+          "value": "red",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Ball is red.",
+          "circuit": "ParseText",
+          "status": "active"
+        },
+        {
+          "category": "predicate-classification",
+          "original": "red",
+          "value": "red",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Ball is not red.",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Both the statement and its explicit negation are derivable.\nAssumptions used:\n- [a3] predicate-classification: \"red\" -> \"red\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a1] predicate-classification: \"red\" -> \"red\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a2] predicate-classification: \"red\" -> \"red\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nSupport: red(ball).\nRefutation: not red(ball).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 476
+    },
+    {
+      "id": "epistemic-03",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Aster is a dax.",
+        "Every dax is round."
+      ],
+      "question": "Is Aster round?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "true",
+        "atom": {
+          "kind": "atom",
+          "predicate": "round",
+          "args": [
+            {
+              "kind": "const",
+              "value": "aster"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "round",
+          "value": "round",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a4",
+          "input": "Is Aster round?",
+          "circuit": "ParseText",
+          "status": "active"
+        },
+        {
+          "category": "predicate-classification",
+          "original": "dax",
+          "value": "dax",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Aster is a dax.",
+          "circuit": "ParseText",
+          "status": "active"
+        },
+        {
+          "category": "predicate-classification",
+          "original": "round",
+          "value": "round",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Every dax is round.",
+          "circuit": "ParseText",
+          "status": "active"
+        },
+        {
+          "category": "predicate-classification",
+          "original": "dax",
+          "value": "dax",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a3",
+          "input": "Every dax is round.",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Yes.\nAssumptions used:\n- [a4] predicate-classification: \"round\" -> \"round\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a1] predicate-classification: \"dax\" -> \"dax\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a2] predicate-classification: \"round\" -> \"round\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a3] predicate-classification: \"dax\" -> \"dax\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nSupport: round(aster) from dax(aster).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 481
+    },
+    {
+      "id": "epistemic-04",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Every human is mortal."
+      ],
+      "question": "Is UnknownPerson mortal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "mortal",
+          "args": [
+            {
+              "kind": "const",
+              "value": "unknownperson"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "predicate-classification",
+          "original": "mortal",
+          "value": "mortal",
+          "reason": "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.",
+          "evidence": {
+            "arity": 1,
+            "parser": "ParseText"
+          },
+          "certainty": "heuristic",
+          "id": "a2",
+          "input": "Is UnknownPerson mortal?",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable. If human(unknownperson), then mortal(unknownperson). This is a conditional possibility; I have not asserted the missing premises.\nAssumptions used:\n- [a2] predicate-classification: \"mortal\" -> \"mortal\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 477
+    },
+    {
+      "id": "epistemic-05",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Mara is human."
+      ],
+      "question": "Is Mara human",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "true",
+        "atom": {
+          "kind": "atom",
+          "predicate": "human",
+          "args": [
+            {
+              "kind": "const",
+              "value": "mara"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "sentence-boundary",
+          "original": "missing terminator",
+          "value": "?",
+          "reason": "Added a sentence terminator from the leading token so the input can be parsed. This is a formatting assumption.",
+          "certainty": "heuristic",
+          "policy": "RepairIs",
+          "id": "a1",
+          "input": "Is Mara human",
+          "circuit": "ParseText",
+          "status": "active"
+        }
+      ],
+      "text": "Yes.\nAssumptions used:\n- [a1] sentence-boundary: \"missing terminator\" -> \"?\". Added a sentence terminator from the leading token so the input can be parsed. This is a formatting assumption.\nSupport: human(mara).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 473
+    },
+    {
+      "id": "epistemic-06",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Socrate is human.",
+        "All humans die."
+      ],
+      "question": "Is Scorate going to die?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "true",
+        "atom": {
+          "kind": "atom",
+          "predicate": "die",
+          "args": [
+            {
+              "kind": "const",
+              "value": "socrate"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [
+        {
+          "category": "temporal-projection",
+          "original": "going to",
+          "value": "unqualified predicate",
+          "reason": "Interpreted the tense as a query about the unqualified predicate. The knowledge base has no date or event-time evidence; this does not establish when an event occurs or occurred.",
+          "certainty": "heuristic",
+          "id": "a1",
+          "input": "Is Scorate going to die?",
+          "circuit": "InterpretAskGoing",
+          "status": "active"
+        },
+        {
+          "category": "entity-resolution",
+          "original": "scorate",
+          "value": "socrate",
+          "reason": "Used the nearest entity already present in this session. Adjacent transpositions count as one edit; ties use name order and remain assumptions.",
+          "certainty": "heuristic",
+          "evidence": {
+            "alternatives": [
+              {
+                "value": "socrate",
+                "distance": 1
+              }
+            ],
+            "selectedBy": "distance-then-name",
+            "maxDistance": 1
+          },
+          "id": "a2",
+          "input": "Is Scorate going to die?",
+          "circuit": "InterpretAskGoing",
+          "status": "active"
+        }
+      ],
+      "text": "Yes.\nAssumptions used:\n- [a1] temporal-projection: \"going to\" -> \"unqualified predicate\". Interpreted the tense as a query about the unqualified predicate. The knowledge base has no date or event-time evidence; this does not establish when an event occurs or occurred.\n- [a2] entity-resolution: \"scorate\" -> \"socrate\". Used the nearest entity already present in this session. Adjacent transpositions count as one edit; ties use name order and remain assumptions.\nSupport: die(socrate) from human(socrate).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
+      "error": null,
+      "durationMs": 482
+    },
+    {
+      "id": "epistemic-07",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Is Nori a mammal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": true,
+      "answered": true,
+      "assertedWrong": false,
+      "actual": {
+        "kind": "boolean",
+        "status": "unknown",
+        "atom": {
+          "kind": "atom",
+          "predicate": "mammal",
+          "args": [
+            {
+              "kind": "const",
+              "value": "nori"
+            }
+          ],
+          "polarity": "positive",
+          "qualifier": null
+        }
+      },
+      "assumptions": [],
+      "text": "Unknown: neither the statement nor its explicit negation is derivable.",
+      "error": null,
+      "durationMs": 464
+    },
+    {
+      "id": "epistemic-08",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Ball is in Box."
+      ],
+      "question": "Is Ball in Garden?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      },
+      "pass": false,
+      "answered": false,
+      "assertedWrong": false,
+      "actual": null,
+      "assumptions": [],
+      "text": "I could not yet form an executable interpretation of: Is Ball in Garden?\nRecognized categories: Is [entity, copula]; Ball [entity]; in [word]; Garden [entity]; ? [unclassified].\nI saved this gap for circuit improvement. Other sentences in this request can still be used.",
+      "error": null,
+      "durationMs": 508
+    }
+  ],
+  "stage": "Before elementary knowledge and quantity circuits were implemented",
+  "sourceHash": null,
+  "sourceHashNote": "The original run recorded the dataset hash, but did not capture a source fingerprint."
+}

@@ -1,0 +1,37 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 5
+@g0 tokenIs
+    tokens $tokens
+    index 0
+    value "what"
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "comes"
+@g2 tokenIs
+    tokens $tokens
+    index 2
+    value "before"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "?"
+@known constantAt
+    tokens $tokens
+    index 3
+@unknown makeVariable
+    name "Next"
+@payload makeBinaryAtom
+    subject $unknown
+    predicate "next"
+    object $known
+@command makeCommand
+    kind "askBindings"
+    payload $payload
+@decisions list
+@result record
+    command $command
+    decisions $decisions
+@output result $result

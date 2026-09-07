@@ -1,0 +1,6 @@
+@input tokens
+@input index
+@value constantAt
+    tokens $tokens
+    index $index
+@output result $value

@@ -1,0 +1,39 @@
+@input value
+@n1 answerStatusIs
+    value $value
+    status "true"
+@n2 field
+    value $value
+    name "entity"
+@n3 display
+    value $n2
+@n4 field
+    value $value
+    name "facts"
+@n5 list
+    item0 "predicate"
+@n6 list
+    item0 "conversation_speaker"
+    item1 "introduced"
+@n7 filterField
+    values $n4
+    path $n5
+    excluded $n6
+@n8 take
+    values $n7
+    count 6
+@n9 realizeAtoms
+    atoms $n8
+@n10 joinOrDefault
+    values $n9
+    separator " "
+    fallback "You introduced that name in this session."
+@n11 concat
+    part1 $n3
+    part2 ": "
+    part3 $n10
+@n12 record
+    kind "chat"
+    message $n11
+    facts $n4
+@output result $n12

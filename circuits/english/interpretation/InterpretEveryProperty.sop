@@ -1,0 +1,51 @@
+@input tokens
+@size tokenCountIs
+    tokens $tokens
+    count 5
+@guard0 tokenIs
+    tokens $tokens
+    index 0
+    value "every"
+@guard4 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@guard2 tokenIs
+    tokens $tokens
+    index 2
+    value "is"
+@noun InterpretNoun
+    tokens $tokens
+    index 1
+@predicate InterpretProperty
+    tokens $tokens
+    index 3
+@np field
+    value $noun
+    name "value"
+@vp field
+    value $predicate
+    name "value"
+@x makeVariable
+    name "X"
+@premise makeUnaryAtom
+    subject $x
+    predicate $np
+@head makeUnaryAtom
+    subject $x
+    predicate $vp
+@body list
+    item1 $premise
+@rule makeRule
+    head $head
+    body $body
+@command makeCommand
+    kind "assertRule"
+    payload $rule
+@decisions collectDecisions
+    noun $noun
+    predicate $predicate
+@result record
+    command $command
+    decisions $decisions
+@output result $result

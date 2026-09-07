@@ -1,0 +1,27 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 3
+@n2 tokenIs
+    tokens $tokens
+    index 0
+    value "what's"
+@n3 tokenIs
+    tokens $tokens
+    index 1
+    value "your"
+@n4 tokenIs
+    tokens $tokens
+    index 2
+    value "name"
+@n5 record
+    kind "chat"
+    message "I am sdlm, a symbolic language model. I use facts, rules and circuits to answer questions. Ask \"What can you do?\" for things to try."
+@n6 makeCommand
+    kind "chat"
+    payload $n5
+@n7 list
+@n8 record
+    command $n6
+    decisions $n7
+@output result $n8

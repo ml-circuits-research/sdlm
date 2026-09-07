@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="architecture">Architecture</h1>
+<p>The runtime turns a supported sentence into an executable <a class="definition-link" href="wiki.html#definition-semantic-command">semantic command</a>, evaluates it against explicit knowledge, and renders a controlled response. <a class="definition-link" href="wiki.html#definition-sop-lang">SOP Lang</a> owns domain competence. JavaScript loads and schedules <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> and supplies generic operations. <a class="definition-link" href="wiki.html#definition-datalog">Datalog</a> handles relation closure and <a class="definition-link" href="wiki.html#definition-candidate">candidate</a> selection.</p>
+<figure>
+<pre class="mermaid">
+flowchart TD
+  A[CLI or text API · session selection] --> B[Restore SOP state and select new input]
+  B --> C[Strict parse or safe interpretation trial · record assumptions]
+  C --> D[ExecuteCommand · rule reasoning · response and evidence]
+  D --> E[Commit SOP revision and expose reusable results]
+</pre>
+<figcaption>Request execution and <a class="definition-link" href="wiki.html#definition-session">session</a> continuity</figcaption>
+</figure><h2 id="execution-and-correctness">Execution and correctness</h2>
+<p>A <a class="definition-link" href="wiki.html#definition-virtual-circuit">virtual circuit</a> expands named SOP calls into a task-local graph with <a class="definition-link" href="wiki.html#definition-ssa">SSA</a> wires. Structural changes start a new <a class="definition-link" href="wiki.html#definition-epoch">epoch</a>. Guards and <a class="definition-link" href="wiki.html#definition-candidate">candidate</a> failure can <a class="definition-link" href="wiki.html#definition-rewrite">rewrite</a> the active graph. Stateful <a class="definition-link" href="wiki.html#definition-candidate">candidate</a> trials have <a class="definition-link" href="wiki.html#definition-transaction">transaction</a> <a class="definition-link" href="wiki.html#definition-snapshot">snapshots</a>, and public operations serialize per runtime. Failure rolls back only the operation and its nested scopes. A public knowledge <a class="definition-link" href="wiki.html#definition-snapshot">snapshot</a> exposes committed state.</p>
+<p><a class="definition-link" href="wiki.html#definition-effect-analysis">Effect analysis</a> follows every reachable <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> dependency, including recursive cycles, before caching the aggregate. Unknown or effectful work does not enter a pure speculative branch. Execution budgets bound steps, active nodes, text size and token count. Time checks are cooperative around <a class="definition-link" href="wiki.html#definition-virtual-machine">VM</a> and backend calls; they cannot interrupt arbitrary synchronous backend work.</p>
+<h2 id="parsing-and-activation">Parsing and activation</h2>
+<p>The library includes specialized micro-circuits and a compositional <a class="definition-link" href="wiki.html#definition-chart-parser">chart parser</a>. <a class="definition-link" href="wiki.html#definition-candidate">Candidate</a> projection indexes only necessary conditions that preserve a <a class="definition-link" href="wiki.html#definition-candidate">candidate</a>. String-coercive value conditions use their actual predicate instead of an incompatible typed index key. A <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> without activation constraints remains eligible. These rules avoid false negatives while keeping exact semantic guards authoritative.</p>
+<p>Ambiguity search has bounded <a class="definition-link" href="wiki.html#definition-candidate">candidates</a> and <a class="definition-link" href="wiki.html#definition-parse-forest">parse forests</a>. Strict mode returns close alternatives explicitly. Conversation mode may select one with a recorded <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> and allows later rejection. A successful example does not prove recall beyond those bounds. Grammar <a class="definition-link" href="wiki.html#definition-bootstrap">bootstraps</a> register typed symbols and constructions; no second linguistic rule-string language is introduced.</p>
+<h2 id="knowledge">Knowledge</h2>
+<p>The <a class="definition-link" href="wiki.html#definition-knowledge-base">knowledge base</a> stores asserted unary and binary <a class="definition-link" href="wiki.html#definition-atom">atoms</a>, explicit polarity, optional <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a>, and safe positive <a class="definition-link" href="wiki.html#definition-datalog">Datalog</a> rules. Every head variable must occur in the body. Invalid rules fail before mutation on both backends. Retraction removes matching assertions and rebuilds the closure, retaining conclusions with another valid support.</p>
+<p>The bundled evaluator and the pinned external <code>@suss/datalog</code> adapter share tested contracts. <code>SD_LM_DATALOG_BACKEND=bundled|external|auto</code> selects one. Explicit <code>external</code> fails if unavailable. Automatic selection falls back only when the package itself is missing, not when it has an internal import or initialization failure.</p>
+<h2 id="source-ownership">Source ownership</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>circuits/</code> and <code>extensions/</code></td>
+<td>Grammar, semantic execution, generation and domain knowledge</td>
+</tr>
+<tr>
+<td><code>src/kernel/</code></td>
+<td>SOP loading, scheduling, <a class="definition-link" href="wiki.html#definition-effect-analysis">effects</a>, <a class="definition-link" href="wiki.html#definition-transaction">transactions</a> and budgets</td>
+</tr>
+<tr>
+<td><code>src/datalog/</code></td>
+<td>Backend adapter, facts, rules, validation and activation</td>
+</tr>
+<tr>
+<td><code>src/parsing/</code> and <code>src/primitives/</code></td>
+<td>Generic chart and typed runtime operations</td>
+</tr>
+<tr>
+<td><code>src/interpretation/</code></td>
+<td>Generic trial scheduling, symbol comparison, evidence and corrective retraction</td>
+</tr>
+<tr>
+<td><code>src/learning/</code></td>
+<td>Validated <a class="definition-link" href="wiki.html#definition-induction">circuit induction</a></td>
+</tr>
+<tr>
+<td><code>src/sessions/</code></td>
+<td>Durable revision publication, history matching and <a class="definition-link" href="wiki.html#definition-value-reference">value references</a></td>
+</tr>
+<tr>
+<td><code>src/cli/</code> and <code>src/api/</code></td>
+<td>User commands, examples and protocol adapters</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Runtime option</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>maxSteps</code></td>
+<td>100000</td>
+</tr>
+<tr>
+<td><code>maxActiveNodes</code></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><code>maxTokens</code></td>
+<td>128</td>
+</tr>
+<tr>
+<td><code>maxInputLength</code></td>
+<td>8192</td>
+</tr>
+<tr>
+<td><code>timeoutMs</code></td>
+<td>10000</td>
+</tr>
+</tbody></table>
+<h2 id="accountable-conversation">Accountable conversation</h2>
+<p><code>respond</code> and <code>respondDetailed</code> first try read-only conversational intent <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>, then installed parsing, fallback SOP constructions and final-punctuation repair. Conversational <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> can compose bounded prefix <a class="definition-link" href="wiki.html#definition-rewrite">rewrites</a> or construct commands directly. The <a href="conversation.html">conversation guide</a> covers the supported forms. They record selected decisions before <code>ExecuteCommand</code>, carrying supporting <a class="definition-link" href="wiki.html#definition-atom">atoms</a> from personal references into assertion dependencies, then connect <a class="definition-link" href="wiki.html#definition-proof">proof</a> support to <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> IDs. Trial rollback includes the evidence ledger. Rejected decisions remove assertions without another support and invalidate saved values that carry their IDs. The <a href="assumptions.html">assumption guide</a> describes the policy classes and the separate handling of unproven aggregate context. Strict <code>process</code> methods remain available for deterministic <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> validation.</p>
+<h2 id="elementary-competence-and-response-policy">Elementary competence and response policy</h2>
+<p>Fresh <a class="definition-link" href="wiki.html#definition-session">sessions</a> execute the declarative facts and rules under <code>circuits/foundation/bootstrap/</code>. School language <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> construct ordinary typed commands for arithmetic, comparisons, functional quantities and current locations. Generic host operations calculate and update relations; concept names, sentence forms, limits chosen for a command and default conditions stay in SOP. Rain exposure is an explicit conditional proposal, not a stored wet fact.</p>
+<p><code>SetResponseStyle</code> and <code>PresentConversation</code> select the displayed text. Explanation sections, <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> lines, unresolved-input wording and support-tree text are assembled by <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuits</a>. Generic JavaScript settings storage participates in <a class="definition-link" href="wiki.html#definition-transaction">transactions</a> and <a class="definition-link" href="wiki.html#definition-session">session</a> persistence. Read-only <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> mapping checks the target <a class="definition-link" href="wiki.html#definition-effect-analysis">effect</a> dynamically and shares the execution budget. Neither <a class="definition-link" href="wiki.html#definition-response-style">verbosity</a> nor the <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> adds domain-specific execution rules to <code>src/kernel/</code>.</p>
+<p><code>src/evaluation/</code> runs the authored <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> in isolated runtimes. Its expected answers are evaluation data and are not part of the model&#39;s input or <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a>.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

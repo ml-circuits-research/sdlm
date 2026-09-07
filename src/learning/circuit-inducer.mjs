@@ -1,6 +1,6 @@
-import fs from 'node:fs/promises';
 import path from 'node:path';
 import { parseCircuit } from '../kernel/sop-loader.mjs';
+import { publishPack } from '../kernel/pack-storage.mjs';
 import { tokenize } from '../primitives/tokenizer.mjs';
 
 const same = xs => xs.every(x => JSON.stringify(x) === JSON.stringify(xs[0]));
@@ -91,6 +91,8 @@ class SopBuilder {
       const pred=this.isDynamic([...path0,'predicate']) ? this.dynamicPrimitive([...path0,'predicate']) : q(first.predicate);
       if (!same(values.map(v=>v.polarity))) throw new Error('Varying polarity is not supported');
       const params={ subject:args[0], predicate:pred }; if(args.length===2) params.object=args[1]; params.polarity=q(first.polarity);
+      if (this.isDynamic([...path0, 'qualifier'])) params.qualifier = this.dynamicPrimitive([...path0, 'qualifier']);
+      else if (first.qualifier != null) params.qualifier = q(first.qualifier);
       return this.node(this.id('atom'),args.length===1?'makeUnaryAtom':'makeBinaryAtom',params);
     }
     if (first?.kind === 'rule') {
@@ -110,7 +112,7 @@ class SopBuilder {
   finish(outputRef) { this.lines.push(`@output result ${outputRef}`); return this.lines.join('\n')+'\n'; }
 }
 
-export async function induceParaphrase({ examples, language, parseCanonical, circuits, selector, run, learnedRoot, sequence }) {
+export async function induceParaphrase({ examples, language, parseCanonical, circuits, selector, effectAnalyzer, run, learnedRoot, sequence }) {
   if (!Array.isArray(examples) || examples.length < 2) throw new Error('Induction needs at least two surface/canonical examples');
   const tokenExamples=examples.map(e=>classifyText(e.surface,language));
   const commandExamples=[]; for (const e of examples) commandExamples.push(await parseCanonical(e.canonical));
@@ -123,7 +125,7 @@ export async function induceParaphrase({ examples, language, parseCanonical, cir
     if(!groups.has(sig))groups.set(sig,{rhs,indices:[]}); groups.get(sig).indices.push(i);
   }
 
-  const id=String(sequence).padStart(4,'0'); const files=[]; const productions=[]; const semanticNames=[]; const installNames=[];
+  const id=String(sequence).padStart(4,'0'); const entries=[]; const productions=[]; const semanticNames=[]; const installNames=[];
   let gi=0;
   for (const group of groups.values()) {
     gi++; const suffix=gi===1?'':`_${gi}`;
@@ -141,15 +143,25 @@ export async function induceParaphrase({ examples, language, parseCanonical, cir
     }
     installLines.push('@rhs list',...group.rhs.map((_,i)=>`    item${i+1} $rhsSymbol${i+1}`),'@installed addGrammarRule',`    name ${q(production)}`,'    lhs "Sentence"','    rhs $rhs','    weight 12','@output result $installed');
     const installSource=installLines.join('\n')+'\n';
-    const base=path.join(learnedRoot,'circuits'); const semanticFile=path.join(base,'english','chartSentence',`${semanticName}.sop`); const installFile=path.join(base,'learned','bootstrap',`${installName}.sop`);
-    await fs.mkdir(path.dirname(semanticFile),{recursive:true}); await fs.mkdir(path.dirname(installFile),{recursive:true}); await fs.writeFile(semanticFile,semanticSource); await fs.writeFile(installFile,installSource);
-    circuits.set(semanticName,parseCircuit(semanticSource,{name:semanticName,group:'english.chartSentence',file:semanticFile})); circuits.set(installName,parseCircuit(installSource,{name:installName,group:'learned.bootstrap',file:installFile}));
-    await run(installName,{}); files.push(semanticFile,installFile); productions.push(production); semanticNames.push(semanticName); installNames.push(installName);
+    entries.push({ name: semanticName, group: 'english.chartSentence', source: semanticSource });
+    entries.push({ name: installName, group: 'learned.bootstrap', source: installSource });
+    productions.push(production); semanticNames.push(semanticName); installNames.push(installName);
+  }
+  for (const entry of entries) {
+    if (circuits.has(entry.name)) throw new Error(`Induction would replace existing circuit ${entry.name}`);
+    circuits.set(entry.name, parseCircuit(entry.source, { ...entry, file: '<pending induction>' }));
   }
   selector.refresh();
+  effectAnalyzer.refresh();
+  for (const name of installNames) await run(name, {});
   for(let i=0;i<examples.length;i++) {
     const actual=await parseCanonical(examples[i].surface);
     if(JSON.stringify(actual)!==JSON.stringify(commandExamples[i])) throw new Error(`Induced circuit validation failed for ${examples[i].surface}`);
+    const canonical = await parseCanonical(examples[i].canonical);
+    if (JSON.stringify(canonical) !== JSON.stringify(commandExamples[i])) throw new Error('Induction changed a canonical example');
   }
+  const packRoot = path.join(learnedRoot, 'packs', `induced-${id}`);
+  const files = await publishPack(packRoot, entries);
+  entries.forEach((entry, index) => { circuits.get(entry.name).file = files[index]; });
   return { id, production:productions[0], productions, semanticName:semanticNames[0], semanticNames, installName:installNames[0], installNames, rhs:[...groups.values()][0].rhs, files, examples:examples.length };
 }

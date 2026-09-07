@@ -1,0 +1,1167 @@
+{
+  "name": "early-school",
+  "version": 1,
+  "language": "en",
+  "description": "Authored software evaluation inspired by early-primary topics; not a validated developmental assessment. Evaluation cases are a reserved regression split, not a blind human study.",
+  "sources": [
+    {
+      "title": "Primary mathematics programme",
+      "url": "https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study"
+    },
+    {
+      "title": "Primary science programme",
+      "url": "https://www.gov.uk/government/publications/national-curriculum-in-england-science-programmes-of-study/national-curriculum-in-england-science-programmes-of-study"
+    }
+  ],
+  "cases": [
+    {
+      "id": "animals-01",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Biscuit is a dog."
+      ],
+      "question": "Is Biscuit an animal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "animals-02",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Mimi is a cat."
+      ],
+      "question": "Is Mimi a mammal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "animals-03",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Buzz is a bee."
+      ],
+      "question": "Is Buzz an insect?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "animals-04",
+      "domain": "animals",
+      "split": "dev",
+      "context": [
+        "Pebble is a rock."
+      ],
+      "question": "Is Pebble alive?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      }
+    },
+    {
+      "id": "animals-05",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Is Nori a bird?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "animals-06",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Can Nori fly?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      }
+    },
+    {
+      "id": "animals-07",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Tiki is a sparrow."
+      ],
+      "question": "Can Tiki fly?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "animals-08",
+      "domain": "animals",
+      "split": "eval",
+      "context": [
+        "Dot is an ant."
+      ],
+      "question": "Is Dot an animal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-01",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Rose is a plant."
+      ],
+      "question": "Does Rose need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-02",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Fern is a plant."
+      ],
+      "question": "Does Fern need light?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-03",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Cup is made of glass."
+      ],
+      "question": "Is Cup fragile?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-04",
+      "domain": "plants_materials",
+      "split": "dev",
+      "context": [
+        "Spoon is made of metal."
+      ],
+      "question": "Is Spoon hard?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-05",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Oak is a tree."
+      ],
+      "question": "Is Oak a plant?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-06",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Tulip is a flower."
+      ],
+      "question": "Does Tulip need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-07",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Towel is made of cotton."
+      ],
+      "question": "Is Towel absorbent?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "plants_materials-08",
+      "domain": "plants_materials",
+      "split": "eval",
+      "context": [
+        "Window is made of glass."
+      ],
+      "question": "Is Window transparent?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "senses_tools-01",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do eyes help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "see"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-02",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do ears help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "hear"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-03",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What do noses help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "smell"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-04",
+      "domain": "senses_tools",
+      "split": "dev",
+      "context": [],
+      "question": "What is a pencil used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "write"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-05",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What do tongues help us do?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "taste"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-06",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is a key used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "unlock"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-07",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is an umbrella used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "shelter"
+        ]
+      }
+    },
+    {
+      "id": "senses_tools-08",
+      "domain": "senses_tools",
+      "split": "eval",
+      "context": [],
+      "question": "What is a ruler used for?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "measure"
+        ]
+      }
+    },
+    {
+      "id": "arithmetic-01",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 4 plus 3?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "arithmetic-02",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 9 minus 4?",
+      "expected": {
+        "kind": "number",
+        "value": 5
+      }
+    },
+    {
+      "id": "arithmetic-03",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 2 times 3?",
+      "expected": {
+        "kind": "number",
+        "value": 6
+      }
+    },
+    {
+      "id": "arithmetic-04",
+      "domain": "arithmetic",
+      "split": "dev",
+      "context": [],
+      "question": "What is 8 divided by 2?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      }
+    },
+    {
+      "id": "arithmetic-05",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 8 plus 7?",
+      "expected": {
+        "kind": "number",
+        "value": 15
+      }
+    },
+    {
+      "id": "arithmetic-06",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 15 minus 8?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "arithmetic-07",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 4 times 5?",
+      "expected": {
+        "kind": "number",
+        "value": 20
+      }
+    },
+    {
+      "id": "arithmetic-08",
+      "domain": "arithmetic",
+      "split": "eval",
+      "context": [],
+      "question": "What is 12 divided by 3?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      }
+    },
+    {
+      "id": "quantities-01",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Mia has 5 apples.",
+        "Mia gets 2 apples."
+      ],
+      "question": "How many apples does Mia have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "quantities-02",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Leo has 8 pencils.",
+        "Leo loses 3 pencils."
+      ],
+      "question": "How many pencils does Leo have?",
+      "expected": {
+        "kind": "number",
+        "value": 5
+      }
+    },
+    {
+      "id": "quantities-03",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Mia has 2 apples.",
+        "Mia has 3 pears."
+      ],
+      "question": "How many apples does Mia have?",
+      "expected": {
+        "kind": "number",
+        "value": 2
+      }
+    },
+    {
+      "id": "quantities-04",
+      "domain": "quantities",
+      "split": "dev",
+      "context": [
+        "Ana has 4 books.",
+        "Bo has 9 books."
+      ],
+      "question": "How many books does Ana have?",
+      "expected": {
+        "kind": "number",
+        "value": 4
+      }
+    },
+    {
+      "id": "quantities-05",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Ivo has 6 marbles.",
+        "Ivo gets 4 marbles.",
+        "Ivo loses 3 marbles."
+      ],
+      "question": "How many marbles does Ivo have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "quantities-06",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Zoe has 9 apples.",
+        "Zoe eats 2 apples."
+      ],
+      "question": "How many apples does Zoe have?",
+      "expected": {
+        "kind": "number",
+        "value": 7
+      }
+    },
+    {
+      "id": "quantities-07",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Eli has 3 pencils.",
+        "Eli loses 3 pencils."
+      ],
+      "question": "How many pencils does Eli have?",
+      "expected": {
+        "kind": "number",
+        "value": 0
+      }
+    },
+    {
+      "id": "quantities-08",
+      "domain": "quantities",
+      "split": "eval",
+      "context": [
+        "Ada has 8 pears.",
+        "Ada gets 1 pear."
+      ],
+      "question": "How many pears does Ada have?",
+      "expected": {
+        "kind": "number",
+        "value": 9
+      }
+    },
+    {
+      "id": "space-01",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Ball is in Box."
+      ],
+      "question": "Where is Ball?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "box"
+        ]
+      }
+    },
+    {
+      "id": "space-02",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Ball is in Box.",
+        "Box is in Room."
+      ],
+      "question": "Is Ball in Room?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "space-03",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Mia is in Kitchen.",
+        "Mia goes to Garden."
+      ],
+      "question": "Where is Mia?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "garden"
+        ]
+      }
+    },
+    {
+      "id": "space-04",
+      "domain": "space",
+      "split": "dev",
+      "context": [
+        "Book is on Table."
+      ],
+      "question": "Is Book on Table?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "space-05",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Key is in Bag.",
+        "Bag is in Drawer.",
+        "Drawer is in Bedroom."
+      ],
+      "question": "Is Key in Bedroom?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "space-06",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Zoe is in Park.",
+        "Zoe goes to School."
+      ],
+      "question": "Is Zoe in Park?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "space-07",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Cup is under Desk."
+      ],
+      "question": "Is Cup under Desk?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "space-08",
+      "domain": "space",
+      "split": "eval",
+      "context": [
+        "Ball is left of Box."
+      ],
+      "question": "Is Box right of Ball?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "order_calendar-01",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [],
+      "question": "What comes after Monday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "tuesday"
+        ]
+      }
+    },
+    {
+      "id": "order_calendar-02",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [],
+      "question": "What comes before Friday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "thursday"
+        ]
+      }
+    },
+    {
+      "id": "order_calendar-03",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [
+        "Breakfast is before School.",
+        "School is before Lunch."
+      ],
+      "question": "Is Breakfast before Lunch?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "order_calendar-04",
+      "domain": "order_calendar",
+      "split": "dev",
+      "context": [
+        "Dinner is after Lunch."
+      ],
+      "question": "Is Lunch before Dinner?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "order_calendar-05",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes after Sunday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "monday"
+        ]
+      }
+    },
+    {
+      "id": "order_calendar-06",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes before Tuesday?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "monday"
+        ]
+      }
+    },
+    {
+      "id": "order_calendar-07",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [
+        "Reading is before Drawing.",
+        "Drawing is before Play."
+      ],
+      "question": "Is Play after Reading?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "order_calendar-08",
+      "domain": "order_calendar",
+      "split": "eval",
+      "context": [],
+      "question": "What comes after December?",
+      "expected": {
+        "kind": "bindings",
+        "values": [
+          "january"
+        ]
+      }
+    },
+    {
+      "id": "family-01",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a mother of Ben."
+      ],
+      "question": "Is Ana a parent of Ben?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-02",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a parent of Ben.",
+        "Ben is a parent of Cora."
+      ],
+      "question": "Is Ana a grandparent of Cora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-03",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ben is a brother of Cora."
+      ],
+      "question": "Is Cora a sibling of Ben?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-04",
+      "domain": "family",
+      "split": "dev",
+      "context": [
+        "Ana is a parent of Ben."
+      ],
+      "question": "Is Ben a child of Ana?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-05",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Ivo is a father of Zoe."
+      ],
+      "question": "Is Ivo a parent of Zoe?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-06",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Nora is a parent of Eli.",
+        "Eli is a parent of Pip."
+      ],
+      "question": "Is Pip a grandchild of Nora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-07",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Lia is a sister of Max."
+      ],
+      "question": "Is Max a sibling of Lia?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "family-08",
+      "domain": "family",
+      "split": "eval",
+      "context": [
+        "Nora is a parent of Eli."
+      ],
+      "question": "Is Eli a parent of Nora?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "causal-01",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Mia is outside.",
+        "Mia is in rain."
+      ],
+      "question": "Is Mia wet?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-02",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Ice is warm."
+      ],
+      "question": "Does Ice melt?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-03",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Plant is a plant.",
+        "Plant is without water."
+      ],
+      "question": "Is Plant thirsty?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-04",
+      "domain": "causal",
+      "split": "dev",
+      "context": [
+        "Tom is tired."
+      ],
+      "question": "Does Tom need rest?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-05",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Zoe is hungry."
+      ],
+      "question": "Does Zoe need food?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-06",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Eli is thirsty."
+      ],
+      "question": "Does Eli need water?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "causal-07",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Ada is outside.",
+        "Ada is in rain.",
+        "Ada has shelter."
+      ],
+      "question": "Is Ada wet?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "causal-08",
+      "domain": "causal",
+      "split": "eval",
+      "context": [
+        "Ivo is cold."
+      ],
+      "question": "Does Ivo need warmth?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-01",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [],
+      "question": "Is 8 greater than 3?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-02",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [],
+      "question": "Is 2 greater than 7?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      }
+    },
+    {
+      "id": "comparisons-03",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [
+        "Oak is taller than Bush.",
+        "Bush is taller than Grass."
+      ],
+      "question": "Is Oak taller than Grass?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-04",
+      "domain": "comparisons",
+      "split": "dev",
+      "context": [
+        "Box is heavier than Bag."
+      ],
+      "question": "Is Bag lighter than Box?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-05",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 6 less than 9?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-06",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 5 equal to 5?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-07",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [
+        "Ana is older than Ben.",
+        "Ben is older than Cora."
+      ],
+      "question": "Is Cora younger than Ana?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "comparisons-08",
+      "domain": "comparisons",
+      "split": "eval",
+      "context": [],
+      "question": "Is 10 less than 4?",
+      "expected": {
+        "kind": "boolean",
+        "status": "false"
+      }
+    },
+    {
+      "id": "epistemic-01",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Mia is a child."
+      ],
+      "question": "Is Mia happy?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "epistemic-02",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Ball is red.",
+        "Ball is not red."
+      ],
+      "question": "Is Ball red?",
+      "expected": {
+        "kind": "boolean",
+        "status": "both"
+      }
+    },
+    {
+      "id": "epistemic-03",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Aster is a dax.",
+        "Every dax is round."
+      ],
+      "question": "Is Aster round?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "epistemic-04",
+      "domain": "epistemic",
+      "split": "dev",
+      "context": [
+        "Every human is mortal."
+      ],
+      "question": "Is UnknownPerson mortal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "epistemic-05",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Mara is human."
+      ],
+      "question": "Is Mara human",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "epistemic-06",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Socrate is human.",
+        "All humans die."
+      ],
+      "question": "Is Scorate going to die?",
+      "expected": {
+        "kind": "boolean",
+        "status": "true"
+      }
+    },
+    {
+      "id": "epistemic-07",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Nori is a penguin."
+      ],
+      "question": "Is Nori a mammal?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    },
+    {
+      "id": "epistemic-08",
+      "domain": "epistemic",
+      "split": "eval",
+      "context": [
+        "Ball is in Box."
+      ],
+      "question": "Is Ball in Garden?",
+      "expected": {
+        "kind": "boolean",
+        "status": "unknown"
+      }
+    }
+  ]
+}

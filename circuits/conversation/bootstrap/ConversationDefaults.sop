@@ -1,0 +1,4 @@
+@n1 setSessionSetting
+    name "response_style"
+    value "explain"
+@output result $n1

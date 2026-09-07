@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation and audit | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="validation-and-audit">Validation and audit</h1>
+<p>The test suite checks observable behavior and failure boundaries. The CLI example catalog lets a user repeat representative cases without constructing inputs manually. Both are needed: examples teach the interface, while regression tests cover concurrency, rollback, <a class="definition-link" href="wiki.html#definition-effect-analysis">effect</a> cycles, invalid rules, persistence, and protocol compatibility.</p>
+<h2 id="run-the-checks">Run the checks</h2>
+<pre><code class="language-sh">npm ci
+npm run test:backends
+npm run examples
+npm run docs:build
+npm run docs:check
+npm run check
+npm run check -- --record
+</code></pre>
+<p><code>check -- --record</code> runs the complete checks, saves actual backend results, rebuilds documentation and verifies it. Plain <code>check</code> verifies documentation freshness without rebuilding it.</p>
+<p><code>test:backends</code> forces the complete suite onto each backend and fails if either run fails. <code>check</code> verifies syntax, both backend suites, examples and the 44-case evaluation split on both backends, and documentation freshness and links. <code>docs:build</code> regenerates HTML, the book, command/example tables, the specification matrix, and the source inventory. <code>docs:check</code> compares generated output and verifies local paths, anchors, shared-menu interaction, specification loading and JSON snippets in a DOM. It does not replace visual browser inspection. The CLI offers <code>--run all --json</code> for machine-readable example results.</p>
+<p>Recorded with Node.js v24.9.0 on 2026-09-07T13:26:50.788Z. The runtime source fingerprint matches this build.</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Tests passed</th>
+<th>Examples passed</th>
+<th>Evaluation passed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bundled</td>
+<td>100</td>
+<td>23</td>
+<td>44/44</td>
+</tr>
+<tr>
+<td>external</td>
+<td>100</td>
+<td>23</td>
+<td>44/44</td>
+</tr>
+</tbody></table>
+<h2 id="audit-findings-addressed">Audit findings addressed</h2>
+<table>
+<thead>
+<tr>
+<th>Failure boundary</th>
+<th>Correction and evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Concurrent request rollback</td>
+<td>Serialized public operations and scoped rollback preserve previously committed work; <code>runtime-hardening.test.mjs</code></td>
+</tr>
+<tr>
+<td>Brittle unsupported-language errors</td>
+<td>Assumption-guided response, usable partial results and explicit decisions before execution; <code>interpretation.test.mjs</code></td>
+</tr>
+<tr>
+<td>Arithmetic phrasing and typos</td>
+<td>Composed question and imperative forms, signed operands, symbolic operators, causal lexical repair and contextual gaps; <code>arithmetic-conversation.test.mjs</code></td>
+</tr>
+<tr>
+<td>Basic chatbot interaction</td>
+<td>Greetings, introductions, personal references, category/person distinction, polite questions, rejection dependencies, restart and HTTP continuation; <code>conversation-chat.test.mjs</code></td>
+</tr>
+<tr>
+<td>Assumed knowledge after correction</td>
+<td>Independent support tracking, retraction, <a class="definition-link" href="wiki.html#definition-session">session</a> restoration and invalidated <a class="definition-link" href="wiki.html#definition-value-reference">value references</a>; <code>interpretation.test.mjs</code></td>
+</tr>
+<tr>
+<td>Invisible typing and paste</td>
+<td>Connect the readline output stream and preserve pending input when redrawing the prompt; <code>cli-terminal.test.mjs</code> exercises a real pseudo-terminal</td>
+</tr>
+<tr>
+<td>Rejected learning publication</td>
+<td>Validate before atomic pack publication; restore registry and symbolic state on failure</td>
+</tr>
+<tr>
+<td>Modal <a class="definition-link" href="wiki.html#definition-induction">induction</a></td>
+<td>Preserve <a class="definition-link" href="wiki.html#definition-atom">atom</a> <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a> through learned constructions and restart</td>
+</tr>
+<tr>
+<td>Unsafe <a class="definition-link" href="wiki.html#definition-datalog">Datalog</a> rules</td>
+<td>Reject unbound head variables and undefined tuples consistently</td>
+</tr>
+<tr>
+<td><a class="definition-link" href="wiki.html#definition-candidate">Candidate</a> false negatives</td>
+<td>Preserve unconstrained <a class="definition-link" href="wiki.html#definition-candidate">candidates</a> and String-coercive predicates</td>
+</tr>
+<tr>
+<td>Recursive <a class="definition-link" href="wiki.html#definition-effect-analysis">effect analysis</a></td>
+<td>Traverse the whole dependency graph before caching</td>
+</tr>
+<tr>
+<td>Runaway execution and traces</td>
+<td>Configurable <a class="definition-link" href="wiki.html#definition-virtual-machine">VM</a> budgets and bounded event retention</td>
+</tr>
+<tr>
+<td><a class="definition-link" href="wiki.html#definition-session">Session</a> continuity</td>
+<td>Separate SOP revisions, atomic pointer publication, safe IDs and cross-process locking</td>
+</tr>
+<tr>
+<td>Interactive continuation and recall</td>
+<td>Automatic selection, per-session slash-command history, legacy user-message recovery, atomic appends and real terminal restart; <code>cli-continuation.test.mjs</code> and <code>cli-terminal.test.mjs</code></td>
+</tr>
+<tr>
+<td>History replay</td>
+<td>Match full or retained history prefixes and execute only new messages</td>
+</tr>
+<tr>
+<td>API values</td>
+<td>Persist structured turn results as SOP and reuse explicit references after restart</td>
+</tr>
+<tr>
+<td><a class="definition-link" href="wiki.html#definition-base-knowledge">Elementary knowledge</a> and mutable context</td>
+<td>New-entity inference, arithmetic, replacement of locations and counts, separate similar names, signed numbers and guarded defaults; <code>foundation-evaluation.test.mjs</code> and fixed <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> reports</td>
+</tr>
+<tr>
+<td>Response detail and state</td>
+<td>Answer-only text retains <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>; settings isolate, restore and roll back; <code>response-style.test.mjs</code></td>
+</tr>
+<tr>
+<td>Documentation drift</td>
+<td>Source-derived command/example catalogs, generated book chapters, canonical DS files and freshness checks</td>
+</tr>
+</tbody></table>
+<p>The regression suites include pipe-based CLI execution, an interactive pseudo-terminal, HTTP calls, streaming parsing, and the official OpenAI JavaScript client against the local server. The terminal check verifies echo before Enter, editing, history recall across process restarts, automatic <a class="definition-link" href="wiki.html#definition-session">session</a> continuation, new-session isolation, multiline paste, pending input, execution order and terminal restoration. It requires Python 3 on a POSIX system and reports a skip where these are unavailable. Python is not needed to run the CLI. No external OpenAI service is contacted by these tests.</p>
+<h2 id="evidence-limits">Evidence limits</h2>
+<p>Tests establish behavior for their inputs and exercised failure paths. They do not prove crash consistency under power loss, correctness of arbitrary agent-authored <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>, general-language competence, or production throughput. Cooperative execution limits do not provide hard isolation from an indefinitely blocking backend. The Capabilities page states the remaining product and research gaps.</p>
+<p>The HTML resources also pass the local HTTP resource checks. A graphical browser was unavailable in the verification environment, so visual layout is not reported as browser-verified.</p>
+<h2 id="keep-the-book-current">Keep the book current</h2>
+<p>Edit explanatory pages under <code>docs/content/</code>, normative contracts under <code>docs/specs/</code>, and research prose in <code>docs/initial_specs/sd_lm_book.md</code>. Build output combines the research book with current CLI, API, <a class="definition-link" href="wiki.html#definition-session">session</a>, learning, validation, <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>, <a class="definition-link" href="wiki.html#definition-base-knowledge">elementary knowledge</a>, <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a>, response-style and conversation chapters. CLI tables import the same <code>COMMANDS</code> and <code>EXAMPLES</code> values used at runtime. A source fingerprint includes runtime, tests, <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>, extensions and the <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> dataset, so a code change requires a reviewed documentation rebuild even if the prose remains valid.</p>
+<p>The HTML book is current. The original DOCX and <code>archive/v0.6/</code> are historical artifacts. They preserve research context and old evidence without defining the present contract.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

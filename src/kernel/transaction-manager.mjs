@@ -37,4 +37,18 @@ export class TransactionManager {
   rollbackAll(reason = 'rollback-all') {
     for (const id of [...this.active.keys()].reverse()) this.rollback(id, reason);
   }
+
+  commitScope(id) {
+    const ids = [...this.active.keys()];
+    const index = ids.indexOf(id);
+    if (index < 0) return;
+    for (const nested of ids.slice(index).reverse()) this.commit(nested);
+  }
+
+  rollbackScope(id, reason) {
+    const ids = [...this.active.keys()];
+    const index = ids.indexOf(id);
+    if (index < 0) return;
+    for (const nested of ids.slice(index).reverse()) this.rollback(nested, reason);
+  }
 }

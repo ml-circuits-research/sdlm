@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capabilities and boundaries | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="capabilities-and-boundaries">Capabilities and boundaries</h1>
+<p><a class="definition-link" href="wiki.html#definition-sdlm">sdlm</a> is useful when a task can be expressed through explicit facts, rules, supported sentence patterns, and installed domain <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. It can explain symbolic conclusions and extend its language through examples. It does not provide a general neural model&#39;s breadth or free-form fluency.</p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Capability</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/example 1</code></td>
+<td>Facts and questions</td>
+<td>Names and sentence forms must fit the <a class="definition-link" href="wiki.html#definition-cnl">controlled language</a>.</td>
+</tr>
+<tr>
+<td><code>/example 2</code></td>
+<td>Rules and derived answers</td>
+<td>Rules require every head variable to occur in a premise.</td>
+</tr>
+<tr>
+<td><code>/example 3</code></td>
+<td>Explicit contradiction</td>
+<td>Contradictions are reported; the system does not choose a source to trust.</td>
+</tr>
+<tr>
+<td><code>/example 4</code></td>
+<td>Recursive reasoning</td>
+<td>Positive Horn rules over unary and binary <a class="definition-link" href="wiki.html#definition-atom">atoms</a>.</td>
+</tr>
+<tr>
+<td><code>/example 5</code></td>
+<td>Document knowledge as <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a></td>
+<td>Atlas is a supplied <a class="definition-link" href="wiki.html#definition-circuit-pack">circuit pack</a>, not automatic extraction from arbitrary text.</td>
+</tr>
+<tr>
+<td><code>/example 6</code></td>
+<td>Summaries and explanations</td>
+<td>Summaries select symbolic facts; they do not summarize an arbitrary document.</td>
+</tr>
+<tr>
+<td><code>/example 7</code></td>
+<td>Ambiguity without committing facts</td>
+<td>Only alternatives retained by the bounded search can be reported.</td>
+</tr>
+<tr>
+<td><code>/example 8</code></td>
+<td>Modal <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a></td>
+<td>A <a class="definition-link" href="wiki.html#definition-qualifier">qualifier</a> such as can is preserved; full modal logic is outside the supported semantics.</td>
+</tr>
+<tr>
+<td><code>/example 9</code></td>
+<td>Learning new phrases</td>
+<td>Supervised paraphrase <a class="definition-link" href="wiki.html#definition-induction">induction</a> needs canonical examples, not raw documents.</td>
+</tr>
+<tr>
+<td><code>/example 10</code></td>
+<td>Retraction and recomputation</td>
+<td>Retraction removes an asserted fact or rule and rebuilds derived knowledge.</td>
+</tr>
+<tr>
+<td><code>/example 11</code></td>
+<td>Strict input and safe rule rejection</td>
+<td>This example uses strict parsing. Conversation mode tries accountable interpretations; there is no neural fallback.</td>
+</tr>
+<tr>
+<td><code>/example 12</code></td>
+<td>Tense normalization boundary</td>
+<td>Past and present often map to the same atemporal predicate. This is not temporal reasoning.</td>
+</tr>
+<tr>
+<td><code>/example 13</code></td>
+<td>Saved values across SOP <a class="definition-link" href="wiki.html#definition-session">session</a> restart</td>
+<td>Explicit references reuse structured results; continuation rebuilds indexes and closure, not conversational execution.</td>
+</tr>
+<tr>
+<td><code>/example 14</code></td>
+<td><a class="definition-link" href="wiki.html#definition-assumption">Assumptions</a> and the Socrate question</td>
+<td>Name similarity and future-to-timeless projection are explicit heuristics, not evidence of an event date.</td>
+</tr>
+<tr>
+<td><code>/example 15</code></td>
+<td>Unknown predicates and correction</td>
+<td>A guessed word category does not supply its real-world meaning. Rejecting its <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> removes dependent rules.</td>
+</tr>
+<tr>
+<td><code>/example 16</code></td>
+<td>Partial understanding and missing premises</td>
+<td>A missing-premise <a class="definition-link" href="wiki.html#definition-hypothesis">hypothesis</a> remains conditional. Unsupported fragments are saved for correction.</td>
+</tr>
+<tr>
+<td><code>/example 17</code></td>
+<td>Elementary <a class="definition-link" href="wiki.html#definition-base-knowledge">base knowledge</a></td>
+<td>Explicit elementary rules and ordinary-object models; exceptions beyond those encoded remain unknown.</td>
+</tr>
+<tr>
+<td><code>/example 18</code></td>
+<td>Quantities and changing locations</td>
+<td>The latest explicit location or quantity is current. Negative inventory updates are rejected.</td>
+</tr>
+<tr>
+<td><code>/example 19</code></td>
+<td>Everyday defaults and their exceptions</td>
+<td>Rain exposure supports an explicit conditional guess; known shelter blocks it. The guessed wet fact is not stored.</td>
+</tr>
+<tr>
+<td><code>/example 20</code></td>
+<td>Answer length and retained <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a></td>
+<td>Answer-only mode hides visible explanations; actual <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> remain in the <a class="definition-link" href="wiki.html#definition-session">session</a> audit and API metadata.</td>
+</tr>
+<tr>
+<td><code>/example 21</code></td>
+<td>A conversation with a remembered speaker</td>
+<td>Names and first-person references use <a class="definition-link" href="wiki.html#definition-session">session</a> evidence. A bare unfamiliar introduction is a correctable name <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>.</td>
+</tr>
+<tr>
+<td><code>/example 22</code></td>
+<td>Polite requests and useful clarification</td>
+<td>Supported prefixes compose with existing tasks. An unsupported request stays a gap and cannot become a claimed result.</td>
+</tr>
+<tr>
+<td><code>/example 23</code></td>
+<td>Arithmetic wording and spelling repair</td>
+<td>Two numeric operands and one operation. Word repairs are recorded; unsupported words, units and longer expressions are not silently discarded.</td>
+</tr>
+</tbody></table>
+<h2 id="what-the-results-mean">What the results mean</h2>
+<p>Positive and explicit negative support are independent. A question can return Yes, No, Both, or Unknown. Missing evidence is not a negative fact. Strict ambiguous parses return alternatives without asserting a branch. Conversation mode may select a retained interpretation and record that choice as an <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> before execution. Rules accept unary and binary relations and safe bound variables. Modal <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a> distinguish <code>can</code> from an unqualified relation. Some tense forms normalize to the same relation, so the runtime is not a temporal reasoner.</p>
+<p>An explanation reconstructs a <a class="definition-link" href="wiki.html#definition-proof">proof</a> from current facts and rules. It does not expose a stored source witness for every derivation. <a class="definition-link" href="wiki.html#definition-proof">Proof</a> search has a depth bound and can return a derived marker when a complete <a class="definition-link" href="wiki.html#definition-proof">proof</a> is unavailable. A <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> count measures the library&#39;s implementation, not the number of independent reasoning abilities.</p>
+<h2 id="readiness-by-task">Readiness by task</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Usable contract</th>
+<th>Remaining boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Conversation with explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a></td>
+<td>Multi-sentence input, unknown predicate slots, name guesses, punctuation repair, conditional premises and rejection</td>
+<td>Bounded SOP heuristics; no calibrated accuracy or broad world knowledge</td>
+</tr>
+<tr>
+<td>Basic conversation</td>
+<td>Greetings, introductions, remembered speaker, personal references, people lookup and useful clarification</td>
+<td>Authored conversational constructions; see <a href="conversation.html">conversation</a>; no general anaphora</td>
+</tr>
+<tr>
+<td>Elementary reasoning</td>
+<td>Base facts and rules, arithmetic, quantities, movement, relationships and conditional defaults</td>
+<td>Authored English constructions and ordinary-object simplifications; see <a href="benchmark.html">evaluation</a></td>
+</tr>
+<tr>
+<td>Response detail</td>
+<td>Per-session answer-only or explained text, with retained audit</td>
+<td>Explicit instruction forms; compact text still has full structured metadata</td>
+</tr>
+<tr>
+<td>Controlled knowledge assistant</td>
+<td>Assertions, rules, questions, explanations and retraction</td>
+<td>Restricted vocabulary and grammar</td>
+</tr>
+<tr>
+<td>Domain document knowledge</td>
+<td>Install and query the Atlas reference pack</td>
+<td>Document-to-circuit extraction is authored, not automatic</td>
+</tr>
+<tr>
+<td>Train new expressions</td>
+<td>Surface/canonical examples produce validated <a class="definition-link" href="wiki.html#definition-semantic-circuit">SOP circuits</a></td>
+<td>No broad statistical learning or automatic curriculum</td>
+</tr>
+<tr>
+<td>Coding-agent extension</td>
+<td>Upload <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> with exact acceptance tests; persist accepted packs</td>
+<td><a class="definition-link" href="wiki.html#definition-semantic-circuit">Circuit</a> quality and semantic coverage remain the author&#39;s responsibility</td>
+</tr>
+<tr>
+<td>Local application integration</td>
+<td>Text API, SDK checks, isolated durable state and <a class="definition-link" href="wiki.html#definition-value-reference">reusable values</a></td>
+<td>No full OpenAI protocol or multiuser authorization</td>
+</tr>
+<tr>
+<td>Production service</td>
+<td>Local bounds, atomic revision publication, deterministic failure behavior</td>
+<td>No hard CPU sandbox, quotas, distributed storage or load-scale evidence</td>
+</tr>
+</tbody></table>
+<h2 id="research-work-still-required">Research work still required</h2>
+<p>Broad language coverage needs evaluation on unseen compositions and independently sourced corpora. Automatic document extraction needs source spans, validation of extracted claims, and source-aware retraction. The durable <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> ledger records interpretation decisions and assertion supports. Complete historical <a class="definition-link" href="wiki.html#definition-proof">provenance</a> still needs recorded derivation witnesses beyond reconstructed <a class="definition-link" href="wiki.html#definition-proof">proof</a> trees. Larger deployments need incremental truth maintenance, measured retrieval quality across large <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> libraries, persistent-version compatibility, hard execution isolation, and authenticated <a class="definition-link" href="wiki.html#definition-session">session</a> ownership.</p>
+<p>These are separate engineering and research outcomes. Passing the example catalog demonstrates its listed behaviors only. It does not establish general intelligence, autonomous coding-agent operation, or performance at production traffic levels.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

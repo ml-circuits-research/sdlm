@@ -1,0 +1,27 @@
+@input alternatives
+@input input
+@first field
+    value $alternatives
+    name "0"
+@command field
+    value $first
+    name "value"
+@circuit field
+    value $first
+    name "circuit"
+@evidence record
+    alternatives $alternatives
+@decision record
+    category "parse-choice"
+    original $input
+    value $circuit
+    reason "Selected the first ranked complete interpretation from the parser alternatives."
+    certainty "heuristic"
+    evidence $evidence
+@decisions list
+    item1 $decision
+@proposal record
+    command $command
+    circuit $circuit
+    decisions $decisions
+@output result $proposal

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assumptions and correction | sdlm</title>
+<link rel="stylesheet" href="styles.css">
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
+</head>
+<body>
+<div data-include="partials/header.html"></div>
+<main class="page"><article class="page__panel">
+<h1 id="assumptions-and-correction">Assumptions and correction</h1>
+<p>Conversation mode tries to extract a usable meaning from English and shows the <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> that made execution possible. It can process several sentences in one input, classify unfamiliar predicates, repair missing final punctuation, associate a misspelled name with a <a class="definition-link" href="wiki.html#definition-session">session</a> entity, and interpret some unary questions and universal rules. A sentence outside these constructions produces a partial response with token categories and a recorded gap. It does not discard other useful sentences in the request.</p>
+<h2 id="try-a-complete-case">Try a complete case</h2>
+<pre><code class="language-text">/session new reasoning
+Socrate is a human. All humans die. Is Scorate going to die?
+/assumptions
+/reject a2 These are different people
+Does Scorate die?
+Does Socrate die?
+/feedback reasoning-feedback.json
+</code></pre>
+<p>In a fresh <a class="definition-link" href="wiki.html#definition-session">session</a> the first input returns two confirmations and Yes. It records <code>a1</code>, a temporal projection from <code>going to</code> to the unqualified <code>die</code> predicate, and <code>a2</code>, the association of <code>scorate</code> with <code>socrate</code>. The response shows <code>die(socrate) from human(socrate)</code>. This establishes a consequence of the supplied rule under the declared interpretations. It establishes no event date. After rejecting <code>a2</code>, the question about Scorate remains Unknown, while the question about Socrate stays supported. IDs depend on earlier decisions in the <a class="definition-link" href="wiki.html#definition-session">session</a>.</p>
+<p>Use <code>/example 14</code> for this scenario, <code>/example 15</code> for an unfamiliar verb and its correction, and <code>/example 16</code> for partial understanding and conditional missing premises. All examples run locally in isolated temporary <a class="definition-link" href="wiki.html#definition-session">sessions</a>.</p>
+<h2 id="what-a-decision-records">What a decision records</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Actual interpretation</th>
+<th>Evidence and boundary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Predicate or category inference</td>
+<td>An unregistered word becomes a unary or binary predicate</td>
+<td>Its grammatical slot, token index and any suffix transformation; no external definition is acquired</td>
+</tr>
+<tr>
+<td>Entity resolution</td>
+<td>An unknown query name uses a nearby known entity</td>
+<td>Edit distance with adjacent transpositions, sorted alternatives and the selected name; ties remain explicit guesses</td>
+</tr>
+<tr>
+<td>Temporal projection</td>
+<td>A unary <code>will</code>, <code>did</code> or <code>going to</code> question uses an unqualified predicate</td>
+<td>The selected construction; no date or temporal ordering is inferred</td>
+</tr>
+<tr>
+<td>Sentence boundary</td>
+<td>Missing final punctuation is supplied</td>
+<td>The leading token and the repair <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>; it may choose the wrong sentence kind</td>
+</tr>
+<tr>
+<td>Parse choice</td>
+<td>One retained ambiguous command is selected</td>
+<td>Ranked alternatives and the selected <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>; other meanings remain available for inspection</td>
+</tr>
+</tbody></table>
+<p>Decisions receive IDs before <code>ExecuteCommand</code> runs. Each stores its input, category, original symbol, selected value, reason, <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> and qualitative certainty. The trace records the selected command and <a class="definition-link" href="wiki.html#definition-candidate">candidate</a> commands before execution. Structured results include these records and reconstructed support or refutation. A later answer includes the <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> IDs found in its support tree. These are recorded program decisions, not explanations invented after observing the answer.</p>
+<p>The runtime prefers a successful installed parser, including learned constructions, before trying fallback <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. Generic string comparison and evidence storage live in JavaScript. English constructions, suffix choices, reference thresholds and category explanations live in SOP. An external <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> author can inspect and change these policies through the same language used for other competence.</p>
+<h2 id="reject-and-improve">Reject and improve</h2>
+<p><code>/reject &lt;id&gt; [reason]</code> marks a decision rejected and removes assertions with no remaining independent support. Derived facts are recomputed. An explicit assertion of the same fact or rule survives if it does not depend on the rejected decision. A rejected name association is excluded from subsequent guesses. Other rejected interpretations are not silently reapplied through the same <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>.</p>
+<p>Named <a class="definition-link" href="wiki.html#definition-session">sessions</a> save decisions, assertion supports, rejection feedback and unresolved inputs as <code>SessionInterpretation.sop</code>. Restart preserves them without replaying the conversation. Saved results affected by a rejection become invalid for <code>$ref</code> and text bindings; their old contents remain visible for inspection. References used to create another saved result carry their <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> IDs forward, even if the original value is later evicted. Rebinding a name supplies a new value.</p>
+<p><code>/feedback new-file.json</code> exports the current evidence and gaps and refuses to overwrite an existing file. A coding agent can use the exact failing input, selected <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a>, proposed category and correction note to author a better SOP pack and regression cases. <code>/learn</code> accepts corrected surface/canonical pairs; <code>/load</code> and the pack API accept validated <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>. Exporting feedback alone does not train a model or start an agent. A knowledge-only <code>/save</code> refuses to discard active <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> dependencies; use <code>/session save</code> to preserve the complete state.</p>
+<h2 id="api-and-library-use">API and library use</h2>
+<p>Chat Completions defaults to <code>interpretation: &quot;assist&quot;</code>. Both named and stateless responses include <code>sdlm.results</code> and <code>sdlm.assumptions</code>. Named results also retain the usual <a class="definition-link" href="wiki.html#definition-session">session</a> revision and reusable variables. Read <code>GET /v1/sessions/{id}/assumptions</code> or submit <code>POST /v1/sessions/{id}/reject</code> with <code>{&quot;id&quot;:&quot;a2&quot;,&quot;reason&quot;:&quot;Different person&quot;}</code>. The values endpoint lists invalidated value names.</p>
+<p>The JavaScript runtime exposes <code>respond(text)</code>, <code>respondDetailed(texts)</code>, <code>assumptions()</code> and <code>rejectAssumption(id, note)</code>. <code>process</code>, <code>processBatch</code>, <code>processDetailed</code>, <code>parseCommand</code> and direct <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> execution retain their strict contracts. Select <code>/mode strict</code> in the CLI or <code>interpretation: &quot;strict&quot;</code> in chat for exact parser evaluation. Pack acceptance tests use strict execution, so a guessed interpretation cannot make an unsupported canonical example pass.</p>
+<h2 id="limits-you-can-measure">Limits you can measure</h2>
+<p>Certainty is a qualitative heuristic label, not a calibrated probability. Name matching uses at most one edit for names of 4 to 64 characters. Unknown inflection recovery only strips a final <code>s</code> when at least three stem characters remain. Irregular forms, broad synonyms, unrestricted anaphora, multilingual conversation and arbitrary prose remain beyond these fallback policies. A bare unfamiliar predicate can be misclassified; the response preserves that decision for correction.</p>
+<p>Missing-premise results are conditional. For <code>Every human dies. Does Mara die?</code>, the response can state that <code>human(mara)</code> would complete the rule. It does not assert that Mara is human. No matching rule means there is no grounded premise proposal. An unresolved input asks for context or suggests a supported form. The structured gap retains the token categories the installed classifier actually found. See <a href="conversation.html">Everyday conversation</a> for introductions, personal references and polite requests.</p>
+<p>One request accepts at most 128 sentences and retains its normal <a class="definition-link" href="wiki.html#definition-virtual-machine">VM</a> and input budgets. Up to 12 fallback <a class="definition-link" href="wiki.html#definition-candidate">candidates</a> and two punctuation proposals are considered. The evidence ledger retains at most 2,048 decisions, 100 unresolved inputs and 200 rejection notes. Reaching the decision limit requires a new <a class="definition-link" href="wiki.html#definition-session">session</a>. Only safe, read-only <a class="definition-link" href="wiki.html#definition-candidate">candidate</a> work enters speculative trials; execution and budget errors still roll back the request.</p>
+<p><a class="definition-link" href="wiki.html#definition-proof">Proof</a> reconstruction has a depth bound. <code>provenance_complete</code> is false when reconstruction reaches an unsupported derived marker. Aggregate responses can include <code>context_assumptions</code>, which describe <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> present in the <a class="definition-link" href="wiki.html#definition-session">session</a> without claiming that each contributed to that result. This evidence ledger is not a complete historical witness graph or a measured general reasoning system.</p>
+<h2 id="choose-visible-detail">Choose visible detail</h2>
+<p><code>/verbosity answer</code> hides explanatory text while retaining the actual <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, dependencies and correction controls. <code>/verbosity explain</code> restores it. <code>Answer only.</code> and <code>Show assumptions.</code> select the same SOP policy from ordinary input. A compact <code>Yes.</code> may therefore depend on a heuristic or a conditional everyday default. Inspect <code>/assumptions</code> or API result metadata when you need to assess that dependency. Read <a href="response-style.html">Response style</a> for complete behavior.</p>
+<p>Name resolution applies to supported queries. Assertions, quantity changes and location statements preserve their supplied names. Elementary relation vocabulary is registered explicitly, so its use alone does not create a word-classification <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>.</p>
+
+</article></main>
+<div data-include="partials/footer.html"></div>
+<script src="partials-loader.js"></script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { createSLLM } from './sllm.mjs';
+import { createSDLM } from './sd_lm.mjs';
 
-const learnedRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'sop-sllm-v4-learned-'));
-const s = await createSLLM({ learnedRoots: [] });
+const learnedRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'sop-sd_lm-v4-learned-'));
+const s = await createSDLM({ learnedRoots: [] });
 
 for (const line of [
   'Alice is human.',

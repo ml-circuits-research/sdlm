@@ -1,0 +1,21 @@
+@input command
+@guard commandKindIs
+    value $command
+    kind "calculateNumber"
+@payload field
+    value $command
+    name "payload"
+@left field
+    value $payload
+    name "left"
+@right field
+    value $payload
+    name "right"
+@operation field
+    value $payload
+    name "operation"
+@result calculateNumber
+    left $left
+    right $right
+    operation $operation
+@output result $result

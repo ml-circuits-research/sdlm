@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 
 test('representative CNL surface forms parse and execute', async () => {
-  const s = await createSLLM();
+  const s = await createSDLM();
   const learns = [
     'Alice is human.',
     'Bob is a human.',

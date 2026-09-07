@@ -1,6 +1,6 @@
-import { createSLLM } from './sllm.mjs';
+import { createSDLM } from './sd_lm.mjs';
 
-const s = await createSLLM();
+const s = await createSDLM();
 const lines = [
   'Every human is a mortal.',
   'No mortal is a machine.',

@@ -1,0 +1,32 @@
+@input value
+@n1 field
+    value $value
+    name "id"
+@n2 field
+    value $value
+    name "category"
+@n3 field
+    value $value
+    name "original"
+@n4 jsonString
+    value $n3
+@n5 field
+    value $value
+    name "value"
+@n6 jsonString
+    value $n5
+@n7 field
+    value $value
+    name "reason"
+@n8 concat
+    part1 "- ["
+    part2 $n1
+    part3 "] "
+    part4 $n2
+    part5 ": "
+    part6 $n4
+    part7 " -> "
+    part8 $n6
+    part9 ". "
+    part10 $n7
+@output result $n8

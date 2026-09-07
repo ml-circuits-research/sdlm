@@ -1,0 +1,9 @@
+{
+  "version": "0.7.0",
+  "circuits": 3475,
+  "microCircuits": 2918,
+  "sopLines": 114228,
+  "runtimeModules": 50,
+  "runtimeLines": 4349,
+  "sourceHash": "7de4951db5aac6fbbb95b03c4549cedaf55886cd19c8e19dc184b457a49b68e2"
+}

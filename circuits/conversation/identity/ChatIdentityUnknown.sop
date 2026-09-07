@@ -1,0 +1,4 @@
+@n1 record
+    kind "chat"
+    message "What name should I use? You can say \"My name is Jhon.\"."
+@output result $n1

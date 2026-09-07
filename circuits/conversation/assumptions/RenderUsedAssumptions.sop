@@ -1,0 +1,31 @@
+@input value
+@n1 field
+    value $value
+    name "assumptions"
+@n2 hasItems
+    values $n1
+@n3 mapReadCircuit
+    values $n1
+    circuit "RenderAssumption"
+@n4 join
+    values $n3
+    separator "\n"
+@n5 selectCircuits
+    group "conversation.support"
+    value $value
+@n6 callCandidates
+    candidates $n5
+    value $value
+@n7 selectCircuits
+    group "conversation.refutation"
+    value $value
+@n8 callCandidates
+    candidates $n7
+    value $value
+@n9 concat
+    part1 "\nAssumptions used:\n"
+    part2 $n4
+    part3 $n6
+    part4 $n8
+    part5 "\nThe answer depends on these interpretations. Use /reject <id> to reject one."
+@output result $n9

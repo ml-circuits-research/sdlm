@@ -1,0 +1,12 @@
+@input answer
+@n1 answerKindIs
+    value $answer
+    kind "preference"
+@n2 field
+    value $answer
+    name "value"
+@n3 concat
+    part1 "Response style: "
+    part2 $n2
+    part3 "."
+@output result $n3

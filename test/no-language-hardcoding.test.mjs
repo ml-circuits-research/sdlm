@@ -16,7 +16,7 @@ async function walk(dir) {
 }
 
 test('JavaScript kernel contains no CNL vocabulary/domain predicates', async () => {
-  const files = [...(await Promise.all(roots.map(walk))).flat(), path.join(src, 'sllm.mjs')];
+  const files = [...(await Promise.all(roots.map(walk))).flat(), path.join(src, 'sd_lm.mjs')];
   const text = (await Promise.all(files.map(f => fs.readFile(f, 'utf8')))).join('\n').toLowerCase();
   for (const forbidden of ['every human', 'mortal', 'ancestor', 'parent of', 'who is', 'likes bob', 'philosopher', 'admires', 'english.', 'englishlanguage']) {
     assert.equal(text.includes(forbidden), false, `kernel leaks language/domain phrase: ${forbidden}`);

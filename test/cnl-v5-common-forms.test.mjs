@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createSLLM } from '../src/sllm.mjs';
+import { createSDLM } from './helpers/runtime.mjs';
 
 test('broad CNL smoke suite covers common declarative, interrogative and inflectional families', async () => {
-  const s = await createSLLM({ learnedRoots: [] });
+  const s = await createSDLM({ learnedRoots: [] });
   const learned = [
     'Alice runs.',
     'Alice ran.',

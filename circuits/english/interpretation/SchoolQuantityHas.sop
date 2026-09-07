@@ -1,0 +1,50 @@
+@input tokens
+@count tokenCountIs
+    tokens $tokens
+    count 5
+@g1 tokenIs
+    tokens $tokens
+    index 1
+    value "has"
+@g4 tokenIs
+    tokens $tokens
+    index 4
+    value "."
+@subject constantAt
+    tokens $tokens
+    index 0
+@noun InterpretNoun
+    tokens $tokens
+    index 3
+@lemma field
+    value $noun
+    name "value"
+@predicate concat
+    part1 "count_"
+    part2 $lemma
+@amount numericToken
+    tokens $tokens
+    index 2
+@nonnegative compareNumbers
+    left $amount
+    right 0
+    operation "less"
+@valid valueFieldIs
+    value $nonnegative
+    name "status"
+    expected "false"
+@value constant
+    value $amount
+@payload record
+    subject $subject
+    predicate $predicate
+    value $value
+@decisions collectDecisions
+    noun $noun
+@command makeCommand
+    kind "setValue"
+    payload $payload
+@result record
+    command $command
+    decisions $decisions
+@output result $result

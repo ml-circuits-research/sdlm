@@ -1,0 +1,39 @@
+# Elementary knowledge expressed with ordinary SOP atom and rule constructors.
+@n1 makeVariable
+    name "X"
+@n2 makeVariable
+    name "Z"
+@n3 makeBinaryAtom
+    subject $n1
+    predicate "in"
+    polarity "positive"
+    object $n2
+@n4 makeVariable
+    name "X"
+@n5 makeVariable
+    name "Y"
+@n6 makeBinaryAtom
+    subject $n4
+    predicate "in"
+    polarity "positive"
+    object $n5
+@n7 makeVariable
+    name "Y"
+@n8 makeVariable
+    name "Z"
+@n9 makeBinaryAtom
+    subject $n7
+    predicate "in"
+    polarity "positive"
+    object $n8
+@n10 list
+    item0 $n6
+    item1 $n9
+@n11 makeRule
+    head $n3
+    body $n10
+@n12 kbAssertRule
+    rule $n11
+@result constant
+    value true
+@output result $result

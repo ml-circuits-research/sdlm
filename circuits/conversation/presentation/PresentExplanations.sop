@@ -1,0 +1,9 @@
+@input results
+@input style
+@n1 valueIs
+    value $style
+    expected "explain"
+@n2 arrayField
+    values $results
+    name "explanation"
+@output result $n2

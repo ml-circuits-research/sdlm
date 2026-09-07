@@ -1,0 +1,9 @@
+@input command
+@n1 commandKindIs
+    value $command
+    kind "identifySpeaker"
+@n2 selectCircuits
+    group "conversation.identity"
+@n3 callCandidates
+    candidates $n2
+@output result $n3

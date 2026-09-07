@@ -1,0 +1,25 @@
+@input proposal
+@input entities
+@input rejected
+@classified reviewUnknownPredicates
+    proposal $proposal
+    category "predicate-classification"
+    reason "Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known."
+@preserveKinds list
+    item1 "assertFact"
+    item2 "assertFacts"
+    item3 "assertRule"
+    item4 "setValue"
+    item5 "adjustNumber"
+    item6 "introduceSpeaker"
+@result reviewReferences
+    proposal $classified
+    preserveKinds $preserveKinds
+    entities $entities
+    rejected $rejected
+    maxDistance 1
+    minLength 4
+    maxLength 64
+    category "entity-resolution"
+    reason "Used the nearest entity already present in this session. Adjacent transpositions count as one edit; ties use name order and remain assumptions."
+@output result $result
