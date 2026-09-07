@@ -1,0 +1,11 @@
+@input command
+@input answer
+@n1 selectCircuits
+    group "conversation.observe"
+    value $command
+@n2 callCandidates
+    candidates $n1
+    value $command
+    command $command
+    answer $answer
+@output result $n2

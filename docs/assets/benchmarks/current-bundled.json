@@ -3,9 +3,9 @@
   "version": 1,
   "split": "all",
   "language": "en",
-  "checkedAt": "2026-09-07T13:21:35.760Z",
+  "checkedAt": "2026-09-07T14:19:04.478Z",
   "datasetHash": "b9d74bb9727c55f57bdac770d8ca198fc033f6adb0040d3bbcb7e24bd07c3572",
-  "sourceHash": "54912a2773d3752cfc9a04260f88d9abdfa1b5caab4847dd9d8634feaf8868f1",
+  "sourceHash": "dcbdc9a8f180900a72f3246df5ef0a82866c5cac22fedca11a0c424b9f9a75fa",
   "model": "sdlm",
   "engine": "bundled-mini-datalog",
   "backend": "bundled",
@@ -143,7 +143,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 955
+      "durationMs": 1336
     },
     {
       "id": "animals-02",
@@ -179,7 +179,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 977
+      "durationMs": 1162
     },
     {
       "id": "animals-03",
@@ -215,7 +215,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 889
+      "durationMs": 1117
     },
     {
       "id": "animals-04",
@@ -251,7 +251,7 @@
       "assumptions": [],
       "text": "No.",
       "error": null,
-      "durationMs": 850
+      "durationMs": 1087
     },
     {
       "id": "animals-05",
@@ -287,7 +287,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 824
+      "durationMs": 1072
     },
     {
       "id": "animals-06",
@@ -323,7 +323,7 @@
       "assumptions": [],
       "text": "No.",
       "error": null,
-      "durationMs": 856
+      "durationMs": 1143
     },
     {
       "id": "animals-07",
@@ -359,7 +359,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 908
+      "durationMs": 1065
     },
     {
       "id": "animals-08",
@@ -395,7 +395,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 841
+      "durationMs": 1123
     },
     {
       "id": "plants_materials-01",
@@ -435,7 +435,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 876
+      "durationMs": 1140
     },
     {
       "id": "plants_materials-02",
@@ -475,7 +475,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 872
+      "durationMs": 1100
     },
     {
       "id": "plants_materials-03",
@@ -511,7 +511,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 857
+      "durationMs": 1103
     },
     {
       "id": "plants_materials-04",
@@ -547,7 +547,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 852
+      "durationMs": 1111
     },
     {
       "id": "plants_materials-05",
@@ -583,7 +583,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 843
+      "durationMs": 1088
     },
     {
       "id": "plants_materials-06",
@@ -623,7 +623,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 873
+      "durationMs": 1162
     },
     {
       "id": "plants_materials-07",
@@ -659,7 +659,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 832
+      "durationMs": 1084
     },
     {
       "id": "plants_materials-08",
@@ -695,7 +695,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 820
+      "durationMs": 1149
     },
     {
       "id": "senses_tools-01",
@@ -739,7 +739,7 @@
       "assumptions": [],
       "text": "Answer: see",
       "error": null,
-      "durationMs": 708
+      "durationMs": 858
     },
     {
       "id": "senses_tools-02",
@@ -783,7 +783,7 @@
       "assumptions": [],
       "text": "Answer: hear",
       "error": null,
-      "durationMs": 697
+      "durationMs": 865
     },
     {
       "id": "senses_tools-03",
@@ -827,7 +827,7 @@
       "assumptions": [],
       "text": "Answer: smell",
       "error": null,
-      "durationMs": 745
+      "durationMs": 875
     },
     {
       "id": "senses_tools-04",
@@ -871,7 +871,7 @@
       "assumptions": [],
       "text": "Answer: write",
       "error": null,
-      "durationMs": 715
+      "durationMs": 861
     },
     {
       "id": "senses_tools-05",
@@ -915,7 +915,7 @@
       "assumptions": [],
       "text": "Answer: taste",
       "error": null,
-      "durationMs": 766
+      "durationMs": 879
     },
     {
       "id": "senses_tools-06",
@@ -959,7 +959,7 @@
       "assumptions": [],
       "text": "Answer: unlock",
       "error": null,
-      "durationMs": 714
+      "durationMs": 856
     },
     {
       "id": "senses_tools-07",
@@ -1003,7 +1003,7 @@
       "assumptions": [],
       "text": "Answer: shelter",
       "error": null,
-      "durationMs": 750
+      "durationMs": 826
     },
     {
       "id": "senses_tools-08",
@@ -1047,7 +1047,7 @@
       "assumptions": [],
       "text": "Answer: measure",
       "error": null,
-      "durationMs": 720
+      "durationMs": 804
     },
     {
       "id": "arithmetic-01",
@@ -1074,7 +1074,7 @@
       "assumptions": [],
       "text": "7.",
       "error": null,
-      "durationMs": 796
+      "durationMs": 933
     },
     {
       "id": "arithmetic-02",
@@ -1101,7 +1101,7 @@
       "assumptions": [],
       "text": "5.",
       "error": null,
-      "durationMs": 814
+      "durationMs": 893
     },
     {
       "id": "arithmetic-03",
@@ -1128,7 +1128,7 @@
       "assumptions": [],
       "text": "6.",
       "error": null,
-      "durationMs": 823
+      "durationMs": 913
     },
     {
       "id": "arithmetic-04",
@@ -1155,7 +1155,7 @@
       "assumptions": [],
       "text": "4.",
       "error": null,
-      "durationMs": 904
+      "durationMs": 1038
     },
     {
       "id": "arithmetic-05",
@@ -1182,7 +1182,7 @@
       "assumptions": [],
       "text": "15.",
       "error": null,
-      "durationMs": 814
+      "durationMs": 898
     },
     {
       "id": "arithmetic-06",
@@ -1209,7 +1209,7 @@
       "assumptions": [],
       "text": "7.",
       "error": null,
-      "durationMs": 779
+      "durationMs": 952
     },
     {
       "id": "arithmetic-07",
@@ -1236,7 +1236,7 @@
       "assumptions": [],
       "text": "20.",
       "error": null,
-      "durationMs": 826
+      "durationMs": 926
     },
     {
       "id": "arithmetic-08",
@@ -1263,7 +1263,7 @@
       "assumptions": [],
       "text": "4.",
       "error": null,
-      "durationMs": 881
+      "durationMs": 1005
     },
     {
       "id": "quantities-01",
@@ -1305,7 +1305,7 @@
       "assumptions": [],
       "text": "7.",
       "error": null,
-      "durationMs": 1012
+      "durationMs": 1123
     },
     {
       "id": "quantities-02",
@@ -1347,7 +1347,7 @@
       "assumptions": [],
       "text": "5.",
       "error": null,
-      "durationMs": 961
+      "durationMs": 1172
     },
     {
       "id": "quantities-03",
@@ -1389,7 +1389,7 @@
       "assumptions": [],
       "text": "2.",
       "error": null,
-      "durationMs": 921
+      "durationMs": 1167
     },
     {
       "id": "quantities-04",
@@ -1431,7 +1431,7 @@
       "assumptions": [],
       "text": "4.",
       "error": null,
-      "durationMs": 983
+      "durationMs": 1173
     },
     {
       "id": "quantities-05",
@@ -1474,7 +1474,7 @@
       "assumptions": [],
       "text": "7.",
       "error": null,
-      "durationMs": 1034
+      "durationMs": 1316
     },
     {
       "id": "quantities-06",
@@ -1516,7 +1516,7 @@
       "assumptions": [],
       "text": "7.",
       "error": null,
-      "durationMs": 965
+      "durationMs": 1137
     },
     {
       "id": "quantities-07",
@@ -1558,7 +1558,7 @@
       "assumptions": [],
       "text": "0.",
       "error": null,
-      "durationMs": 959
+      "durationMs": 1170
     },
     {
       "id": "quantities-08",
@@ -1600,7 +1600,7 @@
       "assumptions": [],
       "text": "9.",
       "error": null,
-      "durationMs": 904
+      "durationMs": 1142
     },
     {
       "id": "space-01",
@@ -1646,7 +1646,7 @@
       "assumptions": [],
       "text": "Answer: box",
       "error": null,
-      "durationMs": 855
+      "durationMs": 1067
     },
     {
       "id": "space-02",
@@ -1687,7 +1687,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 960
+      "durationMs": 1325
     },
     {
       "id": "space-03",
@@ -1734,7 +1734,7 @@
       "assumptions": [],
       "text": "Answer: garden",
       "error": null,
-      "durationMs": 906
+      "durationMs": 1422
     },
     {
       "id": "space-04",
@@ -1774,7 +1774,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 901
+      "durationMs": 1074
     },
     {
       "id": "space-05",
@@ -1816,7 +1816,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 1058
+      "durationMs": 1564
     },
     {
       "id": "space-06",
@@ -1857,7 +1857,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable. If in(zoe, Y) and in(Y, park), then in(zoe, park). This is a conditional possibility; I have not asserted the missing premises.",
       "error": null,
-      "durationMs": 906
+      "durationMs": 1320
     },
     {
       "id": "space-07",
@@ -1897,7 +1897,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 813
+      "durationMs": 1127
     },
     {
       "id": "space-08",
@@ -1937,7 +1937,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 832
+      "durationMs": 1115
     },
     {
       "id": "order_calendar-01",
@@ -1981,7 +1981,7 @@
       "assumptions": [],
       "text": "Answer: tuesday",
       "error": null,
-      "durationMs": 735
+      "durationMs": 857
     },
     {
       "id": "order_calendar-02",
@@ -2025,7 +2025,7 @@
       "assumptions": [],
       "text": "Answer: thursday",
       "error": null,
-      "durationMs": 750
+      "durationMs": 826
     },
     {
       "id": "order_calendar-03",
@@ -2066,7 +2066,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 980
+      "durationMs": 1361
     },
     {
       "id": "order_calendar-04",
@@ -2106,7 +2106,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 866
+      "durationMs": 1094
     },
     {
       "id": "order_calendar-05",
@@ -2150,7 +2150,7 @@
       "assumptions": [],
       "text": "Answer: monday",
       "error": null,
-      "durationMs": 797
+      "durationMs": 858
     },
     {
       "id": "order_calendar-06",
@@ -2194,7 +2194,7 @@
       "assumptions": [],
       "text": "Answer: monday",
       "error": null,
-      "durationMs": 757
+      "durationMs": 842
     },
     {
       "id": "order_calendar-07",
@@ -2235,7 +2235,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 1011
+      "durationMs": 1345
     },
     {
       "id": "order_calendar-08",
@@ -2279,7 +2279,7 @@
       "assumptions": [],
       "text": "Answer: january",
       "error": null,
-      "durationMs": 804
+      "durationMs": 849
     },
     {
       "id": "family-01",
@@ -2319,7 +2319,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 886
+      "durationMs": 1085
     },
     {
       "id": "family-02",
@@ -2360,7 +2360,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 964
+      "durationMs": 1284
     },
     {
       "id": "family-03",
@@ -2400,7 +2400,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 853
+      "durationMs": 1139
     },
     {
       "id": "family-04",
@@ -2440,7 +2440,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 815
+      "durationMs": 1063
     },
     {
       "id": "family-05",
@@ -2480,7 +2480,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 848
+      "durationMs": 1121
     },
     {
       "id": "family-06",
@@ -2521,7 +2521,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 1022
+      "durationMs": 1269
     },
     {
       "id": "family-07",
@@ -2561,7 +2561,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 824
+      "durationMs": 1094
     },
     {
       "id": "family-08",
@@ -2601,7 +2601,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable. If mother(eli, nora), then parent(eli, nora). This is a conditional possibility; I have not asserted the missing premises.",
       "error": null,
-      "durationMs": 794
+      "durationMs": 1070
     },
     {
       "id": "causal-01",
@@ -2807,7 +2807,7 @@
       ],
       "text": "Yes.\nAssumptions used:\n- [a1] everyday-default: \"outside in rain without known shelter\" -> \"probably wet\". Rain usually makes an exposed person wet. Assumed no unmentioned shelter or other protection. This conclusion is conditional and is not stored as a fact.\nSupport: wet(mia) from outside(mia) and in(mia, rain).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
       "error": null,
-      "durationMs": 1012
+      "durationMs": 1340
     },
     {
       "id": "causal-02",
@@ -2843,7 +2843,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 810
+      "durationMs": 1101
     },
     {
       "id": "causal-03",
@@ -2880,7 +2880,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 951
+      "durationMs": 1307
     },
     {
       "id": "causal-04",
@@ -2920,7 +2920,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 818
+      "durationMs": 1123
     },
     {
       "id": "causal-05",
@@ -2960,7 +2960,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 829
+      "durationMs": 1170
     },
     {
       "id": "causal-06",
@@ -3000,7 +3000,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 833
+      "durationMs": 1125
     },
     {
       "id": "causal-07",
@@ -3038,7 +3038,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable.",
       "error": null,
-      "durationMs": 1087
+      "durationMs": 1610
     },
     {
       "id": "causal-08",
@@ -3078,7 +3078,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 861
+      "durationMs": 1107
     },
     {
       "id": "comparisons-01",
@@ -3105,7 +3105,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 831
+      "durationMs": 993
     },
     {
       "id": "comparisons-02",
@@ -3132,7 +3132,7 @@
       "assumptions": [],
       "text": "No.",
       "error": null,
-      "durationMs": 872
+      "durationMs": 978
     },
     {
       "id": "comparisons-03",
@@ -3173,7 +3173,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 968
+      "durationMs": 1365
     },
     {
       "id": "comparisons-04",
@@ -3213,7 +3213,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 839
+      "durationMs": 1112
     },
     {
       "id": "comparisons-05",
@@ -3240,7 +3240,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 860
+      "durationMs": 929
     },
     {
       "id": "comparisons-06",
@@ -3267,7 +3267,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 859
+      "durationMs": 958
     },
     {
       "id": "comparisons-07",
@@ -3308,7 +3308,7 @@
       "assumptions": [],
       "text": "Yes.",
       "error": null,
-      "durationMs": 964
+      "durationMs": 1345
     },
     {
       "id": "comparisons-08",
@@ -3335,7 +3335,7 @@
       "assumptions": [],
       "text": "No.",
       "error": null,
-      "durationMs": 825
+      "durationMs": 969
     },
     {
       "id": "epistemic-01",
@@ -3371,7 +3371,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable.",
       "error": null,
-      "durationMs": 836
+      "durationMs": 1101
     },
     {
       "id": "epistemic-02",
@@ -3408,7 +3408,7 @@
       "assumptions": [],
       "text": "Both the statement and its explicit negation are derivable.",
       "error": null,
-      "durationMs": 909
+      "durationMs": 1337
     },
     {
       "id": "epistemic-03",
@@ -3476,7 +3476,7 @@
       ],
       "text": "Yes.\nAssumptions used:\n- [a1] predicate-classification: \"dax\" -> \"dax\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\n- [a2] predicate-classification: \"dax\" -> \"dax\". Used this unregistered word as a predicate because the selected grammar places it in that role. Its real-world definition is not known.\nSupport: round(aster) from dax(aster).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
       "error": null,
-      "durationMs": 993
+      "durationMs": 1394
     },
     {
       "id": "epistemic-04",
@@ -3512,7 +3512,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable. If human(unknownperson), then mortal(unknownperson). This is a conditional possibility; I have not asserted the missing premises.",
       "error": null,
-      "durationMs": 786
+      "durationMs": 1045
     },
     {
       "id": "epistemic-05",
@@ -3561,7 +3561,7 @@
       ],
       "text": "Yes.\nAssumptions used:\n- [a1] sentence-boundary: \"missing terminator\" -> \"?\". Added a sentence terminator from the leading token so the input can be parsed. This is a formatting assumption.\nSupport: human(mara).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
       "error": null,
-      "durationMs": 892
+      "durationMs": 1321
     },
     {
       "id": "epistemic-06",
@@ -3631,7 +3631,7 @@
       ],
       "text": "Yes.\nAssumptions used:\n- [a1] temporal-projection: \"going to\" -> \"unqualified predicate\". Interpreted the tense as a query about the unqualified predicate. The knowledge base has no date or event-time evidence; this does not establish when an event occurs or occurred.\n- [a2] entity-resolution: \"scorate\" -> \"socrate\". Used the nearest entity already present in this session. Adjacent transpositions count as one edit; ties use name order and remain assumptions.\nSupport: die(socrate) from human(socrate).\nThe answer depends on these interpretations. Use /reject <id> to reject one.",
       "error": null,
-      "durationMs": 998
+      "durationMs": 1374
     },
     {
       "id": "epistemic-07",
@@ -3667,7 +3667,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable. If dog(nori), then mammal(nori). This is a conditional possibility; I have not asserted the missing premises.",
       "error": null,
-      "durationMs": 824
+      "durationMs": 1127
     },
     {
       "id": "epistemic-08",
@@ -3707,7 +3707,7 @@
       "assumptions": [],
       "text": "Unknown: neither the statement nor its explicit negation is derivable. If in(ball, Y) and in(Y, garden), then in(ball, garden). This is a conditional possibility; I have not asserted the missing premises.",
       "error": null,
-      "durationMs": 837
+      "durationMs": 1079
     }
   ]
 }

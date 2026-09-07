@@ -1,0 +1,6 @@
+@input value
+@n1 candidateWeight
+    weight -100
+@n2 constant
+    value null
+@output result $n2

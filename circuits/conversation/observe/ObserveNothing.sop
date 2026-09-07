@@ -1,0 +1,7 @@
+@input command
+@input answer
+@n1 candidateWeight
+    weight -100
+@n2 constant
+    value true
+@output result $n2

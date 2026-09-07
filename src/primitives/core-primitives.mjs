@@ -7,6 +7,7 @@ import { registerInterpretationPrimitives } from '../interpretation/symbols.mjs'
 import { registerSessionPrimitives } from './session-primitives.mjs';
 import { registerQuantityPrimitives } from './quantity-primitives.mjs';
 import { registerTokenPrimitives } from './token-primitives.mjs';
+import { registerRecordPrimitives } from './record-primitives.mjs';
 
 export class NoMatchError extends Error {
   constructor(message) { super(message); this.name = 'NoMatchError'; }
@@ -319,6 +320,7 @@ export function createPrimitives(context) {
   registerInterpretationPrimitives(p, context);
   registerQuantityPrimitives(p, context);
   registerTokenPrimitives(p, context);
+  registerRecordPrimitives(p);
   registerSessionPrimitives(p, context);
   return p;
 }

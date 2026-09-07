@@ -1,0 +1,34 @@
+@input slots
+@n1 field
+    value $slots
+    name "ownerTokens"
+@n2 tokenClassIs
+    tokens $n1
+    index 0
+    class "quantityFirstPerson"
+@n3 ChatCurrentSpeaker
+@n4 field
+    value $n3
+    name "value"
+@n5 field
+    value $n3
+    name "atom"
+@n6 tokenSurfaceAt
+    tokens $n1
+    index 0
+@n7 record
+    category "speaker-reference"
+    original $n6
+    value $n4
+    reason "Resolved the first-person quantity owner to the current speaker introduced in this session."
+    certainty "contextual"
+    evidence $n5
+@n8 list
+    item0 $n7
+@n9 list
+    item0 $n5
+@n10 record
+    subject $n4
+    decisions $n8
+    evidence_atoms $n9
+@output result $n10

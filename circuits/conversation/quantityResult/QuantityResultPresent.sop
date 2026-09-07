@@ -1,0 +1,25 @@
+@input value
+@n1 field
+    value $value
+    name "command"
+@n2 commandKindIs
+    value $n1
+    kind "readValue"
+@n3 field
+    value $n1
+    name "payload"
+@n4 field
+    value $n3
+    name "predicate"
+@n5 textStartsWith
+    value $n4
+    prefix "count_"
+@n6 field
+    value $value
+    name "answer"
+@n7 answerKindIs
+    value $n6
+    kind "value"
+@n8 constant
+    value $value
+@output result $n8

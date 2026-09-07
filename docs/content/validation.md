@@ -27,6 +27,7 @@ npm run check -- --record
 | Concurrent request rollback | Serialized public operations and scoped rollback preserve previously committed work; `runtime-hardening.test.mjs` |
 | Brittle unsupported-language errors | Assumption-guided response, usable partial results and explicit decisions before execution; `interpretation.test.mjs` |
 | Arithmetic phrasing and typos | Composed question and imperative forms, signed operands, symbolic operators, causal lexical repair and contextual gaps; `arithmetic-conversation.test.mjs` |
+| Quantity story context | Pronouns, omitted owners/items, flexible question order, causal assumptions, bounded live focus, rollback, restart and API prefix matching; `quantity-conversation.test.mjs` |
 | Basic chatbot interaction | Greetings, introductions, personal references, category/person distinction, polite questions, rejection dependencies, restart and HTTP continuation; `conversation-chat.test.mjs` |
 | Assumed knowledge after correction | Independent support tracking, retraction, session restoration and invalidated value references; `interpretation.test.mjs` |
 | Invisible typing and paste | Connect the readline output stream and preserve pending input when redrawing the prompt; `cli-terminal.test.mjs` exercises a real pseudo-terminal |

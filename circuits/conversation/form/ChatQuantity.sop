@@ -1,0 +1,8 @@
+@input tokens
+@n1 candidateWeight
+    weight 20
+@n2 ChatQuantitySyntax
+    tokens $tokens
+@n3 ResolveQuantity
+    slots $n2
+@output result $n3

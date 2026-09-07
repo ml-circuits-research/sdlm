@@ -1,0 +1,9 @@
+@input tokens
+@n1 tokenCountIs
+    tokens $tokens
+    count 0
+@n2 list
+@n3 record
+    predicate null
+    decisions $n2
+@output result $n3

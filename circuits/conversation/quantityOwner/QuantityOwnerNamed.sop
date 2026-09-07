@@ -1,0 +1,22 @@
+@input slots
+@n1 field
+    value $slots
+    name "ownerTokens"
+@n2 list
+    item0 "quantityPronoun"
+    item1 "quantityFirstPerson"
+    item2 "chatReserved"
+@n3 symbolicTokenSpan
+    tokens $n1
+    maximum 1
+    excludedClasses $n2
+@n4 tokenNormAt
+    tokens $n1
+    index 0
+@n5 list
+@n6 list
+@n7 record
+    subject $n4
+    decisions $n5
+    evidence_atoms $n6
+@output result $n7

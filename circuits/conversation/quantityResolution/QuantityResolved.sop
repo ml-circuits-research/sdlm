@@ -1,0 +1,30 @@
+@input slots
+@n1 candidateWeight
+    weight 10
+@n2 ResolveQuantityOwner
+    slots $slots
+@n3 ResolveQuantityItem
+    slots $slots
+    owner $n2
+@n4 MakeQuantityCommand
+    slots $slots
+    owner $n2
+    item $n3
+@n5 collectDecisions
+    slots $slots
+    owner $n2
+    item $n3
+@n6 field
+    value $n2
+    name "evidence_atoms"
+@n7 field
+    value $n3
+    name "evidence_atoms"
+@n8 concatLists
+    part1 $n6
+    part2 $n7
+@n9 record
+    command $n4
+    decisions $n5
+    evidence_atoms $n8
+@output result $n9

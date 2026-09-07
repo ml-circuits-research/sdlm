@@ -1,0 +1,5 @@
+@input slots
+@n1 candidateWeight
+    weight -100
+@n2 record
+@output result $n2

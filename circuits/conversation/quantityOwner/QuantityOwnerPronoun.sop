@@ -1,0 +1,46 @@
+@input slots
+@n1 field
+    value $slots
+    name "ownerTokens"
+@n2 tokenClassIs
+    tokens $n1
+    index 0
+    class "quantityPronoun"
+@n3 tokenSurfaceAt
+    tokens $n1
+    index 0
+@n4 QuantityOwnerMatch
+    slots $slots
+@n5 ReadQuantityContexts
+    match $n4
+@n6 hasItems
+    values $n5
+@n7 field
+    value $n5
+    name "0"
+@n8 field
+    value $n7
+    name "subject"
+@n9 field
+    value $n7
+    name "atom"
+@n10 record
+    selected $n7
+    alternatives $n5
+    selectedBy "most-recent-compatible-quantity"
+@n11 record
+    category "pronoun-resolution"
+    original $n3
+    value $n8
+    reason "Used the most recently mentioned owner with a live quantity matching the supplied item, when present. This is a recency assumption; no gender was inferred from the name."
+    certainty "contextual"
+    evidence $n10
+@n12 list
+    item0 $n11
+@n13 list
+    item0 $n9
+@n14 record
+    subject $n8
+    decisions $n12
+    evidence_atoms $n13
+@output result $n14

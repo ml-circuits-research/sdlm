@@ -138,6 +138,11 @@ mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
 <td>Arithmetic wording and spelling repair</td>
 <td>Two numeric operands and one operation. Word repairs are recorded; unsupported words, units and longer expressions are not silently discarded.</td>
 </tr>
+<tr>
+<td><code>/example 24</code></td>
+<td>Quantity problems with contextual references</td>
+<td>Pronouns and omitted items use the most recent compatible live quantity, with explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. No gender inference, transfers or historical count reconstruction.</td>
+</tr>
 </tbody></table>
 <h2 id="what-the-results-mean">What the results mean</h2>
 <p>Positive and explicit negative support are independent. A question can return Yes, No, Both, or Unknown. Missing evidence is not a negative fact. Strict ambiguous parses return alternatives without asserting a branch. Conversation mode may select a retained interpretation and record that choice as an <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> before execution. Rules accept unary and binary relations and safe bound variables. Modal <a class="definition-link" href="wiki.html#definition-qualifier">qualifiers</a> distinguish <code>can</code> from an unqualified relation. Some tense forms normalize to the same relation, so the runtime is not a temporal reasoner.</p>
@@ -205,6 +210,8 @@ mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
 <h2 id="research-work-still-required">Research work still required</h2>
 <p>Broad language coverage needs evaluation on unseen compositions and independently sourced corpora. Automatic document extraction needs source spans, validation of extracted claims, and source-aware retraction. The durable <a class="definition-link" href="wiki.html#definition-assumption">assumption</a> ledger records interpretation decisions and assertion supports. Complete historical <a class="definition-link" href="wiki.html#definition-proof">provenance</a> still needs recorded derivation witnesses beyond reconstructed <a class="definition-link" href="wiki.html#definition-proof">proof</a> trees. Larger deployments need incremental truth maintenance, measured retrieval quality across large <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuit</a> libraries, persistent-version compatibility, hard execution isolation, and authenticated <a class="definition-link" href="wiki.html#definition-session">session</a> ownership.</p>
 <p>These are separate engineering and research outcomes. Passing the example catalog demonstrates its listed behaviors only. It does not establish general intelligence, autonomous coding-agent operation, or performance at production traffic levels.</p>
+<h2 id="quantity-stories-with-context">Quantity stories with context</h2>
+<p>Conversation mode can continue a bounded inventory problem across turns. <code>Jgon has 3 eggs. He received 4. How many eggs he has now?</code> computes 7 with explicit owner and item <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. Recent compatible quantity context supplies omitted slots, and full evidence survives <a class="definition-link" href="wiki.html#definition-session">session</a> restart and rejection. Example 24 demonstrates the workflow. Transfers between people, comparative more questions, event history and arbitrary narrative anaphora remain outside these forms. The <a href="conversation.html#solve-a-quantity-problem-across-sentences">conversation guide</a> explains the recency policy and its failure boundaries.</p>
 
 </article></main>
 <div data-include="partials/footer.html"></div>

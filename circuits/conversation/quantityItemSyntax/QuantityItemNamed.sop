@@ -1,0 +1,31 @@
+@input tokens
+@noDifference tokenNotContains
+    tokens $tokens
+    value "more"
+@n1 tokenCountIs
+    tokens $tokens
+    count 1
+@n2 list
+    item0 "chatReserved"
+    item1 "quantityPronoun"
+    item2 "quantityFirstPerson"
+@n3 symbolicTokenSpan
+    tokens $tokens
+    maximum 1
+    excludedClasses $n2
+@n4 InterpretQuantityItem
+    tokens $tokens
+    index 0
+@n5 field
+    value $n4
+    name "value"
+@n6 concat
+    part1 "count_"
+    part2 $n5
+@n7 field
+    value $n4
+    name "decisions"
+@n8 record
+    predicate $n6
+    decisions $n7
+@output result $n8

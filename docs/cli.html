@@ -353,10 +353,17 @@ printf &#39;/help\n/example 5\n/quit\n&#39; | node src/cli.mjs
 <td>Arithmetic wording and spelling repair</td>
 <td>Two numeric operands and one operation. Word repairs are recorded; unsupported words, units and longer expressions are not silently discarded.</td>
 </tr>
+<tr>
+<td><code>/example 24</code></td>
+<td>Quantity problems with contextual references</td>
+<td>Pronouns and omitted items use the most recent compatible live quantity, with explicit <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. No gender inference, transfers or historical count reconstruction.</td>
+</tr>
 </tbody></table>
 <h2 id="stored-terminal-history">Stored terminal history</h2>
 <p>The store keeps the selected ID in <code>.cli-state.json</code> and up to 1,000 submitted entries per <a class="definition-link" href="wiki.html#definition-session">session</a> in <code>&lt;session&gt;/cli-history.json</code>. Blank lines, comments, <code>/quit</code> and entries longer than 8,192 characters are omitted. Consecutive duplicate entries collapse. Writes are atomic and locked so concurrent terminals do not overwrite each other&#39;s appended history. Saving recall does not publish a new semantic revision.</p>
 <p>If a saved <a class="definition-link" href="wiki.html#definition-session">session</a> has no CLI history file, its retained user messages seed recall. Old slash commands that were never recorded cannot be recovered. A missing remembered <a class="definition-link" href="wiki.html#definition-session">session</a> falls back to another saved <a class="definition-link" href="wiki.html#definition-session">session</a> or a new one, with a notice. Corrupt existing <a class="definition-link" href="wiki.html#definition-session">session</a> state fails restoration rather than silently switching to unrelated knowledge. These JSON files are terminal bookkeeping; semantic state remains SOP and API history matching remains separate.</p>
+<h2 id="try-a-quantity-story">Try a quantity story</h2>
+<p>Run <code>/examples 24</code> to inspect the quantity-context scenario, or <code>/example 24</code> to execute it in isolation. In your own <a class="definition-link" href="wiki.html#definition-session">session</a>, enter <code>Jgon has 3 eggs. He received 4. How many eggs he has now?</code>. <code>/verbosity answer</code> shows only <code>7.</code> for this problem; <code>/verbosity explain</code> shows the pronoun, omitted-item and question-normalization <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>. <code>/assumptions</code> and <code>/reject &lt;id&gt;</code> remain available in either style. Read <a href="conversation.html#solve-a-quantity-problem-across-sentences">Quantity problems</a> for continuation and ambiguous-context examples.</p>
 
 </article></main>
 <div data-include="partials/footer.html"></div>

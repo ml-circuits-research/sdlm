@@ -6,7 +6,7 @@ The technical name is `sd_lm`; documentation and interfaces use **[sdlm](docs/wi
 
 The installed model is bounded. It supports the constructions demonstrated in the examples and installed packs. Broad English comprehension, automatic document extraction, and unrestricted neural text generation remain outside its contract. The [capability guide](docs/capabilities.html) describes what is usable and what still needs engineering or research.
 
-Say `Hello`, introduce yourself with `My name is Jhon.`, and ask `What can you do?`. The [conversation guide](docs/conversation.html) explains remembered names, first-person questions and clarification. Run `/example 21` for a complete conversation, `/example 22` for polite requests or `/example 23` for arithmetic wording and spelling repair.
+Say `Hello`, introduce yourself with `My name is Jhon.`, and ask `What can you do?`. The [conversation guide](docs/conversation.html) explains remembered names, first-person questions and clarification. Run `/example 21` for a complete conversation, `/example 22` for polite requests `/example 23` for arithmetic wording and spelling repair, or `/example 24` for quantity problems with pronouns and omitted items.
 
 ## Install and try
 

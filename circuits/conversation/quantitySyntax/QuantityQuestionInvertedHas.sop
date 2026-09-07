@@ -1,0 +1,48 @@
+@input tokens
+@noDifference tokenNotContains
+    tokens $tokens
+    value "more"
+@n1 list
+    item0 "now"
+    item1 "left"
+    item2 "remaining"
+@n2 trimTokenEdges
+    tokens $tokens
+    trailing $n1
+@n3 tokenCountIs
+    tokens $n2
+    count 5
+@n4 tokenIs
+    tokens $n2
+    index 0
+    value "how"
+@n5 tokenIs
+    tokens $n2
+    index 1
+    value "many"
+@n6 tokenIs
+    tokens $n2
+    index 3
+    value "has"
+@n7 sliceTokens
+    tokens $n2
+    start 2
+    end 3
+@n8 ParseQuantityItem
+    tokens $n7
+@n9 sliceTokens
+    tokens $n2
+    start 4
+    end 5
+@n10 field
+    value $n8
+    name "decisions"
+@n11 field
+    value $n8
+    name "predicate"
+@n12 record
+    kind "readValue"
+    ownerTokens $n9
+    predicate $n11
+    decisions $n10
+@output result $n12

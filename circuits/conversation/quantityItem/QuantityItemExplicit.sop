@@ -1,0 +1,14 @@
+@input slots
+@input owner
+@n1 field
+    value $slots
+    name "predicate"
+@n2 valuePresent
+    value $n1
+@n3 list
+@n4 list
+@n5 record
+    predicate $n1
+    decisions $n3
+    evidence_atoms $n4
+@output result $n5

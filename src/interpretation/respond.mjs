@@ -93,7 +93,10 @@ export function createResponder(context) {
     for (const token of proposal.tokens) if (token.classes.includes('entity')) {
       language.rememberDisplay(token.norm, token.surface);
     }
-    try { answer = await run('ExecuteCommand', { command: proposal.command }); }
+    try {
+      answer = await run('ExecuteCommand', { command: proposal.command });
+      await run('ObserveConversation', { command: proposal.command, answer });
+    }
     finally { evidence.active = []; }
     const answerText = await run('RenderEnglish', { answer });
     const proof = answer.hypothetical ? { kind: 'explanation', status: 'conditional', atom: answer.atom,

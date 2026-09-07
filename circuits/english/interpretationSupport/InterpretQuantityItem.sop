@@ -1,0 +1,28 @@
+@input tokens
+@input index
+@afterItem add
+    value $index
+    delta 1
+@itemTokens sliceTokens
+    tokens $tokens
+    start $index
+    end $afterItem
+@noDifference tokenNotContains
+    tokens $itemTokens
+    value "more"
+@classes list
+    item0 "noun"
+@suffix record
+    suffix "s"
+    replacement ""
+    minStem 3
+@transforms list
+    item1 $suffix
+@result interpretSymbol
+    tokens $tokens
+    index $index
+    classes $classes
+    category "item-classification"
+    reason "Used this word as the item being counted because it follows a quantity or occupies the item position in a how-many question. An unknown final s is treated as a plural suffix."
+    transforms $transforms
+@output result $result

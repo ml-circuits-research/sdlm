@@ -1,0 +1,29 @@
+@input slots
+@n1 candidateWeight
+    weight -100
+@n2 field
+    value $slots
+    name "ownerTokens"
+@n3 arrayField
+    values $n2
+    name "surface"
+@n4 joinOrDefault
+    values $n3
+    separator " "
+    fallback "the omitted owner"
+@n5 concat
+    part1 "I cannot connect \""
+    part2 $n4
+    part3 "\" to a known quantity owner yet. Name the owner and item, for example \"Mia has 3 eggs.\", then repeat the change or question."
+@n6 record
+    kind "chat"
+    status "unknown"
+    message $n5
+@n7 makeCommand
+    kind "chat"
+    payload $n6
+@n8 list
+@n9 record
+    command $n7
+    decisions $n8
+@output result $n9

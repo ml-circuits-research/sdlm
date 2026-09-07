@@ -1,0 +1,8 @@
+@input value
+@n1 selectCircuits
+    group "conversation.quantityRender"
+    value $value
+@n2 callCandidates
+    candidates $n1
+    value $value
+@output result $n2

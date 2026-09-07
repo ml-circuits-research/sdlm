@@ -1,0 +1,49 @@
+@input command
+@input answer
+@n1 commandKindIs
+    value $command
+    kind "setValue"
+@observed constant
+    value $answer
+@n2 answerKindIs
+    value $observed
+    kind "ack"
+@n3 field
+    value $command
+    name "payload"
+@n4 field
+    value $n3
+    name "predicate"
+@n5 textStartsWith
+    value $n4
+    prefix "count_"
+@n6 field
+    value $n3
+    name "subject"
+@n7 kbReadValue
+    subject $n6
+    predicate $n4
+    numeric true
+@n8 answerKindIs
+    value $n7
+    kind "value"
+@n9 field
+    value $n6
+    name "value"
+@n10 record
+    subject $n9
+    predicate $n4
+@n11 getSessionSetting
+    name "quantity_context"
+@n12 list
+    item0 "subject"
+    item1 "predicate"
+@n13 rememberRecord
+    values $n11
+    value $n10
+    keys $n12
+    limit 16
+@n14 setSessionSetting
+    name "quantity_context"
+    value $n13
+@output result $n14

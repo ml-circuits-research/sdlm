@@ -26,7 +26,7 @@ npm run check -- --record
 </code></pre>
 <p><code>check -- --record</code> runs the complete checks, saves actual backend results, rebuilds documentation and verifies it. Plain <code>check</code> verifies documentation freshness without rebuilding it.</p>
 <p><code>test:backends</code> forces the complete suite onto each backend and fails if either run fails. <code>check</code> verifies syntax, both backend suites, examples and the 44-case evaluation split on both backends, and documentation freshness and links. <code>docs:build</code> regenerates HTML, the book, command/example tables, the specification matrix, and the source inventory. <code>docs:check</code> compares generated output and verifies local paths, anchors, shared-menu interaction, specification loading and JSON snippets in a DOM. It does not replace visual browser inspection. The CLI offers <code>--run all --json</code> for machine-readable example results.</p>
-<p>Recorded with Node.js v24.9.0 on 2026-09-07T13:26:50.788Z. The runtime source fingerprint matches this build.</p>
+<p>Recorded with Node.js v24.9.0 on 2026-09-07T14:25:21.852Z. The runtime source fingerprint matches this build.</p>
 <table>
 <thead>
 <tr>
@@ -38,14 +38,14 @@ npm run check -- --record
 </thead>
 <tbody><tr>
 <td>bundled</td>
-<td>100</td>
-<td>23</td>
+<td>111</td>
+<td>24</td>
 <td>44/44</td>
 </tr>
 <tr>
 <td>external</td>
-<td>100</td>
-<td>23</td>
+<td>111</td>
+<td>24</td>
 <td>44/44</td>
 </tr>
 </tbody></table>
@@ -68,6 +68,10 @@ npm run check -- --record
 <tr>
 <td>Arithmetic phrasing and typos</td>
 <td>Composed question and imperative forms, signed operands, symbolic operators, causal lexical repair and contextual gaps; <code>arithmetic-conversation.test.mjs</code></td>
+</tr>
+<tr>
+<td>Quantity story context</td>
+<td>Pronouns, omitted owners/items, flexible question order, causal <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a>, bounded live focus, rollback, restart and API prefix matching; <code>quantity-conversation.test.mjs</code></td>
 </tr>
 <tr>
 <td>Basic chatbot interaction</td>

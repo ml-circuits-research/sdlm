@@ -91,3 +91,49 @@ An unresolved request asks for context or suggests a usable form. Requests to wr
 The result remains `unresolved`, with a null semantic answer. Actual classified tokens remain under `gap.tokens` and in exported feedback; the ordinary reply no longer prints a parser diagnostic. Answer-only mode retains the concise `I don't know.` for these gaps. Operational errors and invalid rules still fail transactionally.
 
 This is a circuit-defined conversation layer. It does not provide arbitrary pronoun resolution, general paraphrase understanding, a biographical database, web access or autonomous program generation. Unknown name-versus-attribute choices can be wrong. The separate conversation regression tests cover these workflows; the frozen elementary benchmark still measures its original 88 questions.
+
+## Solve a quantity problem across sentences
+
+```text
+/session new quantities
+/verbosity explain
+Jgon has 3 eggs. He received 4. How many eggs he has now?
+/verbosity answer
+How many eggs he has now?
+He lost 2. How many eggs he has now?
+```
+
+The first problem computes 7. The following question displays `7.`, and the loss followed by a question displays `5.`. `/examples 24` shows the scenario; `/example 24` runs it in isolation and includes a saved-session restart. The same sentence forms work through the API and library. Restart the CLI process to load updated base circuits.
+
+The first sentence stores the count of eggs for Jgon. The gain resolves He to Jgon and fills the omitted item with egg. Both choices are recorded before the update. The final question accepts the owner-before-has word order and records that normalization. Its structured result also retains the assumptions that caused the updated count. Eggs is registered inventory vocabulary; an unfamiliar item such as zibbles receives an item-classification explanation with its actual plural normalization, rather than a claim about a unary class.
+
+| Input form | Interpretation |
+| --- | --- |
+| `Lina has 9 coins.` | Set Lina's current coin count to 9 |
+| `She received 4.` | Select the recent compatible owner and fill the omitted item, then add 4 |
+| `Lina received 4 coins.` | Add 4 to an explicitly named inventory |
+| `She lost 2 coins.` | Select an owner with a recent coin count, then subtract 2 |
+| `How many coins she has now?` | Normalize the word order and read the current count |
+| `How many does Lina have left?` | Fill the most recent item for Lina |
+| `How many coins are left?` | Fill the most recent owner with a coin count |
+| `How many now?` | Fill both owner and item from quantity focus |
+
+Set verbs include has, have, had and owns. Gains include gets, got, receives, received, gains, gained, finds, found, buys and bought. Losses include loses, lost, eats, ate, uses, used, spends, spent, sells, sold, gives and gave. The corresponding present first-person forms also work. A gain or loss can omit its item or use more before the item, as in `He received 4 more eggs.` Questions accept canonical does/do-have forms and the supported reordered forms above. These verbs update current state; past-tense wording does not create historical events. Signed numeric changes retain their supplied sign, and a loss verb negates that change. For example, received -2 subtracts two, while lost -2 adds two. Quantity owners are single identifiers; use `Mary_Jane` after a multiword introduction, or use I with the current speaker.
+
+### Inspect the choices
+
+Quantity focus remembers the sixteen most recent distinct owner/item pairs in the session. Successful sets, updates and queries move a pair to the front. Before choosing an antecedent, circuits re-read the live count. The focus contains identifiers, not an alternate cache of quantities. Failed updates do not change the order.
+
+An explicit item narrows owner selection. After `Nora has 3 eggs. Cora has 9 coins.`, `She received 2 eggs.` selects Nora because the item matches her inventory. Without eggs, She selects Cora. With several eligible owners or items, the most recent wins. The assumption's evidence lists the selected quantity and eligible alternatives, so the choice can be inspected. He, she, they and it follow this recency rule; names do not establish gender. I and me use the introduced speaker instead.
+
+Use `/assumptions` to inspect decisions and `/reject <id>` to reject one. If an update depended on that decision, its unsupported replacement count and dependent saved values are invalidated. The previous count is not reconstructed. State the corrected inventory explicitly, such as `Jgon has 3 eggs.`, before another change. Rejected or missing facts cannot supply a count merely because their identifiers remain in focus.
+
+Quantity focus survives SOP session restart and stays separate across sessions. A full-history API client can resend a matching prefix without applying a received or lost amount twice. Older snapshots without focus need a new explicit quantity statement or query to establish it; historical messages are not replayed.
+
+### Boundaries of this interpretation
+
+With no usable owner or omitted-item context, the reply identifies the missing quantity information. An explicit gain without a starting count returns Unknown instead of assuming zero. Updates exceeding the available count keep the prior value. Strict parsing retains its exact forms and does not maintain conversational focus.
+
+Recipients and transfers such as `Nora gave 2 eggs to Cora.`, comparative questions such as `How many more eggs?`, extra item clauses, number words and general narrative pronouns remain outside these forms. An update does not change another person's inventory implicitly. Answer-only mode suppresses successful update confirmations when the same request includes a successful quantity query; failures and standalone updates remain visible. Explained mode retains the intermediate answers.
+
+The earlier failure on the Jgon example occurred after storing 3 correctly. The runtime had no quantity antecedent selection, omitted-item completion or matching final question form. Separate regression tests now cover these operations, competing contexts, changed names and values, rejection, rollback, restart and API history continuation. The frozen 88-case benchmark is unchanged.

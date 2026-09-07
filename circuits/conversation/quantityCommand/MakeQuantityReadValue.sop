@@ -1,0 +1,25 @@
+@input slots
+@input owner
+@input item
+@commandKind field
+    value $slots
+    name "kind"
+@n1 valueIs
+    value $commandKind
+    expected "readValue"
+@n2 field
+    value $owner
+    name "subject"
+@n3 makeConstant
+    value $n2
+@n4 field
+    value $item
+    name "predicate"
+@n5 record
+    subject $n3
+    predicate $n4
+    numeric true
+@n6 makeCommand
+    kind "readValue"
+    payload $n5
+@output result $n6

@@ -1,0 +1,17 @@
+@input match
+@n1 getSessionSetting
+    name "quantity_context"
+@n2 filterMatching
+    values $n1
+    match $match
+@n3 mapReadCircuit
+    values $n2
+    circuit "ValidateQuantityContext"
+@n4 list
+@n5 list
+    item0 null
+@n6 filterField
+    values $n3
+    path $n4
+    excluded $n5
+@output result $n6

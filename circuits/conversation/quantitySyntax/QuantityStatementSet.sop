@@ -1,0 +1,77 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 record
+    surface "has"
+    value "has"
+@n3 record
+    surface "have"
+    value "have"
+@n4 record
+    surface "had"
+    value "had"
+@n5 record
+    surface "owns"
+    value "owns"
+@n6 list
+    item0 $n2
+    item1 $n3
+    item2 $n4
+    item3 $n5
+@n7 matchTokenChoice
+    tokens $tokens
+    index 1
+    choices $n6
+@n8 field
+    value $n7
+    name "value"
+@n9 numericToken
+    tokens $tokens
+    index 2
+@n10 compareNumbers
+    left $n9
+    right 0
+    operation "less"
+@n11 answerStatusIs
+    value $n10
+    status "false"
+@n12 tokenCount
+    tokens $tokens
+@n13 sliceTokens
+    tokens $tokens
+    start 3
+    end $n12
+@n14 list
+    item0 "now"
+@n15 list
+@n16 trimTokenEdges
+    tokens $n13
+    trailing $n14
+    leading $n15
+@n17 ParseQuantityItem
+    tokens $n16
+@n18 calculateNumber
+    left $n9
+    right 1
+    operation "multiply"
+@n19 field
+    value $n18
+    name "value"
+@n20 sliceTokens
+    tokens $tokens
+    start 0
+    end 1
+@n21 field
+    value $n17
+    name "predicate"
+@n22 field
+    value $n17
+    name "decisions"
+@n23 record
+    kind "setValue"
+    ownerTokens $n20
+    predicate $n21
+    amount $n19
+    decisions $n22
+@output result $n23

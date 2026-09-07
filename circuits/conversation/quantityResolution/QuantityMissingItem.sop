@@ -1,0 +1,28 @@
+@input slots
+@n1 candidateWeight
+    weight -10
+@n2 ResolveQuantityOwner
+    slots $slots
+@n3 field
+    value $n2
+    name "subject"
+@n4 display
+    value $n3
+@n5 concat
+    part1 "Which item is being counted for "
+    part2 $n4
+    part3 "? I have no usable quantity for that owner yet. Give a starting fact such as \""
+    part4 $n4
+    part5 " has 3 eggs.\", then repeat the change or question."
+@n6 record
+    kind "chat"
+    status "unknown"
+    message $n5
+@n7 makeCommand
+    kind "chat"
+    payload $n6
+@n8 list
+@n9 record
+    command $n7
+    decisions $n8
+@output result $n9

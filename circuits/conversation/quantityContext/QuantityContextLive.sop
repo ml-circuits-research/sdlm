@@ -1,0 +1,34 @@
+@input value
+@n1 field
+    value $value
+    name "subject"
+@n2 makeConstant
+    value $n1
+@n3 field
+    value $value
+    name "predicate"
+@n4 kbReadValue
+    subject $n2
+    predicate $n3
+    numeric true
+@n5 answerKindIs
+    value $n4
+    kind "value"
+@n6 field
+    value $value
+    name "subject"
+@n7 field
+    value $value
+    name "predicate"
+@n8 field
+    value $n4
+    name "atom"
+@n9 field
+    value $n4
+    name "value"
+@n10 record
+    subject $n6
+    predicate $n7
+    atom $n8
+    value $n9
+@output result $n10

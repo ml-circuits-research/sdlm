@@ -59,3 +59,7 @@ The [evaluation guide](benchmark.html) measures these domains with an inspectabl
 ## Arithmetic wording
 
 Conversation mode also accepts `How much is 3 plus 5?`, `3+5`, `Calculate -3.5 times 2` and `Subtract 3 from 8`. It can repair a nearby word such as `hwo` to `how`, with an explicit assumption, after recognizing the whole two-operand calculation. These forms are available with or without foundation facts. Run `/example 23` and read [Everyday conversation](conversation.html#ask-for-a-calculation) for operators, signs, precision and interpretation limits. Strict parsing retains its exact school forms.
+
+## Quantity context
+
+`Jgon has 3 eggs. He received 4. How many eggs he has now?` returns 7 in conversation mode. SOP selects the recent owner, fills the omitted item and records those decisions before applying the gain. `/example 24` demonstrates continuation, restart and a second inventory. Read [Quantity problems](conversation.html#solve-a-quantity-problem-across-sentences) for verb forms, competing antecedents and correction. A missing starting count remains Unknown, and rejecting an assumed replacement does not reconstruct an earlier count. Quantity focus stores a bounded recency order; current values remain ordinary knowledge.

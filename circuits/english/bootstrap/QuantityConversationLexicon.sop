@@ -1,0 +1,109 @@
+@n1 addLexeme
+    surface "egg"
+    class "noun"
+    lemma "egg"
+@n2 addLexeme
+    surface "eggs"
+    class "noun"
+    lemma "egg"
+@n3 addLexeme
+    surface "coin"
+    class "noun"
+    lemma "coin"
+@n4 addLexeme
+    surface "coins"
+    class "noun"
+    lemma "coin"
+@n5 addLexeme
+    surface "marble"
+    class "noun"
+    lemma "marble"
+@n6 addLexeme
+    surface "marbles"
+    class "noun"
+    lemma "marble"
+@n7 addLexeme
+    surface "ball"
+    class "noun"
+    lemma "ball"
+@n8 addLexeme
+    surface "balls"
+    class "noun"
+    lemma "ball"
+@n9 addLexeme
+    surface "orange"
+    class "noun"
+    lemma "orange"
+@n10 addLexeme
+    surface "oranges"
+    class "noun"
+    lemma "orange"
+@n11 addLexeme
+    surface "banana"
+    class "noun"
+    lemma "banana"
+@n12 addLexeme
+    surface "bananas"
+    class "noun"
+    lemma "banana"
+@n13 addLexeme
+    surface "toy"
+    class "noun"
+    lemma "toy"
+@n14 addLexeme
+    surface "toys"
+    class "noun"
+    lemma "toy"
+@n15 addLexeme
+    surface "cookie"
+    class "noun"
+    lemma "cookie"
+@n16 addLexeme
+    surface "cookies"
+    class "noun"
+    lemma "cookie"
+@n17 addLexeme
+    surface "box"
+    class "noun"
+    lemma "box"
+@n18 addLexeme
+    surface "boxes"
+    class "noun"
+    lemma "box"
+@n19 addLexeme
+    surface "pen"
+    class "noun"
+    lemma "pen"
+@n20 addLexeme
+    surface "pens"
+    class "noun"
+    lemma "pen"
+@n21 addLexeme
+    surface "car"
+    class "noun"
+    lemma "car"
+@n22 addLexeme
+    surface "cars"
+    class "noun"
+    lemma "car"
+@n23 addLexeme
+    surface "he"
+    class "quantityPronoun"
+@n24 addLexeme
+    surface "she"
+    class "quantityPronoun"
+@n25 addLexeme
+    surface "they"
+    class "quantityPronoun"
+@n26 addLexeme
+    surface "it"
+    class "quantityPronoun"
+@n27 addLexeme
+    surface "i"
+    class "quantityFirstPerson"
+@n28 addLexeme
+    surface "me"
+    class "quantityFirstPerson"
+@n29 constant
+    value true
+@output result $n29

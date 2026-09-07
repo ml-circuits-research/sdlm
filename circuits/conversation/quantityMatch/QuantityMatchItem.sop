@@ -1,0 +1,9 @@
+@input slots
+@n1 field
+    value $slots
+    name "predicate"
+@n2 valuePresent
+    value $n1
+@n3 record
+    predicate $n1
+@output result $n3

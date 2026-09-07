@@ -1,0 +1,28 @@
+@input slots
+@input owner
+@input item
+@commandKind field
+    value $slots
+    name "kind"
+@n1 valueIs
+    value $commandKind
+    expected "adjustNumber"
+@n2 field
+    value $owner
+    name "subject"
+@n3 makeConstant
+    value $n2
+@n4 field
+    value $item
+    name "predicate"
+@n5 field
+    value $slots
+    name "amount"
+@n6 record
+    subject $n3
+    predicate $n4
+    delta $n5
+@n7 makeCommand
+    kind "adjustNumber"
+    payload $n6
+@output result $n7

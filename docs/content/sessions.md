@@ -58,3 +58,9 @@ CLI input recall lives in `cli-history.json` inside each session directory, with
 ## Continue the speaker
 
 Introductions store the current speaker as ordinary SOP knowledge with interpretation evidence. Personal references use that entity after restart. `/session new [name]` starts without a speaker; switching to an existing session restores its own selection. Earlier unresolved introductions remain gaps until submitted again. See [Everyday conversation](conversation.html) for supported forms and correction.
+
+## Quantity focus
+
+`SessionSettings.sop` also preserves quantity focus, a list of up to sixteen recent owner/item pairs selected by conversation circuits. The count and its evidence remain in ordinary knowledge. Reference resolution re-reads live quantities before using a pair, so rejection cannot revive a stale count from settings. Failed requests roll back focus with knowledge, and unsuccessful updates do not advance it.
+
+After `Jgon has 3 eggs.`, a later turn can say `He received 4.` and then ask `How many eggs he has now?`. This continues across a saved-session restart. Separate sessions have separate focus. Matching API history prefixes are ignored before execution, so resending the earlier gain does not apply it again. Old snapshots without focus can establish it with a fresh explicit quantity statement or query. See [Everyday conversation](conversation.html#solve-a-quantity-problem-across-sentences).

@@ -1,0 +1,63 @@
+@input tokens
+@noDifference tokenNotContains
+    tokens $tokens
+    value "more"
+@n1 list
+    item0 "now"
+    item1 "left"
+    item2 "remaining"
+@n2 trimTokenEdges
+    tokens $tokens
+    trailing $n1
+@n3 tokenCountIs
+    tokens $n2
+    count 5
+@n4 tokenIs
+    tokens $n2
+    index 0
+    value "how"
+@n5 tokenIs
+    tokens $n2
+    index 1
+    value "many"
+@n6 tokenIs
+    tokens $n2
+    index 4
+    value "has"
+@n7 sliceTokens
+    tokens $n2
+    start 2
+    end 3
+@n8 ParseQuantityItem
+    tokens $n7
+@n9 sliceTokens
+    tokens $n2
+    start 3
+    end 4
+@n10 field
+    value $n8
+    name "decisions"
+@n11 arrayField
+    values $tokens
+    name "surface"
+@n12 join
+    values $n11
+    separator " "
+@n13 record
+    category "question-normalization"
+    original $n12
+    value "current quantity question"
+    reason "Interpreted the how-many question with the owner before has/have as asking for the current quantity."
+    certainty "contextual"
+@n14 append
+    values $n10
+    value $n13
+@n15 field
+    value $n8
+    name "predicate"
+@n16 record
+    kind "readValue"
+    ownerTokens $n9
+    predicate $n15
+    decisions $n14
+@output result $n16

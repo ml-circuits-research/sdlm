@@ -1,0 +1,9 @@
+@input slots
+@input owner
+@n1 selectCircuits
+    group "conversation.quantityItem"
+@n2 callCandidates
+    candidates $n1
+    slots $slots
+    owner $owner
+@output result $n2

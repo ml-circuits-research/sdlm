@@ -1,0 +1,20 @@
+@input results
+@input answers
+@n1 candidateWeight
+    weight 10
+@n2 mapReadCircuit
+    values $results
+    circuit "QuantityResultOrNull"
+@n3 list
+@n4 list
+    item0 null
+@n5 filterField
+    values $n2
+    path $n3
+    excluded $n4
+@n6 hasItems
+    values $n5
+@n7 mapReadCircuit
+    values $results
+    circuit "RenderQuantityAnswerOrSilence"
+@output result $n7

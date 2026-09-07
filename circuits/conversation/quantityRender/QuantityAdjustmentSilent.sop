@@ -1,0 +1,16 @@
+@input value
+@n1 field
+    value $value
+    name "command"
+@n2 commandKindIs
+    value $n1
+    kind "adjustNumber"
+@n3 field
+    value $value
+    name "answer"
+@n4 answerKindIs
+    value $n3
+    kind "number"
+@n5 constant
+    value ""
+@output result $n5

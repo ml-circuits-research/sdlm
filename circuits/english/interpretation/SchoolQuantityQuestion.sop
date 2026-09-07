@@ -25,7 +25,7 @@
 @subject constantAt
     tokens $tokens
     index 4
-@noun InterpretNoun
+@noun InterpretQuantityItem
     tokens $tokens
     index 2
 @lemma field

@@ -57,3 +57,7 @@ Fresh sessions execute the declarative facts and rules under `circuits/foundatio
 `SetResponseStyle` and `PresentConversation` select the displayed text. Explanation sections, assumption lines, unresolved-input wording and support-tree text are assembled by SOP circuits. Generic JavaScript settings storage participates in transactions and session persistence. Read-only circuit mapping checks the target effect dynamically and shares the execution budget. Neither verbosity nor the benchmark adds domain-specific execution rules to `src/kernel/`.
 
 `src/evaluation/` runs the authored benchmark in isolated runtimes. Its expected answers are evaluation data and are not part of the model's input or base knowledge.
+
+## Quantity context through circuits
+
+`ChatQuantitySyntax` recognizes complete inventory forms, and `ResolveQuantity` composes owner and item decisions into ordinary quantity commands. Their SOP groups define verbs, question variants, reference policy and targeted clarification. `ObserveConversation` runs after command execution; its quantity circuits update bounded focus in generic transactional settings. `ReadQuantityContexts` validates identifiers against live counts before selection. Supporting atoms enter the existing responder evidence path before a count is replaced. Host record helpers provide generic filtering and bounded insertion, with no quantity vocabulary or pronoun policy.

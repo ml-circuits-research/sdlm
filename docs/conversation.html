@@ -71,6 +71,66 @@ What is the sum of 8 and 11?
 <p>An unresolved request asks for context or suggests a usable form. Requests to write arbitrary prose or code, and requests for live weather, receive specific boundaries and a next step. Other recognized sentences in the same request still execute. For example, <code>Mia is human. Please write a novel about the moon. Is Mia human?</code> retains the fact and answers the final question.</p>
 <p>The result remains <code>unresolved</code>, with a null semantic answer. Actual classified tokens remain under <code>gap.tokens</code> and in exported feedback; the ordinary reply no longer prints a parser diagnostic. Answer-only mode retains the concise <code>I don&#39;t know.</code> for these gaps. Operational errors and invalid rules still fail transactionally.</p>
 <p>This is a circuit-defined conversation layer. It does not provide arbitrary pronoun resolution, general paraphrase understanding, a biographical database, web access or autonomous program generation. Unknown name-versus-attribute choices can be wrong. The separate conversation regression tests cover these workflows; the frozen elementary <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> still measures its original 88 questions.</p>
+<h2 id="solve-a-quantity-problem-across-sentences">Solve a quantity problem across sentences</h2>
+<pre><code class="language-text">/session new quantities
+/verbosity explain
+Jgon has 3 eggs. He received 4. How many eggs he has now?
+/verbosity answer
+How many eggs he has now?
+He lost 2. How many eggs he has now?
+</code></pre>
+<p>The first problem computes 7. The following question displays <code>7.</code>, and the loss followed by a question displays <code>5.</code>. <code>/examples 24</code> shows the scenario; <code>/example 24</code> runs it in isolation and includes a saved-session restart. The same sentence forms work through the API and library. Restart the CLI process to load updated base <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a>.</p>
+<p>The first sentence stores the count of eggs for Jgon. The gain resolves He to Jgon and fills the omitted item with egg. Both choices are recorded before the update. The final question accepts the owner-before-has word order and records that normalization. Its structured result also retains the <a class="definition-link" href="wiki.html#definition-assumption">assumptions</a> that caused the updated count. Eggs is registered inventory vocabulary; an unfamiliar item such as zibbles receives an item-classification explanation with its actual plural normalization, rather than a claim about a unary class.</p>
+<table>
+<thead>
+<tr>
+<th>Input form</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Lina has 9 coins.</code></td>
+<td>Set Lina&#39;s current coin count to 9</td>
+</tr>
+<tr>
+<td><code>She received 4.</code></td>
+<td>Select the recent compatible owner and fill the omitted item, then add 4</td>
+</tr>
+<tr>
+<td><code>Lina received 4 coins.</code></td>
+<td>Add 4 to an explicitly named inventory</td>
+</tr>
+<tr>
+<td><code>She lost 2 coins.</code></td>
+<td>Select an owner with a recent coin count, then subtract 2</td>
+</tr>
+<tr>
+<td><code>How many coins she has now?</code></td>
+<td>Normalize the word order and read the current count</td>
+</tr>
+<tr>
+<td><code>How many does Lina have left?</code></td>
+<td>Fill the most recent item for Lina</td>
+</tr>
+<tr>
+<td><code>How many coins are left?</code></td>
+<td>Fill the most recent owner with a coin count</td>
+</tr>
+<tr>
+<td><code>How many now?</code></td>
+<td>Fill both owner and item from <a class="definition-link" href="wiki.html#definition-quantity-focus">quantity focus</a></td>
+</tr>
+</tbody></table>
+<p>Set verbs include has, have, had and owns. Gains include gets, got, receives, received, gains, gained, finds, found, buys and bought. Losses include loses, lost, eats, ate, uses, used, spends, spent, sells, sold, gives and gave. The corresponding present first-person forms also work. A gain or loss can omit its item or use more before the item, as in <code>He received 4 more eggs.</code> Questions accept canonical does/do-have forms and the supported reordered forms above. These verbs update current state; past-tense wording does not create historical events. Signed numeric changes retain their supplied sign, and a loss verb negates that change. For example, received -2 subtracts two, while lost -2 adds two. Quantity owners are single identifiers; use <code>Mary_Jane</code> after a multiword introduction, or use I with the <a class="definition-link" href="wiki.html#definition-current-speaker">current speaker</a>.</p>
+<h3 id="inspect-the-choices">Inspect the choices</h3>
+<p><a class="definition-link" href="wiki.html#definition-quantity-focus">Quantity focus</a> remembers the sixteen most recent distinct owner/item pairs in the <a class="definition-link" href="wiki.html#definition-session">session</a>. Successful sets, updates and queries move a pair to the front. Before choosing an antecedent, <a class="definition-link" href="wiki.html#definition-semantic-circuit">circuits</a> re-read the live count. The focus contains identifiers, not an alternate cache of quantities. Failed updates do not change the order.</p>
+<p>An explicit item narrows owner selection. After <code>Nora has 3 eggs. Cora has 9 coins.</code>, <code>She received 2 eggs.</code> selects Nora because the item matches her inventory. Without eggs, She selects Cora. With several eligible owners or items, the most recent wins. The <a class="definition-link" href="wiki.html#definition-assumption">assumption</a>&#39;s evidence lists the selected quantity and eligible alternatives, so the choice can be inspected. He, she, they and it follow this recency rule; names do not establish gender. I and me use the introduced speaker instead.</p>
+<p>Use <code>/assumptions</code> to inspect decisions and <code>/reject &lt;id&gt;</code> to reject one. If an update depended on that decision, its unsupported replacement count and dependent saved values are invalidated. The previous count is not reconstructed. State the corrected inventory explicitly, such as <code>Jgon has 3 eggs.</code>, before another change. Rejected or missing facts cannot supply a count merely because their identifiers remain in focus.</p>
+<p><a class="definition-link" href="wiki.html#definition-quantity-focus">Quantity focus</a> survives SOP <a class="definition-link" href="wiki.html#definition-session">session</a> restart and stays separate across <a class="definition-link" href="wiki.html#definition-session">sessions</a>. A full-history API client can resend a matching prefix without applying a received or lost amount twice. Older <a class="definition-link" href="wiki.html#definition-snapshot">snapshots</a> without focus need a new explicit quantity statement or query to establish it; historical messages are not replayed.</p>
+<h3 id="boundaries-of-this-interpretation">Boundaries of this interpretation</h3>
+<p>With no usable owner or omitted-item context, the reply identifies the missing quantity information. An explicit gain without a starting count returns Unknown instead of assuming zero. Updates exceeding the available count keep the prior value. Strict parsing retains its exact forms and does not maintain conversational focus.</p>
+<p>Recipients and transfers such as <code>Nora gave 2 eggs to Cora.</code>, comparative questions such as <code>How many more eggs?</code>, extra item clauses, number words and general narrative pronouns remain outside these forms. An update does not change another person&#39;s inventory implicitly. Answer-only mode suppresses successful update confirmations when the same request includes a successful quantity query; failures and standalone updates remain visible. Explained mode retains the intermediate answers.</p>
+<p>The earlier failure on the Jgon example occurred after storing 3 correctly. The runtime had no quantity antecedent selection, omitted-item completion or matching final question form. Separate regression tests now cover these operations, competing contexts, changed names and values, rejection, rollback, restart and API history continuation. The frozen 88-case <a class="definition-link" href="wiki.html#definition-benchmark">benchmark</a> is unchanged.</p>
 
 </article></main>
 <div data-include="partials/footer.html"></div>

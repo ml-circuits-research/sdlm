@@ -1,0 +1,115 @@
+@input tokens
+@n1 tokenCountAtLeast
+    tokens $tokens
+    count 3
+@n2 record
+    surface "gets"
+    value "gets"
+@n3 record
+    surface "get"
+    value "get"
+@n4 record
+    surface "got"
+    value "got"
+@n5 record
+    surface "receives"
+    value "receives"
+@n6 record
+    surface "receive"
+    value "receive"
+@n7 record
+    surface "received"
+    value "received"
+@n8 record
+    surface "gains"
+    value "gains"
+@n9 record
+    surface "gain"
+    value "gain"
+@n10 record
+    surface "gained"
+    value "gained"
+@n11 record
+    surface "finds"
+    value "finds"
+@n12 record
+    surface "find"
+    value "find"
+@n13 record
+    surface "found"
+    value "found"
+@n14 record
+    surface "buys"
+    value "buys"
+@n15 record
+    surface "buy"
+    value "buy"
+@n16 record
+    surface "bought"
+    value "bought"
+@n17 list
+    item0 $n2
+    item1 $n3
+    item2 $n4
+    item3 $n5
+    item4 $n6
+    item5 $n7
+    item6 $n8
+    item7 $n9
+    item8 $n10
+    item9 $n11
+    item10 $n12
+    item11 $n13
+    item12 $n14
+    item13 $n15
+    item14 $n16
+@n18 matchTokenChoice
+    tokens $tokens
+    index 1
+    choices $n17
+@n19 field
+    value $n18
+    name "value"
+@n20 numericToken
+    tokens $tokens
+    index 2
+@n23 tokenCount
+    tokens $tokens
+@n24 sliceTokens
+    tokens $tokens
+    start 3
+    end $n23
+@n25 list
+    item0 "now"
+@n26 list
+    item0 "more"
+@n27 trimTokenEdges
+    tokens $n24
+    trailing $n25
+    leading $n26
+@n28 ParseQuantityItem
+    tokens $n27
+@n29 calculateNumber
+    left $n20
+    right 1
+    operation "multiply"
+@n30 field
+    value $n29
+    name "value"
+@n31 sliceTokens
+    tokens $tokens
+    start 0
+    end 1
+@n32 field
+    value $n28
+    name "predicate"
+@n33 field
+    value $n28
+    name "decisions"
+@n34 record
+    kind "adjustNumber"
+    ownerTokens $n31
+    predicate $n32
+    amount $n30
+    decisions $n33
+@output result $n34

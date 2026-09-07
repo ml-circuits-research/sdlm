@@ -108,3 +108,7 @@ A failed command, strict-mode unsupported sentence, execution failure or failed 
 The store keeps the selected ID in `.cli-state.json` and up to 1,000 submitted entries per session in `<session>/cli-history.json`. Blank lines, comments, `/quit` and entries longer than 8,192 characters are omitted. Consecutive duplicate entries collapse. Writes are atomic and locked so concurrent terminals do not overwrite each other's appended history. Saving recall does not publish a new semantic revision.
 
 If a saved session has no CLI history file, its retained user messages seed recall. Old slash commands that were never recorded cannot be recovered. A missing remembered session falls back to another saved session or a new one, with a notice. Corrupt existing session state fails restoration rather than silently switching to unrelated knowledge. These JSON files are terminal bookkeeping; semantic state remains SOP and API history matching remains separate.
+
+## Try a quantity story
+
+Run `/examples 24` to inspect the quantity-context scenario, or `/example 24` to execute it in isolation. In your own session, enter `Jgon has 3 eggs. He received 4. How many eggs he has now?`. `/verbosity answer` shows only `7.` for this problem; `/verbosity explain` shows the pronoun, omitted-item and question-normalization assumptions. `/assumptions` and `/reject <id>` remain available in either style. Read [Quantity problems](conversation.html#solve-a-quantity-problem-across-sentences) for continuation and ambiguous-context examples.

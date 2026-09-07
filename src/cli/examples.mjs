@@ -134,5 +134,15 @@ export const EXAMPLES = [
       line('What is the sum of 8 and 11?', '19.'),
       line('How much is 3 apples plus 5 oranges?', { includes: 'two numbers and one operation' }),
       line('Answer only. hwo much is 3 plus 5?', '8.')
+    ] },
+  { id: 24, name: 'Quantity problems with contextual references', assist: true,
+    limitation: 'Pronouns and omitted items use the most recent compatible live quantity, with explicit assumptions. No gender inference, transfers or historical count reconstruction.', steps: [
+      line('Jgon has 3 eggs. He received 4. How many eggs he has now?', { includes: 'omitted-item' }),
+      line('Answer only. How many eggs he has now?', '7.'),
+      { label: 'Save and restore quantity context from SOP', restart: true, expected: 'Session restored from SOP.' },
+      line('He lost 2. How many eggs he has now?', '5.'),
+      line('Lina has 9 coins. She spent 2. How many coins she has now?', '7.'),
+      line('How many eggs does Jgon have?', '5.'),
+      line('Show assumptions. He received 1.', { includes: 'pronoun-resolution' })
     ] }
 ];
